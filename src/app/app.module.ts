@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  HashLocationStrategy,
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +22,6 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import {
-  DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent,
 } from './containers';
@@ -45,19 +48,36 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { CanalComponent } from './containers/canal/canal.component';
+import { ClienteComponent } from './containers/cliente/cliente.component';
+import { CondicionesVentaComponent } from './containers/condiciones-venta/condiciones-venta.component';
+import { FamiliaProductoComponent } from './containers/familia-producto/familia-producto.component';
+import { IVAComponent } from './containers/iva/iva.component';
+import { PermisoComponent } from './containers/permiso/permiso.component';
+import { ProductoComponent } from './containers/producto/producto.component';
+import { ReglaComercialComponent } from './containers/regla-comercial/regla-comercial.component';
+import { TelefonoComponent } from './containers/telefono/telefono.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
 
-const APP_CONTAINERS = [
-  DefaultFooterComponent,
-  DefaultHeaderComponent,
-  DefaultLayoutComponent,
+const APP_CONTAINERS = [DefaultHeaderComponent, DefaultLayoutComponent];
+
+const APP_COMPONENTS = [
+  CanalComponent,
+  ClienteComponent,
+  CondicionesVentaComponent,
+  FamiliaProductoComponent,
+  IVAComponent,
+  PermisoComponent,
+  ProductoComponent,
+  ReglaComercialComponent,
+  TelefonoComponent,
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS],
+  declarations: [AppComponent, ...APP_CONTAINERS, ...APP_COMPONENTS],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -96,9 +116,8 @@ const APP_CONTAINERS = [
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
     IconSetService,
-    Title
+    Title,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

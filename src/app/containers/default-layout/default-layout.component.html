@@ -28,11 +28,7 @@
   >
   </c-sidebar-nav>
     </perfect-scrollbar>
-  <c-sidebar-toggler
-    *ngIf="!sidebar.narrow"
-    toggle="unfoldable"
-    cSidebarToggle="sidebar"
-  ></c-sidebar-toggler>
+
 </c-sidebar>
 
 <!--main-->
@@ -41,10 +37,10 @@
   <app-default-header class="mb-4 d-print-none header header-sticky" position="sticky" sidebarId="sidebar"></app-default-header>
   <!--app-body-->
   <div class="body flex-grow-1 px-3">
-    <c-container breakpoint="lg" class="h-auto">
+    <c-container breakpoint="" class="h-auto">
       <router-outlet></router-outlet>
     </c-container>
   </div>
   <!--app footer-->
-  <app-default-footer></app-default-footer>
+  <!-- <app-default-footer></app-default-footer> -->
 </div>
