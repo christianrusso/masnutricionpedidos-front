@@ -13,7 +13,8 @@ import {
   cilDescription,
   cilChart,
   cilLibraryBuilding,
-  cilList
+  cilList,
+  cilPhone
 } from '@coreui/icons';
 import { IconSetService } from '@coreui/icons-angular';
 @Component({
@@ -36,7 +37,8 @@ export class DefaultHeaderComponent extends HeaderComponent {
       cilDescription,
       cilChart,
       cilLibraryBuilding,
-      cilList
+      cilList,
+      cilPhone
     };
   }
 }
