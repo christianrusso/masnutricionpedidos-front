@@ -4,28 +4,19 @@ import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { ModificarComponent } from './modificar/modificar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
+import { CanalRoutingModule } from './canal-routing.module';
 
-import {
-  CardModule,
-  GridModule,
-} from '@coreui/angular';
+import { CardModule, GridModule } from '@coreui/angular';
 
 import { IconModule } from '@coreui/icons-angular';
-
-
-
 
 @NgModule({
   declarations: [
     ListarComponent,
     CrearComponent,
     ModificarComponent,
-    EliminarComponent
+    EliminarComponent,
   ],
-  imports: [
-    GridModule,
-    IconModule,
-    CardModule
-  ],
+  imports: [GridModule, IconModule, CardModule, CanalRoutingModule],
 })
-export class CanalModule { }
+export class CanalModule {}

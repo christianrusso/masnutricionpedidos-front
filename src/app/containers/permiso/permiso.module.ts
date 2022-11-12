@@ -6,20 +6,15 @@ import { ModificarComponent } from './modificar/modificar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
 import { CardModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
-
-
+import { PermisoRoutingModule } from './permiso-routing.module';
 
 @NgModule({
   declarations: [
     ListarComponent,
     CrearComponent,
     ModificarComponent,
-    EliminarComponent
+    EliminarComponent,
   ],
-  imports: [
-    GridModule,
-    IconModule,
-    CardModule
-  ],
+  imports: [GridModule, IconModule, CardModule, PermisoRoutingModule],
 })
-export class PermisoModule { }
+export class PermisoModule {}

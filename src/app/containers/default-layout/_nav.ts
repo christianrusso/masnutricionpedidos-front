@@ -2,30 +2,6 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
-    url: '/dashboard',
-    iconComponent: { name: 'cil-chart' },
-    children: [
-      {
-        name: 'Listar',
-        url: '/dashboard/listar'
-      },
-      {
-        name: 'Crear',
-        url: '/dashboard/crear'
-      },
-      {
-        name: 'Modificar',
-        url: '/dashboard/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/dashboard/eliminar'
-      },
-    ]
-  },
-
-  {
     name: 'Canal',
     url: '/masnutricion/canal',
     iconComponent: { name: 'cil-list' },

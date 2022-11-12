@@ -48,15 +48,6 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
-import { CanalComponent } from './containers/canal/canal.component';
-import { ClienteComponent } from './containers/cliente/cliente.component';
-import { CondicionesVentaComponent } from './containers/condiciones-venta/condiciones-venta.component';
-import { FamiliaProductoComponent } from './containers/familia-producto/familia-producto.component';
-import { IVAComponent } from './containers/iva/iva.component';
-import { PermisoComponent } from './containers/permiso/permiso.component';
-import { ProductoComponent } from './containers/producto/producto.component';
-import { ReglaComercialComponent } from './containers/regla-comercial/regla-comercial.component';
-import { TelefonoComponent } from './containers/telefono/telefono.component';
 
 import { CanalService } from './services/canal.service';
 import { ClienteService } from './services/cliente.service';
@@ -89,20 +80,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 const APP_CONTAINERS = [DefaultHeaderComponent, DefaultLayoutComponent];
 
-const APP_COMPONENTS = [
-  CanalComponent,
-  ClienteComponent,
-  CondicionesVentaComponent,
-  FamiliaProductoComponent,
-  IVAComponent,
-  PermisoComponent,
-  ProductoComponent,
-  ReglaComercialComponent,
-  TelefonoComponent,
-];
-
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ...APP_COMPONENTS],
+  declarations: [AppComponent, ...APP_CONTAINERS],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
