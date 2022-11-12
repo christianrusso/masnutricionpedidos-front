@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DefaultLayoutComponent } from './containers';
 
 
 const routes: Routes = [
@@ -10,10 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'layout',
-    loadChildren: () =>
-      import('./views/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
-      ),
+    component:DefaultLayoutComponent,
     children: [
       {
         path: 'canal',
@@ -30,7 +28,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'condiciones-venta',
+        path: 'condiciones',
         loadChildren: () =>
           import('./containers/condiciones-venta/condiciones-venta.module').then(
             (m) => m.CondicionesVentaModule

@@ -3,208 +3,199 @@ import { INavData } from '@coreui/angular';
 export const navItems: INavData[] = [
   {
     name: 'Canal',
-    url: '/masnutricion/canal',
     iconComponent: { name: 'cil-list' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/canal/listar'
+        url: '/layout/canal/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/canal/crear'
+        url: '/layout/canal/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/canal/modificar'
+        url: '/layout/canal/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/canal/eliminar'
+        url: '/layout/canal/eliminar'
       },
     ]
   },
   {
     name: 'Cliente',
-    url: '/masnutricion/cliente',
     iconComponent: { name: 'cil-user' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/cliente/listar'
+        url: '/layout/cliente/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/cliente/crear'
+        url: '/layout/cliente/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/cliente/modificar'
+        url: '/layout/cliente/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/cliente/eliminar'
+        url: '/layout/cliente/eliminar'
       },
     ]
   },
   {
     name: 'Telefono',
-    url: '/masnutricion/telefono',
     iconComponent: { name: 'cil-phone' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/telefono/listar'
+        url: '/layout/telefono/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/telefono/crear'
+        url: '/layout/telefono/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/telefono/modificar'
+        url: '/layout/telefono/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/telefono/eliminar'
+        url: '/layout/telefono/eliminar'
       },
     ]
   },
   {
     name: 'Condiciones de Venta',
-    url: '/masnutricion/condiciones',
     iconComponent: { name: 'cil-chat-bubble' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/condiciones/listar'
+        url: '/layout/condiciones/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/condiciones/crear'
+        url: '/layout/condiciones/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/condiciones/modificar'
+        url: '/layout/condiciones/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/condiciones/eliminar'
+        url: '/layout/condiciones/eliminar'
       },
     ]
   },
   {
     name: 'Familia Producto',
-    url: '/masnutricion/familia',
     iconComponent: { name: 'cil-group' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/familia/listar'
+        url: '/layout/familia-producto/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/familia/crear'
+        url: '/layout/familia-producto/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/familia/modificar'
+        url: '/layout/familia-producto/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/familia/eliminar'
+        url: '/layout/familia-producto/eliminar'
       },
     ]
   },
   {
     name: 'IVA',
-    url: '/masnutricion/iva',
     iconComponent: { name: 'cil-Money' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/iva/listar'
+        url: '/layout/iva/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/iva/crear'
+        url: '/layout/iva/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/iva/modificar'
+        url: '/layout/iva/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/iva/eliminar'
+        url: '/layout/iva/eliminar'
       },
     ]
   },
   {
     name: 'Permiso',
-    url: '/masnutricion/permiso',
     iconComponent: { name: 'cil-description' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/permiso/listar'
+        url: '/layout/permiso/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/permiso/crear'
+        url: '/layout/permiso/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/permiso/modificar'
+        url: '/layout/permiso/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/permiso/eliminar'
+        url: '/layout/permiso/eliminar'
       },
     ]
   },
   {
     name: 'Producto',
-    url: '/masnutricion/producto',
     iconComponent: { name: 'cil-cart' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/producto/listar'
+        url: '/layout/producto/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/producto/crear'
+        url: '/layout/producto/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/producto/modificar'
+        url: '/layout/producto/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/producto/eliminar'
+        url: '/layout/producto/eliminar'
       },
     ]
   },
   {
     name: 'Regla Comercial',
-    url: '/masnutricion/regla',
     iconComponent: { name: 'cil-library-building' },
     children: [
       {
         name: 'Listar',
-        url: '/masnutricion/regla/listar'
+        url: '/layout/regla-comercial/listar'
       },
       {
         name: 'Crear',
-        url: '/masnutricion/regla/crear'
+        url: '/layout/regla-comercial/crear'
       },
       {
         name: 'Modificar',
-        url: '/masnutricion/regla/modificar'
+        url: '/layout/regla-comercial/modificar'
       },
       {
         name: 'Eliminar',
-        url: '/masnutricion/regla/eliminar'
+        url: '/layout/regla-comercial/eliminar'
       },
     ]
   },

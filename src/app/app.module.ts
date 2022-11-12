@@ -73,6 +73,7 @@ import {TelefonoModule} from './../app/containers/telefono/telefono.module'
 import {ReglaComercialModule} from './../app/containers/regla-comercial/regla-comercial.module'
 
 import {BaseModule} from '../app/views/base/base.module'
+import {DashboardModule} from '../app/views/dashboard/dashboard.module'
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -104,6 +105,7 @@ const APP_CONTAINERS = [DefaultHeaderComponent, DefaultLayoutComponent];
     SidebarModule,
     SharedModule,
     BaseModule,
+    DashboardModule,
     TabsModule,
     ListGroupModule,
     ProgressModule,

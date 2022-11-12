@@ -7,37 +7,29 @@ import { ModificarComponent } from './modificar/modificar.component';
 
 const routes: Routes = [
   {
-    path: 'familia-producto',
-    children: [
-      {
-        path: 'listar',
-        component: ListarComponent,
-      },
-      {
-        path: 'crear',
-        component: CrearComponent,
-      },
-      {
-        path: 'modificar',
-        component: ModificarComponent,
-      },
-      {
-        path: 'eliminar',
-        component: EliminarComponent,
-      },
-    ],
+    path: 'listar',
+    component: ListarComponent,
+  },
+  {
+    path: 'crear',
+    component: CrearComponent,
+  },
+  {
+    path: 'modificar',
+    component: ModificarComponent,
+  },
+  {
+    path: 'eliminar',
+    component: EliminarComponent,
   },
   {
     path: '',
     redirectTo: '/familia-producto/listar',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
-
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FamiliaProductoRoutingModule {
-}
+export class FamiliaProductoRoutingModule {}

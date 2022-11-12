@@ -6,31 +6,26 @@ import { ModificarComponent } from './modificar/modificar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
 const routes: Routes = [
   {
-    path: 'canal',
-    children: [
-      {
-        path: 'listar',
-        component: ListarComponent,
-      },
-      {
-        path: 'crear',
-        component: CrearComponent,
-      },
-      {
-        path: 'modificar',
-        component: ModificarComponent,
-      },
-      {
-        path: 'eliminar',
-        component: EliminarComponent,
-      },
-    ],
+    path: 'listar',
+    component: ListarComponent,
+  },
+  {
+    path: 'crear',
+    component: CrearComponent,
+  },
+  {
+    path: 'modificar',
+    component: ModificarComponent,
+  },
+  {
+    path: 'eliminar',
+    component: EliminarComponent,
   },
   {
     path: '',
     redirectTo: '/canal/listar',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
