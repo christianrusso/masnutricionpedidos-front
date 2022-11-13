@@ -13,14 +13,6 @@ export const navItems: INavData[] = [
         name: 'Crear',
         url: '/layout/canal/crear'
       },
-      {
-        name: 'Modificar',
-        url: '/layout/canal/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/canal/eliminar'
-      },
     ]
   },
   {
@@ -34,14 +26,6 @@ export const navItems: INavData[] = [
       {
         name: 'Crear',
         url: '/layout/cliente/crear'
-      },
-      {
-        name: 'Modificar',
-        url: '/layout/cliente/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/cliente/eliminar'
       },
     ]
   },
@@ -57,14 +41,6 @@ export const navItems: INavData[] = [
         name: 'Crear',
         url: '/layout/telefono/crear'
       },
-      {
-        name: 'Modificar',
-        url: '/layout/telefono/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/telefono/eliminar'
-      },
     ]
   },
   {
@@ -78,14 +54,6 @@ export const navItems: INavData[] = [
       {
         name: 'Crear',
         url: '/layout/condiciones/crear'
-      },
-      {
-        name: 'Modificar',
-        url: '/layout/condiciones/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/condiciones/eliminar'
       },
     ]
   },
@@ -101,14 +69,6 @@ export const navItems: INavData[] = [
         name: 'Crear',
         url: '/layout/familia-producto/crear'
       },
-      {
-        name: 'Modificar',
-        url: '/layout/familia-producto/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/familia-producto/eliminar'
-      },
     ]
   },
   {
@@ -122,14 +82,6 @@ export const navItems: INavData[] = [
       {
         name: 'Crear',
         url: '/layout/iva/crear'
-      },
-      {
-        name: 'Modificar',
-        url: '/layout/iva/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/iva/eliminar'
       },
     ]
   },
@@ -145,14 +97,6 @@ export const navItems: INavData[] = [
         name: 'Crear',
         url: '/layout/permiso/crear'
       },
-      {
-        name: 'Modificar',
-        url: '/layout/permiso/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/permiso/eliminar'
-      },
     ]
   },
   {
@@ -167,14 +111,6 @@ export const navItems: INavData[] = [
         name: 'Crear',
         url: '/layout/producto/crear'
       },
-      {
-        name: 'Modificar',
-        url: '/layout/producto/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/producto/eliminar'
-      },
     ]
   },
   {
@@ -188,14 +124,6 @@ export const navItems: INavData[] = [
       {
         name: 'Crear',
         url: '/layout/regla-comercial/crear'
-      },
-      {
-        name: 'Modificar',
-        url: '/layout/regla-comercial/modificar'
-      },
-      {
-        name: 'Eliminar',
-        url: '/layout/regla-comercial/eliminar'
       },
     ]
   },

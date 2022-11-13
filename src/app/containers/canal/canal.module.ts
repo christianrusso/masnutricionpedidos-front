@@ -6,9 +6,10 @@ import { ModificarComponent } from './modificar/modificar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
 import { CanalRoutingModule } from './canal-routing.module';
 
-import { CardModule, GridModule } from '@coreui/angular';
-
+import { CardModule, FormModule, GridModule } from '@coreui/angular';
+import { TableModule, UtilitiesModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
+import { ButtonModule } from '@coreui/angular';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { IconModule } from '@coreui/icons-angular';
     ModificarComponent,
     EliminarComponent,
   ],
-  imports: [GridModule, IconModule, CardModule, CanalRoutingModule],
+  imports: [GridModule, IconModule, CardModule, CanalRoutingModule, TableModule,
+    UtilitiesModule, FormModule, ButtonModule],
 })
 export class CanalModule {}

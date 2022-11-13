@@ -71,7 +71,7 @@ import {IvaModule} from './../app/containers/iva/iva.module'
 import {ProductoModule} from './../app/containers/producto/producto.module'
 import {TelefonoModule} from './../app/containers/telefono/telefono.module'
 import {ReglaComercialModule} from './../app/containers/regla-comercial/regla-comercial.module'
-
+import { HttpClientModule } from '@angular/common/http';
 import {BaseModule} from '../app/views/base/base.module'
 import {DashboardModule} from '../app/views/dashboard/dashboard.module'
 
@@ -120,8 +120,8 @@ const APP_CONTAINERS = [DefaultHeaderComponent, DefaultLayoutComponent];
     IvaModule,
     ProductoModule,
     TelefonoModule,
-    ReglaComercialModule
-
+    ReglaComercialModule,
+    HttpClientModule
   ],
   providers: [
     {
