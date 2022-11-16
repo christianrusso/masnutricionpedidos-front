@@ -11,8 +11,12 @@ const routes: Routes = [
   {
     path: 'crear',
     component: CrearComponent
+  },
+  {
+    path: 'editar',
+    component: CrearComponent
   }
-  
+
 ]
 
 @NgModule({
