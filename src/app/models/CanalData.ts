@@ -1,8 +1,8 @@
 export interface CanalData {
   idTipoCanal: number;
   Descripcion: string;
-  fechaGraba: Date;
+  fechaGraba: any;
   usuarioGraba: string;
-  fechaModifica: Date;
+  fechaModifica: any;
   usuarioModifica: string;
 }

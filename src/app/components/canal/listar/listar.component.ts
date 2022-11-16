@@ -22,8 +22,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./listar.component.scss']
 })
 export class ListarComponent implements OnInit, AfterViewInit {
-
-  constructor(private canalServices: CanalService, private readonly router: Router,) {
+  delete!: boolean;
+  constructor(private canalServices: CanalService, private readonly router: Router, private dialog: MatDialog,) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -57,9 +57,15 @@ export class ListarComponent implements OnInit, AfterViewInit {
   getCanals() {
     this.canalServices.getCanales().subscribe((response: any) => {
       const canales = response as CanalData[];
-      console.log(canales);
+      canales.forEach(element => {
+        element.fechaGraba = element.fechaGraba.slice(0, -14);
+        if (element.fechaModifica) {
+          element.fechaModifica = element.fechaModifica.slice(0, -14);
+        }
 
+      });
       this.dataSource.data = canales;
+
     });
   }
 
@@ -72,8 +78,8 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(id: number) {
-    this.router.navigateByUrl(`/canal/editar/${id}`);
+  goToEditPage(idTipoCanal: number) {
+    this.router.navigateByUrl(`/canal/modificar/${idTipoCanal}`);
   }
 
 }
