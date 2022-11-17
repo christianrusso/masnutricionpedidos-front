@@ -1,8 +1,8 @@
 export interface CondicionData {
   idTipoCondicionesDeVenta  : number;
   descripcion: string;
-  fechaGraba: Date;
+  fechaGraba: any;
   usuarioGraba: string;
-  fechaModifica: Date;
+  fechaModifica: any;
   usuarioModifica: string;
 }

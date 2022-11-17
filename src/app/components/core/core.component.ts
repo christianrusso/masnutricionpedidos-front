@@ -51,6 +51,14 @@ export class CoreComponent implements OnInit {
     this.router.navigateByUrl('/cliente/crear');
   }
 
+  goToCondicionesListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/condiciones/listar');
+  }
+  goToCondicionesCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/condiciones/crear');
+  }
 
   logout() {
     // this.authService.logout();

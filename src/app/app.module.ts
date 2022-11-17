@@ -20,6 +20,7 @@ import { ReglaComercialService } from './services/regla-comercial.service';
 import { TelefonoService } from './services/telefono.service';
 import { AuthService } from './services/auth.service';
 import { ClienteModule } from './components/cliente/cliente.module';
+import { CondicionesModule } from './components/condiciones/condiciones.module';
 
 
 
@@ -34,6 +35,7 @@ import { ClienteModule } from './components/cliente/cliente.module';
     SharedModule,
     CanalModule,
     ClienteModule,
+    CondicionesModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],

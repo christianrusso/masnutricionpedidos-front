@@ -17,57 +17,83 @@
   <mat-sidenav #sidenav class="mat-elevation-z8" mode="over">
     <mat-divider></mat-divider>
 
-      <mat-accordion>
-        <mat-expansion-panel
-          (opened)="panelOpenState = true"
-          (closed)="panelOpenState = false"
+    <mat-accordion>
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: #fff; padding: 5px">
+            <mat-icon style="padding-right: 25px">home</mat-icon>
+            Canales</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button mat-button class="menu-button" (click)="goToCanalListarPage()">
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToCanalCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: #fff; padding: 5px">
+            <mat-icon style="padding-right: 25px">perm_identity</mat-icon>
+            Clientes</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button
+          mat-button
+          class="menu-button"
+          (click)="goToClienteListarPage()"
         >
-          <mat-expansion-panel-header>
-            <mat-panel-title style="color: #fff; padding: 5px;">
-              <mat-icon style="padding-right: 25px ;">home</mat-icon>
-              Canales</mat-panel-title
-            >
-          </mat-expansion-panel-header>
-          <button mat-button class="menu-button" (click)="goToCanalListarPage()">
-            <mat-icon> format_list_bulleted</mat-icon>
-            <span>Listar</span>
-          </button>
-          <button mat-button class="menu-button" (click)="goToCanalCrearPage()">
-            <mat-icon>add</mat-icon>
-            <span>Crear</span>
-          </button>
-        </mat-expansion-panel>
-      </mat-accordion>
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToClienteCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
 
-
-      <mat-accordion>
-        <mat-expansion-panel
-          (opened)="panelOpenState = true"
-          (closed)="panelOpenState = false"
+    <mat-accordion>
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: #fff; padding: 5px">
+            <mat-icon style="padding-right: 25px">library_books</mat-icon>
+            Condiciones</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button
+          mat-button
+          class="menu-button"
+          (click)="goToCondicionesListarPage()"
         >
-          <mat-expansion-panel-header>
-            <mat-panel-title style="color: #fff; padding: 5px;">
-              <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-              Clientes</mat-panel-title
-            >
-          </mat-expansion-panel-header>
-          <button mat-button class="menu-button" (click)="goToClienteListarPage()">
-            <mat-icon> format_list_bulleted</mat-icon>
-            <span>Listar</span>
-          </button>
-          <button mat-button class="menu-button" (click)="goToClienteCrearPage()">
-            <mat-icon>add</mat-icon>
-            <span>Crear</span>
-          </button>
-        </mat-expansion-panel>
-      </mat-accordion>
-
-
-
-
-
-
-
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button
+          mat-button
+          class="menu-button"
+          (click)="goToCondicionesCrearPage()"
+        >
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-sidenav>
   <router-outlet></router-outlet>
 </mat-sidenav-container>

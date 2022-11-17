@@ -20,6 +20,13 @@ const routes: Routes = [
         import('./../app/components/cliente/cliente.module').then(
           (m) => m.ClienteModule
         ),
+      },
+      {
+        path: 'condiciones',
+        loadChildren: () =>
+        import('./../app/components/condiciones/condiciones.module').then(
+          (m) => m.CondicionesModule
+        ),
       }
     ]
   }
