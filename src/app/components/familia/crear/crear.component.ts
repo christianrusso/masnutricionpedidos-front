@@ -6,8 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Condicion } from 'src/app/models/condicion';
-import { CondicionesVentaService } from 'src/app/services/condiciones-venta.service';
+import { Familia } from 'src/app/models/familia';
+import { FamiliaProductoService } from 'src/app/services/familia-producto.service';
 
 @Component({
   selector: 'app-crear',
@@ -17,7 +17,7 @@ import { CondicionesVentaService } from 'src/app/services/condiciones-venta.serv
 export class CrearComponent implements OnInit {
   creado: boolean;
   constructor(
-    private readonly condicionService: CondicionesVentaService,
+    private readonly familiaService: FamiliaProductoService,
     private readonly router: Router
   ) {
     this.creado = false;
@@ -25,6 +25,9 @@ export class CrearComponent implements OnInit {
 
   descripcion: string = '';
   usuarioGraba: string = '';
+  DescBreve: string = '';
+  unidadesFijasPallet: number = 0;
+  porcRelacionPallet: number = 0;
 
   emailFormControl = new UntypedFormControl('', [
     Validators.required,
@@ -34,16 +37,19 @@ export class CrearComponent implements OnInit {
   ngOnInit(): void {}
 
   onSend() {
-    const condicion = new Condicion({
+    const familia = new Familia({
       descripcion: this.descripcion,
+      DescBreve : this.DescBreve,
+      unidadesFijasPallet : this.unidadesFijasPallet,
+      porcRelacionPallet : this.porcRelacionPallet,
       usuarioGraba: this.usuarioGraba,
     });
-    this.condicionService.postCondicion(condicion).subscribe((response) => {
+    this.familiaService.postFamilia(familia).subscribe((response) => {
       console.log(response);
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/condiciones/listar`);
+      this.router.navigateByUrl(`/familia-producto/listar`);
     }, 1000);
   }
 }

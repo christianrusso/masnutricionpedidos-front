@@ -60,6 +60,16 @@ export class CoreComponent implements OnInit {
     this.router.navigateByUrl('/condiciones/crear');
   }
 
+
+  goToFamiliaListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/familia-producto/listar');
+  }
+  goToFamiliaCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/familia-producto/crear');
+  }
+
   logout() {
     // this.authService.logout();
   }

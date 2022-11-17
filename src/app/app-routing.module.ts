@@ -27,6 +27,13 @@ const routes: Routes = [
         import('./../app/components/condiciones/condiciones.module').then(
           (m) => m.CondicionesModule
         ),
+      },
+      {
+        path: 'familia-producto',
+        loadChildren: () =>
+        import('./../app/components/familia/familia.module').then(
+          (m) => m.FamiliaProductoModule
+        ),
       }
     ]
   }

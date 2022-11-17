@@ -4,8 +4,8 @@ export interface FamiliaData {
   DescBreve: string;
   unidadesFijasPallet: number;
   porcRelacionPallet: number;
-  fechaGraba: Date;
+  fechaGraba: any;
   usuarioGraba: string;
-  fechaModifica: Date;
+  fechaModifica: any;
   usuarioModifica: string;
 }
