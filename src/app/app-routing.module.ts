@@ -13,6 +13,13 @@ const routes: Routes = [
         import('./../app/components/canal/canal.module').then(
           (m) => m.CanalModule
         ),
+      },
+      {
+        path: 'cliente',
+        loadChildren: () =>
+        import('./../app/components/cliente/cliente.module').then(
+          (m) => m.ClienteModule
+        ),
       }
     ]
   }

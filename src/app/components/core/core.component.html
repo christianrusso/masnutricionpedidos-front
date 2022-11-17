@@ -25,7 +25,7 @@
           <mat-expansion-panel-header>
             <mat-panel-title style="color: #fff; padding: 5px;">
               <mat-icon style="padding-right: 25px ;">home</mat-icon>
-              Canal</mat-panel-title
+              Canales</mat-panel-title
             >
           </mat-expansion-panel-header>
           <button mat-button class="menu-button" (click)="goToCanalListarPage()">
@@ -40,7 +40,27 @@
       </mat-accordion>
 
 
-
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title style="color: #fff; padding: 5px;">
+              <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
+              Clientes</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <button mat-button class="menu-button" (click)="goToClienteListarPage()">
+            <mat-icon> format_list_bulleted</mat-icon>
+            <span>Listar</span>
+          </button>
+          <button mat-button class="menu-button" (click)="goToClienteCrearPage()">
+            <mat-icon>add</mat-icon>
+            <span>Crear</span>
+          </button>
+        </mat-expansion-panel>
+      </mat-accordion>
 
 
 

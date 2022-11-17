@@ -19,6 +19,7 @@ import { ProductoService } from './services/producto.service';
 import { ReglaComercialService } from './services/regla-comercial.service';
 import { TelefonoService } from './services/telefono.service';
 import { AuthService } from './services/auth.service';
+import { ClienteModule } from './components/cliente/cliente.module';
 
 
 
@@ -32,6 +33,7 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     SharedModule,
     CanalModule,
+    ClienteModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],

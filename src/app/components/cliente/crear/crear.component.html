@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container-child">
+    <img src="" alt="" />
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="Descripcion" />
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label class="title">Usuario Graba</mat-label>
+      <input matInput name="name" [(ngModel)]="usuarioGraba" />
+    </mat-form-field>
+
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Cliente</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Cliente creado con exito</div>
+    </ng-template>
+  </div>
+</div>

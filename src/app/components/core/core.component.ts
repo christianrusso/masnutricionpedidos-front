@@ -41,43 +41,16 @@ export class CoreComponent implements OnInit {
     this.sidenav?.toggle();
     this.router.navigateByUrl('/canal/crear');
   }
-  goToClientePage() {
+
+  goToClienteListarPage() {
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/cliente');
+    this.router.navigateByUrl('/cliente/listar');
+  }
+  goToClienteCrearPage() {
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/cliente/crear');
   }
 
-  goToTelefonoPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/telefono');
-  }
-
-  goToCondicionesPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/condiciones-de-venta');
-  }
-
-  goToFamiliaPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/familia-producto');
-  }
-
-  goToIvaPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/iva');
-  }
-  goToPermisoPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/permiso');
-  }
-
-  goToProductosPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/productos');
-  }
-  goToReglaComercialPage() {
-    this.sidenav?.toggle();
-    this.router.navigateByUrl('/masnutricion/regla-comercial');
-  }
 
   logout() {
     // this.authService.logout();
