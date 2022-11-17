@@ -69,7 +69,14 @@ export class CoreComponent implements OnInit {
     this.sidenav?.toggle();
     this.router.navigateByUrl('/familia-producto/crear');
   }
-
+  goToIVAListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/iva/listar');
+  }
+  goToIVACrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/iva/crear');
+  }
   logout() {
     // this.authService.logout();
   }

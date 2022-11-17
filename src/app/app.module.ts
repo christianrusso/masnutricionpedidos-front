@@ -21,6 +21,8 @@ import { TelefonoService } from './services/telefono.service';
 import { AuthService } from './services/auth.service';
 import { ClienteModule } from './components/cliente/cliente.module';
 import { CondicionesModule } from './components/condiciones/condiciones.module';
+import { FamiliaProductoModule } from './components/familia/familia.module';
+import { IVAModule } from './components/iva/iva.module';
 
 
 
@@ -36,6 +38,8 @@ import { CondicionesModule } from './components/condiciones/condiciones.module';
     CanalModule,
     ClienteModule,
     CondicionesModule,
+    FamiliaProductoModule,
+    IVAModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],

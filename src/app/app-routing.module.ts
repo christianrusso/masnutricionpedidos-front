@@ -34,6 +34,13 @@ const routes: Routes = [
         import('./../app/components/familia/familia.module').then(
           (m) => m.FamiliaProductoModule
         ),
+      },
+      {
+        path: 'iva',
+        loadChildren: () =>
+        import('./../app/components/iva/iva.module').then(
+          (m) => m.IVAModule
+        ),
       }
     ]
   }
