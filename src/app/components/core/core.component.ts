@@ -77,6 +77,14 @@ export class CoreComponent implements OnInit {
     this.sidenav?.toggle();
     this.router.navigateByUrl('/iva/crear');
   }
+  goToPermisoListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/permisos/listar');
+  }
+  goToPermisoCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/permisos/crear');
+  }
   logout() {
     // this.authService.logout();
   }

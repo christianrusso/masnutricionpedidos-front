@@ -41,6 +41,13 @@ const routes: Routes = [
         import('./../app/components/iva/iva.module').then(
           (m) => m.IVAModule
         ),
+      },
+      {
+        path: 'permisos',
+        loadChildren: () =>
+        import('./../app/components/permiso/permiso.module').then(
+          (m) => m.PermisoModule
+        ),
       }
     ]
   }

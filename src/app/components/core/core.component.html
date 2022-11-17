@@ -97,9 +97,6 @@
 
 
 
-
-
-
     <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
@@ -138,7 +135,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title style="color: #fff; padding: 5px">
-            <mat-icon style="padding-right: 25px">library_books</mat-icon>
+            <mat-icon style="padding-right: 25px"> attach_money</mat-icon>
             IVA</mat-panel-title
           >
         </mat-expansion-panel-header>
@@ -162,6 +159,36 @@
     </mat-accordion>
 
 
+
+    <mat-accordion>
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: #fff; padding: 5px">
+            <mat-icon style="padding-right: 25px"> library_books</mat-icon>
+            Permisos</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button
+          mat-button
+          class="menu-button"
+          (click)="goToPermisoListarPage()"
+        >
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button
+          mat-button
+          class="menu-button"
+          (click)="goToPermisoCrearPage()"
+        >
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
 
 
 
