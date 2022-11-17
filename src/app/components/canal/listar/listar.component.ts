@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CanalService } from 'src/app/services/canal.service';
 import {CanalData} from '../../../models/CanalData';
+import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -82,4 +83,22 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl(`/canal/modificar/${idTipoCanal}`);
   }
 
+
+  openDialog(id: number): void {
+    console.log(id);
+    const dialogRef = this.dialog.open(ModalEliminarComponent, {
+      width: '250px',
+      data: { delete: this.delete }
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.canalServices.deleteCanal(id).subscribe(response => {
+          setTimeout(() => {
+            location.reload();
+          }, 100);
+        });
+      }
+    });
+  }
 }

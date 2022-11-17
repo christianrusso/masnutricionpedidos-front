@@ -6,12 +6,14 @@ import { CanalRoutingModule } from './canal-rounting.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ModificarComponent } from './modificar/modificar.component';
 import { CanalService } from 'src/app/services/canal.service';
+import { ModalEliminarComponent } from './modal-eliminar/modal-eliminar.component';
 
 @NgModule({
   declarations: [
     ListarComponent,
     CrearComponent,
     ModificarComponent,
+    ModalEliminarComponent
   ],
   imports: [
     CanalRoutingModule,

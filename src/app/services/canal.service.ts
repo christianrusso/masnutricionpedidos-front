@@ -28,6 +28,7 @@ export class CanalService {
   }
 
   deleteCanal(id: number) {
+    console.log(id);
     return this.http.delete(`${environment.apiCanal}/${id}`);
   }
 
