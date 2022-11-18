@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="container-child">
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="Descripcion" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha Graba</mat-label>
+      <input matInput name="zone" [(ngModel)]="fechaGraba">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Usuario Graba</mat-label>
+      <input matInput name="zone" [(ngModel)]="usuarioGraba" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Usuario Modifica</mat-label>
+      <input matInput name="adress" [(ngModel)]="usuarioModifica" />
+    </mat-form-field>
+
+
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Regla Comercial</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Regla Comercial actualizada con exito</div>
+    </ng-template>
+  </div>
+</div>

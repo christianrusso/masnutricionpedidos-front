@@ -85,6 +85,30 @@ export class CoreComponent implements OnInit {
     this.sidenav?.toggle();
     this.router.navigateByUrl('/permisos/crear');
   }
+  goToProductosListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/productos/listar');
+  }
+  goToProductosCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/productos/crear');
+  }
+  goToReglaListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/regla-comercial/listar');
+  }
+  goToReglaCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/regla-comercial/crear');
+  }
+  goToTelefonoListarPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/telefonos/listar');
+  }
+  goToTelefonoCrearPage(){
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('/telefonos/crear');
+  }
   logout() {
     // this.authService.logout();
   }

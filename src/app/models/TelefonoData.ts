@@ -1,8 +1,8 @@
 export interface TelefonoData {
   idTipoTelefono : number;
   descripcion: string;
-  fechaGraba: Date;
+  fechaGraba: any;
   usuarioGraba: string;
-  fechaModifica: Date;
+  fechaModifica: any;
   usuarioModifica: string;
 }

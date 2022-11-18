@@ -2,8 +2,8 @@ export interface ProductoData {
   idTipoProducto : number;
   descripcion: string;
   DescBreve: string;
-  fechaGraba: Date;
+  fechaGraba: any;
   usuarioGraba: string;
-  fechaModifica: Date;
+  fechaModifica: any;
   usuarioModifica: string;
 }

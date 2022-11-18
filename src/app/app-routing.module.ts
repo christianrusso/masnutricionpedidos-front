@@ -48,7 +48,28 @@ const routes: Routes = [
         import('./../app/components/permiso/permiso.module').then(
           (m) => m.PermisoModule
         ),
-      }
+      },
+      {
+        path: 'productos',
+        loadChildren: () =>
+        import('./../app/components/producto/producto.module').then(
+          (m) => m.ProductoModule
+        ),
+      },
+      {
+        path: 'regla-comercial',
+        loadChildren: () =>
+        import('./../app/components/regla/regla.module').then(
+          (m) => m.ReglaComercialModule
+        ),
+      },
+      {
+        path: 'telefonos',
+        loadChildren: () =>
+        import('./../app/components/telefono/telefono.module').then(
+          (m) => m.TelefonoModule
+        ),
+      },
     ]
   }
 ];
