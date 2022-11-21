@@ -7,7 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial.service';
-import {ReglaData} from '../../../models/ReglaData';
+import {ReglaData} from '../../../models-tipo/TipoReglaData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

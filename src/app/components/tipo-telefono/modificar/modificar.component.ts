@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TelefonoEdit } from 'src/app/models/telefono-edit';
-import { CondicionEdit } from 'src/app/models/condicion-edit';
+import { TelefonoEdit } from 'src/app/models-tipo/tipo-telefono-edit';
+import { CondicionEdit } from 'src/app/models-tipo/tipo-condicion-edit';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 
 @Component({

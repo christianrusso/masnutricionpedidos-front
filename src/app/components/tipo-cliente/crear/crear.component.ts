@@ -5,7 +5,7 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Cliente } from '../../../models/cliente';
+import { Cliente } from '../../../models-tipo/tipo-cliente';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoClienteService } from 'src/app/services/tipo-cliente.service';
 

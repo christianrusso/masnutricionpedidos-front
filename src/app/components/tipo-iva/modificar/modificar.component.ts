@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FamiliaEdit } from 'src/app/models/familia-edit';
-import { IVAEdit } from 'src/app/models/iva-edit';
+import { FamiliaEdit } from 'src/app/models-tipo/tipo-familia-edit';
+import { IVAEdit } from 'src/app/models-tipo/tipo-iva-edit';
 import { TipoIvaService } from 'src/app/services/tipo-iva.service';
 
 @Component({

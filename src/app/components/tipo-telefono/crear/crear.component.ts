@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Telefono } from 'src/app/models/telefono';
+import { Telefono } from 'src/app/models-tipo/tipo-telefono';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 
 @Component({

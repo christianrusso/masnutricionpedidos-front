@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Familia } from '../models/familia';
-import { FamiliaEdit } from '../models/familia-edit';
+import { Familia } from '../models-tipo/tipo-familia';
+import { FamiliaEdit } from '../models-tipo/tipo-familia-edit';
 
 @Injectable({
   providedIn: 'root'

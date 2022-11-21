@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IVA } from '../models/iva';
-import { IVAEdit } from '../models/iva-edit';
+import { IVA } from '../models-tipo/tipo-iva';
+import { IVAEdit } from '../models-tipo/tipo-iva-edit';
 
 @Injectable({
   providedIn: 'root'

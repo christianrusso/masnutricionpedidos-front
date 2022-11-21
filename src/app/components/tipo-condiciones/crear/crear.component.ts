@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Condicion } from 'src/app/models/condicion';
+import { Condicion } from 'src/app/models-tipo/tipo-condicion';
 import { TipoCondicionesVentaService } from 'src/app/services/tipo-condiciones-venta.service';
 
 @Component({

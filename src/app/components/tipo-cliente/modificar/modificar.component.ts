@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClienteEdit } from 'src/app/models/cliente-edit';
+import { ClienteEdit } from 'src/app/models-tipo/tipo-cliente-edit';
 import { TipoClienteService } from 'src/app/services/tipo-cliente.service';
 
 @Component({

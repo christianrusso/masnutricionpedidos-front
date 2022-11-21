@@ -5,7 +5,7 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Regla } from '../../../models/regla';
+import { Regla } from '../../../models-tipo/tipo-regla';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial.service';
 

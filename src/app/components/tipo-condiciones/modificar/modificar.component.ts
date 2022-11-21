@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClienteEdit } from 'src/app/models/cliente-edit';
-import { CondicionEdit } from 'src/app/models/condicion-edit';
+import { ClienteEdit } from 'src/app/models-tipo/tipo-cliente-edit';
+import { CondicionEdit } from 'src/app/models-tipo/tipo-condicion-edit';
 import { TipoCondicionesVentaService } from 'src/app/services/tipo-condiciones-venta.service';
 
 @Component({

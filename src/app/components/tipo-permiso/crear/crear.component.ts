@@ -5,7 +5,7 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Permiso } from '../../../models/permiso';
+import { Permiso } from '../../../models-tipo/tipo-permiso';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoPermisoService } from 'src/app/services/tipo-permiso.service';
 

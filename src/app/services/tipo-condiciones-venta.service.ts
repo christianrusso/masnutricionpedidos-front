@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Condicion } from '../models/condicion';
-import { CondicionEdit } from '../models/condicion-edit';
+import { Condicion } from '../models-tipo/tipo-condicion';
+import { CondicionEdit } from '../models-tipo/tipo-condicion-edit';
 
 @Injectable({
   providedIn: 'root'

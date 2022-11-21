@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Permiso } from '../models/permiso';
-import { PermisoEdit } from '../models/permiso-edit';
+import { Permiso } from '../models-tipo/tipo-permiso';
+import { PermisoEdit } from '../models-tipo/tipo-permiso-edit';
 
 @Injectable({
   providedIn: 'root'

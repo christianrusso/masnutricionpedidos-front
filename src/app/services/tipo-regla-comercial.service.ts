@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Regla } from '../models/regla';
-import { ReglaEdit } from '../models/regla-edit';
+import { Regla } from '../models-tipo/tipo-regla';
+import { ReglaEdit } from '../models-tipo/tipo-regla-edit';
 
 @Injectable({
   providedIn: 'root'

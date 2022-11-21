@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CanalEdit } from 'src/app/models/canal-edit';
+import { CanalEdit } from 'src/app/models-tipo/tipo-canal-edit';
 import { TipoCanalService } from 'src/app/services/tipo-canal.service';
 
 @Component({

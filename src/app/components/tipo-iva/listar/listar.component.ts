@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import {  Router } from '@angular/router';
-import { FamiliaData } from 'src/app/models/FamiliaData';
+import { FamiliaData } from 'src/app/models-tipo/TipoFamiliaData';
 import { TipoIvaService } from 'src/app/services/tipo-iva.service';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 

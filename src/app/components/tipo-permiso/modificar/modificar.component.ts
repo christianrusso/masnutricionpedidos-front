@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PermisoEdit } from 'src/app/models/permiso-edit';
+import { PermisoEdit } from 'src/app/models-tipo/tipo-permiso-edit';
 import { TipoPermisoService } from 'src/app/services/tipo-permiso.service';
 
 @Component({

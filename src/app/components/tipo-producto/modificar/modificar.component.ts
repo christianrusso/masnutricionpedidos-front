@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductoEdit } from 'src/app/models/producto-edit';
+import { ProductoEdit } from 'src/app/models-tipo/tipo-producto-edit';
 import { TipoProductoService } from 'src/app/services/tipo-producto.service';
 
 @Component({

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Telefono } from '../models/telefono';
-import { TelefonoEdit } from '../models/telefono-edit';
+import { Telefono } from '../models-tipo/tipo-telefono';
+import { TelefonoEdit } from '../models-tipo/tipo-telefono-edit';
 @Injectable({
   providedIn: 'root'
 })

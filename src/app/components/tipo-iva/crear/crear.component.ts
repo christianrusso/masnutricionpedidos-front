@@ -4,7 +4,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IVA } from 'src/app/models/iva';
+import { IVA } from 'src/app/models-tipo/tipo-iva';
 import { TipoIvaService } from 'src/app/services/tipo-iva.service';
 
 @Component({

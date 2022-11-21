@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { TipoCanalService } from 'src/app/services/tipo-canal.service';
-import { Canal } from '../../../models/canal';
+import { Canal } from '../../../models-tipo/tipo-canal';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

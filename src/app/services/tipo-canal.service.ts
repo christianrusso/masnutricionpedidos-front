@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Canal } from '../models/canal';
-import { CanalEdit } from '../models/canal-edit';
+import { Canal } from '../models-tipo/tipo-canal';
+import { CanalEdit } from '../models-tipo/tipo-canal-edit';
 @Injectable({
   providedIn: 'root'
 })

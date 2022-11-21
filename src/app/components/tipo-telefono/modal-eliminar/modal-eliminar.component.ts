@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DialogData } from 'src/app/models/DialogData';
+import { DialogData } from 'src/app/models-tipo/TipoDialogData';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 import { ListarComponent } from '../listar/listar.component';
 

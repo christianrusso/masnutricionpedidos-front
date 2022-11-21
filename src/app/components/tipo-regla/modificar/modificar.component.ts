@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ReglaEdit } from 'src/app/models/regla-edit';
+import { ReglaEdit } from 'src/app/models-tipo/tipo-regla-edit';
 import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial.service';
 
 @Component({

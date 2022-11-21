@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FamiliaEdit } from 'src/app/models/familia-edit';
+import { FamiliaEdit } from 'src/app/models-tipo/tipo-familia-edit';
 import { TipoFamiliaProductoService } from 'src/app/services/tipo-familia-producto.service';
 
 @Component({

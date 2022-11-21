@@ -4,7 +4,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Producto } from 'src/app/models/producto';
+import { Producto } from 'src/app/models-tipo/tipo-producto';
 import { TipoProductoService } from 'src/app/services/tipo-producto.service';
 
 @Component({
