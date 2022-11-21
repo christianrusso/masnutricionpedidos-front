@@ -17,7 +17,19 @@
   <mat-sidenav #sidenav class="mat-elevation-z8" mode="over">
     <mat-divider></mat-divider>
 
+
     <mat-accordion>
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: #fff; padding: 5px">
+            <mat-icon style="padding-right: 25px">home</mat-icon>
+            ABM Tipo</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -37,9 +49,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -63,41 +73,35 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
       <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-icon style="padding-right: 25px">library_books</mat-icon>
+          Condiciones</mat-panel-title
+        >
+      </mat-expansion-panel-header>
+      <button
+        mat-button
+        class="menu-button"
+        (click)="goToCondicionesListarPage()"
       >
-        <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
-            <mat-icon style="padding-right: 25px">library_books</mat-icon>
-            Condiciones</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToCondicionesListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToCondicionesCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
+        <mat-icon> format_list_bulleted</mat-icon>
+        <span>Listar</span>
+      </button>
+      <button
+        mat-button
+        class="menu-button"
+        (click)="goToCondicionesCrearPage()"
+      >
+        <mat-icon>add</mat-icon>
+        <span>Crear</span>
+      </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-
-
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -125,10 +129,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -156,11 +157,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-
-
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -188,9 +185,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -218,9 +213,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -248,9 +241,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -278,7 +269,24 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
+
+
+      </mat-expansion-panel>
     </mat-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   </mat-sidenav>

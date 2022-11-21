@@ -7,22 +7,25 @@ import { CoreComponent } from './components/core/core.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {CanalModule} from '../app/components/canal/canal.module';
 
-import { CanalService } from './services/canal.service';
-import { ClienteService } from './services/cliente.service';
-import { CondicionesVentaService } from './services/condiciones-venta.service';
-import { FamiliaProductoService } from './services/familia-producto.service';
-import { IvaService } from './services/iva.service';
-import { PermisoService } from './services/permiso.service';
-import { ProductoService } from './services/producto.service';
-import { ReglaComercialService } from './services/regla-comercial.service';
-import { TelefonoService } from './services/telefono.service';
+import { TipoCanalService } from './services/tipo-canal.service';
+import { TipoClienteService } from './services/tipo-cliente.service';
+import { TipoCondicionesVentaService } from './services/tipo-condiciones-venta.service';
+import { TipoFamiliaProductoService } from './services/tipo-familia-producto.service';
+import { TipoIvaService } from './services/tipo-iva.service';
+import { TipoPermisoService } from './services/tipo-permiso.service';
+import { TipoProductoService } from './services/tipo-producto.service';
+import { TipoReglaComercialService } from './services/tipo-regla-comercial.service';
+import { TipoTelefonoService } from './services/tipo-telefono.service';
 import { AuthService } from './services/auth.service';
-import { ClienteModule } from './components/cliente/cliente.module';
-import { CondicionesModule } from './components/condiciones/condiciones.module';
-import { FamiliaProductoModule } from './components/familia/familia.module';
-import { IVAModule } from './components/iva/iva.module';
+import { TipoCanalModule} from './components/tipo-canal/tipo-canal.module';
+import { TipoClienteModule } from './components/tipo-cliente/tipo-cliente.module';
+import { TipoCondicionesModule } from './components/tipo-condiciones/tipo-condiciones.module';
+import { TipoFamiliaProductoModule } from './components/tipo-familia/tipo-familia.module';
+import { TipoIVAModule } from './components/tipo-iva/tipo-iva.module';
+import { TipoPermisoModule } from './components/tipo-permiso/tipo-permiso.module';
+import { TipoReglaComercialModule } from './components/tipo-regla/tipo-regla.module';
+import { TipoTelefonoModule } from './components/tipo-telefono/tipo-telefono.module';
 
 
 
@@ -35,24 +38,27 @@ import { IVAModule } from './components/iva/iva.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    CanalModule,
-    ClienteModule,
-    CondicionesModule,
-    FamiliaProductoModule,
-    IVAModule,
+    TipoCanalModule,
+    TipoClienteModule,
+    TipoCondicionesModule,
+    TipoFamiliaProductoModule,
+    TipoIVAModule,
+    TipoPermisoModule,
+    TipoReglaComercialModule,
+    TipoTelefonoModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
   providers: [
-    CanalService,
-    ClienteService,
-    CondicionesVentaService,
-    FamiliaProductoService,
-    IvaService,
-    PermisoService,
-    ProductoService,
-    ReglaComercialService,
-    TelefonoService,
+    TipoCanalService,
+    TipoClienteService,
+    TipoCondicionesVentaService,
+    TipoFamiliaProductoService,
+    TipoIvaService,
+    TipoPermisoService,
+    TipoProductoService,
+    TipoReglaComercialService,
+    TipoTelefonoService,
     AuthService
   ],
   bootstrap: [AppComponent]

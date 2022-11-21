@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="container-child">
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="descripcion" />
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Condicion</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Condicion de Venta creada con exito</div>
+    </ng-template>
+  </div>
+</div>

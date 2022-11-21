@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container-child">
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="descripcion"
+        class="phone_number"
+        [(ngModel)]="descripcion"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onSend()">
+      Crear Telefono
+    </button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Telefono creado con exito</div>
+    </ng-template>
+  </div>
+</div>
