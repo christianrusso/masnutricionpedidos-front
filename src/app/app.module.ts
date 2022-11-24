@@ -26,6 +26,7 @@ import { TipoIVAModule } from './components/tipo-iva/tipo-iva.module';
 import { TipoPermisoModule } from './components/tipo-permiso/tipo-permiso.module';
 import { TipoReglaComercialModule } from './components/tipo-regla/tipo-regla.module';
 import { TipoTelefonoModule } from './components/tipo-telefono/tipo-telefono.module';
+import { AuthModule } from './components/auth/auth.module';
 
 
 
@@ -38,6 +39,7 @@ import { TipoTelefonoModule } from './components/tipo-telefono/tipo-telefono.mod
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    AuthModule,
     TipoCanalModule,
     TipoClienteModule,
     TipoCondicionesModule,

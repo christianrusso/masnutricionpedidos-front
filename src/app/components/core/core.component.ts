@@ -35,79 +35,79 @@ export class CoreComponent implements OnInit {
 
   goToCanalListarPage() {
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-canal/listar');
+    this.router.navigateByUrl('home/tipo-canal/listar');
   }
   goToCanalCrearPage() {
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-canal/crear');
+    this.router.navigateByUrl('home/tipo-canal/crear');
   }
 
   goToClienteListarPage() {
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-cliente/listar');
+    this.router.navigateByUrl('home/tipo-cliente/listar');
   }
   goToClienteCrearPage() {
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-cliente/crear');
+    this.router.navigateByUrl('home/tipo-cliente/crear');
   }
 
   goToCondicionesListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-condiciones/listar');
+    this.router.navigateByUrl('home/tipo-condiciones/listar');
   }
   goToCondicionesCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-condiciones/crear');
+    this.router.navigateByUrl('home/tipo-condiciones/crear');
   }
 
 
   goToFamiliaListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-familia-producto/listar');
+    this.router.navigateByUrl('home/tipo-familia-producto/listar');
   }
   goToFamiliaCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-familia-producto/crear');
+    this.router.navigateByUrl('home/tipo-familia-producto/crear');
   }
   goToIVAListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-iva/listar');
+    this.router.navigateByUrl('home/tipo-iva/listar');
   }
   goToIVACrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-iva/crear');
+    this.router.navigateByUrl('home/tipo-iva/crear');
   }
   goToPermisoListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-permisos/listar');
+    this.router.navigateByUrl('home/tipo-permisos/listar');
   }
   goToPermisoCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-permisos/crear');
+    this.router.navigateByUrl('home/tipo-permisos/crear');
   }
   goToProductosListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-productos/listar');
+    this.router.navigateByUrl('home/tipo-productos/listar');
   }
   goToProductosCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-productos/crear');
+    this.router.navigateByUrl('home/tipo-productos/crear');
   }
   goToReglaListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-regla-comercial/listar');
+    this.router.navigateByUrl('home/tipo-regla-comercial/listar');
   }
   goToReglaCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-regla-comercial/crear');
+    this.router.navigateByUrl('home/tipo-regla-comercial/crear');
   }
   goToTelefonoListarPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-telefonos/listar');
+    this.router.navigateByUrl('home/tipo-telefonos/listar');
   }
   goToTelefonoCrearPage(){
     this.sidenav?.toggle();
-    this.router.navigateByUrl('/tipo-telefonos/crear');
+    this.router.navigateByUrl('home/tipo-telefonos/crear');
   }
   logout() {
     // this.authService.logout();
