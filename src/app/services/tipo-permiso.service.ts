@@ -12,21 +12,21 @@ export class TipoPermisoService {
   constructor(private readonly http: HttpClient) { }
 
   getPermisos() {
-    return this.http.get(`${environment.apiPermiso}`);
+    return this.http.get(`${environment.apiTipoPermiso}`);
   }
   postPermiso(permiso: Permiso) {
-    return this.http.post(`${environment.apiPermiso}/crear`, permiso);
+    return this.http.post(`${environment.apiTipoPermiso}/crear`, permiso);
   }
   getPermiso(id: number) {
-    return this.http.get(`${environment.apiPermiso}/${id}`);
+    return this.http.get(`${environment.apiTipoPermiso}/${id}`);
   }
 
   editPermiso(permiso: PermisoEdit, id: number) {
-    return this.http.put(`${environment.apiPermiso}/${id}`, permiso);
+    return this.http.put(`${environment.apiTipoPermiso}/${id}`, permiso);
   }
 
   deletePermiso(id: number) {
     console.log(id);
-    return this.http.delete(`${environment.apiPermiso}/${id}`);
+    return this.http.delete(`${environment.apiTipoPermiso}/${id}`);
   }
 }

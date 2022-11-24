@@ -27,6 +27,7 @@ import { TipoPermisoModule } from './components/tipo-permiso/tipo-permiso.module
 import { TipoReglaComercialModule } from './components/tipo-regla/tipo-regla.module';
 import { TipoTelefonoModule } from './components/tipo-telefono/tipo-telefono.module';
 import { AuthModule } from './components/auth/auth.module';
+import { ClienteService } from './services/cliente.service';
 
 
 
@@ -52,6 +53,7 @@ import { AuthModule } from './components/auth/auth.module';
     HttpClientModule,
   ],
   providers: [
+    ClienteService,
     TipoCanalService,
     TipoClienteService,
     TipoCondicionesVentaService,

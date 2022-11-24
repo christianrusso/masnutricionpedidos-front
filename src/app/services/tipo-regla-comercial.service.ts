@@ -12,19 +12,19 @@ export class TipoReglaComercialService {
   constructor(private readonly http: HttpClient) { }
 
   getReglas() {
-    return this.http.get(`${environment.apiRegla}`);
+    return this.http.get(`${environment.apiTipoRegla}`);
   }
   postRegla(regla: Regla) {
-    return this.http.post(`${environment.apiRegla}/crear`, regla);
+    return this.http.post(`${environment.apiTipoRegla}/crear`, regla);
   }
   getRegla(id: number) {
-    return this.http.get(`${environment.apiRegla}/${id}`);
+    return this.http.get(`${environment.apiTipoRegla}/${id}`);
   }
   editRegla(regla: ReglaEdit, id: number) {
-    return this.http.put(`${environment.apiRegla}/${id}`, regla);
+    return this.http.put(`${environment.apiTipoRegla}/${id}`, regla);
   }
   deleteRegla(id: number){
-    return this.http.delete(`${environment.apiRegla}/${id}`);
+    return this.http.delete(`${environment.apiTipoRegla}/${id}`);
   }
 
 }

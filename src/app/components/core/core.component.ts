@@ -42,11 +42,11 @@ export class CoreComponent implements OnInit {
     this.router.navigateByUrl('home/tipo-canal/crear');
   }
 
-  goToClienteListarPage() {
+  goToTipoClienteListarPage() {
     this.sidenav?.toggle();
     this.router.navigateByUrl('home/tipo-cliente/listar');
   }
-  goToClienteCrearPage() {
+  goToTipoClienteCrearPage() {
     this.sidenav?.toggle();
     this.router.navigateByUrl('home/tipo-cliente/crear');
   }
@@ -108,6 +108,15 @@ export class CoreComponent implements OnInit {
   goToTelefonoCrearPage(){
     this.sidenav?.toggle();
     this.router.navigateByUrl('home/tipo-telefonos/crear');
+  }
+
+  goToClienteListarPage() {
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('home/cliente/listar');
+  }
+  goToClienteCrearPage() {
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('home/cliente/crear');
   }
   logout() {
     // this.authService.logout();

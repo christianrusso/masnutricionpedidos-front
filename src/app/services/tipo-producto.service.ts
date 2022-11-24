@@ -12,19 +12,19 @@ export class TipoProductoService {
   constructor(private readonly http: HttpClient) { }
 
   getProductos() {
-    return this.http.get(`${environment.apiProducto}`);
+    return this.http.get(`${environment.apiTipoProducto}`);
   }
   postProducto(producto: Producto) {
-    return this.http.post(`${environment.apiProducto}/crear`, producto);
+    return this.http.post(`${environment.apiTipoProducto}/crear`, producto);
   }
   getProducto(id: number) {
-    return this.http.get(`${environment.apiProducto}/${id}`);
+    return this.http.get(`${environment.apiTipoProducto}/${id}`);
   }
   editProducto(producto: ProductoEdit, id: number) {
-    return this.http.put(`${environment.apiProducto}/${id}`, producto);
+    return this.http.put(`${environment.apiTipoProducto}/${id}`, producto);
   }
   deleteProducto(id: number){
     console.log(id);
-    return this.http.delete(`${environment.apiProducto}/${id}`);
+    return this.http.delete(`${environment.apiTipoProducto}/${id}`);
   }
 }

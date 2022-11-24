@@ -11,22 +11,22 @@ export class TipoClienteService {
   constructor(private readonly http: HttpClient) { }
 
   getClientes() {
-    return this.http.get(`${environment.apiCliente}`);
+    return this.http.get(`${environment.apiTipoCliente}`);
   }
   postCliente(cliente: Cliente) {
-    return this.http.post(`${environment.apiCliente}/crear`, cliente);
+    return this.http.post(`${environment.apiTipoCliente}/crear`, cliente);
   }
 
   getCliente(id: number) {
-    return this.http.get(`${environment.apiCliente}/${id}`);
+    return this.http.get(`${environment.apiTipoCliente}/${id}`);
   }
 
   editCliente(cliente: ClienteEdit, id: number) {
-    return this.http.put(`${environment.apiCliente}/${id}`, cliente);
+    return this.http.put(`${environment.apiTipoCliente}/${id}`, cliente);
   }
 
   deleteCliente(id: number) {
     console.log(id);
-    return this.http.delete(`${environment.apiCliente}/${id}`);
+    return this.http.delete(`${environment.apiTipoCliente}/${id}`);
   }
 }

@@ -11,18 +11,18 @@ export class TipoTelefonoService {
   constructor(private readonly http: HttpClient) { }
 
   getTelefonos() {
-    return this.http.get(`${environment.apiTelefono}`);
+    return this.http.get(`${environment.apiTipoTelefono}`);
   }
   postTelefono(telefono: Telefono) {
-    return this.http.post(`${environment.apiTelefono}/crear`, telefono);
+    return this.http.post(`${environment.apiTipoTelefono}/crear`, telefono);
   }
   getTelefono(id: number) {
-    return this.http.get(`${environment.apiTelefono}/${id}`);
+    return this.http.get(`${environment.apiTipoTelefono}/${id}`);
   }
   editTelefono(telefono: TelefonoEdit, id: number) {
-    return this.http.put(`${environment.apiTelefono}/${id}`, telefono);
+    return this.http.put(`${environment.apiTipoTelefono}/${id}`, telefono);
   }
   deleteTelefono(id: number){
-    return this.http.delete(`${environment.apiTelefono}/${id}`);
+    return this.http.delete(`${environment.apiTipoTelefono}/${id}`);
   }
 }

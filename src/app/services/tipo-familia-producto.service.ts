@@ -12,22 +12,22 @@ export class TipoFamiliaProductoService {
   constructor(private readonly http: HttpClient) { }
 
   getFamilias() {
-    return this.http.get(`${environment.apiFamilia}`);
+    return this.http.get(`${environment.apiTipoFamilia}`);
   }
   postFamilia(familia: Familia) {
-    return this.http.post(`${environment.apiFamilia}/crear`, familia);
+    return this.http.post(`${environment.apiTipoFamilia}/crear`, familia);
   }
 
   getFamilia(id: number) {
-    return this.http.get(`${environment.apiFamilia}/${id}`);
+    return this.http.get(`${environment.apiTipoFamilia}/${id}`);
   }
 
   editFamilia(familia: FamiliaEdit, id: number) {
-    return this.http.put(`${environment.apiFamilia}/${id}`, familia);
+    return this.http.put(`${environment.apiTipoFamilia}/${id}`, familia);
   }
 
   deleteFamilia(id: number) {
     console.log(id);
-    return this.http.delete(`${environment.apiFamilia}/${id}`);
+    return this.http.delete(`${environment.apiTipoFamilia}/${id}`);
   }
 }

@@ -88,6 +88,14 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'cliente',
+        loadChildren: () =>
+          import('./components/cliente/cliente.module').then(
+            (m) => m.ClienteModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

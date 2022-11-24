@@ -12,22 +12,22 @@ export class TipoCondicionesVentaService {
   constructor(private readonly http: HttpClient) { }
 
   getCondiciones() {
-    return this.http.get(`${environment.apiCondiciones}`);
+    return this.http.get(`${environment.apiTipoCondiciones}`);
   }
   postCondicion(condicion: Condicion) {
-    return this.http.post(`${environment.apiCondiciones}/crear`, condicion);
+    return this.http.post(`${environment.apiTipoCondiciones}/crear`, condicion);
   }
 
   getCondicion(id: number) {
-    return this.http.get(`${environment.apiCondiciones}/${id}`);
+    return this.http.get(`${environment.apiTipoCondiciones}/${id}`);
   }
 
   editCondicion(condicion: CondicionEdit, id: number) {
-    return this.http.put(`${environment.apiCondiciones}/${id}`, condicion);
+    return this.http.put(`${environment.apiTipoCondiciones}/${id}`, condicion);
   }
 
   deleteCondicion(id: number) {
     console.log(id);
-    return this.http.delete(`${environment.apiCondiciones}/${id}`);
+    return this.http.delete(`${environment.apiTipoCondiciones}/${id}`);
   }
 }
