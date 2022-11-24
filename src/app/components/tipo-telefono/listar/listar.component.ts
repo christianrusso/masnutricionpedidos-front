@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import { UntypedFormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,12 +8,6 @@ import { TelefonoData } from 'src/app/models-tipo/TipoTelefonoData';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-listar',
@@ -36,7 +28,6 @@ export class ListarComponent implements OnInit, AfterViewInit {
   ];
 
   dataSource = new MatTableDataSource<TelefonoData>();
-  matcher = new MyErrorStateMatcher();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -78,7 +69,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   }
 
   goToEditPage(id: number) {
-    this.router.navigateByUrl(`/tipo-telefonos/modificar/${id}`);
+    this.router.navigateByUrl(`home/tipo-telefonos/modificar/${id}`);
   }
 
   openDialog(id: number): void {

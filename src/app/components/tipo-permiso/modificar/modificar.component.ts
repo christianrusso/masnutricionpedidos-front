@@ -13,9 +13,7 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private readonly tipopermisoService: TipoPermisoService, private readonly router: Router,) { }
   creado: boolean = false;
   Descripcion : string = '';
-  usuarioGraba : string = '';
-  fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -37,7 +35,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-permisos/listar');
+      this.router.navigateByUrl('home/tipo-permisos/listar');
     }, 1000);
   }
 

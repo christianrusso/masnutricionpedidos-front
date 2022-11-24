@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormControl,
-  Validators,
-} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/models-tipo/tipo-producto';
 import { TipoProductoService } from 'src/app/services/tipo-producto.service';
@@ -22,13 +18,8 @@ export class CrearComponent implements OnInit {
   }
 
   descripcion: string = '';
-  usuarioGraba: string = '';
   DescBreve: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +34,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-productos/listar`);
+      this.router.navigateByUrl(`home/tipo-productos/listar`);
     }, 1000);
   }
 }

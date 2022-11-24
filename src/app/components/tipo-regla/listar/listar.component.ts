@@ -1,30 +1,25 @@
-import { AfterViewInit, Component, ViewChild, Inject, OnInit } from '@angular/core';
-import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial.service';
-import {ReglaData} from '../../../models-tipo/TipoReglaData';
+import { ReglaData } from '../../../models-tipo/TipoReglaData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
-  styleUrls: ['./listar.component.scss']
+  styleUrls: ['./listar.component.scss'],
 })
 export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
-  constructor( private readonly tiporeglaComercialService: TipoReglaComercialService, private readonly router: Router, private dialog: MatDialog,) {
+  constructor(
+    private readonly tiporeglaComercialService: TipoReglaComercialService,
+    private readonly router: Router,
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -32,11 +27,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     'idTipoReglaComercial',
     'Descripcion',
     'modificar',
-    'eliminar'
+    'eliminar',
   ];
 
   dataSource = new MatTableDataSource<ReglaData>();
-  matcher = new MyErrorStateMatcher();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -56,15 +50,13 @@ export class ListarComponent implements OnInit, AfterViewInit {
       console.log(response);
 
       const clientes = response as ReglaData[];
-      clientes.forEach(element => {
+      clientes.forEach((element) => {
         element.fechaGraba = element.fechaGraba.slice(0, -14);
         if (element.fechaModifica) {
           element.fechaModifica = element.fechaModifica.slice(0, -14);
         }
-
       });
       this.dataSource.data = clientes;
-
     });
   }
 
@@ -78,20 +70,21 @@ export class ListarComponent implements OnInit, AfterViewInit {
   }
 
   goToEditPage(idTipoReglaComercial: number) {
-    this.router.navigateByUrl(`/tipo-regla-comercial/modificar/${idTipoReglaComercial}`);
+    this.router.navigateByUrl(
+      `home/tipo-regla-comercial/modificar/${idTipoReglaComercial}`
+    );
   }
-
 
   openDialog(id: number): void {
     console.log(id);
     const dialogRef = this.dialog.open(ModalEliminarComponent, {
       width: '250px',
-      data: { delete: this.delete }
+      data: { delete: this.delete },
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.tiporeglaComercialService.deleteRegla(id).subscribe(response => {
+        this.tiporeglaComercialService.deleteRegla(id).subscribe((response) => {
           setTimeout(() => {
             location.reload();
           }, 100);

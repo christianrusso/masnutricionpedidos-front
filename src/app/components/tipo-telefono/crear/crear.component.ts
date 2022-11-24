@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Telefono } from 'src/app/models-tipo/tipo-telefono';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 
@@ -24,12 +18,7 @@ export class CrearComponent implements OnInit {
   }
 
   descripcion: string = '';
-  usuarioGraba: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +32,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-telefonos/listar`);
+      this.router.navigateByUrl(`home/tipo-telefonos/listar`);
     }, 1000);
   }
 }

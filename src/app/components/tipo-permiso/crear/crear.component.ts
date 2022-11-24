@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
 import { Permiso } from '../../../models-tipo/tipo-permiso';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TipoPermisoService } from 'src/app/services/tipo-permiso.service';
 
 @Component({
@@ -24,12 +18,7 @@ export class CrearComponent implements OnInit {
   }
 
   Descripcion: string = '';
-  usuarioGraba: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +32,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-permisos/listar`);
+      this.router.navigateByUrl(`home/tipo-permisos/listar`);
     }, 1000);
   }
 }

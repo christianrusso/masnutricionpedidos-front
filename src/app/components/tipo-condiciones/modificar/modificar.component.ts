@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClienteEdit } from 'src/app/models-tipo/tipo-cliente-edit';
 import { CondicionEdit } from 'src/app/models-tipo/tipo-condicion-edit';
 import { TipoCondicionesVentaService } from 'src/app/services/tipo-condiciones-venta.service';
 
@@ -14,9 +13,7 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private readonly tipocondicionService: TipoCondicionesVentaService, private readonly router: Router,) { }
   creado: boolean = false;
   descripcion : string = '';
-  usuarioGraba : string = '';
-  fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -38,7 +35,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-condiciones/listar');
+      this.router.navigateByUrl('home/tipo-condiciones/listar');
     }, 1000);
   }
 

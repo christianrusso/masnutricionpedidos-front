@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TelefonoEdit } from 'src/app/models-tipo/tipo-telefono-edit';
-import { CondicionEdit } from 'src/app/models-tipo/tipo-condicion-edit';
 import { TipoTelefonoService } from 'src/app/services/tipo-telefono.service';
 
 @Component({
@@ -14,9 +13,7 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute,  private readonly tipotelefonoService: TipoTelefonoService, private readonly router: Router,) { }
   creado: boolean = false;
   descripcion : string = '';
-  usuarioGraba : string = '';
-  fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -38,7 +35,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-telefonos/listar');
+      this.router.navigateByUrl('home/tipo-telefonos/listar');
     }, 1000);
   }
 

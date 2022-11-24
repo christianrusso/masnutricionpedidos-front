@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
 import { Regla } from '../../../models-tipo/tipo-regla';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial.service';
@@ -24,12 +18,7 @@ export class CrearComponent implements OnInit {
   }
 
   Descripcion: string = '';
-  usuarioGraba: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +32,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-regla-comercial/listar`);
+      this.router.navigateByUrl(`home/tipo-regla-comercial/listar`);
     }, 1000);
   }
 }

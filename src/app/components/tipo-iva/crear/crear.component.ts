@@ -22,13 +22,8 @@ export class CrearComponent implements OnInit {
   }
 
   Descripcion: string = '';
-  usuarioGraba: string = '';
   DescBreve: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +38,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-iva/listar`);
+      this.router.navigateByUrl(`home/tipo-iva/listar`);
     }, 1000);
   }
 }

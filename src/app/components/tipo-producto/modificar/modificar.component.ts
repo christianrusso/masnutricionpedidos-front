@@ -13,12 +13,8 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private readonly tipoproductoService: TipoProductoService, private readonly router: Router,) { }
   creado: boolean = false;
   descripcion : string = '';
-  usuarioGraba : string = '';
-  fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
   DescBreve: string = '';
-  unidadesFijasPallet: number = 0;
-  porcRelacionPallet: number = 0;
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -42,7 +38,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-productos/listar');
+      this.router.navigateByUrl('home/tipo-productos/listar');
     }, 1000);
   }
 

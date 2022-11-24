@@ -13,9 +13,7 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private readonly tipoclienteService: TipoClienteService, private readonly router: Router,) { }
   creado: boolean = false;
   Descripcion : string = '';
-  usuarioGraba : string = '';
-  fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -37,7 +35,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-cliente/listar');
+      this.router.navigateByUrl('home/tipo-cliente/listar');
     }, 1000);
   }
 

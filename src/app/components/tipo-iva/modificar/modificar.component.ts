@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FamiliaEdit } from 'src/app/models-tipo/tipo-familia-edit';
 import { IVAEdit } from 'src/app/models-tipo/tipo-iva-edit';
 import { TipoIvaService } from 'src/app/services/tipo-iva.service';
 
@@ -14,12 +13,11 @@ export class ModificarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private readonly tipoivaService: TipoIvaService, private readonly router: Router,) { }
   creado: boolean = false;
   Descripcion : string = '';
-  usuarioGraba : string = '';
   fechaGraba: Date = new Date();
-  usuarioModifica: string = '';
   DescBreve: string = '';
   unidadesFijasPallet: number = 0;
   porcRelacionPallet: number = 0;
+  usuarioModifica: any = localStorage.getItem('NickName');
 
 
   ngOnInit(): void {
@@ -43,7 +41,7 @@ export class ModificarComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl('/tipo-iva/listar');
+      this.router.navigateByUrl('home/tipo-iva/listar');
     }, 1000);
   }
 

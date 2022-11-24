@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
 import { TipoCanalService } from 'src/app/services/tipo-canal.service';
 import { Canal } from '../../../models-tipo/tipo-canal';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear',
@@ -24,12 +18,7 @@ export class CrearComponent implements OnInit {
   }
 
   Descripcion: string = '';
-  usuarioGraba: string = '';
-
-  emailFormControl = new UntypedFormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
 
@@ -43,7 +32,7 @@ export class CrearComponent implements OnInit {
     });
     this.creado = true;
     setTimeout(() => {
-      this.router.navigateByUrl(`/tipo-canal/listar`);
+      this.router.navigateByUrl(`home/tipo-canal/listar`);
     }, 1000);
   }
 }
