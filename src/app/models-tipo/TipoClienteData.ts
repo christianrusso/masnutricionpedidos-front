@@ -1,4 +1,4 @@
-export interface ClienteData {
+export interface TipoClienteData {
   idTipoCliente : number;
   Descripcion: string;
   fechaGraba: any;

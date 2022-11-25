@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { CanalData } from '../../../models-tipo/TipoCanalData';
+import { ClienteData } from '../../../models/ClienteData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -24,35 +24,17 @@ export class ListarComponent implements OnInit, AfterViewInit {
   }
 
   displayedColumnsClientes: string[] = [
+    'idCliente',
     'idTipoCliente',
     'idTipoCanal',
     'razonSocial',
     'nombreFantasia',
     'idTipoIVA',
-    'CUIT',
-    'fechaAlta',
-    'score',
-    'aniosActividad',
-    'montoCredito',
-    'idVendedorAsignado',
-    'calle',
-    'calle1',
-    'calle2',
-    'nroPuerta',
-    'piso',
-    'dpto',
-    'idLocalidad',
-    'idProvincia',
-    'CP',
-    'horarioAtencion',
-    'horarioCobranza',
-    'isBorrado',
-    'web',
     'modificar',
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<CanalData>();
+  dataSource = new MatTableDataSource<ClienteData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -69,13 +51,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
   getClientes() {
     this.clienteServices.getClientes().subscribe((response: any) => {
-      const clientes = response as CanalData[];
-      clientes.forEach((element) => {
-        element.fechaGraba = element.fechaGraba.slice(0, -14);
-        if (element.fechaModifica) {
-          element.fechaModifica = element.fechaModifica.slice(0, -14);
-        }
-      });
+      const clientes = response as ClienteData[];
       this.dataSource.data = clientes;
     });
   }
@@ -89,8 +65,8 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(idTipoCanal: number) {
-    this.router.navigateByUrl(`home/cliente/modificar/${idTipoCanal}`);
+  goToEditPage(idCliente: number) {
+    this.router.navigateByUrl(`home/cliente/modificar/${idCliente}`);
   }
 
   openDialog(id: number): void {

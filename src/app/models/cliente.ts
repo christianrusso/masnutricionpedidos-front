@@ -5,7 +5,6 @@ export class Cliente {
   readonly nombreFantasia: string;
   readonly idTipoIVA: number;
   readonly CUIT: string;
-  readonly fechaAlta: Date;
   readonly score: string;
   readonly aniosActividad: string;
   readonly montoCredito: string;
@@ -32,7 +31,6 @@ export class Cliente {
     nombreFantasia,
     idTipoIVA,
     CUIT,
-    fechaAlta,
     score,
     aniosActividad,
     montoCredito,
@@ -58,7 +56,6 @@ export class Cliente {
     nombreFantasia: string;
     idTipoIVA: number;
     CUIT: string;
-    fechaAlta: Date;
     score: string;
     aniosActividad: string;
     montoCredito: string;
@@ -84,7 +81,6 @@ export class Cliente {
     this.nombreFantasia = nombreFantasia
     this.idTipoIVA = idTipoIVA
     this.CUIT = CUIT
-    this.fechaAlta = fechaAlta
     this.score = score
     this.aniosActividad = aniosActividad
     this.montoCredito = montoCredito

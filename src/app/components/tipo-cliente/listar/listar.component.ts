@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TipoClienteService } from 'src/app/services/tipo-cliente.service';
-import { ClienteData } from '../../../models-tipo/TipoClienteData';
+import { TipoClienteData } from '../../../models-tipo/TipoClienteData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -30,7 +30,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<ClienteData>();
+  dataSource = new MatTableDataSource<TipoClienteData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -49,7 +49,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.tipoclienteService.getClientes().subscribe((response: any) => {
       console.log(response);
 
-      const clientes = response as ClienteData[];
+      const clientes = response as TipoClienteData[];
       clientes.forEach((element) => {
         element.fechaGraba = element.fechaGraba.slice(0, -14);
         if (element.fechaModifica) {

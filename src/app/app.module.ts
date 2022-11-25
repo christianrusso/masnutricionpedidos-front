@@ -28,6 +28,11 @@ import { TipoReglaComercialModule } from './components/tipo-regla/tipo-regla.mod
 import { TipoTelefonoModule } from './components/tipo-telefono/tipo-telefono.module';
 import { AuthModule } from './components/auth/auth.module';
 import { ClienteService } from './services/cliente.service';
+import { EmpresaService } from './services/empresa.service';
+import { VendedorService } from './services/vendedor.service';
+import { ClienteModule } from './components/cliente/cliente.module';
+//import { PedidoModule } from './components/pedido/pedido.module';
+import { PedidoService } from './services/pedido.service';
 
 
 
@@ -41,6 +46,8 @@ import { ClienteService } from './services/cliente.service';
     AppRoutingModule,
     SharedModule,
     AuthModule,
+    ClienteModule,
+    //PedidoModule,
     TipoCanalModule,
     TipoClienteModule,
     TipoCondicionesModule,
@@ -54,6 +61,9 @@ import { ClienteService } from './services/cliente.service';
   ],
   providers: [
     ClienteService,
+    EmpresaService,
+    VendedorService,
+    PedidoService,
     TipoCanalService,
     TipoClienteService,
     TipoCondicionesVentaService,

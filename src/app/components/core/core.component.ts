@@ -118,6 +118,14 @@ export class CoreComponent implements OnInit {
     this.sidenav?.toggle();
     this.router.navigateByUrl('home/cliente/crear');
   }
+  goToPedidoListarPage() {
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('home/pedido/listar');
+  }
+  goToPedidoCrearPage() {
+    this.sidenav?.toggle();
+    this.router.navigateByUrl('home/pedido/crear');
+  }
   logout() {
     // this.authService.logout();
   }

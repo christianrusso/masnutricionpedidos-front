@@ -1,14 +1,175 @@
 <div class="container">
+
   <div class="container-child">
-    <mat-form-field>
-      <mat-label class="title">Descripcion</mat-label>
-      <!-- <input matInput name="name" [(ngModel)]="Descripcion" /> -->
-    </mat-form-field>
 
-    <button mat-raised-button color="warn" (click)="onEdit()">Editar Canal</button>
+    <div class="caja1">
+      <mat-form-field appearance="fill">
+        <mat-label>ID Tipo Cliente</mat-label>
+        <mat-select [(ngModel)]="idTipoCliente" name="food">
+          <mat-option *ngFor="let cliente of tipoClienteLista" [value]="cliente.idTipoCliente">
+            {{cliente.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <ng-template [ngIf]="creado">
-      <div class="message_create">Canal actualizado con exito</div>
-    </ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>ID Tipo Canal</mat-label>
+        <mat-select [(ngModel)]="idTipoCanal" name="food">
+          <mat-option *ngFor="let canal of tipoCanalLista" [value]="canal.idTipoCanal">
+            {{canal.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Razon Social</mat-label>
+        <mat-select [(ngModel)]="razonSocial" name="food">
+          <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.RazonSocial">
+            {{empresa.RazonSocial}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">nombreFantasia</mat-label>
+        <input matInput name="name" [(ngModel)]="nombreFantasia" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo IVA</mat-label>
+        <mat-select [(ngModel)]="idTipoIVA" name="food">
+          <mat-option *ngFor="let iva of ivasLista" [value]="iva.idTipoIVA">
+            {{iva.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>CUIT</mat-label>
+        <mat-select [(ngModel)]="CUIT" name="food">
+          <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.CUIT">
+            {{empresa.CUIT}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">score</mat-label>
+        <input matInput name="name" [(ngModel)]="score" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">aniosActividad</mat-label>
+        <input matInput name="name" [(ngModel)]="aniosActividad" />
+      </mat-form-field>
+    </div>
+
+    <div class="caja2">
+      <mat-form-field>
+        <mat-label class="title">montoCredito</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="montoCredito"
+          class="phone_number"
+          [(ngModel)]="montoCredito"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>ID Vendedor Asignado</mat-label>
+        <mat-select [(ngModel)]="idVendedorAsignado" name="food">
+          <mat-option *ngFor="let vendedor of vendedoresLista" [value]="vendedor.idVendedor">
+            {{vendedor.NickName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">calle</mat-label>
+        <input matInput name="name" [(ngModel)]="calle" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">calle1</mat-label>
+        <input matInput name="name" [(ngModel)]="calle1" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">calle2</mat-label>
+        <input matInput name="name" [(ngModel)]="calle2" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">nroPuerta</mat-label>
+        <input matInput name="name" [(ngModel)]="nroPuerta" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">piso</mat-label>
+        <input matInput name="name" [(ngModel)]="piso" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">dpto</mat-label>
+        <input matInput name="name" [(ngModel)]="dpto" />
+      </mat-form-field>
+    </div>
+
+    <div class="caja3">
+      <mat-form-field appearance="fill">
+        <mat-label>ID Provincia</mat-label>
+        <mat-select [(ngModel)]="idProvincia" name="food">
+          <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.Descripcion">
+            {{provincia.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>ID Localidad</mat-label>
+        <mat-select [(ngModel)]="idLocalidad" name="food">
+          <mat-option *ngFor="let localidad of localidadesLista" [value]="localidad.idLocalidad">
+            {{localidad.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Codigo Postal</mat-label>
+        <mat-select [(ngModel)]="CP" name="food">
+          <mat-option *ngFor="let localidad of localidadesLista" [value]="localidad.CodigoPostal">
+            {{localidad.Descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">horarioAtencion</mat-label>
+        <input matInput name="name" [(ngModel)]="horarioAtencion" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">horarioCobranza</mat-label>
+        <input matInput name="name" [(ngModel)]="horarioCobranza" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="title">web</mat-label>
+        <input matInput name="name" [(ngModel)]="web" />
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="buttons">
+      <button mat-stroked-button color="warn" (click)="onEdit()">Aplicar Cambios</button>
+      <button mat-stroked-button color="warn" (click)="goToListarClientesPage()" class="button_cancelar">Cancelar</button>
+    </div>
+
+
+    <!-- <ng-template [ngIf]="creado">
+      <div class="message_create">Cliente creado con exito</div>
+    </ng-template> -->
   </div>
 </div>

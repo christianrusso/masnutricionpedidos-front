@@ -1,4 +1,5 @@
 export interface ClienteData {
+    idCliente : number;
     idTipoCliente: number;
     idTipoCanal: number;
     razonSocial: string;

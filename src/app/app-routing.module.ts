@@ -96,6 +96,14 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      // {
+      //   path: 'pedido',
+      //   loadChildren: () =>
+      //     import('./components/pedido/pedido.module').then(
+      //       (m) => m.PedidoModule
+      //     ),
+      //   canActivate: [AuthGuard],
+      // },
     ],
   },
 ];

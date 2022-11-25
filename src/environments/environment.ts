@@ -12,4 +12,9 @@ export const environment = {
   apiTipoTelefono: 'http://localhost:3000/api/tipo-telefono',
   apiUsuario: 'http://localhost:3000/api/usuario',
   apiCliente: 'http://localhost:3000/api/cliente',
+  apiEmpresa: 'http://localhost:3000/api/empresa',
+  apiVendedor: 'http://localhost:3000/api/vendedor',
+  apiLocalidad: 'http://localhost:3000/api/localidad',
+  apiProvincia: 'http://localhost:3000/api/provincia',
+  apiPedido: 'http://localhost:3000/api/pedido',
 };

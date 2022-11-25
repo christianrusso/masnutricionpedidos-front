@@ -50,14 +50,38 @@ th {
   background-color: #002b5c;
 }
 
+.container .buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 1rem;
+}
+
 .container button {
-  background-color: #002b5c;
-  color: #fff;
+  background-color: #fff;
+  color: #00BC38;
   border-radius: 17px;
   width: 75%;
   align-self: center;
   height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.container .button_cancelar{
+  background-color: #fff;
+  color: #FF171F;
+  border-radius: 17px;
+  width: 75%;
+  align-self: center;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .container mat-form-field {
   width: 75%;
@@ -68,19 +92,20 @@ th {
 
 .container-child {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   background-color: #fff;
-  width: 25%;
+  width: 70%;
+  height: auto;
   border-radius: 15px;
-  padding: 20px;
+  padding: 30px;
   margin: auto;
 }
 
 .container-child img {
   width: 25%;
   height: 25%;
-  display: block;
+  display: flex;
   margin: auto;
 }
 
@@ -138,6 +163,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
 }
+
 
 @media (max-width:1000px) {
   .container-child {
