@@ -1,10 +1,36 @@
-mat-toolbar {
+  mat-toolbar {
     background: #ffffff;
     color: white;
     display: flex;
-    box-shadow: '0px 0px 10.5px rgba(0, 0, 0, 0.3)'
+    box-shadow: '0px 0px 10.5px rgba(0, 0, 0, 0.3)';
+    .dyg{
+      display: flex;
+      position: absolute;
+      left: 2.73%;
+      align-items: center;
+      width: 145px;
+      height: 59px;
+    }
+    button{
+      position: absolute;
+      left: 73.43%;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(255, 23, 31, 0.2), 0px 2px 4px rgba(54, 123, 245, 0.24);
+    }
+    p{
+      position: absolute;
+      left: 82.5%;
+      color: #000;
+      font-family: Quicksand;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+      letter-spacing: 0.15000000596046448px;
+      text-align: right;
+
+    }
   }
-  
+
   mat-expansion-panel-header:hover{
     background-color: #FFC700 !important;
     border-radius: 10px;
@@ -26,8 +52,11 @@ mat-toolbar {
     text-align: center;
     margin-right: 40px;
   }
-  .dyg{
-    margin-left: 2.5%;
+
+
+  .dyg button{
+    align-self: center;
+    justify-self: center;
   }
 
   .content {
@@ -150,6 +179,6 @@ mat-toolbar {
   }
 
   mat-panel-title{
-    color: black; 
+    color: black;
     padding: 5px;
   }

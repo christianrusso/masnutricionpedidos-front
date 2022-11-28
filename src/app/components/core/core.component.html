@@ -2,12 +2,11 @@
   <div class="dyg">
     <img src="../../../assets/logo.png" alt="">
   </div>
-  <!-- <mat-icon>exit_to_app</mat-icon> -->
+  <button mat-stroked-button color="warn" style="text-align: center;" (click)="logout()">SALIR</button>
+  <p>{{nickname}}</p>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav class="mat-elevation-z8" mode="side" opened [disableClose]="true">
-    <mat-divider></mat-divider>
-
 
     <mat-accordion>
       <mat-expansion-panel
