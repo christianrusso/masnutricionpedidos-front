@@ -34,96 +34,96 @@ export class CoreComponent implements OnInit {
   };
 
   goToCanalListarPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-canal/listar');
   }
   goToCanalCrearPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-canal/crear');
   }
 
   goToTipoClienteListarPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-cliente/listar');
   }
   goToTipoClienteCrearPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-cliente/crear');
   }
 
   goToCondicionesListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-condiciones/listar');
   }
   goToCondicionesCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-condiciones/crear');
   }
 
 
   goToFamiliaListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-familia-producto/listar');
   }
   goToFamiliaCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-familia-producto/crear');
   }
   goToIVAListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-iva/listar');
   }
   goToIVACrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-iva/crear');
   }
   goToPermisoListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-permisos/listar');
   }
   goToPermisoCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-permisos/crear');
   }
   goToProductosListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-productos/listar');
   }
   goToProductosCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-productos/crear');
   }
   goToReglaListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-regla-comercial/listar');
   }
   goToReglaCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-regla-comercial/crear');
   }
   goToTelefonoListarPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-telefonos/listar');
   }
   goToTelefonoCrearPage(){
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/tipo-telefonos/crear');
   }
 
   goToClienteListarPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/cliente/listar');
   }
   goToClienteCrearPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/cliente/crear');
   }
   goToPedidoListarPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/pedido/listar');
   }
   goToPedidoCrearPage() {
-    this.sidenav?.toggle();
+    
     this.router.navigateByUrl('home/pedido/crear');
   }
   logout() {

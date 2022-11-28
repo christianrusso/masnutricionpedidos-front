@@ -22,7 +22,7 @@ const routes: Routes = [
           import('./components/tipo-canal/tipo-canal.module').then(
             (m) => m.TipoCanalModule
           ),
-        canActivate: [AuthGuard],
+        //canActivate: [AuthGuard],
       },
       {
         path: 'tipo-cliente',

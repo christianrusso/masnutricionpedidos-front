@@ -1,41 +1,34 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-    (click)="onToggleSidenav()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
   <div class="dyg">
-    <p>Mas Nutricion Pedidos</p>
+    <img src="../../../assets/logo.png" alt="">
   </div>
   <!-- <mat-icon>exit_to_app</mat-icon> -->
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z8" mode="over">
+  <mat-sidenav #sidenav class="mat-elevation-z8" mode="side" opened [disableClose]="true">
     <mat-divider></mat-divider>
 
 
     <mat-accordion>
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px">home</mat-icon>
             ABM Tipo</mat-panel-title
           >
         </mat-expansion-panel-header>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px">home</mat-icon>
             Canales</mat-panel-title
           >
@@ -51,11 +44,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px">perm_identity</mat-icon>
             Clientes</mat-panel-title
           >
@@ -75,11 +69,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false"
     >
       <mat-expansion-panel-header>
-        <mat-panel-title style="color: #fff; padding: 5px">
+        <mat-panel-title>
           <mat-icon style="padding-right: 25px">library_books</mat-icon>
           Condiciones</mat-panel-title
         >
@@ -103,11 +98,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px">supervisor_account</mat-icon>
             Familia Producto</mat-panel-title
           >
@@ -131,11 +127,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px"> attach_money</mat-icon>
             IVA</mat-panel-title
           >
@@ -159,11 +156,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px"> library_books</mat-icon>
             Permisos</mat-panel-title
           >
@@ -187,11 +185,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px"> shopping_cart</mat-icon>
             Productos</mat-panel-title
           >
@@ -215,11 +214,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px"> library_books</mat-icon>
             Reglas Comerciales</mat-panel-title
           >
@@ -243,11 +243,12 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px"> phone</mat-icon>
             Telefonos</mat-panel-title
           >
@@ -276,11 +277,12 @@
 
     <mat-accordion>
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px;">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
             Clientes</mat-panel-title
           >
@@ -298,11 +300,12 @@
 
     <mat-accordion>
       <mat-expansion-panel
+      class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title style="color: #fff; padding: 5px;">
+          <mat-panel-title>
             <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
             Pedidos</mat-panel-title
           >

@@ -33,7 +33,7 @@ th {
 }
 
 .tabla-completa {
-  background-color: #b8b5b447;
+  background-color: white;
   padding: 70px 30px 0px 30px;
   height: calc(100vh - 64px);
 }
@@ -42,17 +42,36 @@ th {
   background-color: red;
 }
 
+.crear-button{
+  background-color: white;
+  color:#00BC38;
+  border:  solid #00BC38;
+  height: 56px;
+  width: 231px;
+  border-radius: 99px;
+  box-shadow: 5px 5px 5px 0px #00BC38;
+  float: right;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   flex-wrap: wrap;
-  background-color: #002b5c;
+  background-color: #fff;
 }
 
+
+.demo-table{
+  border-radius: 0px !important;
+  
+  border-bottom-style: none;
+}
+
+
 .container button {
-  background-color: #002b5c;
+  background-color: #fff;
   color: #fff;
   border-radius: 17px;
   width: 75%;

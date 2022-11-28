@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
       NickName: form.value.NickName,
       Password: form.value.Password,
     };
+    console.log(authData)
     if (!this.loginNuevo) {
       this.authService.postLogin(authData);
       this.loginNuevo = true;

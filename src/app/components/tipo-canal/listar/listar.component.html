@@ -1,5 +1,9 @@
+
+
 <div class="tabla-completa">
-  <mat-form-field appearance="standard" class="filter-class">
+  <button class="crear-button">Crear</button>
+  
+  <mat-form-field appearance="standard" class="filter-class" style="margin-top: 10px;">
     <mat-label class="label-search">Busqueda</mat-label>
     <input
       matInput
@@ -9,8 +13,9 @@
       class="input-search"
     />
   </mat-form-field>
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+  
+  <div class="mat-elevation-z8" style="box-shadow: none;">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
 
       <!-- ID Columna -->
       <ng-container matColumnDef="idTipoCanal">
