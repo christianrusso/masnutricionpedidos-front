@@ -49,6 +49,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToClienteCrearPage() {
+    this.router.navigateByUrl('home/cliente/crear');
+  }
+
   getClientes() {
     this.clienteServices.getClientes().subscribe((response: any) => {
       const clientes = response as ClienteData[];

@@ -22,475 +22,200 @@
                 src="./../../../assets/clientes-icon.png"
               />
             </button>
-            ABM Tipo</mat-panel-title
-          >
+            ABM Tipo
+          </mat-panel-title>
         </mat-expansion-panel-header>
 
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
+          <div class="buttons_core" (click)="goToCanalListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/canales-icon.png"
+                />
+              </button>
+              Canales
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToTipoClienteListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/clientes-icon.png"
+                />
+              </button>
+              Clientes
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToCondicionesListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/condiciones-icon.png"
+                />
+              </button>
+              Condiciones
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToFamiliaListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/familia-icon.png"
+                />
+              </button>
+              Familia
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToIVAListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/iva-icon.png"
+                />
+              </button>
+              IVA
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToPermisoListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/permisos-icon.png"
+                />
+              </button>
+              Permisos
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToProductosListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/productos-icon.png"
+                />
+              </button>
+              Productos
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToReglaListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/reglas-icon.png"
+                />
+              </button>
+              Reglas
+            </mat-panel-title>
+          </div>
+
+          <div class="buttons_core" (click)="goToTelefonoListarPage()">
+            <mat-panel-title>
+              <button class="icon-button">
+                <img
+                  class="icon"
+                  src="./../../../assets/tel-icon.png"
+                />
+              </button>
+              Telefonos
+            </mat-panel-title>
+          </div>
 
 
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/canales-icon.png"
-              />
-            </button>
-
-
-            Canales</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToCanalListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button mat-button class="menu-button" (click)="goToCanalCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/clientes-icon.png"
-              />
-            </button>
-
-
-            Clientes</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToTipoClienteListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button mat-button class="menu-button" (click)="goToTipoClienteCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <button class="icon-button">
-            <img
-              class="icon"
-              src="./../../../assets/condiciones-icon.png"
-            />
-          </button>
-          Condiciones</mat-panel-title
-        >
-      </mat-expansion-panel-header>
-      <button
-        mat-button
-        class="menu-button"
-        (click)="goToCondicionesListarPage()"
-      >
-        <mat-icon> format_list_bulleted</mat-icon>
-        <span>Listar</span>
-      </button>
-      <button
-        mat-button
-        class="menu-button"
-        (click)="goToCondicionesCrearPage()"
-      >
-        <mat-icon>add</mat-icon>
-        <span>Crear</span>
-      </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/familia-icon.png"
-              />
-            </button>
-
-
-            Familia</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToFamiliaListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToFamiliaCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/iva-icon.png"
-              />
-            </button>
-            IVA</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToIVAListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToIVACrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/permisos-icon.png"
-              />
-            </button>
-
-
-            Permisos</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToPermisoListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToPermisoCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/productos-icon.png"
-              />
-            </button>
-
-
-            Productos</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToProductosListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToProductosCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/reglas-icon.png"
-              />
-            </button>
-
-            Reglas</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToReglaListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToReglaCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-
-
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/tel-icon.png"
-              />
-            </button>
-
-
-            Telefonos</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToTelefonoListarPage()"
-        >
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button
-          mat-button
-          class="menu-button"
-          (click)="goToTelefonoCrearPage()"
-        >
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
 
 
       </mat-expansion-panel>
     </mat-accordion>
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Clientes</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToClienteListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button mat-button class="menu-button" (click)="goToClienteCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Pedidos</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToPedidoListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
+    <div class="buttons_core" (click)="goToClienteListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
         </button>
-        <button mat-button class="menu-button" (click)="goToPedidoCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
+        Clientes
+      </mat-panel-title>
+    </div>
 
+    <div class="buttons_core" (click)="goToPedidoListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
+        </button>
+        Pedidos
+      </mat-panel-title>
+    </div>
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Empresas</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToEmpresaListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
+    <div class="buttons_core" (click)="goToEmpresaListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
         </button>
-        <button mat-button class="menu-button" (click)="goToEmpresaCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
+        Empresas
+      </mat-panel-title>
+    </div>
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Vendedores</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToVendedorListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
+    <div class="buttons_core" (click)="goToVendedorListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
         </button>
-        <button mat-button class="menu-button" (click)="goToVendedorCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
+        Vendedores
+      </mat-panel-title>
+    </div>
 
+    <div class="buttons_core" (click)="goToProvinciaListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
+        </button>
+        Provincias
+      </mat-panel-title>
+    </div>
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Provincias</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToProvinciaListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
+    <div class="buttons_core" (click)="goToLocalidadListarPage()">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img
+            class="icon"
+            src="./../../../assets/canales-icon.png"
+          />
         </button>
-        <button mat-button class="menu-button" (click)="goToProvinciaCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
+        Localidades
+      </mat-panel-title>
+    </div>
 
 
 
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
-            Localidades</mat-panel-title
-          >
-        </mat-expansion-panel-header>
-        <button mat-button class="menu-button" (click)="goToLocalidadListarPage()">
-          <mat-icon> format_list_bulleted</mat-icon>
-          <span>Listar</span>
-        </button>
-        <button mat-button class="menu-button" (click)="goToLocalidadCrearPage()">
-          <mat-icon>add</mat-icon>
-          <span>Crear</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
+
 
 
 

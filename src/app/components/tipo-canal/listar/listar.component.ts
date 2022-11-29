@@ -45,6 +45,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToCanalCrearPage() {
+    this.router.navigateByUrl('home/tipo-canal/crear');
+  }
+
   getCanals() {
     this.tipocanalServices.getCanales().subscribe((response: any) => {
       const canales = response as CanalData[];

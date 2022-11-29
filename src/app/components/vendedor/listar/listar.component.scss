@@ -36,10 +36,28 @@ th {
   background-color: white;
   padding: 70px 30px 0px 30px;
   height: calc(100vh - 64px);
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
 }
 
-.mat-tab-labels {
-  background-color: red;
+.crear-button{
+  background-color: white;
+  color:#00BC38;
+  border:  1px solid #fff;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  height: 56px;
+  width: 213px;
+  border-radius: 99px;
+  box-shadow: 0px 16px 24px rgba(0, 188, 56, 0.17), 0px 6px 12px rgba(54, 123, 245, 0.16);
+  float: right;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -51,8 +69,14 @@ th {
   background-color: white;
 }
 
+.demo-table{
+  border-radius: 0px !important;
+  border-bottom-style: none;
+}
+
+
 .container button {
-  background-color: #002b5c;
+  background-color: #fff;
   color: #fff;
   border-radius: 17px;
   width: 75%;

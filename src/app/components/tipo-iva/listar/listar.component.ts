@@ -46,6 +46,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToIVACrearPage(){
+    this.router.navigateByUrl('home/tipo-iva/crear');
+  }
+
   getIVAs() {
     this.tipoivaService.getIVAs().subscribe((response: any) => {
       console.log(response);

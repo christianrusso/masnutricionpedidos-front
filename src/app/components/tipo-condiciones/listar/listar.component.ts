@@ -45,6 +45,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToCondicionesCrearPage(){
+    this.router.navigateByUrl('home/tipo-condiciones/crear');
+  }
+
   getCondiciones() {
     this.tipocondicionesService.getCondiciones().subscribe((response: any) => {
       console.log(response);

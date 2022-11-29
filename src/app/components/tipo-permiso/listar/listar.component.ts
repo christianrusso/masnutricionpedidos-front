@@ -45,6 +45,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToPermisoCrearPage(){
+    this.router.navigateByUrl('home/tipo-permisos/crear');
+  }
+
   getPermisos() {
     this.tipopermisoService.getPermisos().subscribe((response: any) => {
       console.log(response);

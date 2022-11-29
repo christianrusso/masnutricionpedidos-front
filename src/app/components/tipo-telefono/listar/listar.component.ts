@@ -42,6 +42,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToTelefonoCrearPage(){
+    this.router.navigateByUrl('home/tipo-telefonos/crear');
+  }
+
   getTelefonos() {
     this.tipotelefonoService.getTelefonos().subscribe((response: any) => {
       console.log(response);

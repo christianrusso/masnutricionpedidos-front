@@ -47,6 +47,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToFamiliaCrearPage(){
+    this.router.navigateByUrl('home/tipo-familia-producto/crear');
+  }
+
   getFamilias() {
     this.tipofamiliaService.getFamilias().subscribe((response: any) => {
       console.log(response);

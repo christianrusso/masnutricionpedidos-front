@@ -48,6 +48,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToProvinciaCrearPage() {
+    this.router.navigateByUrl('home/provincia/crear');
+  }
+
   getProvincias() {
     this.provinciaService.getProvincias().subscribe((response: any) => {
       const provincias = response as ProvinciaData[];

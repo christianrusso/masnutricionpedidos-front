@@ -52,6 +52,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToLocalidadCrearPage() {
+    this.router.navigateByUrl('home/localidad/crear');
+  }
+
   getLocalidades() {
     this.localidadService.getLocalidades().subscribe((response: any) => {
       const localidades = response as LocalidadData[];

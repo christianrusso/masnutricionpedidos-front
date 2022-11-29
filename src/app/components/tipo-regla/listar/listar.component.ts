@@ -45,6 +45,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToReglaCrearPage(){
+    this.router.navigateByUrl('home/tipo-regla-comercial/crear');
+  }
+
   getReglas() {
     this.tiporeglaComercialService.getReglas().subscribe((response: any) => {
       console.log(response);

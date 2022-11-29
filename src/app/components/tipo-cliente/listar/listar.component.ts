@@ -45,6 +45,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToTipoClienteCrearPage() {
+    this.router.navigateByUrl('home/tipo-cliente/crear');
+  }
+
   getClients() {
     this.tipoclienteService.getClientes().subscribe((response: any) => {
       console.log(response);

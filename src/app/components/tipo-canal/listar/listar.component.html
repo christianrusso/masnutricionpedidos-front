@@ -1,8 +1,7 @@
 
 
 <div class="tabla-completa">
-  <button class="crear-button">Crear</button>
-  
+  <button class="crear-button" (click)="goToCanalCrearPage()">Crear nuevo</button>
   <mat-form-field appearance="standard" class="filter-class" style="margin-top: 10px;">
     <mat-label class="label-search">Busqueda</mat-label>
     <input
@@ -13,7 +12,7 @@
       class="input-search"
     />
   </mat-form-field>
-  
+
   <div class="mat-elevation-z8" style="box-shadow: none;">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
 

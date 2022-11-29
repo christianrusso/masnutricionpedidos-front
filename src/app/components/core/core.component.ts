@@ -38,130 +38,49 @@ export class CoreComponent implements OnInit {
   };
 
   goToCanalListarPage() {
-
     this.router.navigateByUrl('home/tipo-canal/listar');
   }
-  goToCanalCrearPage() {
-
-    this.router.navigateByUrl('home/tipo-canal/crear');
-  }
-
   goToTipoClienteListarPage() {
-
     this.router.navigateByUrl('home/tipo-cliente/listar');
   }
-  goToTipoClienteCrearPage() {
-
-    this.router.navigateByUrl('home/tipo-cliente/crear');
-  }
-
   goToCondicionesListarPage(){
-
     this.router.navigateByUrl('home/tipo-condiciones/listar');
   }
-  goToCondicionesCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-condiciones/crear');
-  }
-
-
   goToFamiliaListarPage(){
-
     this.router.navigateByUrl('home/tipo-familia-producto/listar');
   }
-  goToFamiliaCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-familia-producto/crear');
-  }
   goToIVAListarPage(){
-
     this.router.navigateByUrl('home/tipo-iva/listar');
   }
-  goToIVACrearPage(){
-
-    this.router.navigateByUrl('home/tipo-iva/crear');
-  }
   goToPermisoListarPage(){
-
     this.router.navigateByUrl('home/tipo-permisos/listar');
   }
-  goToPermisoCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-permisos/crear');
-  }
   goToProductosListarPage(){
-
     this.router.navigateByUrl('home/tipo-productos/listar');
   }
-  goToProductosCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-productos/crear');
-  }
   goToReglaListarPage(){
-
     this.router.navigateByUrl('home/tipo-regla-comercial/listar');
   }
-  goToReglaCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-regla-comercial/crear');
-  }
   goToTelefonoListarPage(){
-
     this.router.navigateByUrl('home/tipo-telefonos/listar');
   }
-  goToTelefonoCrearPage(){
-
-    this.router.navigateByUrl('home/tipo-telefonos/crear');
-  }
-
   goToClienteListarPage() {
-
     this.router.navigateByUrl('home/cliente/listar');
   }
-  goToClienteCrearPage() {
-
-    this.router.navigateByUrl('home/cliente/crear');
-  }
   goToPedidoListarPage() {
-
     this.router.navigateByUrl('home/pedido/listar');
   }
-  goToPedidoCrearPage() {
-
-    this.router.navigateByUrl('home/pedido/crear');
-  }
   goToEmpresaListarPage() {
-
     this.router.navigateByUrl('home/empresa/listar');
   }
-  goToEmpresaCrearPage() {
-
-    this.router.navigateByUrl('home/empresa/crear');
-  }
   goToVendedorListarPage() {
-
     this.router.navigateByUrl('home/vendedor/listar');
   }
-  goToVendedorCrearPage() {
-
-    this.router.navigateByUrl('home/vendedor/crear');
-  }
   goToProvinciaListarPage() {
-
     this.router.navigateByUrl('home/provincia/listar');
   }
-  goToProvinciaCrearPage() {
-
-    this.router.navigateByUrl('home/provincia/crear');
-  }
-
   goToLocalidadListarPage() {
-
     this.router.navigateByUrl('home/localidad/listar');
-  }
-  goToLocalidadCrearPage() {
-
-    this.router.navigateByUrl('home/localidad/crear');
   }
   logout() {
     this.authService.logout();

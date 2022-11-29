@@ -53,6 +53,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  goToPedidoCrearPage() {
+    this.router.navigateByUrl('home/pedido/crear');
+  }
+
   getPedidos() {
     this.pedidoService.getPedidos().subscribe((response: any) => {
       const pedidos = response as PedidoData[];
