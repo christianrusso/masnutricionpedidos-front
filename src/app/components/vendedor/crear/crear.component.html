@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="container-child">
+    <img src="" alt="" />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Razon Social</mat-label>
+      <mat-select [(ngModel)]="idEmpresa" name="food">
+        <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.idEmpresa">
+          {{empresa.RazonSocial}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label class="title">NickName</mat-label>
+      <input matInput name="name" [(ngModel)]="NickName" />
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label class="title">Password</mat-label>
+      <input matInput name="name" [(ngModel)]="Password" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">NombreApellido</mat-label>
+      <input matInput name="name" [(ngModel)]="NombreApellido" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">CodInterno</mat-label>
+      <input matInput name="name" [(ngModel)]="CodInterno" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Email</mat-label>
+      <input matInput name="name" [(ngModel)]="Email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">isAdmin</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="isAdmin"
+        class="phone_number"
+        [(ngModel)]="isAdmin"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Vendedor</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Vendedor creado con exito</div>
+    </ng-template>
+  </div>
+</div>

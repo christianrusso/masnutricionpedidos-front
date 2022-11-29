@@ -138,6 +138,31 @@ export class CoreComponent implements OnInit {
 
     this.router.navigateByUrl('home/empresa/crear');
   }
+  goToVendedorListarPage() {
+
+    this.router.navigateByUrl('home/vendedor/listar');
+  }
+  goToVendedorCrearPage() {
+
+    this.router.navigateByUrl('home/vendedor/crear');
+  }
+  goToProvinciaListarPage() {
+
+    this.router.navigateByUrl('home/provincia/listar');
+  }
+  goToProvinciaCrearPage() {
+
+    this.router.navigateByUrl('home/provincia/crear');
+  }
+
+  goToLocalidadListarPage() {
+
+    this.router.navigateByUrl('home/localidad/listar');
+  }
+  goToLocalidadCrearPage() {
+
+    this.router.navigateByUrl('home/localidad/crear');
+  }
   logout() {
     this.authService.logout();
   }

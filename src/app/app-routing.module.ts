@@ -112,6 +112,30 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'vendedor',
+        loadChildren: () =>
+          import('./components/vendedor/vendedor.module').then(
+            (m) => m.VendedorModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'provincia',
+        loadChildren: () =>
+          import('./components/provincia/provincia.module').then(
+            (m) => m.ProvinciaModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'localidad',
+        loadChildren: () =>
+          import('./components/localidad/localidad.module').then(
+            (m) => m.LocalidadModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="container-child">
+    <img src="" alt="" />
+
+    <mat-form-field appearance="fill">
+      <mat-label>ID Provincia</mat-label>
+      <mat-select [(ngModel)]="idProvincia" name="food">
+        <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.idProvincia">
+          {{provincia.Descripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="Descripcion" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">DescBreve</mat-label>
+      <input matInput name="name" [(ngModel)]="DescBreve" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">CodigoPostal</mat-label>
+      <input matInput name="name" [(ngModel)]="CodigoPostal" />
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Localidad</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Localidad creada con exito</div>
+    </ng-template>
+  </div>
+</div>

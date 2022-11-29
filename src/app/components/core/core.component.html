@@ -33,7 +33,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
 
             <button class="icon-button">
               <img
@@ -63,8 +63,8 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
-            
+
+
             <button class="icon-button">
               <img
                 class="icon"
@@ -131,7 +131,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
 
             <button class="icon-button">
               <img
@@ -203,7 +203,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
 
             <button class="icon-button">
               <img
@@ -241,7 +241,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
 
             <button class="icon-button">
               <img
@@ -279,7 +279,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
             <button class="icon-button">
               <img
                 class="icon"
@@ -315,7 +315,7 @@
       >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            
+
 
             <button class="icon-button">
               <img
@@ -394,7 +394,7 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion> 
+    </mat-accordion>
 
 
     <mat-accordion>
@@ -420,10 +420,77 @@
       </mat-expansion-panel>
     </mat-accordion>
 
+    <mat-accordion>
+      <mat-expansion-panel
+      class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
+            Vendedores</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button mat-button class="menu-button" (click)="goToVendedorListarPage()">
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToVendedorCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <mat-accordion>
+      <mat-expansion-panel
+      class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
+            Provincias</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button mat-button class="menu-button" (click)="goToProvinciaListarPage()">
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToProvinciaCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
 
 
 
-
+    <mat-accordion>
+      <mat-expansion-panel
+      class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
+            Localidades</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button mat-button class="menu-button" (click)="goToLocalidadListarPage()">
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToLocalidadCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
 
 
 

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="container-child">
+    <img src="" alt="" />
+
+    <mat-form-field>
+      <mat-label class="title">DescBreve</mat-label>
+      <input matInput name="name" [(ngModel)]="DescBreve" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="Descripcion" />
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Provincia</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Provincia creada con exito</div>
+    </ng-template>
+  </div>
+</div>

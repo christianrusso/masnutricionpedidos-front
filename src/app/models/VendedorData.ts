@@ -1,6 +1,6 @@
 export interface VendedorData {
     idEmpresa : number;
-    idVendedor : number;
+    idVendedor: number;
     NickName: string;
     Password: string;
     NombreApellido: string;
