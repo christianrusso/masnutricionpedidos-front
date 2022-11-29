@@ -42,6 +42,7 @@ th {
 }
 
 .container {
+  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,12 +68,14 @@ th {
 }
 
 .container-child {
+  background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #fff;
   width: 25%;
-  border-radius: 15px;
   padding: 20px;
   margin: auto;
 }

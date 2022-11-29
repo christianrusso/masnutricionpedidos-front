@@ -47,7 +47,8 @@ th {
   justify-content: center;
   height: 100vh;
   flex-wrap: wrap;
-  background-color: #002b5c;
+  background-color: white;
+  
 }
 
 .container .buttons{
@@ -91,13 +92,16 @@ th {
 }
 
 .container-child {
+  background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: #fff;
   width: 70%;
   height: auto;
-  border-radius: 15px;
+  
   padding: 30px;
   margin: auto;
 }
