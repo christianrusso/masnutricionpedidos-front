@@ -182,3 +182,16 @@
     color: black;
     padding: 5px;
   }
+
+
+  .icon-button{
+    background: none;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .icon-button .icon {
+    width: 18px;
+    padding-right: 10px;
+  }
