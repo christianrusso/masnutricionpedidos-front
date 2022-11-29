@@ -130,6 +130,14 @@ export class CoreComponent implements OnInit {
 
     this.router.navigateByUrl('home/pedido/crear');
   }
+  goToEmpresaListarPage() {
+
+    this.router.navigateByUrl('home/empresa/listar');
+  }
+  goToEmpresaCrearPage() {
+
+    this.router.navigateByUrl('home/empresa/crear');
+  }
   logout() {
     this.authService.logout();
   }

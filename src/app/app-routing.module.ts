@@ -22,7 +22,7 @@ const routes: Routes = [
           import('./components/tipo-canal/tipo-canal.module').then(
             (m) => m.TipoCanalModule
           ),
-        //canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: 'tipo-cliente',
@@ -96,14 +96,22 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
-      // {
-      //   path: 'pedido',
-      //   loadChildren: () =>
-      //     import('./components/pedido/pedido.module').then(
-      //       (m) => m.PedidoModule
-      //     ),
-      //   canActivate: [AuthGuard],
-      // },
+       {
+         path: 'pedido',
+         loadChildren: () =>
+           import('./components/pedido/pedido.module').then(
+             (m) => m.PedidoModule
+           ),
+         canActivate: [AuthGuard],
+       },
+      {
+        path: 'empresa',
+        loadChildren: () =>
+          import('./components/empresa/empresa.module').then(
+            (m) => m.EmpresaModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

@@ -1,4 +1,4 @@
-export class Pedido {
+export class PedidoEdit {
   readonly isAnulado: number;
   readonly isEnviadoxMail: number;
   readonly isCobrado: number;

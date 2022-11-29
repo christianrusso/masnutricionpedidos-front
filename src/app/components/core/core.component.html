@@ -318,8 +318,31 @@
           <span>Crear</span>
         </button>
       </mat-expansion-panel>
-    </mat-accordion>
+    </mat-accordion> 
 
+
+    <mat-accordion>
+      <mat-expansion-panel
+      class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon style="padding-right: 25px ;">perm_identity</mat-icon>
+            Empresas</mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <button mat-button class="menu-button" (click)="goToEmpresaListarPage()">
+          <mat-icon> format_list_bulleted</mat-icon>
+          <span>Listar</span>
+        </button>
+        <button mat-button class="menu-button" (click)="goToEmpresaCrearPage()">
+          <mat-icon>add</mat-icon>
+          <span>Crear</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
 
 
 

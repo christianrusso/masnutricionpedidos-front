@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="container-child">
+    <img src="" alt="" />
+    <mat-form-field>
+      <mat-label class="title">NickName</mat-label>
+      <input matInput name="name" [(ngModel)]="NickName" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">RazonSocial</mat-label>
+      <input matInput name="name" [(ngModel)]="RazonSocial" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Direccion</mat-label>
+      <input matInput name="name" [(ngModel)]="Direccion" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Email</mat-label>
+      <input matInput name="name" [(ngModel)]="Email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Icono</mat-label>
+      <input matInput name="name" [(ngModel)]="Icono" />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label class="title">CUIT</mat-label>
+      <input matInput name="name" [(ngModel)]="CUIT" />
+    </mat-form-field>
+
+
+
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Empresa</button>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Empresa creada con exito</div>
+    </ng-template>
+  </div>
+</div>
