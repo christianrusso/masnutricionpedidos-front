@@ -41,4 +41,7 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-familia-producto/listar`);
     }, 1000);
   }
+  goToListarTipoFamiliasPage(){
+    this.router.navigateByUrl(`home/tipo-familia/listar`);
+  }
 }

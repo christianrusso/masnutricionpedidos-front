@@ -39,4 +39,7 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoReglaPage(){
+    this.router.navigateByUrl(`home/tipo-regla-comercial/listar`);
+  }
 }

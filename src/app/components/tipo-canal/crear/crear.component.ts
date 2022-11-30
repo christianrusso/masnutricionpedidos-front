@@ -35,4 +35,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-canal/listar`);
     }, 1000);
   }
+
+  goToListarTipoCanalesPage(){
+    this.router.navigateByUrl(`home/tipo-canal/listar`);
+  }
 }

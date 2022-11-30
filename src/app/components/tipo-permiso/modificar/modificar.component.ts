@@ -39,4 +39,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoPermisoPage(){
+    this.router.navigateByUrl(`home/tipo-permisos/listar`);
+  }
+
 }

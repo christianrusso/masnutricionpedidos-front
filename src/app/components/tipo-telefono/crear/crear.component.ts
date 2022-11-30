@@ -35,4 +35,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-telefonos/listar`);
     }, 1000);
   }
+
+  goToListarTipoTelefonoPage(){
+    this.router.navigateByUrl(`home/tipo-telefonos/listar`);
+  }
 }

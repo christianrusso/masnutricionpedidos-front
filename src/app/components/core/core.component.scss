@@ -1,4 +1,7 @@
-  mat-toolbar {
+.mat-elevation-z8{
+  background-color: #FDFDFD;
+}
+mat-toolbar {
     background: #ffffff;
     color: white;
     display: flex;
@@ -142,7 +145,7 @@
     justify-content: center;
     width: 100vw;
     gap: 1em;
-    background-color: #ddd;
+    background-color: #FDFDFD;
     padding: 1em 0;
   }
 

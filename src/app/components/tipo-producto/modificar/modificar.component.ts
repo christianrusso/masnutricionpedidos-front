@@ -42,4 +42,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoProductoPage(){
+    this.router.navigateByUrl(`home/tipo-productos/listar`);
+  }
+
 }

@@ -39,4 +39,7 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoCanalesPage(){
+    this.router.navigateByUrl(`home/tipo-canal/listar`);
+  }
 }

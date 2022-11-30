@@ -48,4 +48,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoFamiliasPage(){
+    this.router.navigateByUrl(`home/tipo-familia/listar`);
+  }
+
 }

@@ -45,4 +45,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoIVAPage(){
+    this.router.navigateByUrl(`home/tipo-iva/listar`);
+  }
+
 }

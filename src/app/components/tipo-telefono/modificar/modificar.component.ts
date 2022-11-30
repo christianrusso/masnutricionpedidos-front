@@ -39,4 +39,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoTelefonoPage(){
+    this.router.navigateByUrl(`home/tipo-telefonos/listar`);
+  }
+
 }

@@ -35,4 +35,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-regla-comercial/listar`);
     }, 1000);
   }
+
+  goToListarTipoReglaPage(){
+    this.router.navigateByUrl(`home/tipo-regla-comercial/listar`);
+  }
 }

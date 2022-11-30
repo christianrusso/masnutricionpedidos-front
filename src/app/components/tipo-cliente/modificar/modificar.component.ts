@@ -39,4 +39,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoClientesPage(){
+    this.router.navigateByUrl(`home/tipo-cliente/listar`);
+  }
+
 }

@@ -1,14 +1,18 @@
 <div class="container">
+  <h2 class="title">Tipo Condiciones de Venta</h2>
   <div class="container-child">
     <mat-form-field>
       <mat-label class="title">descripcion</mat-label>
       <input matInput name="name" [(ngModel)]="descripcion" />
     </mat-form-field>
 
-    <button mat-raised-button color="warn" (click)="onEdit()">Editar Condicion de Venta</button>
 
     <ng-template [ngIf]="creado">
       <div class="message_create">Condicion de Venta actualizada con exito</div>
     </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarTipoCondicionesPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Condicion de Venta</button>
   </div>
 </div>

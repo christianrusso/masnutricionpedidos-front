@@ -35,4 +35,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-permisos/listar`);
     }, 1000);
   }
+
+  goToListarTipoPermisoPage(){
+    this.router.navigateByUrl(`home/tipo-permisos/listar`);
+  }
 }

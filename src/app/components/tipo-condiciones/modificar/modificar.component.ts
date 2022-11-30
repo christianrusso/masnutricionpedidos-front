@@ -39,4 +39,8 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
+  goToListarTipoCondicionesPage(){
+    this.router.navigateByUrl(`home/tipo-condiciones/listar`);
+  }
+
 }

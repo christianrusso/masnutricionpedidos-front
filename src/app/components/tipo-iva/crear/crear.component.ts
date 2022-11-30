@@ -41,4 +41,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-iva/listar`);
     }, 1000);
   }
+
+  goToListarTipoIVAPage(){
+    this.router.navigateByUrl(`home/tipo-iva/listar`);
+  }
 }

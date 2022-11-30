@@ -35,4 +35,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-cliente/listar`);
     }, 1000);
   }
+
+  goToListarTipoClientesPage(){
+    this.router.navigateByUrl(`home/tipo-cliente/listar`);
+  }
 }

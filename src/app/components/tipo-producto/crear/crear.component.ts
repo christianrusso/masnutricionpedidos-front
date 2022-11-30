@@ -37,4 +37,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/tipo-productos/listar`);
     }, 1000);
   }
+
+  goToListarTipoProductoPage(){
+    this.router.navigateByUrl(`home/tipo-productos/listar`);
+  }
 }
