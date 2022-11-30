@@ -21,7 +21,7 @@ export class CoreComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
   @Output() public sidenavToggle = new EventEmitter();
   rol: any = localStorage.getItem('rol');
-  nickname: any = 'asd';
+  nickname: any;
   constructor(private router: Router, private readonly authService: AuthService) {}
 
   @ViewChild('sidenav')

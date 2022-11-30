@@ -33,7 +33,7 @@ th {
 }
 
 .tabla-completa {
-  background-color: white;
+  background-color: #FDFDFD;
   padding: 70px 30px 0px 30px;
   height: calc(100vh - 64px);
   font-family: 'Quicksand';
@@ -42,6 +42,11 @@ th {
   font-size: 16px;
   line-height: 16px;
 }
+
+
+table td:nth-child(even) { background-color: #ffff; } table td:nth-child(odd) { background-color:#FDFDFD; }
+
+
 
 .crear-button{
   background-color: white;

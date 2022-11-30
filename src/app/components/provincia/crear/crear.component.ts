@@ -36,4 +36,8 @@ export class CrearComponent implements OnInit {
       this.router.navigateByUrl(`home/provincia/listar`);
     }, 1000);
   }
+
+  goToListarProvinciasPage(){
+    this.router.navigateByUrl(`home/provincia/listar`);
+  }
 }

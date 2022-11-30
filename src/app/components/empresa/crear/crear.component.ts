@@ -63,7 +63,7 @@ export class CrearComponent implements OnInit {
     }, 1000);
   }
 
-  goToListarClientesPage(){
-    this.router.navigateByUrl(`home/cliente/listar`);
+  goToListarEmpresasPage(){
+    this.router.navigateByUrl(`home/empresa/listar`);
   }
 }

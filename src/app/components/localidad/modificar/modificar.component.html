@@ -1,6 +1,6 @@
 <div class="container">
+  <h2 class="title">Localidades</h2>
   <div class="container-child">
-
     <mat-form-field appearance="fill">
       <mat-label>ID Provincia</mat-label>
       <mat-select [(ngModel)]="idProvincia" name="food">
@@ -25,10 +25,13 @@
       <input matInput name="name" [(ngModel)]="CodigoPostal" />
     </mat-form-field>
 
-    <button mat-raised-button color="warn" (click)="onEdit()">Editar Localidad</button>
 
     <ng-template [ngIf]="creado">
       <div class="message_create">Localidad actualizada con exito</div>
     </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarLocalidadesPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Localidad</button>
   </div>
 </div>

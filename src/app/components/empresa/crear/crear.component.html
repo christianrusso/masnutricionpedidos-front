@@ -1,6 +1,6 @@
 <div class="container">
+  <h2 class="title">Empresas</h2>
   <div class="container-child">
-    <img src="" alt="" />
     <mat-form-field>
       <mat-label class="title">NickName</mat-label>
       <input matInput name="name" [(ngModel)]="NickName" />
@@ -25,7 +25,7 @@
       <mat-label class="title">Icono</mat-label>
       <input matInput name="name" [(ngModel)]="Icono" />
     </mat-form-field>
-    
+
     <mat-form-field>
       <mat-label class="title">CUIT</mat-label>
       <input matInput name="name" [(ngModel)]="CUIT" />
@@ -33,10 +33,13 @@
 
 
 
-    <button mat-raised-button color="warn" (click)="onSend()">Crear Empresa</button>
 
     <ng-template [ngIf]="creado">
       <div class="message_create">Empresa creada con exito</div>
     </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarEmpresasPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onSend()">Crear Empresa</button>
   </div>
 </div>

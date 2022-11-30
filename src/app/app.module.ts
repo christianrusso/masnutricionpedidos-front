@@ -33,6 +33,12 @@ import { VendedorService } from './services/vendedor.service';
 import { ClienteModule } from './components/cliente/cliente.module';
 //import { PedidoModule } from './components/pedido/pedido.module';
 import { PedidoService } from './services/pedido.service';
+import { PedidoModule } from './components/pedido/pedido.module';
+import { EmpresaModule } from './components/empresa/empresa.module';
+import { VendedorModule } from './components/vendedor/vendedor.module';
+import { ProvinciaModule } from './components/provincia/provincia.module';
+import { LocalidadModule } from './components/localidad/localidad.module';
+import { BienvenidaModule } from './components/bienvenida/bienvenida.module';
 
 
 
@@ -47,7 +53,12 @@ import { PedidoService } from './services/pedido.service';
     SharedModule,
     AuthModule,
     ClienteModule,
-    //PedidoModule,
+    PedidoModule,
+    EmpresaModule,
+    VendedorModule,
+    ProvinciaModule,
+    LocalidadModule,
+    BienvenidaModule,
     TipoCanalModule,
     TipoClienteModule,
     TipoCondicionesModule,

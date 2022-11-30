@@ -75,7 +75,7 @@ export class AuthService {
             isBorrado,
             usuarioGraba
           );
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/home/bienvenida');
         } else {
           this.isAuthenticated = false;
           this.authStatusListener.next(false);

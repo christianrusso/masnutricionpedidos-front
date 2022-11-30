@@ -114,7 +114,7 @@ export class ModificarComponent implements OnInit {
     }, 1000);
   }
 
-  goToListarVendedorPage(){
+  goToListarVendedoresPage(){
     this.router.navigateByUrl(`home/vendedor/listar`);
   }
 }

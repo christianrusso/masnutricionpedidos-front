@@ -20,7 +20,7 @@ export class IsAuthGuard implements CanActivate {
   ): boolean {
     const isAuth = this.authService.getIsAuth();
     if (!isAuth) return true;
-    const url = isAuth ? 'home' : '';
+    const url = isAuth ? 'home/bienvenida' : '';
     this.router.navigate([url]);
     return true;
   }

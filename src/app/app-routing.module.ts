@@ -17,6 +17,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: 'bienvenida',
+        loadChildren: () =>
+          import('./components/bienvenida/bienvenida.module').then(
+            (m) => m.BienvenidaModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'tipo-canal',
         loadChildren: () =>
           import('./components/tipo-canal/tipo-canal.module').then(

@@ -65,4 +65,8 @@ export class ModificarComponent implements OnInit {
       this.router.navigateByUrl('home/localidad/listar');
     }, 1000);
   }
+
+  goToListarLocalidadesPage(){
+    this.router.navigateByUrl(`home/localidad/listar`);
+  }
 }
