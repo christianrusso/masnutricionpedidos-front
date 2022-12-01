@@ -17,7 +17,7 @@
         <mat-error *ngIf="PasswordInput.invalid">Por favor ingrese una contraseña valida</mat-error>
       </mat-form-field>
     </p>
-      <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading" [disabled]="this.error" class="loginButton">INGRESAR</button>
+      <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading" [disabled]="this.error" class="loginButton" autofocus>INGRESAR</button>
     </form>
   </div>
 </div>

@@ -61,7 +61,7 @@ export class CoreComponent implements OnInit {
   goToReglaListarPage(){
     this.router.navigateByUrl('home/tipo-regla-comercial/listar');
   }
-  goToTelefonoListarPage(){
+  goToTipoTelefonoListarPage(){
     this.router.navigateByUrl('home/tipo-telefonos/listar');
   }
   goToClienteListarPage() {
@@ -81,6 +81,24 @@ export class CoreComponent implements OnInit {
   }
   goToLocalidadListarPage() {
     this.router.navigateByUrl('home/localidad/listar');
+  }
+  goToAccesoListarPage() {
+    this.router.navigateByUrl('home/acceso/listar');
+  }
+  goToAccesoPermisoListarPage() {
+    this.router.navigateByUrl('home/accesoPermiso/listar');
+  }
+  goToDetallePedidoListarPage() {
+    this.router.navigateByUrl('home/detallePedido/listar');
+  }
+  goToEmailListarPage() {
+    this.router.navigateByUrl('home/email/listar');
+  }
+  goToOperacionListarPage() {
+    this.router.navigateByUrl('home/operacion/listar');
+  }
+  goToTelefonoListarPage() {
+    this.router.navigateByUrl('home/telefono/listar');
   }
   logout() {
     this.authService.logout();

@@ -144,6 +144,54 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'operacion',
+        loadChildren: () =>
+          import('./components/operacion/operacion.module').then(
+            (m) => m.OperacionModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'detallePedido',
+        loadChildren: () =>
+          import('./components/detalle-pedido/detalle-pedido.module').then(
+            (m) => m.DetallePedidoModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'email',
+        loadChildren: () =>
+          import('./components/email/email.module').then(
+            (m) => m.EmailModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'accesoPermiso',
+        loadChildren: () =>
+          import('./components/acceso-permiso/acceso-permiso.module').then(
+            (m) => m.AccesoPermisoModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'acceso',
+        loadChildren: () =>
+          import('./components/acceso/acceso.module').then(
+            (m) => m.AccesoModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'telefono',
+        loadChildren: () =>
+          import('./components/telefono/telefono.module').then(
+            (m) => m.TelefonoModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

@@ -39,6 +39,14 @@ import { VendedorModule } from './components/vendedor/vendedor.module';
 import { ProvinciaModule } from './components/provincia/provincia.module';
 import { LocalidadModule } from './components/localidad/localidad.module';
 import { BienvenidaModule } from './components/bienvenida/bienvenida.module';
+import { LocalidadService } from './services/localidad.service';
+import { ProvinciaService } from './services/provincia.service';
+import { DetalleOperacionService } from './services/detalle-operacion.service';
+import { DetallePedidoService } from './services/detalle-pedido.service';
+import { EmailService } from './services/email.service';
+import { GrupoAccesoPermisoService } from './services/grupo-acceso-permiso.service';
+import { GrupoAccesoService } from './services/grupo-acceso.service';
+import { TelefonoService } from './services/telefono.service';
 
 
 
@@ -75,6 +83,14 @@ import { BienvenidaModule } from './components/bienvenida/bienvenida.module';
     EmpresaService,
     VendedorService,
     PedidoService,
+    LocalidadService,
+    ProvinciaService,
+    DetalleOperacionService,
+    DetallePedidoService,
+    EmailService,
+    GrupoAccesoPermisoService,
+    GrupoAccesoService,
+    TelefonoService,
     TipoCanalService,
     TipoClienteService,
     TipoCondicionesVentaService,
