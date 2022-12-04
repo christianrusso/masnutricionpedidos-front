@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="title">Telefonos</h2>
+  <div class="container-child">
+    <mat-form-field appearance="fill">
+      <mat-label>ID Cliente</mat-label>
+      <mat-select [(ngModel)]="idCliente" name="food">
+        <mat-option *ngFor="let cliente of clientesLista" [value]="cliente.idCliente">
+          {{cliente.nombreFantasia}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>ID Tipo Telefono</mat-label>
+      <mat-select [(ngModel)]="idTipoTelefono" name="food">
+        <mat-option *ngFor="let telefono of telefonosLista" [value]="telefono.idTipoTelefono">
+          {{telefono.descripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="descripcion" />
+    </mat-form-field>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Telefono actualizado con exito</div>
+    </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarTelefonosPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Telefono</button>
+  </div>
+</div>

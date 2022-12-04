@@ -1,0 +1,81 @@
+<div class="container">
+  <h2 class="title">Detalle Pedido</h2>
+  <div class="container-child">
+    <mat-form-field appearance="fill">
+      <mat-label>ID Pedido</mat-label>
+      <mat-select [(ngModel)]="idPedido" name="food">
+        <mat-option *ngFor="let pedido of pedidosLista" [value]="pedido.idPedido">
+          {{pedido.descripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">cantidad</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="cantidad"
+        class="phone_number"
+        [(ngModel)]="cantidad"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">detalle</mat-label>
+      <input matInput name="name" [(ngModel)]="detalle" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">porcDescuentoItem</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="porcDescuentoItem"
+        class="phone_number"
+        [(ngModel)]="porcDescuentoItem"precioUnitario
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">precioUnitario</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="precioUnitario"
+        class="phone_number"
+        [(ngModel)]="precioUnitario"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">importe</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="importe"
+        class="phone_number"
+        [(ngModel)]="importe"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">isEntregadoItem</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="isEntregadoItem"
+        class="phone_number"
+        [(ngModel)]="isEntregadoItem"
+      />
+    </mat-form-field>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Detalle Pedido actualizado con exito</div>
+    </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarDetallePedidoPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Detalle Pedido</button>
+  </div>
+</div>
