@@ -16,4 +16,11 @@ export const environment = {
   apiLocalidad: 'https://masnutricionback.herokuapp.com/api/localidad',
   apiProvincia: 'https://masnutricionback.herokuapp.com/api/provincia',
   apiPedido: 'https://masnutricionback.herokuapp.com/api/pedido',
+  apiOperacion: 'https://masnutricionback.herokuapp.com/api/operacion',
+  apiDetallePedido: 'https://masnutricionback.herokuapp.com/api/detallePedido',
+  apiEmail:'https://masnutricionback.herokuapp.com/api/email',
+  apiAccesoPermiso:'https://masnutricionback.herokuapp.com/api/accesoPermiso',
+  apiAcceso:'https://masnutricionback.herokuapp.com/api/acceso',
+  apiTelefono: 'https://masnutricionback.herokuapp.com/api/telefono',
+  apiProducto: 'https://masnutricionback.herokuapp.com/api/producto'
 };
