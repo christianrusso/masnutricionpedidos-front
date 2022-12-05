@@ -33,14 +33,42 @@ th {
 }
 
 .tabla-completa {
-  background-color: #fdfdfd;
+  background-color: #FDFDFD;
   padding: 70px 30px 0px 30px;
   height: calc(100vh - 64px);
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
+}
+.titulo-abm {
+  margin-top: 0;
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: rgba(0, 0, 0, 0.87);
+}
+.container-descripcion {
+  display: flex;
+  font-family: "Quicksand";
+  flex-direction: row;
+  justify-content: space-between;
+  p {
+    width: 35%;
+    height: 100px;
+    top: 180px;
+    font-family: "Quicksand";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: #5e6366;
+  }
 }
 .titulo-abm {
   margin-top: 0;
@@ -106,12 +134,8 @@ th {
   height: 42px;
 }
 
-.container mat-form-field {
-  width: 75%;
-  color: #000;
-  align-self: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+mat-form-field {
+  margin-right: 30px;
 }
 
 .container-child {
@@ -152,16 +176,19 @@ th {
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
   color: #070ab0 !important;
+  margin-right: 30px;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
   background-color: #070ab0 !important;
+  margin-right: 30px;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
   background-color: #070ab0 !important;
+  margin-right: 30px;
 }
 
 input [type="number"] {
