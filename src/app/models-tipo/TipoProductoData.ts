@@ -1,4 +1,4 @@
-export interface ProductoData {
+export interface TipoProductoData {
   idTipoProducto : number;
   descripcion: string;
   DescBreve: string;

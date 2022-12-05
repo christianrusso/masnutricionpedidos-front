@@ -8,7 +8,7 @@ import {
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-core',
@@ -99,6 +99,9 @@ export class CoreComponent implements OnInit {
   }
   goToTelefonoListarPage() {
     this.router.navigateByUrl('home/telefono/listar');
+  }
+  goToProductoListarPage(){
+    this.router.navigateByUrl('home/producto/listar');
   }
   logout() {
     this.authService.logout();

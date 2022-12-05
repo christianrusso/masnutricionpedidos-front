@@ -192,6 +192,14 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'producto',
+        loadChildren: () =>
+          import('./components/producto/producto.module').then(
+            (m) => m.ProductoModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

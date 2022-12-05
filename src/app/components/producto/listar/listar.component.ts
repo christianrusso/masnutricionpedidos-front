@@ -4,8 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { TipoProductoData } from 'src/app/models-tipo/TipoProductoData';
-import { TipoProductoService } from 'src/app/services/tipo-producto.service';
+import { ProductoData } from 'src/app/models/ProductoData';
+import { ProductoService } from 'src/app/services/producto.service';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -16,22 +16,26 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
 export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   constructor(
-    private readonly tipoproductoService: TipoProductoService,
+    private productoServices: ProductoService,
     private readonly router: Router,
     private dialog: MatDialog
   ) {
     this.dataSource = new MatTableDataSource();
   }
 
-  displayedColumnsProducto: string[] = [
-    'idTipoProducto',
+  displayedColumnsProductos: string[] = [
+    'id_producto',
     'descripcion',
-    'DescBreve',
+    'idTipoProducto',
+    'idTipoFamiliaProducto',
+    'unidadesFijasPallet',
+    'porcRelacionPallet',
+    'precioReferencia',
     'modificar',
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<TipoProductoData>();
+  dataSource = new MatTableDataSource<ProductoData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -46,22 +50,12 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  goToProductosCrearPage(){
-    this.router.navigateByUrl('home/tipo-productos/crear');
-  }
-
   getProductos() {
-    this.tipoproductoService.getProductos().subscribe((response: any) => {
-      console.log(response);
-
-      const ivas = response as TipoProductoData[];
-      ivas.forEach((element) => {
-        element.fechaGraba = element.fechaGraba.slice(0, -14);
-        if (element.fechaModifica) {
-          element.fechaModifica = element.fechaModifica.slice(0, -14);
-        }
-      });
-      this.dataSource.data = ivas;
+    this.productoServices.getProductos().subscribe((response: any) => {
+      
+      const productos = response as ProductoData[];
+      console.log(productos);
+      this.dataSource.data = productos;
     });
   }
 
@@ -74,8 +68,11 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(id: number) {
-    this.router.navigateByUrl(`home/tipo-productos/modificar/${id}`);
+  goToEditPage(idProducto: number) {
+    this.router.navigateByUrl(`home/producto/modificar/${idProducto}`);
+  }
+  goToProductosCrearPage(){
+    this.router.navigateByUrl(`home/producto/crear`);
   }
 
   openDialog(id: number): void {
@@ -87,7 +84,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.tipoproductoService.deleteProducto(id).subscribe((response) => {
+        this.productoServices.deleteProducto(id).subscribe((response) => {
           setTimeout(() => {
             location.reload();
           }, 100);

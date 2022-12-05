@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="title">Producto</h2>
+  <div class="container-child">
+   
+    <mat-form-field>
+      <mat-label class="title">Tipo Producto</mat-label>
+      <mat-select [(ngModel)]="idTipoProducto" name="food">
+        <mat-option *ngFor="let id of listaIdTipoProducto" [value]="id.idTipoProducto">
+          {{id.descripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label class="title">Tipo Familia Producto</mat-label>
+      <mat-select [(ngModel)]="idTipoFamiliaProducto" name="food">
+        <mat-option *ngFor="let id of listaTipoFamiliaProducto" [value]="id.idTipoFamiliaProducto">
+          {{id.descripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="descripcion" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Unidades Fijas Pallet</mat-label>
+      <input matInput name="name" [(ngModel)]="unidadesFijasPallet" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Porcentaje Relacion Pallet</mat-label>
+      <input matInput name="name" [(ngModel)]="porcRelacionPallet" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">precioReferencia</mat-label>
+      <input matInput name="name" [(ngModel)]="precioReferencia" />
+    </mat-form-field>
+
+
+
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Producto editado con exito</div>
+    </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarProductosPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()">Editar Producto</button>
+  </div>
+</div>

@@ -47,6 +47,7 @@ import { EmailService } from './services/email.service';
 import { GrupoAccesoPermisoService } from './services/grupo-acceso-permiso.service';
 import { GrupoAccesoService } from './services/grupo-acceso.service';
 import { TelefonoService } from './services/telefono.service';
+import { ProductoModule } from './components/producto/producto.module';
 
 
 
@@ -67,6 +68,7 @@ import { TelefonoService } from './services/telefono.service';
     ProvinciaModule,
     LocalidadModule,
     BienvenidaModule,
+    ProductoModule,
     TipoCanalModule,
     TipoClienteModule,
     TipoCondicionesModule,
