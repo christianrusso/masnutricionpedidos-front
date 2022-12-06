@@ -12,6 +12,16 @@ td,
 th {
   width: 11%;
   overflow: auto;
+  font-family: 'Quicksand';
+}
+
+th{
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: rgba(0, 0, 0, 0.87);
 }
 .opciones {
   width: 5%;
@@ -21,7 +31,7 @@ th {
 }
 
 .filter-class {
-  background-color: #fafafa;
+  background-color: #FDFDFD;
 }
 
 .label-search {
@@ -30,6 +40,7 @@ th {
 
 .input-search {
   margin-left: 15px;
+  font-family: 'Quicksand';
 }
 
 .tabla-completa {
@@ -116,6 +127,13 @@ th {
   margin-bottom: 20px;
 }
 
+.icon{
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -135,6 +153,7 @@ th {
 }
 
 mat-form-field {
+  background-color: #FDFDFD;
   margin-right: 30px;
 }
 
@@ -175,19 +194,19 @@ mat-form-field {
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #070ab0 !important;
+  color: #00BC38 !important;
   margin-right: 30px;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: #070ab0 !important;
+  background-color: #FDFDFD !important;
   margin-right: 30px;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: #070ab0 !important;
+  background-color: #FDFDFD !important;
   margin-right: 30px;
 }
 

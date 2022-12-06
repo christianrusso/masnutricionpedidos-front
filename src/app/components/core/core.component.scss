@@ -55,6 +55,16 @@ mat-toolbar {
     border-radius: 10px;
   }
 
+  mat-expansion-panel-header:hover{
+    background-color: #FFC700 !important;
+    border-radius: 10px;
+  }
+
+  mat-expansion-panel-header button:hover{
+    background-color: #FFC700 !important;
+    border-radius: 10px;
+  }
+
   mat-sidenav {
     margin: 16px;
     width: 300px;

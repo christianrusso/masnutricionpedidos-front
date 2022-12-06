@@ -1,6 +1,12 @@
 <div class="tabla-completa">
-  <button class="crear-button" (click)="goToPedidoCrearPage()">Crear nuevo</button>
-  <mat-form-field appearance="standard" class="filter-class">
+  <p class="titulo-abm" style="margin-left: 30px; margin-bottom: 10px;">Pedidos</p>
+  <div class="container-descripcion">
+    <p style="margin-left: 30px;">fringilla massa amet, Sed at viverra elit ex malesuada nibh Sed lacus, Praesent viverra id tincidunt turpis nisi Nunc viverra Nullam scelerisque nulla, lacus,
+
+    </p>
+    <button class="crear-button" (click)="goToPedidoCrearPage()">Crear nuevo</button>
+  </div>
+  <mat-form-field appearance="standard" class="filter-class" style="margin-left: 30px;">
     <mat-label class="label-search">Busqueda</mat-label>
     <input
       matInput
@@ -8,9 +14,10 @@
       placeholder="Ej: Ariel"
       #input
       class="input-search"
+      style="margin-right: 30px;"
     />
   </mat-form-field>
-  <div class="mat-elevation-z8" style="box-shadow: none;">
+  <div class="mat-elevation-z8" style="box-shadow: none;margin-left: 30px; margin-right: 10px;">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- ID Columna -->
