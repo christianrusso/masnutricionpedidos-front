@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="title">Localidades</h2>
   <div class="container-child">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>ID Provincia</mat-label>
       <mat-select [(ngModel)]="idProvincia" name="food">
         <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.idProvincia">

@@ -4,14 +4,14 @@
     <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
     <p>
       <mat-form-field appearance="outline" class="loginInput">
-        <mat-label>Nickname</mat-label>
-        <input  matInput name="NickName" type="text" placeholder="NickName" ngModel #NickNameInput="ngModel" >
+        <mat-label>Usuario</mat-label>
+        <input  matInput name="NickName" type="text" placeholder="Usuario" ngModel #NickNameInput="ngModel" >
         <mat-error *ngIf="NickNameInput.invalid">Por favor ingrese un nombre de NickName valido</mat-error>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline" class="loginInput">
-        <mat-label>Password</mat-label>
+        <mat-label>Contraseña</mat-label>
         <input  type="password" name="Password"  matInput placeholder="Contraseña" ngModel #PasswordInput="ngModel"
           required>
         <mat-error *ngIf="PasswordInput.invalid">Por favor ingrese una contraseña valida</mat-error>

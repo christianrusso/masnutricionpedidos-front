@@ -47,7 +47,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>ID Cliente</mat-label>
         <mat-select [(ngModel)]="idCliente" name="food">
           <mat-option *ngFor="let cliente of clienteLista" [value]="cliente.idCliente">
@@ -57,7 +57,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>ID Vendedor</mat-label>
         <mat-select [(ngModel)]="idVendedor" name="food">
           <mat-option *ngFor="let vendedor of vendedoresLista" [value]="vendedor.idVendedor">
@@ -66,7 +66,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>ID Tipo Regla Comercial</mat-label>
         <mat-select [(ngModel)]="idTipoReglaComercial" name="food">
           <mat-option *ngFor="let regla of reglasLista" [value]="regla.idTipoReglaComercial">
@@ -88,7 +88,7 @@
     </div>
 
     <div class="caja2">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>ID Tipo Condiciones de Venta</mat-label>
         <mat-select [(ngModel)]="idTipoCondicionesDeVenta" name="food">
           <mat-option *ngFor="let condicion of condicionesLista" [value]="condicion.idTipoCondicionesDeVenta">

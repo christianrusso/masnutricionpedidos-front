@@ -26,6 +26,8 @@ th {
 
 .label-search {
   margin-left: 15px;
+  font-family: 'Quicksand';
+  font-weight: 600;
 }
 
 .input-search {
@@ -127,20 +129,18 @@ border-radius: 5px;
   margin-top: 15px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: #070ab0 !important;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #00BC38;
 }
 
-::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: #070ab0 !important;
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #00BC38;
 }
 
-::ng-deep.mat-form-field-ripple {
-  /*change color of underline when focused*/
-  background-color: #070ab0 !important;
-  ;
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: #00BC38;
 }
 
 

@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="title">Grupo Acceso Permiso</h2>
   <div class="container-child">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>ID Grupo Acceso</mat-label>
       <mat-select [(ngModel)]="idGrupoAcceso" name="food">
         <mat-option *ngFor="let acceso of accesosLista" [value]="acceso.idGrupoAcceso">
@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>ID Tipo Permiso</mat-label>
       <mat-select [(ngModel)]="idTipoPermiso" name="food">
         <mat-option *ngFor="let permiso of tipoPermisoLista" [value]="permiso.idTipoPermiso">

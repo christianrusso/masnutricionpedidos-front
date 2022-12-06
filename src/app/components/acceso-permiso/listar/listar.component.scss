@@ -26,6 +26,8 @@ th {
 
 .label-search {
   margin-left: 15px;
+  font-family: 'Quicksand';
+  font-weight: 600;
 }
 
 .input-search {
@@ -195,6 +197,10 @@ input::-webkit-inner-spin-button {
   color: #fafafa;
   display: flex;
   justify-content: center;
+}
+
+mat-paginator{
+  font-family: 'Quicksand';
 }
 
 @media (max-width:1000px) {

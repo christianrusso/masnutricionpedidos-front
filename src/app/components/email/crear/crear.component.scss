@@ -26,6 +26,13 @@ th {
 
 .label-search {
   margin-left: 15px;
+  font-family: 'Quicksand';
+  font-weight: 600;
+}
+
+mat-label mat-select mat-option{
+  font-family: 'Quicksand';
+  font-weight: 600;
 }
 
 .input-search {

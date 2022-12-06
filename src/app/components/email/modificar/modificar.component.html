@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="title">Emails</h2>
   <div class="container-child">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>ID Cliente</mat-label>
       <mat-select [(ngModel)]="idCliente" name="food">
         <mat-option *ngFor="let cliente of clientesLista" [value]="cliente.idCliente">
