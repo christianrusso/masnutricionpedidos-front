@@ -27,9 +27,12 @@
   color: #00BC38;
 }
 
-
+mat-label{
+  font-family: 'Quicksand';
+}
 .loginInput{
   width: 328px;
+  font-family: 'Quicksand';
 }
 
 .parent {
@@ -51,6 +54,7 @@
   text-align: center;
   background-color: #fff;
   border-radius: 4%;
+  font-family: 'Quicksand';
 }
 
 .login img {
