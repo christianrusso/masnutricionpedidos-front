@@ -21,12 +21,12 @@ export class CrearComponent implements OnInit {
   }
 
   idPedido: number = 0;
-  cantidad: number = 0;
+  cantidad!: number;
   detalle: string = '';
-  porcDescuentoItem: number = 0;
-  precioUnitario: number = 0;
-  importe: number = 0;
-  isEntregadoItem: number = 0;
+  porcDescuentoItem!: number;
+  precioUnitario!: number;
+  importe!: number;
+  isEntregadoItem!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
   pedidosLista: PedidoData[] = [];
 

@@ -5,7 +5,7 @@ export class VendedorEdit {
   readonly NombreApellido: string;
   readonly CodInterno: string;
   readonly Email: string;
-  readonly isAdmin: string;
+  readonly isAdmin: number;
   readonly usuarioModifica: string;
 
   constructor({
@@ -24,7 +24,7 @@ export class VendedorEdit {
     NombreApellido: string;
     CodInterno: string;
     Email: string;
-    isAdmin: string;
+    isAdmin: number;
     usuarioModifica: string;
   }) {
     this.idEmpresa = idEmpresa;

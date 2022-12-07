@@ -19,8 +19,8 @@ export class CrearComponent implements OnInit {
 
   descripcion: string = '';
   DescBreve: string = '';
-  unidadesFijasPallet: number = 0;
-  porcRelacionPallet: number = 0;
+  unidadesFijasPallet!: number;
+  porcRelacionPallet!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
 
   ngOnInit(): void {}
@@ -42,6 +42,6 @@ export class CrearComponent implements OnInit {
     }, 1000);
   }
   goToListarTipoFamiliasPage(){
-    this.router.navigateByUrl(`home/tipo-familia/listar`);
+    this.router.navigateByUrl(`home/tipo-familia-producto/listar`);
   }
 }

@@ -92,10 +92,6 @@ input{
   box-shadow: 0px 16px 24px rgba(0, 188, 56, 0.17), 0px 6px 12px rgba(54, 123, 245, 0.16);
 }
 
-#aplicar_cliente:hover{
-  background-color: #00BC38;
-  color: #FDFDFD;
-}
 
 #button_cancelar{
   background-color: #fff;
@@ -111,6 +107,10 @@ input{
   box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);
 }
 
+#aplicar_cliente:hover{
+  background-color: #00BC38;
+  color: #FDFDFD;
+}
 #button_cancelar:hover{
   background-color: #FF171F;
   color: #FDFDFD;

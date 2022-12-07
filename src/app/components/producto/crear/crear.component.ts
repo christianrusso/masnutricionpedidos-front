@@ -51,8 +51,8 @@ export class CrearComponent implements OnInit {
   descripcion: string = '';
   idTipoProducto: number = 0;
   idTipoFamiliaProducto: number = 0;
-  unidadesFijasPallet: number = 0;
-  porcRelacionPallet: number = 0;
+  unidadesFijasPallet!: number;
+  porcRelacionPallet!: number;
   precioReferencia: string = '';
   usuarioGraba: any = localStorage.getItem('NickName');
   listaIdTipoProducto: TipoProductoData[] = [];

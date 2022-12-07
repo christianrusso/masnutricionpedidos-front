@@ -59,7 +59,7 @@ export class ModificarComponent implements OnInit {
   NombreApellido: string = '';
   CodInterno: string = '';
   Email: string = '';
-  isAdmin: string = '';
+  isAdmin!:number;
   usuarioModifica: any = localStorage.getItem('NickName');
 
   empresasLista: EmpresaData[] = [];

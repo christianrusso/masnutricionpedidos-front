@@ -1,7 +1,7 @@
 <div class="container">
-  <h2 class="title">Vendedores</h2>
+  <h2 class="title" style="padding-left: 5%;">Vendedores</h2>
   <div class="container-child">
-    <mat-form-field appearance="outline">
+    <mat-form-field>
       <mat-label>Razon Social</mat-label>
       <mat-select [(ngModel)]="idEmpresa" name="food">
         <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.idEmpresa">
@@ -54,7 +54,7 @@
     </ng-template>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarVendedoresPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onEdit()">Editar Vendedor</button>
+    <button mat-raised-button color="warn" (click)="goToListarVendedoresPage()" id="button_cancelar">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()" id="aplicar">Editar Vendedor</button>
   </div>
 </div>

@@ -49,7 +49,7 @@ export class ModificarComponent implements OnInit {
   }
 
   goToListarTipoFamiliasPage(){
-    this.router.navigateByUrl(`home/tipo-familia/listar`);
+    this.router.navigateByUrl(`home/tipo-familia-producto/listar`);
   }
 
 }

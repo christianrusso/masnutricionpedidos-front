@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="title">Localidades</h2>
+  <h2 class="title" style="padding-left: 5%;">Localidades</h2>
   <div class="container-child">
     <mat-form-field>
       <mat-label>ID Provincia</mat-label>
@@ -31,7 +31,7 @@
     </ng-template>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarLocalidadesPage()" style="color: #FF171F; box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onEdit()">Editar Localidad</button>
+    <button mat-raised-button color="warn" (click)="goToListarLocalidadesPage()" id="button_cancelar">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()" id="aplicar">Editar Localidad</button>
   </div>
 </div>
