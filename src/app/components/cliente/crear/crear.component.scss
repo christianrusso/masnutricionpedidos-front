@@ -37,11 +37,13 @@ th {
 .title{
   font-family: 'Quicksand';
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 input{
   font-family: 'Quicksand';
   font-weight: 600;
+  margin-left: 5px;
   padding-left: 20px;
 }
 
@@ -69,7 +71,6 @@ input{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
   gap: 1rem;
   font-family: 'Quicksand';
   border: 0px solid white;
@@ -122,7 +123,6 @@ input{
   align-self: center;
   font-family: 'Quicksand';
   background: none;
-  padding: 0.75em 0.75em 0 0.75em;
 }
 
 .container-child {
