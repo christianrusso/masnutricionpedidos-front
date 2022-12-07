@@ -25,7 +25,7 @@ export class CrearComponent implements OnInit {
 
   idPedido: number = 0;
   idDetallePedido: number = 0;
-  cantidad: number = 0;
+  cantidad!: number;
   detalle: string = '';
   porcDescuentoItem: number = 0;
   precioUnitario: number = 0;

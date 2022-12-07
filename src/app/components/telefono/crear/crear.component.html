@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="title">Telefonos</h2>
   <div class="container-child">
-    <mat-form-field appearance="outline">
+    <mat-form-field>
       <mat-label>ID Cliente</mat-label>
       <mat-select [(ngModel)]="idCliente" name="food">
         <mat-option *ngFor="let cliente of clienteLista" [value]="cliente.idCliente">
@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field>
       <mat-label>ID Tipo Telefono</mat-label>
       <mat-select [(ngModel)]="idTipoTelefono" name="food">
         <mat-option *ngFor="let telefono of telefonosLista" [value]="telefono.idTipoTelefono">

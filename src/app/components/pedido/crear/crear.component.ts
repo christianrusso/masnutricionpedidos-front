@@ -56,27 +56,25 @@ export class CrearComponent implements OnInit {
   filteredOptions?: Observable<TipoClienteData[]>;
   selected = 'option2';
 
-
-
-  isAnulado  : number = 0;
-  isEnviadoxMail	: number = 0;
-  isCobrado: number = 0;
-  isFinalizado: number = 0;
-  idCliente : number = 0;
-  idVendedor  : number = 0;
-  idTipoReglaComercial	: number = 0;
-  idAbono: number = 0;
-  idTipoCondicionesDeVenta: number = 0;
-  fechaPedido : any = 0;
-  porcDescuentoGeneral  : number = 0;
-  descripcion	: string = '';
+  isAnulado!: number;
+  isEnviadoxMail!: number;
+  isCobrado!: number;
+  isFinalizado!: number;
+  idCliente!: number;
+  idVendedor!: number;
+  idTipoReglaComercial!: number;
+  idAbono!: number;
+  idTipoCondicionesDeVenta!: number;
+  fechaPedido!: any;
+  porcDescuentoGeneral!: number;
+  descripcion: string = '';
   nroRemito: string = '';
-  subtotal: number = 0;
-  impuestos: number = 0;
-  subtotal2: number = 0;
-  ivaInscriptoPorc: number = 0;
-  ivaInscripto: number = 0;
-  total: number = 0;
+  subtotal!: number;
+  impuestos!: number;
+  subtotal2!: number;
+  ivaInscriptoPorc!: number;
+  ivaInscripto!: number;
+  total!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
 
   clienteLista: ClienteData[] = [];
@@ -89,54 +87,54 @@ export class CrearComponent implements OnInit {
   reglasLista: ReglaData[] = [];
   condicionesLista: CondicionData[] = [];
 
-
   ngOnInit(): void {
     this.getIds();
   }
 
-  getIds(){
+  getIds() {
     this.getidCliente();
     this.getidVendedor();
     this.getidTipoReglaComercial();
     this.getidTipoCondicionesDeVenta();
   }
 
-  getidCliente(){
+  getidCliente() {
     this.clienteServices.getClientes().subscribe((response: any) => {
       const clientes = response as ClienteData[];
-      clientes.forEach(element => {
+      clientes.forEach((element) => {
         this.clienteLista.push(element);
       });
     });
   }
 
-  getidVendedor(){
+  getidVendedor() {
     this.vendedorService.getVendedores().subscribe((response: any) => {
       const vendedores = response as VendedorData[];
-      vendedores.forEach(element => {
+      vendedores.forEach((element) => {
         this.vendedoresLista.push(element);
       });
     });
   }
 
-  getidTipoReglaComercial(){
+  getidTipoReglaComercial() {
     this.tipoReglaComercialService.getReglas().subscribe((response: any) => {
       const reglas = response as ReglaData[];
-      reglas.forEach(element => {
+      reglas.forEach((element) => {
         this.reglasLista.push(element);
       });
     });
   }
 
-  getidTipoCondicionesDeVenta(){
-    this.tipoCondicionesVentaService.getCondiciones().subscribe((response: any) => {
-      const condiciones = response as CondicionData[];
-      condiciones.forEach(element => {
-        this.condicionesLista.push(element);
+  getidTipoCondicionesDeVenta() {
+    this.tipoCondicionesVentaService
+      .getCondiciones()
+      .subscribe((response: any) => {
+        const condiciones = response as CondicionData[];
+        condiciones.forEach((element) => {
+          this.condicionesLista.push(element);
+        });
       });
-    });
   }
-
 
   onSend() {
     const pedido = new Pedido({
@@ -159,7 +157,7 @@ export class CrearComponent implements OnInit {
       ivaInscriptoPorc: this.ivaInscriptoPorc,
       ivaInscripto: this.ivaInscripto,
       total: this.total,
-      usuarioGraba : this.usuarioGraba
+      usuarioGraba: this.usuarioGraba,
     });
     this.pedidoService.postPedido(pedido).subscribe((response) => {
       console.log(response);
@@ -170,7 +168,7 @@ export class CrearComponent implements OnInit {
     }, 1000);
   }
 
-  goToListarPedidosPage(){
+  goToListarPedidosPage() {
     this.router.navigateByUrl(`home/pedido/listar`);
   }
 }

@@ -1,9 +1,8 @@
 <div class="container">
-
+  <h2 class="title" style="padding-left: 5%;">Clientes</h2>
   <div class="container-child">
-
     <div class="caja1">
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Tipo Cliente</mat-label>
         <mat-select [(ngModel)]="idTipoCliente" name="food">
           <mat-option *ngFor="let cliente of tipoClienteLista" [value]="cliente.idTipoCliente">
@@ -12,7 +11,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Tipo Canal</mat-label>
         <mat-select [(ngModel)]="idTipoCanal" name="food">
           <mat-option *ngFor="let canal of tipoCanalLista" [value]="canal.idTipoCanal">
@@ -21,7 +20,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>Razon Social</mat-label>
         <mat-select [(ngModel)]="razonSocial" name="food">
           <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.RazonSocial">
@@ -35,7 +34,7 @@
         <input matInput name="name" [(ngModel)]="nombreFantasia" />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>Tipo IVA</mat-label>
         <mat-select [(ngModel)]="idTipoIVA" name="food">
           <mat-option *ngFor="let iva of ivasLista" [value]="iva.idTipoIVA">
@@ -44,7 +43,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>CUIT</mat-label>
         <mat-select [(ngModel)]="CUIT" name="food">
           <mat-option *ngFor="let empresa of empresasLista" [value]="empresa.CUIT">
@@ -76,7 +75,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Vendedor Asignado</mat-label>
         <mat-select [(ngModel)]="idVendedorAsignado" name="food">
           <mat-option *ngFor="let vendedor of vendedoresLista" [value]="vendedor.idVendedor">
@@ -117,7 +116,7 @@
     </div>
 
     <div class="caja3">
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Provincia</mat-label>
         <mat-select [(ngModel)]="idProvincia" name="food">
           <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.idProvincia">
@@ -126,7 +125,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Localidad</mat-label>
         <mat-select [(ngModel)]="idLocalidad" name="food">
           <mat-option *ngFor="let localidad of localidadesLista" [value]="localidad.idLocalidad">
@@ -135,7 +134,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>Codigo Postal</mat-label>
         <mat-select [(ngModel)]="CP" name="food">
           <mat-option *ngFor="let localidad of localidadesLista" [value]="localidad.CodigoPostal">
@@ -163,8 +162,8 @@
 
 
     <div class="buttons">
-      <button mat-stroked-button color="warn" (click)="onEdit()">Aplicar Cambios</button>
-      <button mat-stroked-button color="warn" (click)="goToListarClientesPage()" class="button_cancelar">Cancelar</button>
+      <button mat-stroked-button color="warn" (click)="onEdit()" id="aplicar_cliente">Aplicar Cambios </button>
+      <button mat-stroked-button color="warn" (click)="goToListarClientesPage()" id="button_cancelar">Cancelar</button>
     </div>
 
 

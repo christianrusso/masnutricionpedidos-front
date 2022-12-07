@@ -1,9 +1,9 @@
 <div class="container">
   <h2 class="title">Localidades</h2>
   <div class="container-child">
-    <mat-form-field appearance="outline">
-      <mat-label>ID Provincia</mat-label>
-      <mat-select [(ngModel)]="idProvincia" name="food">
+    <mat-form-field>
+      <mat-label style="padding-left: 20px; font-family:'Quicksand';">ID Provincia</mat-label>
+      <mat-select [(ngModel)]="idProvincia" style="padding-left: 20px;">
         <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.idProvincia">
           {{provincia.Descripcion}}
         </mat-option>

@@ -34,8 +34,19 @@ th {
   margin-left: 15px;
 }
 
+.title{
+  font-family: 'Quicksand';
+  margin-bottom: 0;
+}
+
+input{
+  font-family: 'Quicksand';
+  font-weight: 600;
+  padding-left: 20px;
+}
+
 .tabla-completa {
-  background-color: #b8b5b447;
+  background-color: white;
   padding: 10px 30px 30px 30px
 }
 
@@ -50,6 +61,7 @@ th {
   height: 100vh;
   flex-wrap: wrap;
   background-color: #FDFDFD;
+
 }
 
 .container .buttons{
@@ -59,29 +71,48 @@ th {
   align-items: center;
   width: 90%;
   gap: 1rem;
+  font-family: 'Quicksand';
+  border: 0px solid white;
+  border-radius: 99px;
+  width: 213px;
 }
 
-.container button {
+#aplicar_cliente{
   background-color: #fff;
   color: #00BC38;
-  border-radius: 17px;
-  width: 75%;
+  border-radius: 99px;
+  width: 213px;
   align-self: center;
   height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Quicksand';
+  box-shadow: 0px 16px 24px rgba(0, 188, 56, 0.17), 0px 6px 12px rgba(54, 123, 245, 0.16);
 }
 
-.container .button_cancelar{
+#aplicar_cliente:hover{
+  background-color: #00BC38;
+  color: #FDFDFD;
+}
+
+#button_cancelar{
   background-color: #fff;
-  color: #FF171F;
-  border-radius: 17px;
-  width: 75%;
+  color:#FF171F ;
+  border-radius: 99px;
+  width: 213px;
   align-self: center;
   height: 42px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand';
+  box-shadow: 0px 16px 24px rgba(255, 23, 31, 0.13), 0px 6px 12px rgba(54, 123, 245, 0.16);
+}
+
+#button_cancelar:hover{
+  background-color: #FF171F;
+  color: #FDFDFD;
 }
 
 
@@ -89,19 +120,44 @@ th {
   width: 75%;
   color: #000;
   align-self: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Quicksand';
+  background: none;
+  padding: 0.75em 0.75em 0 0.75em;
 }
 
 .container-child {
+  background: #FFFFFF;
+  border: 1px solid #DCDCDC;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: #fff;
-  width: 60%;
+  width: 85%;
   height: auto;
-  border-radius: 15px;
+
   padding: 30px;
   margin: auto;
+}
+
+.caja2{
+  position: relative;
+}
+
+mat-form-field mat-select {
+  padding-left: 20px;
+  font-family:'Quicksand';
+  font-weight: 600;
+}
+
+mat-label {
+  padding-left: 20px;
+  font-family:'Quicksand';
+}
+
+mat-option{
+  font-family:'Quicksand';
+  font-weight: 600;
 }
 
 .container-child img {
@@ -111,8 +167,9 @@ th {
   margin: auto;
 }
 
-.titleclass {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.title{
+  font-family: 'Quicksand';
+  padding-left: 10px;
 }
 
 .phone_number {
@@ -127,17 +184,17 @@ th {
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #070ab0 !important;
+  color: #19AE68 !important;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: #070ab0 !important;
+  background-color:#DCDCDC !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: #070ab0 !important;
+  background-color:#DCDCDC !important;
   ;
 }
 

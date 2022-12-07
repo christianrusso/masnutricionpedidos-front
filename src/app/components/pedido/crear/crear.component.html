@@ -1,5 +1,5 @@
 <div class="container">
-
+  <h2 class="title" style="padding-left: 5%;">Pedidos</h2>
   <div class="container-child">
 
     <div class="caja1">
@@ -47,7 +47,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Cliente</mat-label>
         <mat-select [(ngModel)]="idCliente" name="food">
           <mat-option *ngFor="let cliente of clienteLista" [value]="cliente.idCliente">
@@ -57,7 +57,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Vendedor</mat-label>
         <mat-select [(ngModel)]="idVendedor" name="food">
           <mat-option *ngFor="let vendedor of vendedoresLista" [value]="vendedor.idVendedor">
@@ -66,7 +66,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Tipo Regla Comercial</mat-label>
         <mat-select [(ngModel)]="idTipoReglaComercial" name="food">
           <mat-option *ngFor="let regla of reglasLista" [value]="regla.idTipoReglaComercial">
@@ -88,7 +88,7 @@
     </div>
 
     <div class="caja2">
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>ID Tipo Condiciones de Venta</mat-label>
         <mat-select [(ngModel)]="idTipoCondicionesDeVenta" name="food">
           <mat-option *ngFor="let condicion of condicionesLista" [value]="condicion.idTipoCondicionesDeVenta">
@@ -197,8 +197,8 @@
 
 
     <div class="buttons">
-      <button mat-stroked-button color="warn" (click)="onSend()">Aplicar Cambios</button>
-      <button mat-stroked-button color="warn" (click)="goToListarPedidosPage()" class="button_cancelar">Cancelar</button>
+      <button mat-stroked-button color="warn" (click)="onSend()" id="aplicar_cliente">Aplicar Cambios</button>
+      <button mat-stroked-button color="warn" (click)="goToListarPedidosPage()" id="button_cancelar">Cancelar</button>
     </div>
 
 

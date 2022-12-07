@@ -60,27 +60,25 @@ export class ModificarComponent implements OnInit {
   filteredOptions?: Observable<TipoClienteData[]>;
   selected = 'option2';
 
-
-
-  isAnulado  : number = 0;
-  isEnviadoxMail	: number = 0;
-  isCobrado: number = 0;
-  isFinalizado: number = 0;
-  idCliente : number = 0;
-  idVendedor  : number = 0;
-  idTipoReglaComercial	: number = 0;
-  idAbono: number = 0;
-  idTipoCondicionesDeVenta: number = 0;
-  fechaPedido : any = 0;
-  porcDescuentoGeneral  : number = 0;
-  descripcion	: string = '';
+  isAnulado!: number;
+  isEnviadoxMail!: number;
+  isCobrado!: number;
+  isFinalizado!: number;
+  idCliente!: number;
+  idVendedor!: number;
+  idTipoReglaComercial!: number;
+  idAbono!: number;
+  idTipoCondicionesDeVenta!: number;
+  fechaPedido!: any;
+  porcDescuentoGeneral!: number;
+  descripcion: string = '';
   nroRemito: string = '';
-  subtotal: number = 0;
-  impuestos: number = 0;
-  subtotal2: number = 0;
-  ivaInscriptoPorc: number = 0;
-  ivaInscripto: number = 0;
-  total: number = 0;
+  subtotal!: number;
+  impuestos!: number;
+  subtotal2!: number;
+  ivaInscriptoPorc!: number;
+  ivaInscripto!: number;
+  total!: number;
   usuarioModifica: any = localStorage.getItem('NickName');
 
   clienteLista: ClienteData[] = [];
@@ -93,83 +91,83 @@ export class ModificarComponent implements OnInit {
   reglasLista: ReglaData[] = [];
   condicionesLista: CondicionData[] = [];
 
-
   ngOnInit(): void {
     this.getIds();
     this.id = this.route.snapshot.params['id'];
-    this.idParseado = parseInt(this.id)
-    console.log(typeof(this.idParseado));
+    this.idParseado = parseInt(this.id);
+    console.log(typeof this.idParseado);
 
     this.pedidoService.getPedido(this.idParseado).subscribe((response: any) => {
-      this.isAnulado = response[0].isAnulado
-      this.isEnviadoxMail = response[0].isEnviadoxMail
-      this.isCobrado = response[0].isCobrado
-      this.isFinalizado = response[0].isFinalizado
-      this.idCliente = response[0].idCliente
-      this.idVendedor = response[0].idVendedor
-      this.idTipoReglaComercial = response[0].idTipoReglaComercial
-      this.idAbono = response[0].idAbono
-      this.idTipoCondicionesDeVenta = response[0].idTipoCondicionesDeVenta
-      this.fechaPedido = response[0].fechaPedido
-      this.porcDescuentoGeneral = response[0].porcDescuentoGeneral
-      this.descripcion = response[0].descripcion
-      this.nroRemito = response[0].nroRemito
-      this.subtotal = response[0].subtotal
-      this.impuestos = response[0].impuestos
-      this.subtotal2 = response[0].subtotal2
-      this.ivaInscriptoPorc = response[0].ivaInscriptoPorc
-      this.ivaInscripto = response[0].ivaInscripto
-      this.total = response[0].total
+      this.isAnulado = response[0].isAnulado;
+      this.isEnviadoxMail = response[0].isEnviadoxMail;
+      this.isCobrado = response[0].isCobrado;
+      this.isFinalizado = response[0].isFinalizado;
+      this.idCliente = response[0].idCliente;
+      this.idVendedor = response[0].idVendedor;
+      this.idTipoReglaComercial = response[0].idTipoReglaComercial;
+      this.idAbono = response[0].idAbono;
+      this.idTipoCondicionesDeVenta = response[0].idTipoCondicionesDeVenta;
+      this.fechaPedido = response[0].fechaPedido;
+      this.porcDescuentoGeneral = response[0].porcDescuentoGeneral;
+      this.descripcion = response[0].descripcion;
+      this.nroRemito = response[0].nroRemito;
+      this.subtotal = response[0].subtotal;
+      this.impuestos = response[0].impuestos;
+      this.subtotal2 = response[0].subtotal2;
+      this.ivaInscriptoPorc = response[0].ivaInscriptoPorc;
+      this.ivaInscripto = response[0].ivaInscripto;
+      this.total = response[0].total;
       this.creado = false;
     });
   }
 
-  getIds(){
+  getIds() {
     this.getidCliente();
     this.getidVendedor();
     this.getidTipoReglaComercial();
     this.getidTipoCondicionesDeVenta();
   }
 
-  getidCliente(){
+  getidCliente() {
     this.clienteServices.getClientes().subscribe((response: any) => {
       const clientes = response as ClienteData[];
-      clientes.forEach(element => {
+      clientes.forEach((element) => {
         this.clienteLista.push(element);
       });
     });
   }
 
-  getidVendedor(){
+  getidVendedor() {
     this.vendedorService.getVendedores().subscribe((response: any) => {
       const vendedores = response as VendedorData[];
-      vendedores.forEach(element => {
+      vendedores.forEach((element) => {
         this.vendedoresLista.push(element);
       });
     });
   }
 
-  getidTipoReglaComercial(){
+  getidTipoReglaComercial() {
     this.tipoReglaComercialService.getReglas().subscribe((response: any) => {
       const reglas = response as ReglaData[];
-      reglas.forEach(element => {
+      reglas.forEach((element) => {
         this.reglasLista.push(element);
       });
     });
   }
 
-  getidTipoCondicionesDeVenta(){
-    this.tipoCondicionesVentaService.getCondiciones().subscribe((response: any) => {
-      const condiciones = response as CondicionData[];
-      condiciones.forEach(element => {
-        this.condicionesLista.push(element);
+  getidTipoCondicionesDeVenta() {
+    this.tipoCondicionesVentaService
+      .getCondiciones()
+      .subscribe((response: any) => {
+        const condiciones = response as CondicionData[];
+        condiciones.forEach((element) => {
+          this.condicionesLista.push(element);
+        });
       });
-    });
   }
 
-
   onEdit() {
-    console.log(typeof(this.idParseado));
+    console.log(typeof this.idParseado);
 
     const pedido = new PedidoEdit({
       isAnulado: this.isAnulado,
@@ -191,18 +189,20 @@ export class ModificarComponent implements OnInit {
       ivaInscriptoPorc: this.ivaInscriptoPorc,
       ivaInscripto: this.ivaInscripto,
       total: this.total,
-      usuarioModifica : this.usuarioModifica
+      usuarioModifica: this.usuarioModifica,
     });
-    this.pedidoService.editPedido(pedido, this.idParseado).subscribe((response) => {
-      console.log(response);
-    });
+    this.pedidoService
+      .editPedido(pedido, this.idParseado)
+      .subscribe((response) => {
+        console.log(response);
+      });
     this.creado = true;
     setTimeout(() => {
       this.router.navigateByUrl(`home/pedido/listar`);
     }, 1000);
   }
 
-  goToListarPedidosPage(){
+  goToListarPedidosPage() {
     this.router.navigateByUrl(`home/pedido/listar`);
   }
 }

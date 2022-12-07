@@ -1,18 +1,18 @@
 <div class="container">
   <h2 class="title">Operaciones</h2>
   <div class="container-child">
-    <mat-form-field appearance="outline">
+    <mat-form-field>
       <mat-label>ID Pedido</mat-label>
-      <mat-select [(ngModel)]="idPedido" name="food">
+      <mat-select [(ngModel)]="idPedido">
         <mat-option *ngFor="let pedido of pedidosLista" [value]="pedido.idPedido">
           {{pedido.descripcion}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field>
       <mat-label>ID Detalle Pedido</mat-label>
-      <mat-select [(ngModel)]="idDetallePedido" name="food">
+      <mat-select [(ngModel)]="idDetallePedido">
         <mat-option *ngFor="let pedido of detallePedidosLista" [value]="pedido.idDetallePedido">
           {{pedido.detalle}}
         </mat-option>
