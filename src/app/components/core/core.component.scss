@@ -43,6 +43,8 @@ mat-toolbar {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+    color: black;
+    padding: 5px;
   }
 
   .buttons_core{
@@ -112,44 +114,9 @@ mat-toolbar {
     justify-content: flex-start;
     font-size: 1rem;
 
-    mat-icon {
-      margin-right: 8px;
-    }
+
   }
 
-  .avatar {
-    margin-top: 16px;
-    width: 150px;
-    height: 125px;
-    object-fit: fill;
-    border-radius: 10px;
-  }
-
-  .name {
-    margin-top: 8px;
-    font-weight: normal;
-  }
-
-  .designation {
-    margin-top: 2px;
-    font-size: 0.7rem;
-    color: lightgrey;
-  }
-
-  mat-divider {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-
-  .example-card {
-    // display: flex;
-    min-width: 200px;
-    max-width: 400px;
-    margin-bottom: 8px;
-    // border: 2px solid #000;
-  }
 
   .container {
     display: flex;
@@ -162,16 +129,8 @@ mat-toolbar {
     padding: 1em 0;
   }
 
-  .example-card a {
-    color: #fff;
-    text-decoration: none;
-  }
 
 
-
-  #table {
-    width: max-content;
-  }
 
   .container_create {
     display: flex;
@@ -205,12 +164,10 @@ mat-toolbar {
     color: black;
   }
 
-  mat-panel-title{
-    color: black;
-    padding: 5px;
+
+  .alineacion_icon_desplegable{
+     margin-left: 2px;
   }
-
-
   .icon-button{
     background: none;
     padding: 0;

@@ -30,13 +30,14 @@ th {
   font-weight: 600;
 }
 
-mat-label mat-select mat-option{
-  font-family: 'Quicksand';
-  font-weight: 600;
-}
-
 .input-search {
   margin-left: 15px;
+}
+
+input{
+  font-family: 'Quicksand';
+  font-weight: 600;
+  margin-left: 20px;
 }
 
 .title{
@@ -54,7 +55,6 @@ mat-label mat-select mat-option{
 .mat-tab-labels {
   background-color: red;
 }
-
 
 .container {
   display: flex;
@@ -81,6 +81,7 @@ mat-label mat-select mat-option{
   margin: auto;
   margin-top: 0;
 }
+
 .container mat-form-field {
   width: 80%;
   color: #000;
@@ -118,7 +119,7 @@ mat-label mat-select mat-option{
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #000 !important;
+  color: #19AE68 !important;
 }
 
 ::ng-deep.mat-form-field-underline {

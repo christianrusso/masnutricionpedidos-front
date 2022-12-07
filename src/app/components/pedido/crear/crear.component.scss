@@ -35,7 +35,7 @@ th {
 }
 
 .tabla-completa {
-  background-color: #b8b5b447;
+  background-color: white;
   padding: 10px 30px 30px 30px
 }
 
@@ -50,6 +50,7 @@ th {
   height: 100vh;
   flex-wrap: wrap;
   background-color: #FDFDFD;
+
 }
 
 .container .buttons{
@@ -93,13 +94,16 @@ th {
 }
 
 .container-child {
+  background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: #fff;
   width: 70%;
   height: auto;
-  border-radius: 15px;
+
   padding: 30px;
   margin: auto;
 }
@@ -125,20 +129,18 @@ th {
   margin-top: 15px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: #070ab0 !important;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #00BC38;
 }
 
-::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: #070ab0 !important;
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #00BC38;
 }
 
-::ng-deep.mat-form-field-ripple {
-  /*change color of underline when focused*/
-  background-color: #070ab0 !important;
-  ;
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: #00BC38;
 }
 
 

@@ -34,6 +34,12 @@ th {
   margin-left: 15px;
 }
 
+input{
+  font-family: 'Quicksand';
+  font-weight: 600;
+  margin-left: 20px;
+}
+
 .title{
   margin-left: 5%;
   font-family: 'Quicksand';
@@ -112,7 +118,7 @@ th {
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #000 !important;
+  color: #19AE68 !important;
 }
 
 ::ng-deep.mat-form-field-underline {

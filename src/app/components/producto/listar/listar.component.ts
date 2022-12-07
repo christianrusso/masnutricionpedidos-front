@@ -52,7 +52,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
   getProductos() {
     this.productoServices.getProductos().subscribe((response: any) => {
-      
+
       const productos = response as ProductoData[];
       console.log(productos);
       this.dataSource.data = productos;
@@ -78,7 +78,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   openDialog(id: number): void {
     console.log(id);
     const dialogRef = this.dialog.open(ModalEliminarComponent, {
-      width: '250px',
+      width: '300px',
       data: { delete: this.delete },
     });
 
