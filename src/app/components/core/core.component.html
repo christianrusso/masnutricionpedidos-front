@@ -1,153 +1,30 @@
 <mat-toolbar class="mat-elevation-z8">
   <div class="masnutricion">
-    <img src="../../../assets/logo.png" alt="">
+    <img src="../../../assets/logo.png" alt="" />
   </div>
-  <button mat-stroked-button color="warn" style="text-align: center;" (click)="logout()" class="button_logout">SALIR</button>
-  <p>{{nickname}}</p>
+  <button
+    mat-stroked-button
+    color="warn"
+    style="text-align: center"
+    (click)="logout()"
+    class="button_logout"
+  >
+    SALIR
+  </button>
+  <p>{{ nickname }}</p>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z8" mode="side" opened [disableClose]="true">
-
-    <mat-accordion>
-      <mat-expansion-panel
-      class="mat-elevation-z0"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header class="alineacion_icon_desplegable">
-          <mat-panel-title style="font-family: Quicksand;">
-            <button class="icon-button">
-              <img
-                class="icon"
-                src="./../../../assets/abmtipo_menu.png"
-              />
-            </button>
-            ABM Tipo
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-          <div class="buttons_core" (click)="goToCanalListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/canales-icon.png"
-                />
-              </button>
-              Canales
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToTipoClienteListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/clientes_menu.png"
-                />
-              </button>
-              Clientes
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToCondicionesListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/condiciones-icon.png"
-                />
-              </button>
-              Condiciones
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToFamiliaListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/familia-icon.png"
-                />
-              </button>
-              Familia
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToIVAListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/iva-icon.png"
-                />
-              </button>
-              IVA
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToPermisoListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/permisos-icon.png"
-                />
-              </button>
-              Permisos
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToProductosListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/productos-icon.png"
-                />
-              </button>
-              Productos
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToReglaListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/reglas-icon.png"
-                />
-              </button>
-              Reglas
-            </mat-panel-title>
-          </div>
-
-          <div class="buttons_core" (click)="goToTipoTelefonoListarPage()">
-            <mat-panel-title style="font-family: Quicksand;">
-              <button class="icon-button">
-                <img
-                  class="icon"
-                  src="./../../../assets/tel-icon.png"
-                />
-              </button>
-              Telefonos
-            </mat-panel-title>
-          </div>
-
-
-
-
-      </mat-expansion-panel>
-    </mat-accordion>
-
-
+  <mat-sidenav
+    #sidenav
+    class="mat-elevation-z8"
+    mode="side"
+    opened
+    [disableClose]="true"
+  >
     <div class="buttons_core" (click)="goToClienteListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/clientes_menu.png"
-          />
+          <img class="icon" src="./../../../assets/clientes_menu.png" />
         </button>
         Clientes
       </mat-panel-title>
@@ -156,10 +33,7 @@
     <div class="buttons_core" (click)="goToPedidoListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/pedidos_menu.png"
-          />
+          <img class="icon" src="./../../../assets/pedidos_menu.png" />
         </button>
         Pedidos
       </mat-panel-title>
@@ -168,10 +42,7 @@
     <div class="buttons_core" (click)="goToEmpresaListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/empresas_menu.png"
-          />
+          <img class="icon" src="./../../../assets/empresas_menu.png" />
         </button>
         Empresas
       </mat-panel-title>
@@ -180,10 +51,7 @@
     <div class="buttons_core" (click)="goToVendedorListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/vendedores_menu.png"
-          />
+          <img class="icon" src="./../../../assets/vendedores_menu.png" />
         </button>
         Vendedores
       </mat-panel-title>
@@ -192,10 +60,7 @@
     <div class="buttons_core" (click)="goToProvinciaListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/provincias_menu.png"
-          />
+          <img class="icon" src="./../../../assets/provincias_menu.png" />
         </button>
         Provincias
       </mat-panel-title>
@@ -204,10 +69,7 @@
     <div class="buttons_core" (click)="goToLocalidadListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/localidades_menu.png"
-          />
+          <img class="icon" src="./../../../assets/localidades_menu.png" />
         </button>
         Localidades
       </mat-panel-title>
@@ -216,10 +78,7 @@
     <div class="buttons_core" (click)="goToEmailListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/canales-icon.png"
-          />
+          <img class="icon" src="./../../../assets/canales-icon.png" />
         </button>
         Emails
       </mat-panel-title>
@@ -228,10 +87,7 @@
     <div class="buttons_core" (click)="goToTelefonoListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/tel-icon.png"
-          />
+          <img class="icon" src="./../../../assets/tel-icon.png" />
         </button>
         Telefonos
       </mat-panel-title>
@@ -239,10 +95,7 @@
     <div class="buttons_core" (click)="goToProductoListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/productos-icon.png"
-          />
+          <img class="icon" src="./../../../assets/productos-icon.png" />
         </button>
         Productos
       </mat-panel-title>
@@ -251,10 +104,7 @@
     <div class="buttons_core" (click)="goToDetallePedidoListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/productos-icon.png"
-          />
+          <img class="icon" src="./../../../assets/productos-icon.png" />
         </button>
         Detalle Pedidos
       </mat-panel-title>
@@ -263,15 +113,108 @@
     <div class="buttons_core" (click)="goToOperacionListarPage()">
       <mat-panel-title>
         <button class="icon-button">
-          <img
-            class="icon"
-            src="./../../../assets/productos-icon.png"
-          />
+          <img class="icon" src="./../../../assets/productos-icon.png" />
         </button>
         Detalle Operaciones
       </mat-panel-title>
     </div>
+    <mat-accordion>
+      <mat-expansion-panel
+        class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header class="alineacion_icon_desplegable">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/abmtipo_menu.png" />
+            </button>
+            Parámetros
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
+        <div class="buttons_core" (click)="goToCanalListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/canales-icon.png" />
+            </button>
+            Canales
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToTipoClienteListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/clientes_menu.png" />
+            </button>
+            Clientes
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToCondicionesListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/condiciones-icon.png" />
+            </button>
+            Condiciones
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToFamiliaListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/familia-icon.png" />
+            </button>
+            Familia
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToIVAListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/iva-icon.png" />
+            </button>
+            IVA
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToPermisoListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/permisos-icon.png" />
+            </button>
+            Permisos
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToProductosListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/productos-icon.png" />
+            </button>
+            Productos
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToReglaListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/reglas-icon.png" />
+            </button>
+            Reglas
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToTipoTelefonoListarPage()">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/tel-icon.png" />
+            </button>
+            Telefonos
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-sidenav>
   <router-outlet></router-outlet>
 </mat-sidenav-container>
