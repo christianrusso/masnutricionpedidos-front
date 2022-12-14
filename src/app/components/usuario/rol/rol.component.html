@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="title" style="padding-left: 5%;">Emails</h2>
+  <div class="container-child">
+    <mat-form-field>
+      <mat-label>ID Cliente</mat-label>
+      <mat-select [(ngModel)]="idCliente" name="food">
+        <mat-option *ngFor="let cliente of clienteLista" [value]="cliente.idCliente" style="font-family: 'Quicksand';">
+          {{cliente.nombreFantasia}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Descripción</mat-label>
+      <input matInput name="name" [(ngModel)]="descripcion" />
+    </mat-form-field>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Email creado con exito</div>
+    </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarEmailsPage()" id="button_cancelar">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar">Crear Email</button>
+  </div>
+</div>

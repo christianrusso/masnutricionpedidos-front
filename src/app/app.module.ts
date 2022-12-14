@@ -31,7 +31,6 @@ import { ClienteService } from './services/cliente.service';
 import { EmpresaService } from './services/empresa.service';
 import { VendedorService } from './services/vendedor.service';
 import { ClienteModule } from './components/cliente/cliente.module';
-//import { PedidoModule } from './components/pedido/pedido.module';
 import { PedidoService } from './services/pedido.service';
 import { PedidoModule } from './components/pedido/pedido.module';
 import { EmpresaModule } from './components/empresa/empresa.module';
@@ -48,6 +47,9 @@ import { GrupoAccesoPermisoService } from './services/grupo-acceso-permiso.servi
 import { GrupoAccesoService } from './services/grupo-acceso.service';
 import { TelefonoService } from './services/telefono.service';
 import { ProductoModule } from './components/producto/producto.module';
+import { RolService } from './services/rol.service';
+import { UsuarioService } from './services/usuario.service';
+import { UsuarioModule } from './components/usuario/usuario.module';
 
 
 
@@ -69,6 +71,7 @@ import { ProductoModule } from './components/producto/producto.module';
     LocalidadModule,
     BienvenidaModule,
     ProductoModule,
+    UsuarioModule,
     TipoCanalModule,
     TipoClienteModule,
     TipoCondicionesModule,
@@ -93,6 +96,8 @@ import { ProductoModule } from './components/producto/producto.module';
     GrupoAccesoPermisoService,
     GrupoAccesoService,
     TelefonoService,
+    UsuarioService,
+    RolService,
     TipoCanalService,
     TipoClienteService,
     TipoCondicionesVentaService,

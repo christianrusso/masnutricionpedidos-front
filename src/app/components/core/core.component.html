@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-  <div class="masnutricion">
+  <div class="masnutricion" (click)="goToHomePage()">
     <img src="../../../assets/logo.png" alt="" />
   </div>
   <button
@@ -118,6 +118,14 @@
         Detalle Operaciones
       </mat-panel-title>
     </div>
+    <!-- <div class="buttons_core" (click)="goToUsuarioListarPage()" *ngIf="isAdmin == '1'">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img class="icon" src="./../../../assets/familia-icon.png" />
+        </button>
+        Usuarios
+      </mat-panel-title>
+    </div> -->
     <mat-accordion>
       <mat-expansion-panel
         class="mat-elevation-z0"

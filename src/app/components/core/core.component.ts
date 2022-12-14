@@ -21,6 +21,7 @@ export class CoreComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
   @Output() public sidenavToggle = new EventEmitter();
   rol: any = localStorage.getItem('rol');
+  isAdmin: any = localStorage.getItem('isAdmin');
   nickname: any;
   constructor(private router: Router, private readonly authService: AuthService) {}
 
@@ -37,6 +38,9 @@ export class CoreComponent implements OnInit {
     this.sidenavClose.emit();
   };
 
+  goToHomePage(){
+    this.router.navigateByUrl('home/bienvenida');
+  }
   goToCanalListarPage() {
     this.router.navigateByUrl('home/tipo-canal/listar');
   }
@@ -102,6 +106,9 @@ export class CoreComponent implements OnInit {
   }
   goToProductoListarPage(){
     this.router.navigateByUrl('home/producto/listar');
+  }
+  goToUsuarioListarPage(){
+    this.router.navigateByUrl('home/usuario/listar');
   }
   logout() {
     this.authService.logout();

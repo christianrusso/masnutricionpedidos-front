@@ -200,6 +200,14 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'usuario',
+        loadChildren: () =>
+          import('./components/usuario/usuario.module').then(
+            (m) => m.UsuarioModule
+          ),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];
