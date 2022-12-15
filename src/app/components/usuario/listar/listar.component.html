@@ -1,12 +1,12 @@
 
 
 <div class="tabla-completa">
-  <p class="titulo-abm" style="margin-left: 30px; margin-bottom: 10px;">Emails</p>
+  <p class="titulo-abm" style="margin-left: 30px; margin-bottom: 10px;">Usuarios</p>
   <div class="container-descripcion">
     <p style="margin-left: 30px;">fringilla massa amet, Sed at viverra elit ex malesuada nibh Sed lacus, Praesent viverra id tincidunt turpis nisi Nunc viverra Nullam scelerisque nulla, lacus,
 
     </p>
-    <button class="crear-button" (click)="goToEmailCrearPage()">Crear nuevo</button>
+    <button class="crear-button" (click)="goToUsuarioCrearPage()">Crear nuevo</button>
   </div>
   <mat-form-field appearance="standard" class="filter-class" style="margin-left: 30px;">
     <mat-label class="label-search">Busqueda</mat-label>
@@ -22,30 +22,92 @@
   <div class="mat-elevation-z8" style="box-shadow: none;margin-left: 30px; margin-right: 10px;">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
 
-      <!-- idCliente Columna -->
-      <ng-container matColumnDef="idCliente">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idCliente</th>
-        <td mat-cell *matCellDef="let row">{{ row.idCliente ? row.idCliente : '-' }}</td>
+      <!-- idUsuario Columna -->
+      <ng-container matColumnDef="idUsuario">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>idUsuario</th>
+        <td mat-cell *matCellDef="let row">{{ row.idUsuario ? row.idUsuario : '-' }}</td>
       </ng-container>
 
-      <!-- idEmail Columna -->
-      <ng-container matColumnDef="idEmail">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idEmail</th>
-        <td mat-cell *matCellDef="let row">{{ row.idEmail ? row.idEmail : '-' }}</td>
+      <!-- idEmpresa Columna -->
+      <ng-container matColumnDef="idEmpresa">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>idEmpresa</th>
+        <td mat-cell *matCellDef="let row">{{ row.idEmpresa ? row.idEmpresa : '-' }}</td>
       </ng-container>
 
 
-      <!-- descipcion Columna -->
-      <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
-        <td mat-cell *matCellDef="let row">{{ row.descripcion ? row.descripcion : '-' }}</td>
+      <!-- idGrupoAcceso Columna -->
+      <ng-container matColumnDef="idGrupoAcceso">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>idGrupoAcceso</th>
+        <td mat-cell *matCellDef="let row">{{ row.idGrupoAcceso ? row.idGrupoAcceso : '-' }}</td>
+      </ng-container>
+
+      <!-- Nickname Columna -->
+      <ng-container matColumnDef="NickName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NickName</th>
+        <td mat-cell *matCellDef="let row">{{ row.NickName ? row.NickName : '-' }}</td>
+      </ng-container>
+
+      <!-- Password Columna -->
+      <ng-container matColumnDef="Password">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Password</th>
+        <td mat-cell *matCellDef="let row">{{ row.Password ? row.Password : '-' }}</td>
+      </ng-container>
+
+      <!-- NombreApellido Columna -->
+      <ng-container matColumnDef="NombreApellido">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NombreApellido</th>
+        <td mat-cell *matCellDef="let row">{{ row.NombreApellido ? row.NombreApellido : '-' }}</td>
+      </ng-container>
+
+      <!-- CodInterno Columna -->
+      <ng-container matColumnDef="CodInterno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>CodInterno</th>
+        <td mat-cell *matCellDef="let row">{{ row.CodInterno ? row.CodInterno : '-' }}</td>
+      </ng-container>
+
+      <!-- Email Columna -->
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.Email ? row.Email : '-' }}</td>
+      </ng-container>
+
+      <!-- isAdmin Columna -->
+      <ng-container matColumnDef="isAdmin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>isAdmin</th>
+        <td mat-cell *matCellDef="let row">{{ row.isAdmin ? 'Si' : 'No' }}</td>
+      </ng-container>
+
+      <!-- isInactivo Columna -->
+      <ng-container matColumnDef="isInactivo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>isInactivo</th>
+        <td mat-cell *matCellDef="let row">{{ row.isInactivo ? 'Si' : 'No' }}</td>
+      </ng-container>
+
+      <!-- isBorrado Columna -->
+      <ng-container matColumnDef="isBorrado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>isBorrado</th>
+        <td mat-cell *matCellDef="let row">{{ row.isBorrado ? row.isBorrado : '-' }}</td>
+      </ng-container>
+
+      <!-- roles Columna -->
+      <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef class="opciones">Roles</th>
+        <td mat-cell *matCellDef="let row" class="opciones">
+          <button mat-icon-button (click)="goToRolesPage(row.idUsuario)">
+            <img
+                  class="icon"
+                  src="../../../../assets/reglas-icon.png"
+                  style="width: 80%; height: 80%; padding-right: 10%;"
+                />
+          </button>
+        </td>
       </ng-container>
 
       <!-- modificar Columna -->
       <ng-container matColumnDef="modificar">
         <th mat-header-cell *matHeaderCellDef class="opciones">Modificar</th>
         <td mat-cell *matCellDef="let row" class="opciones">
-          <button mat-icon-button (click)="goToEditPage(row.idEmail)">
+          <button mat-icon-button (click)="goToEditPage(row.idUsuario)">
             <img
                   class="icon"
                   src="../../../../assets/modificar-icon.png"
@@ -58,7 +120,7 @@
       <ng-container matColumnDef="eliminar">
         <th mat-header-cell *matHeaderCellDef class="opciones">Eliminar</th>
         <td mat-cell *matCellDef="let row" class="opciones">
-          <button mat-icon-button (click)="openDialog(row.idEmail)">
+          <button mat-icon-button (click)="openDialog(row.idUsuario)">
             <img
                   class="icon"
                   src="../../../../assets/eliminar-icon.png"
@@ -67,12 +129,12 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumnsEmails"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumnsEmails"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsUsuarios"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsUsuarios"></tr>
 
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No encontramos ningun email {{ input.value }}"</td>
+        <td class="mat-cell" colspan="4">No encontramos ningun usuario {{ input.value }}"</td>
       </tr>
     </table>
 

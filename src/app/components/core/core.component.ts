@@ -8,6 +8,7 @@ import {
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { RolService } from 'src/app/services/rol.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -23,12 +24,45 @@ export class CoreComponent implements OnInit {
   rol: any = localStorage.getItem('rol');
   isAdmin: any = localStorage.getItem('isAdmin');
   nickname: any;
-  constructor(private router: Router, private readonly authService: AuthService) {}
+  idUsuario: any;
+  isCliente: number = 0;
+  isDetalleOperacion: number = 0;
+  isDetallePedido: number = 0;
+  isEmail: number = 0;
+  isEmpresa: number = 0;
+  isGrupoAcceso: number = 0;
+  isGrupoAccesoPermiso: number = 0;
+  isLocalidad: number = 0;
+  isPedido: number = 0;
+  isProducto: number = 0;
+  isProvincia: number = 0;
+  isTelefono: number = 0;
+  isVendedor: number = 0;
+  constructor(private router: Router, private readonly authService: AuthService, private rolService: RolService,) {}
 
   @ViewChild('sidenav')
   sidenav?: MatSidenav;
   ngOnInit(): void {
     this.nickname = localStorage.getItem('NickName')
+    this.idUsuario = localStorage.getItem('idUsuario')
+    console.log(this.idUsuario);
+
+    this.rolService.getRol(this.idUsuario).subscribe((response: any) => {
+      console.log(response);
+      this.isCliente = response[0].isCliente,
+      this.isDetalleOperacion = response[0].isDetalleOperacion,
+      this.isDetallePedido = response[0].isDetallePedido,
+      this.isEmail = response[0].isEmail,
+      this.isEmpresa = response[0].isEmpresa,
+      this.isGrupoAcceso = response[0].isGrupoAcceso,
+      this.isGrupoAccesoPermiso = response[0].isGrupoAccesoPermiso,
+      this.isLocalidad = response[0].isLocalidad,
+      this.isPedido = response[0].isPedido,
+      this.isProducto = response[0].isProducto,
+      this.isProvincia = response[0].isProvincia,
+      this.isTelefono = response[0].isTelefono,
+      this.isVendedor = response[0].isVendedor
+    });
   }
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();

@@ -1,7 +1,7 @@
 export class Usuario {
     readonly idEmpresa: number;
     readonly idGrupoAcceso: number;
-    readonly Nickname: string;
+    readonly NickName: string;
     readonly Password: string;
     readonly NombreApellido: string;
     readonly CodInterno: string;
@@ -12,7 +12,7 @@ export class Usuario {
     constructor({
         idEmpresa,
         idGrupoAcceso,
-        Nickname,
+        NickName,
         Password,
         NombreApellido,
         CodInterno,
@@ -22,7 +22,7 @@ export class Usuario {
     }: {
         idEmpresa: number;
         idGrupoAcceso: number;
-        Nickname: string;
+        NickName: string;
         Password: string;
         NombreApellido: string;
         CodInterno: string;
@@ -32,7 +32,7 @@ export class Usuario {
     }) {
         this.idEmpresa = idEmpresa;
         this.idGrupoAcceso = idGrupoAcceso;
-        this.Nickname = Nickname;
+        this.NickName = NickName;
         this.Password = Password;
         this.NombreApellido = NombreApellido;
         this.CodInterno = CodInterno;

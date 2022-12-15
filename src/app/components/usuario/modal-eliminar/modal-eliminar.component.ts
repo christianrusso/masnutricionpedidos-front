@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogData } from 'src/app/models-tipo/TipoDialogData';
-import { EmailService } from 'src/app/services/email.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { ListarComponent } from '../listar/listar.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class ModalEliminarComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ListarComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private emailService: EmailService,
+    private usuarioService: UsuarioService,
     private readonly router: Router,
     private route: ActivatedRoute
   ) {}
@@ -29,7 +29,7 @@ export class ModalEliminarComponent implements OnInit {
   }
 
   onDelete() {
-    this.emailService.deleteEmail(this.id).subscribe(response => {
+    this.usuarioService.deleteUsuario(this.id).subscribe(response => {
       this.onNoClick();
     });
     // setTimeout(() => {

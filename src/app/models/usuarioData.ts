@@ -2,7 +2,7 @@ export interface UsuarioData {
     idUsuario: number;
     idEmpresa: number;
     idGrupoAcceso: number;
-    Nickname: string;
+    NickName: string;
     Password: string;
     NombreApellido: string;
     CodInterno: string;

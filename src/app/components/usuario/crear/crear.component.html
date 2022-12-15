@@ -1,26 +1,59 @@
 <div class="container">
-  <h2 class="title" style="padding-left: 5%;">Emails</h2>
+  <h2 class="title" style="padding-left: 5%;">Usuarios</h2>
   <div class="container-child">
     <mat-form-field>
-      <mat-label>ID Cliente</mat-label>
-      <mat-select [(ngModel)]="idCliente" name="food">
-        <mat-option *ngFor="let cliente of clienteLista" [value]="cliente.idCliente" style="font-family: 'Quicksand';">
-          {{cliente.nombreFantasia}}
+      <mat-label>Empresa</mat-label>
+      <mat-select [(ngModel)]="idEmpresa" name="food">
+        <mat-option *ngFor="let empresa of empresaLista" [value]="empresa.idEmpresa" style="font-family: 'Quicksand';">
+          {{empresa.NickName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">Descripción</mat-label>
-      <input matInput name="name" [(ngModel)]="descripcion" />
+      <mat-label>Grupo Acceso</mat-label>
+      <mat-select [(ngModel)]="idGrupoAcceso" name="food">
+        <mat-option *ngFor="let acceso of accesosLista" [value]="acceso.idGrupoAcceso" style="font-family: 'Quicksand';">
+          {{acceso.Descripcion}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label class="title">NickName</mat-label>
+      <input matInput name="name" [(ngModel)]="NickName" />
+    </mat-form-field>
+
+    <mat-form-field class="loginInput">
+      <mat-label>Contraseña</mat-label>
+      <input  type="password" name="Password"  matInput placeholder="Contraseña" ngModel #PasswordInput="ngModel"
+        required>
+      <mat-error *ngIf="PasswordInput.invalid">Por favor ingrese una contraseña valida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Nombre Apellido</mat-label>
+      <input matInput name="name" [(ngModel)]="NombreApellido" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">CodInterno</mat-label>
+      <input matInput name="name" [(ngModel)]="CodInterno" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="title">Email</mat-label>
+      <input matInput name="name" [(ngModel)]="Email" />
+    </mat-form-field>
+
+    <mat-checkbox class="title" (click)="$event.stopPropagation()" style="margin-left: 5%;" (change)="$event ? marcar($event) : null">Usuario Administrador</mat-checkbox>
+
     <ng-template [ngIf]="creado">
-      <div class="message_create">Email creado con exito</div>
+      <div class="message_create">Usuario creado con exito</div>
     </ng-template>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarEmailsPage()" id="button_cancelar">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar">Crear Email</button>
+    <button mat-raised-button color="warn" (click)="goToListarUsuariosPage()" id="button_cancelar">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar">Crear Usuario</button>
   </div>
 </div>

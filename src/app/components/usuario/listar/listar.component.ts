@@ -5,7 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { EmailData } from 'src/app/models/EmailData';
-import { EmailService } from 'src/app/services/email.service';
+import { UsuarioData } from 'src/app/models/usuarioData';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -16,29 +17,38 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
 export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   constructor(
-    private emailService: EmailService,
+    private usuarioService: UsuarioService,
     private readonly router: Router,
     private dialog: MatDialog
   ) {
     this.dataSource = new MatTableDataSource();
   }
 
-  displayedColumnsEmails: string[] = [
-    'idCliente',
-    'idEmail',
-    'descripcion',
+  displayedColumnsUsuarios: string[] = [
+    //'idUsuario',
+    //'idEmpresa',
+    //'idGrupoAcceso',
+    'NickName',
+    //'Password',
+    'NombreApellido',
+    'CodInterno',
+    'Email',
+    'isAdmin',
+    'isInactivo',
+    //'isBorrado',
+    'rol',
     'modificar',
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<EmailData>();
+  dataSource = new MatTableDataSource<UsuarioData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.getEmails();
+    this.getUsuarios();
   }
 
   ngAfterViewInit() {
@@ -46,14 +56,18 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  goToEmailCrearPage() {
-    this.router.navigateByUrl('home/email/crear');
+  goToUsuarioCrearPage() {
+    this.router.navigateByUrl('home/usuario/crear');
   }
 
-  getEmails() {
-    this.emailService.getEmails().subscribe((response: any) => {
-      const emails = response as EmailData[];
-      this.dataSource.data = emails;
+  goToRolesPage(idUsuario: number) {
+    this.router.navigateByUrl(`home/usuario/rol/${idUsuario}`);
+  }
+
+  getUsuarios() {
+    this.usuarioService.getUsuarios().subscribe((response: any) => {
+      const usuarios = response as UsuarioData[];
+      this.dataSource.data = usuarios;
     });
   }
 
@@ -66,8 +80,8 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(idEmail: number) {
-    this.router.navigateByUrl(`home/email/modificar/${idEmail}`);
+  goToEditPage(idUsuario: number) {
+    this.router.navigateByUrl(`home/usuario/modificar/${idUsuario}`);
   }
 
   openDialog(id: number): void {
@@ -79,7 +93,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.emailService.deleteEmail(id).subscribe((response) => {
+        this.usuarioService.deleteUsuario(id).subscribe((response) => {
           setTimeout(() => {
             location.reload();
           }, 100);

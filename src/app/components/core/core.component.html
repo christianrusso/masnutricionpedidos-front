@@ -110,7 +110,7 @@
       </mat-panel-title>
     </div>
 
-    <div class="buttons_core" (click)="goToOperacionListarPage()">
+    <div class="buttons_core" (click)="goToOperacionListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
       <mat-panel-title>
         <button class="icon-button">
           <img class="icon" src="./../../../assets/productos-icon.png" />
@@ -118,14 +118,14 @@
         Detalle Operaciones
       </mat-panel-title>
     </div>
-    <!-- <div class="buttons_core" (click)="goToUsuarioListarPage()" *ngIf="isAdmin == '1'">
+    <div class="buttons_core" (click)="goToUsuarioListarPage()" *ngIf="isAdmin == '1'">
       <mat-panel-title>
         <button class="icon-button">
           <img class="icon" src="./../../../assets/familia-icon.png" />
         </button>
         Usuarios
       </mat-panel-title>
-    </div> -->
+    </div>
     <mat-accordion>
       <mat-expansion-panel
         class="mat-elevation-z0"
