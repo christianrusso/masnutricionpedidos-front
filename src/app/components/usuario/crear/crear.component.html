@@ -24,11 +24,9 @@
       <input matInput name="name" [(ngModel)]="NickName" />
     </mat-form-field>
 
-    <mat-form-field class="loginInput">
-      <mat-label>Contraseña</mat-label>
-      <input  type="password" name="Password"  matInput placeholder="Contraseña" ngModel #PasswordInput="ngModel"
-        required>
-      <mat-error *ngIf="PasswordInput.invalid">Por favor ingrese una contraseña valida</mat-error>
+    <mat-form-field>
+      <mat-label class="title">Contraseña</mat-label>
+      <input matInput name="name" [(ngModel)]="Password" />
     </mat-form-field>
 
     <mat-form-field>

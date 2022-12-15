@@ -12,6 +12,8 @@ export class UsuarioService {
   constructor(private readonly http: HttpClient) { }
 
   postUsuario(usuario: Usuario) {
+    console.log(usuario);
+
     return this.http.post(`${environment.apiUsuario}/signup`, usuario);
   }
 

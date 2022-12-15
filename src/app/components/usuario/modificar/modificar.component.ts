@@ -47,7 +47,7 @@ export class ModificarComponent implements OnInit {
       this.idEmpresa = response[0].idEmpresa,
       this.idGrupoAcceso = response[0].idGrupoAcceso,
       this.NickName = response[0].NickName,
-      this.Password = response[0].Password,
+      //this.Password = response[0].Password,
       this.NombreApellido = response[0].NombreApellido,
       this.CodInterno = response[0].CodInterno,
       this.Email = response[0].Email,

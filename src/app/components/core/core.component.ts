@@ -25,19 +25,19 @@ export class CoreComponent implements OnInit {
   isAdmin: any = localStorage.getItem('isAdmin');
   nickname: any;
   idUsuario: any;
-  isCliente: number = 0;
-  isDetalleOperacion: number = 0;
-  isDetallePedido: number = 0;
-  isEmail: number = 0;
-  isEmpresa: number = 0;
-  isGrupoAcceso: number = 0;
-  isGrupoAccesoPermiso: number = 0;
-  isLocalidad: number = 0;
-  isPedido: number = 0;
-  isProducto: number = 0;
-  isProvincia: number = 0;
-  isTelefono: number = 0;
-  isVendedor: number = 0;
+  isCliente: any;
+  isDetalleOperacion: any;
+  isDetallePedido: any;
+  isEmail: any;
+  isEmpresa: any;
+  isGrupoAcceso: any;
+  isGrupoAccesoPermiso: any;
+  isLocalidad: any;
+  isPedido: any;
+  isProducto: any;
+  isProvincia: any;
+  isTelefono: any;
+  isVendedor: any;
   constructor(private router: Router, private readonly authService: AuthService, private rolService: RolService,) {}
 
   @ViewChild('sidenav')
