@@ -159,17 +159,15 @@
         </mat-panel-title>
       </div>
 
-
-
-
-      <div class="buttons_core" (click)="goToVendedorListarPage()" *ngIf="isAdmin == '1' || isVendedor == 1">
+      <div class="buttons_core" (click)="goToProductoListarPage()" *ngIf="isAdmin == '1' || isProducto == 1">
         <mat-panel-title>
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/vendedores_menu.png" />
+            <img class="icon" src="./../../../assets/productos-icon.png" />
           </button>
-          Vendedores
+          Productos
         </mat-panel-title>
       </div>
+
 
       <div class="buttons_core" (click)="goToEmailListarPage()" *ngIf="isAdmin == '1' || isEmail == 1">
         <mat-panel-title>
@@ -180,6 +178,9 @@
           </mat-panel-title>
         </div>
 
+
+
+
         <div class="buttons_core" (click)="goToTelefonoListarPage()" *ngIf="isAdmin == '1' || isTelefono == 1">
           <mat-panel-title>
             <button class="icon-button">
@@ -188,15 +189,16 @@
             Telefonos
           </mat-panel-title>
         </div>
-        <div class="buttons_core" (click)="goToProductoListarPage()" *ngIf="isAdmin == '1' || isProducto == 1">
+
+
+        <div class="buttons_core" (click)="goToVendedorListarPage()" *ngIf="isAdmin == '1' || isVendedor == 1">
           <mat-panel-title>
             <button class="icon-button">
-              <img class="icon" src="./../../../assets/productos-icon.png" />
+              <img class="icon" src="./../../../assets/vendedores_menu.png" />
             </button>
-            Productos
+            Vendedores
           </mat-panel-title>
         </div>
-
 
 
 
