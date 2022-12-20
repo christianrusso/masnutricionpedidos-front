@@ -21,14 +21,7 @@
     opened
     [disableClose]="true"
   >
-    <div class="buttons_core" (click)="goToClienteListarPage()" *ngIf="isAdmin == '1' || isCliente == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/clientes_menu.png" />
-        </button>
-        Clientes
-      </mat-panel-title>
-    </div>
+
 
     <div class="buttons_core" (click)="goToPedidoListarPage()" *ngIf="isAdmin == '1' || isPedido == 1">
       <mat-panel-title>
@@ -39,99 +32,191 @@
       </mat-panel-title>
     </div>
 
-    <div class="buttons_core" (click)="goToEmpresaListarPage()" *ngIf="isAdmin == '1' || isEmpresa == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/empresas_menu.png" />
-        </button>
-        Empresas
-      </mat-panel-title>
-    </div>
 
-    <div class="buttons_core" (click)="goToVendedorListarPage()" *ngIf="isAdmin == '1' || isVendedor == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/vendedores_menu.png" />
-        </button>
-        Vendedores
-      </mat-panel-title>
-    </div>
 
-    <div class="buttons_core" (click)="goToProvinciaListarPage()" *ngIf="isAdmin == '1' || isProvincia == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/provincias_menu.png" />
-        </button>
-        Provincias
-      </mat-panel-title>
-    </div>
-
-    <div class="buttons_core" (click)="goToLocalidadListarPage()" *ngIf="isAdmin == '1' || isLocalidad == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/localidades_menu.png" />
-        </button>
-        Localidades
-      </mat-panel-title>
-    </div>
-
-    <div class="buttons_core" (click)="goToEmailListarPage()" *ngIf="isAdmin == '1' || isEmail == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/canales-icon.png" />
-        </button>
-        Emails
-      </mat-panel-title>
-    </div>
-
-    <div class="buttons_core" (click)="goToTelefonoListarPage()" *ngIf="isAdmin == '1' || isTelefono == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/tel-icon.png" />
-        </button>
-        Telefonos
-      </mat-panel-title>
-    </div>
-    <div class="buttons_core" (click)="goToProductoListarPage()" *ngIf="isAdmin == '1' || isProducto == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/productos-icon.png" />
-        </button>
-        Productos
-      </mat-panel-title>
-    </div>
-
-    <div class="buttons_core" (click)="goToDetallePedidoListarPage()" *ngIf="isAdmin == '1' || isDetallePedido == 1">
+    <!-- <div class="buttons_core" (click)="goToDetallePedidoListarPage()" *ngIf="isAdmin == '1' || isDetallePedido == 1">
       <mat-panel-title>
         <button class="icon-button">
           <img class="icon" src="./../../../assets/productos-icon.png" />
         </button>
         Detalle Pedidos
       </mat-panel-title>
-    </div>
+    </div> -->
 
-    <div class="buttons_core" (click)="goToOperacionListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/productos-icon.png" />
-        </button>
-        Detalle Operaciones
-      </mat-panel-title>
-    </div>
-    <div class="buttons_core" (click)="goToUsuarioListarPage()" *ngIf="isAdmin == '1'">
-      <mat-panel-title>
-        <button class="icon-button">
-          <img class="icon" src="./../../../assets/familia-icon.png" />
-        </button>
-        Usuarios
-      </mat-panel-title>
-    </div>
+
+
     <mat-accordion>
       <mat-expansion-panel
         class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
+      <mat-expansion-panel-header class="alineacion_icon_desplegable">
+        <mat-panel-title style="font-family: Quicksand">
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/pedidos_menu.png" />
+          </button>
+          Pedidos
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="buttons_core" (click)="goToOperacionListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
+        <mat-panel-title>
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/productos-icon.png" />
+          </button>
+          Carga
+        </mat-panel-title>
+      </div>
+
+      <div class="buttons_core" (click)="goToOperacionListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
+        <mat-panel-title>
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/productos-icon.png" />
+          </button>
+          Seguimientos
+        </mat-panel-title>
+      </div>
+
+
+      <!-- <div class="buttons_core" (click)="goToOperacionListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
+        <mat-panel-title>
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/productos-icon.png" />
+          </button>
+          Detalle Operaciones
+        </mat-panel-title>
+      </div> -->
+
+
+
+
+
+
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel
+      class="mat-elevation-z0"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      >
+      <mat-expansion-panel-header class="alineacion_icon_desplegable">
+        <mat-panel-title style="font-family: Quicksand">
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/empresas_menu.png" />
+          </button>
+          Empresas
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div class="buttons_core" (click)="goToClienteListarPage()" *ngIf="isAdmin == '1' || isCliente == 1">
+        <mat-panel-title>
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/clientes_menu.png" />
+          </button>
+          Clientes
+        </mat-panel-title>
+      </div>
+
+
+
+
+      <div class="buttons_core" (click)="goToVendedorListarPage()" *ngIf="isAdmin == '1' || isVendedor == 1">
+        <mat-panel-title>
+          <button class="icon-button">
+            <img class="icon" src="./../../../assets/vendedores_menu.png" />
+          </button>
+          Vendedores
+        </mat-panel-title>
+      </div>
+
+      <div class="buttons_core" (click)="goToEmailListarPage()" *ngIf="isAdmin == '1' || isEmail == 1">
+        <mat-panel-title>
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/canales-icon.png" />
+            </button>
+            Emails
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToTelefonoListarPage()" *ngIf="isAdmin == '1' || isTelefono == 1">
+          <mat-panel-title>
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/tel-icon.png" />
+            </button>
+            Telefonos
+          </mat-panel-title>
+        </div>
+        <div class="buttons_core" (click)="goToProductoListarPage()" *ngIf="isAdmin == '1' || isProducto == 1">
+          <mat-panel-title>
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/productos-icon.png" />
+            </button>
+            Productos
+          </mat-panel-title>
+        </div>
+
+
+
+
+
+
+
+
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel
+        class="mat-elevation-z0"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        >
         <mat-expansion-panel-header class="alineacion_icon_desplegable">
           <mat-panel-title style="font-family: Quicksand">
             <button class="icon-button">
@@ -165,6 +250,24 @@
               <img class="icon" src="./../../../assets/condiciones-icon.png" />
             </button>
             Condiciones
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToProvinciaListarPage()" *ngIf="isAdmin == '1' || isProvincia == 1">
+          <mat-panel-title>
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/provincias_menu.png" />
+            </button>
+            Provincias
+          </mat-panel-title>
+        </div>
+
+        <div class="buttons_core" (click)="goToLocalidadListarPage()" *ngIf="isAdmin == '1' || isLocalidad == 1">
+          <mat-panel-title>
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/localidades_menu.png" />
+            </button>
+            Localidades
           </mat-panel-title>
         </div>
 
@@ -223,6 +326,14 @@
         </div>
       </mat-expansion-panel>
     </mat-accordion>
+    <div class="buttons_core" (click)="goToUsuarioListarPage()" *ngIf="isAdmin == '1'">
+      <mat-panel-title>
+        <button class="icon-button">
+          <img class="icon" src="./../../../assets/familia-icon.png" />
+        </button>
+        Usuarios
+      </mat-panel-title>
+    </div>
   </mat-sidenav>
   <router-outlet></router-outlet>
 </mat-sidenav-container>
