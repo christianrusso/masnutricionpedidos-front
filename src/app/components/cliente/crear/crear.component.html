@@ -3,7 +3,7 @@
   <div class="container-child">
     <div class="caja1">
       <mat-form-field>
-        <mat-label style="padding-left:10px;">ID Tipo Cliente</mat-label>
+        <mat-label style="padding-left:10px;">Tipo Cliente</mat-label>
         <mat-select [(ngModel)]="idTipoCliente" name="food">
           <mat-option *ngFor="let cliente of tipoClienteLista" [value]="cliente.idTipoCliente">
             {{cliente.Descripcion}}
@@ -12,7 +12,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label style="padding-left:10px;">ID Tipo Canal</mat-label>
+        <mat-label style="padding-left:10px;">Tipo Canal</mat-label>
         <mat-select [(ngModel)]="idTipoCanal" name="food">
           <mat-option *ngFor="let canal of tipoCanalLista" [value]="canal.idTipoCanal">
             {{canal.Descripcion}}
@@ -30,7 +30,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">nombreFantasia</mat-label>
+        <mat-label class="title">Nombre Fantasia</mat-label>
         <input matInput name="name" [(ngModel)]="nombreFantasia" />
       </mat-form-field>
 
@@ -53,7 +53,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">score</mat-label>
+        <mat-label class="title">Score</mat-label>
         <input matInput name="name" [(ngModel)]="score" />
       </mat-form-field>
 
@@ -63,7 +63,7 @@
     <div class="caja2">
 
       <mat-form-field>
-        <mat-label class="title">aniosActividad</mat-label>
+        <mat-label class="title">Años de Actividad</mat-label>
         <input matInput name="name" [(ngModel)]="aniosActividad" />
       </mat-form-field>
 
@@ -77,39 +77,39 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">calle</mat-label>
+        <mat-label class="title">Calle</mat-label>
         <input matInput name="name" [(ngModel)]="calle" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">calle1</mat-label>
+        <mat-label class="title">Calle 1</mat-label>
         <input matInput name="name" [(ngModel)]="calle1" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">calle2</mat-label>
+        <mat-label class="title">Calle 2</mat-label>
         <input matInput name="name" [(ngModel)]="calle2" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">nroPuerta</mat-label>
+        <mat-label class="title">Nro Puerta</mat-label>
         <input matInput name="name" [(ngModel)]="nroPuerta" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">piso</mat-label>
+        <mat-label class="title">Piso</mat-label>
         <input matInput name="name" [(ngModel)]="piso" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">dpto</mat-label>
+        <mat-label class="title">Dpto</mat-label>
         <input matInput name="name" [(ngModel)]="dpto" />
       </mat-form-field>
     </div>
 
     <div class="caja3">
       <mat-form-field>
-        <mat-label style="padding-left:10px;">ID Provincia</mat-label>
+        <mat-label style="padding-left:10px;">Provincia</mat-label>
         <mat-select [(ngModel)]="idProvincia" name="food">
           <mat-option *ngFor="let provincia of provinciasLista" [value]="provincia.Descripcion">
             {{provincia.Descripcion}}
@@ -118,7 +118,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label style="padding-left:10px;">ID Localidad</mat-label>
+        <mat-label style="padding-left:10px;">Localidad</mat-label>
         <mat-select [(ngModel)]="idLocalidad" name="food">
           <mat-option *ngFor="let localidad of localidadesLista" [value]="localidad.idLocalidad">
             {{localidad.Descripcion}}
@@ -136,22 +136,22 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">horarioAtencion</mat-label>
+        <mat-label class="title">Horario Atencion</mat-label>
         <input matInput name="name" [(ngModel)]="horarioAtencion" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">horarioCobranza</mat-label>
+        <mat-label class="title">Horario Cobranza</mat-label>
         <input matInput name="name" [(ngModel)]="horarioCobranza" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">web</mat-label>
+        <mat-label class="title">Web</mat-label>
         <input matInput name="name" [(ngModel)]="web" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label class="title">montoCredito</mat-label>
+        <mat-label class="title">Monto Credito</mat-label>
         <input
           matInput
           type="number"

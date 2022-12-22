@@ -1,14 +1,7 @@
 <div class="container">
   <h2 class="title" style="padding-left: 5%;">Operaciones</h2>
   <div class="container-child">
-    <mat-form-field>
-      <mat-label>ID Pedido</mat-label>
-      <mat-select [(ngModel)]="idPedido">
-        <mat-option *ngFor="let pedido of pedidosLista" [value]="pedido.idPedido">
-          {{pedido.descripcion}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+
 
     <mat-form-field>
       <mat-label>ID Detalle Pedido</mat-label>
@@ -20,7 +13,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
+      <mat-label class="title">Cantidad</mat-label>
       <input
         matInput
         type="number"
@@ -31,34 +24,34 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">detalle</mat-label>
+      <mat-label class="title">Detalle</mat-label>
       <input matInput name="name" [(ngModel)]="detalle" />
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">porcDescuentoItem</mat-label>
+      <mat-label class="title">Porcentaje Descuento Item</mat-label>
       <input
         matInput
         type="number"
-        placeholder="porcDescuentoItem"
+        placeholder="Porcentaje Descuento Item"
         class="phone_number"
         [(ngModel)]="porcDescuentoItem"precioUnitario
       />
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">precioUnitario</mat-label>
+      <mat-label class="title">Precio Unitario</mat-label>
       <input
         matInput
         type="number"
-        placeholder="precioUnitario"
+        placeholder="Precio Unitario"
         class="phone_number"
         [(ngModel)]="precioUnitario"
       />
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label class="title">importe</mat-label>
+      <mat-label class="title">Importe</mat-label>
       <input
         matInput
         type="number"
