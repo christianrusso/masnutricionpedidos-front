@@ -50,9 +50,12 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  goToPrint(){
+    this.router.navigateByUrl('home/detallePedido/print');
+  }
 
   goToDetallePedidoCrearPage() {
-    this.router.navigateByUrl('home/detallePedido/crear');
+    this.router.navigateByUrl('home/operacion/crear');
   }
 
   getDetallesPedido() {

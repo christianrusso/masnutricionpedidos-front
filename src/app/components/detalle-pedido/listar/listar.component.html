@@ -25,56 +25,56 @@
       <!-- idPedido Columna -->
       <ng-container matColumnDef="idPedido">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>idPedido</th>
-        <td mat-cell *matCellDef="let row">{{ row.idPedido ? row.idPedido : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.idPedido ? row.idPedido : '-' }}</td>
       </ng-container>
 
       <!-- idDetallePedido Columna -->
       <ng-container matColumnDef="idDetallePedido">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>idDetallePedido</th>
-        <td mat-cell *matCellDef="let row">{{ row.idDetallePedido ? row.idDetallePedido : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.idDetallePedido ? row.idDetallePedido : '-' }}</td>
       </ng-container>
 
 
       <!-- cantidad Columna -->
       <ng-container matColumnDef="cantidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>cantidad</th>
-        <td mat-cell *matCellDef="let row">{{ row.cantidad ? row.cantidad : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.cantidad ? row.cantidad : '-' }}</td>
       </ng-container>
 
       <!-- detalle Columna -->
       <ng-container matColumnDef="detalle">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>detalle</th>
-        <td mat-cell *matCellDef="let row">{{ row.detalle ? row.detalle : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.detalle ? row.detalle : '-' }}</td>
       </ng-container>
 
       <!-- porcDescuentoItem Columna -->
       <ng-container matColumnDef="porcDescuentoItem">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>porcDescuentoItem</th>
-        <td mat-cell *matCellDef="let row">{{ row.porcDescuentoItem ? row.porcDescuentoItem : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.porcDescuentoItem ? row.porcDescuentoItem : '-' }}</td>
       </ng-container>
 
       <!-- precioUnitario Columna -->
       <ng-container matColumnDef="precioUnitario">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>precioUnitario</th>
-        <td mat-cell *matCellDef="let row">{{ row.precioUnitario ? row.precioUnitario : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.precioUnitario ? row.precioUnitario : '-' }}</td>
       </ng-container>
 
       <!-- importe Columna -->
       <ng-container matColumnDef="importe">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>importe</th>
-        <td mat-cell *matCellDef="let row">{{ row.importe ? row.importe : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.importe ? row.importe : '-' }}</td>
       </ng-container>
 
       <!-- isEntregadoItem Columna -->
       <ng-container matColumnDef="isEntregadoItem">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>isEntregadoItem</th>
-        <td mat-cell *matCellDef="let row">{{ row.isEntregadoItem ? row.isEntregadoItem : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint()">{{ row.isEntregadoItem ? row.isEntregadoItem : '-' }}</td>
       </ng-container>
 
       <!-- modificar Columna -->
       <ng-container matColumnDef="modificar">
         <th mat-header-cell *matHeaderCellDef class="opciones">Modificar</th>
-        <td mat-cell *matCellDef="let row" class="opciones">
+        <td mat-cell *matCellDef="let row" class="opciones" (click)="goToPrint()">
           <button mat-icon-button (click)="goToEditPage(row.idDetallePedido)">
             <img
                   class="icon"
@@ -85,9 +85,9 @@
       </ng-container>
 
       <!-- eliminar Columna -->
-      <ng-container matColumnDef="eliminar">
+      <ng-container matColumnDef="eliminar" >
         <th mat-header-cell *matHeaderCellDef class="opciones">Eliminar</th>
-        <td mat-cell *matCellDef="let row" class="opciones">
+        <td mat-cell *matCellDef="let row" class="opciones" (click)="goToPrint()">
           <button mat-icon-button (click)="openDialog(row.idDetallePedido)">
             <img
                   class="icon"

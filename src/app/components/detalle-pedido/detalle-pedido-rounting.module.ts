@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CrearComponent } from './crear/crear.component';
 import { ListarComponent } from './listar/listar.component';
 import { ModificarComponent } from './modificar/modificar.component';
+import { PrintComponent } from './print-demo/print';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'modificar/:id',
     component: ModificarComponent
+  },
+  {
+    path: 'print',
+    component: PrintComponent
   },
 
 ]

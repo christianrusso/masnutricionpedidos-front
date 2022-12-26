@@ -8,6 +8,7 @@ import { ModificarComponent } from './modificar/modificar.component';
 import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { ModalEliminarComponent } from './modal-eliminar/modal-eliminar.component';
 import { PedidoService } from 'src/app/services/pedido.service';
+import { PrintComponent } from './print-demo/print';
 
 
 
@@ -16,7 +17,8 @@ import { PedidoService } from 'src/app/services/pedido.service';
     ListarComponent,
     CrearComponent,
     ModificarComponent,
-    ModalEliminarComponent
+    ModalEliminarComponent,
+    PrintComponent
   ],
   imports: [
     DetallePedidoRoutingModule,
