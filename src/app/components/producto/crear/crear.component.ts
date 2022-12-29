@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Canal } from '../../../models-tipo/tipo-canal';
 import { Router } from '@angular/router';
@@ -27,12 +27,13 @@ import { TipoProductoService } from 'src/app/services/tipo-producto.service';
 import { TipoFamiliaProductoService } from 'src/app/services/tipo-familia-producto.service';
 import { FamiliaData } from 'src/app/models-tipo/TipoFamiliaData';
 import { TipoProductoData } from 'src/app/models-tipo/TipoProductoData'
+import { MatSelect } from '@angular/material/select';
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',
   styleUrls: ['./crear.component.scss'],
 })
-export class CrearComponent implements OnInit {
+export class CrearComponent implements OnInit{
   creado: boolean;
   constructor(
     private productosService: ProductoService,
@@ -57,7 +58,6 @@ export class CrearComponent implements OnInit {
   usuarioGraba: any = localStorage.getItem('NickName');
   listaIdTipoProducto: TipoProductoData[] = [];
   listaTipoFamiliaProducto: FamiliaData[] = [];
-
   ngOnInit(): void {
     this.getIdTipoProducto();
     this.getIdTipoFamilia();

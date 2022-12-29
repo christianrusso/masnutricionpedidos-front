@@ -156,8 +156,8 @@ mat-label{
   margin-top: 15px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
+                                                ::ng-deep .mat-focused .mat-form-field-label {
+                                                  /*change color of label*/
   color: #19AE68 !important;
 }
 

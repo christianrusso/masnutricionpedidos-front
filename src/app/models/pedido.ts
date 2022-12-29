@@ -8,6 +8,14 @@ export class Pedido {
   readonly idTipoReglaComercial: number;
   readonly idAbono: number;
   readonly idTipoCondicionesDeVenta: number;
+  readonly num_interno: number;
+  readonly representante: string;
+  readonly cod: number;
+  readonly cuit: number;
+  readonly domicilio: string;
+  readonly telefono: number;
+  readonly transporte: string;
+  readonly observaciones: string;
   readonly fechaPedido: any;
   readonly porcDescuentoGeneral: number;
   readonly descripcion: string;
@@ -30,6 +38,14 @@ export class Pedido {
     idTipoReglaComercial,
     idAbono,
     idTipoCondicionesDeVenta,
+    num_interno,
+    representante,
+    cod,
+    cuit,
+    domicilio,
+    telefono,
+    transporte,
+    observaciones,
     fechaPedido,
     porcDescuentoGeneral,
     descripcion,
@@ -51,6 +67,14 @@ export class Pedido {
     idTipoReglaComercial: number;
     idAbono: number;
     idTipoCondicionesDeVenta: number;
+    num_interno : number;
+    representante : string;
+    cod	 : number;
+    cuit	 : number;
+    domicilio : string;
+    telefono : number;
+    transporte: string;
+    observaciones : string;
     fechaPedido: any;
     porcDescuentoGeneral: number;
     descripcion: string;
@@ -72,6 +96,14 @@ export class Pedido {
     this.idTipoReglaComercial = idTipoReglaComercial;
     this.idAbono = idAbono;
     this.idTipoCondicionesDeVenta = idTipoCondicionesDeVenta;
+    this.num_interno = num_interno;
+    this.representante = representante;
+    this.cod = cod;
+    this.cuit = cuit;
+    this.domicilio = domicilio;
+    this.telefono = telefono;
+    this.transporte = transporte;
+    this.observaciones = observaciones;
     this.fechaPedido = fechaPedido;
     this.porcDescuentoGeneral = porcDescuentoGeneral;
     this.descripcion = descripcion;

@@ -9,6 +9,14 @@ export interface PedidoData {
   idTipoReglaComercial	: number;
   idAbono: number;
   idTipoCondicionesDeVenta: number;
+  num_interno : number;
+  representante : string;
+  cod	 : number;
+  cuit	 : number;
+  domicilio : string;
+  telefono : number;
+  transporte: string;
+  observaciones : string;
   fechaPedido : any;
   porcDescuentoGeneral  : number;
   descripcion	: string;

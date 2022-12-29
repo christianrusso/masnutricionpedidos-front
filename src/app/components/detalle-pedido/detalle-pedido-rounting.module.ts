@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearComponent } from './crear/crear.component';
+import { DetallesComponent } from './detalles/detalles.component';
 import { ListarComponent } from './listar/listar.component';
 import { ModificarComponent } from './modificar/modificar.component';
-import { PrintComponent } from './print-demo/print';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: ModificarComponent
   },
   {
-    path: 'print',
-    component: PrintComponent
+    path: 'detalles/:id',
+    component: DetallesComponent
   },
 
 ]

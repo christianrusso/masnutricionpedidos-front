@@ -1,10 +1,10 @@
 <div class="container">
   <h2 class="title" style="padding-left: 5%;">Productos</h2>
   <div class="container-child">
-    <mat-form-field>
-      <mat-label class="title">Tipo Producto</mat-label>
-      <mat-select [(ngModel)]="idTipoProducto" name="food">
-        <mat-option *ngFor="let id of listaIdTipoProducto" [value]="id.idTipoProducto">
+    <mat-form-field >
+      <mat-label class="title" >Tipo Producto</mat-label>
+      <mat-select [(ngModel)]="idTipoProducto" name="food" tabindex="1" >
+        <mat-option *ngFor="let id of listaIdTipoProducto" [value]="id.idTipoProducto" >
           {{id.descripcion}}
         </mat-option>
       </mat-select>
@@ -13,7 +13,7 @@
 
     <mat-form-field >
       <mat-label class="title">Tipo Familia Producto</mat-label>
-      <mat-select [(ngModel)]="idTipoFamiliaProducto" name="food">
+      <mat-select [(ngModel)]="idTipoFamiliaProducto" name="food" tabindex="2">
         <mat-option *ngFor="let id of listaTipoFamiliaProducto" [value]="id.idTipoFamiliaProducto">
           {{id.descripcion}}
         </mat-option>
@@ -22,22 +22,22 @@
 
     <mat-form-field>
       <mat-label class="title">Descripción</mat-label>
-      <input matInput name="name" [(ngModel)]="descripcion" />
+      <input matInput name="name" [(ngModel)]="descripcion" tabindex="3"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label class="title">Unidades Fijas Pallet</mat-label>
-      <input matInput name="name" [(ngModel)]="unidadesFijasPallet" />
+      <input matInput name="name" [(ngModel)]="unidadesFijasPallet" tabindex="4"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label class="title">Porcentaje Relacion Pallet</mat-label>
-      <input matInput  type="number" name="name" [(ngModel)]="porcRelacionPallet" />
+      <input matInput  type="number" name="name" [(ngModel)]="porcRelacionPallet" tabindex="5"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label class="title">Precio de Referencia</mat-label>
-      <input matInput name="name" [(ngModel)]="precioReferencia"  type="number" />
+      <input matInput name="name" [(ngModel)]="precioReferencia"  type="number" tabindex="6"/>
     </mat-form-field>
 
 
@@ -46,7 +46,7 @@
     </ng-template>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarProductosPage()" id="button_cancelar">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar">Crear Producto</button>
+    <button mat-raised-button color="warn" (click)="goToListarProductosPage()" id="button_cancelar" tabindex="">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar" tabindex="7">Crear Producto</button>
   </div>
 </div>

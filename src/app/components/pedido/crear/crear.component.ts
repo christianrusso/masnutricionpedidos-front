@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Canal } from '../../../models-tipo/tipo-canal';
 import { Router } from '@angular/router';
@@ -26,6 +26,12 @@ import { TipoReglaComercialService } from 'src/app/services/tipo-regla-comercial
 import { ReglaData } from 'src/app/models-tipo/TipoReglaData';
 import { TipoCondicionesVentaService } from 'src/app/services/tipo-condiciones-venta.service';
 import { CondicionData } from 'src/app/models-tipo/TipoCondicionData';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ProductoPedidoData } from 'src/app/models/ProductosPedidoData';
+import { DetallePedidoCargaData } from 'src/app/models/DetallePedidoCarga';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-crear',
@@ -34,22 +40,59 @@ import { CondicionData } from 'src/app/models-tipo/TipoCondicionData';
 })
 export class CrearComponent implements OnInit {
   creado: boolean;
+  dataSourceCarrito: MatTableDataSource<ProductoPedidoData> =
+    new MatTableDataSource();
   constructor(
-    private clienteServices: ClienteService,
-    private readonly tipoclienteService: TipoClienteService,
-    private empresaServices: EmpresaService,
-    private tipocanalServices: TipoCanalService,
-    private readonly tipoivaService: TipoIvaService,
-    private readonly vendedorService: VendedorService,
-    private readonly localidadService: LocalidadService,
-    private readonly provinciaService: ProvinciaService,
     private readonly pedidoService: PedidoService,
-    private readonly tipoReglaComercialService: TipoReglaComercialService,
-    private readonly tipoCondicionesVentaService: TipoCondicionesVentaService,
+    private readonly productoService: ProductoService,
     private readonly router: Router
   ) {
     this.creado = false;
   }
+  displayedColumnsDetallesPedidos: string[] = [
+    'categoria',
+    'producto',
+    'cantidad',
+    'condicion',
+    'agregar',
+  ];
+  categoria!: string;
+  producto!: string;
+  cantidad!: number;
+  condicion!: string;
+  productos: DetallePedidoCargaData[] = [];
+  idProducto!: number;
+
+  displayedColumnsProductoPedido: string[] = [
+    'codigo',
+    'descripcion',
+    'precio',
+    'cantidad',
+    'unidades_bulto',
+    'pallets',
+    'condicion',
+    'total',
+    'modificar',
+    'eliminar',
+  ];
+
+  dataSourceDetallesPedidos = new MatTableDataSource<DetallePedidoCargaData>();
+  dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>();
+  productosEnCarrito: ProductoPedidoData[] = [];
+  listaProductos: ProductoPedidoData[] = [];
+  id!: number;
+  codigo!: number;
+  descripcion!: string;
+  precioReferencia!: number;
+  unidades_bulto!: number;
+  pallets!: number;
+  total: number = 0;
+  total_final: number = 0;
+  cantidadNueva: number = 0;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   myControl = new UntypedFormControl();
   options: TipoClienteData[] = [];
@@ -65,75 +108,117 @@ export class CrearComponent implements OnInit {
   idTipoReglaComercial!: number;
   idAbono!: number;
   idTipoCondicionesDeVenta!: number;
+  num_interno!: number;
+  representante!: string;
+  cod!: number;
+  cuit!: number;
+  domicilio!: string;
+  telefono!: number;
+  transporte!: string;
+  observaciones!: string;
   fechaPedido!: any;
   porcDescuentoGeneral!: number;
-  descripcion: string = '';
   nroRemito: string = '';
   subtotal!: number;
   impuestos!: number;
   subtotal2!: number;
   ivaInscriptoPorc!: number;
   ivaInscripto!: number;
-  total!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
 
-  clienteLista: ClienteData[] = [];
-  tipoCanalLista: CanalData[] = [];
-  empresasLista: EmpresaData[] = [];
-  ivasLista: IvaData[] = [];
-  vendedoresLista: VendedorData[] = [];
-  localidadesLista: LocalidadData[] = [];
-  provinciasLista: ProvinciaData[] = [];
-  reglasLista: ReglaData[] = [];
-  condicionesLista: CondicionData[] = [];
-
   ngOnInit(): void {
-    this.getIds();
+    this.getProductos();
+
   }
 
-  getIds() {
-    this.getidCliente();
-    this.getidVendedor();
-    this.getidTipoReglaComercial();
-    this.getidTipoCondicionesDeVenta();
-  }
-
-  getidCliente() {
-    this.clienteServices.getClientes().subscribe((response: any) => {
-      const clientes = response as ClienteData[];
-      clientes.forEach((element) => {
-        this.clienteLista.push(element);
-      });
-    });
-  }
-
-  getidVendedor() {
-    this.vendedorService.getVendedores().subscribe((response: any) => {
-      const vendedores = response as VendedorData[];
-      vendedores.forEach((element) => {
-        this.vendedoresLista.push(element);
-      });
-    });
-  }
-
-  getidTipoReglaComercial() {
-    this.tipoReglaComercialService.getReglas().subscribe((response: any) => {
-      const reglas = response as ReglaData[];
-      reglas.forEach((element) => {
-        this.reglasLista.push(element);
-      });
-    });
-  }
-
-  getidTipoCondicionesDeVenta() {
-    this.tipoCondicionesVentaService
-      .getCondiciones()
-      .subscribe((response: any) => {
-        const condiciones = response as CondicionData[];
-        condiciones.forEach((element) => {
-          this.condicionesLista.push(element);
+  getProductos() {
+    this.productoService.getProductos().subscribe((response: any) => {
+      const productos = response as ProductoPedidoData[];
+      productos.forEach((e) => {
+        this.listaProductos.push({
+          id_producto: e.id_producto,
+          descripcion: e.descripcion,
+          precioReferencia: e.precioReferencia,
+          cantidad: e.cantidad,
+          porcRelacionPallet: e.porcRelacionPallet,
+          unidadesFijasPallet: e.unidadesFijasPallet,
+          condicion: e.condicion,
+          total: e.total,
+          codigo: e.codigo
         });
       });
+      console.log(this.listaProductos);
+
+    });
+  }
+  searchData(id: any){
+    // console.log(id);
+
+  }
+  agregarElemento() {
+    console.log(this.listaProductos);
+
+    this.productos.push({
+      cantidad: this.cantidad,
+      categoria: this.categoria,
+      id_producto: this.idProducto,
+      condicion: this.condicion,
+      codigo: 0
+    })
+    if (!this.cantidad) {
+      this.cantidad = 1;
+    }
+    if (!this.total_final) {
+      this.total_final = 0;
+    }
+    console.log(this.productos);
+
+    const miProducto = this.listaProductos.filter(p => p.id_producto == this.idProducto)
+    console.log(miProducto);
+
+    // this.idProducto = e.id_producto;
+    // this.descripcion = e.descripcion;
+    // this.precioReferencia = e.precioReferencia;
+    // this.unidades_bulto = e.porcRelacionPallet;
+    // this.pallets = e.unidadesFijasPallet;
+    // this.condicion = e.condicion
+    this.total = this.cantidad * this.precioReferencia;
+    this.productosEnCarrito.push({
+      id_producto: miProducto[0].id_producto,
+      precioReferencia: miProducto[0].precioReferencia,
+      cantidad: this.cantidad,
+      descripcion:miProducto[0].descripcion,
+      total: miProducto[0].precioReferencia * this.cantidad,
+      porcRelacionPallet: miProducto[0].porcRelacionPallet,
+      unidadesFijasPallet: miProducto[0].unidadesFijasPallet,
+      condicion: this.condicion,
+      codigo: 10
+    });
+    console.log(this.productosEnCarrito);
+
+    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
+      this.productosEnCarrito
+    );
+  }
+  eliminarElemento(producto: ProductoPedidoData) {
+
+    const indice = this.productosEnCarrito.findIndex(
+      (p) => p.id_producto == producto.id_producto
+    );
+    this.productosEnCarrito.splice(indice, 1);
+    this.productosEnCarrito = [...this.productosEnCarrito];
+    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
+      this.productosEnCarrito
+    );
+    if (!producto.cantidad) {
+      producto.cantidad = 1;
+    }
+    if (producto.precioReferencia) {
+      this.total_final -= +producto.precioReferencia * producto.cantidad;
+      this.total = +producto.precioReferencia * producto.cantidad;
+      this.total_final = Number(this.total_final.toFixed());
+      this.total = Number(this.total.toFixed());
+    }
   }
 
   onSend() {
@@ -147,6 +232,14 @@ export class CrearComponent implements OnInit {
       idTipoReglaComercial: this.idTipoReglaComercial,
       idAbono: this.idAbono,
       idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta,
+      num_interno: this.num_interno,
+      representante: this.representante,
+      cod: this.cod,
+      cuit: this.cuit,
+      domicilio: this.domicilio,
+      telefono: this.telefono,
+      transporte: this.transporte,
+      observaciones: this.observaciones,
       fechaPedido: this.fechaPedido,
       porcDescuentoGeneral: this.porcDescuentoGeneral,
       descripcion: this.descripcion,
@@ -170,5 +263,8 @@ export class CrearComponent implements OnInit {
 
   goToListarPedidosPage() {
     this.router.navigateByUrl(`home/pedido/listar`);
+  }
+  goToEditPage(idEmpresa: number) {
+    this.router.navigateByUrl(`home/empresa/modificar/${idEmpresa}`);
   }
 }
