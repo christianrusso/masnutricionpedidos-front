@@ -50,6 +50,7 @@ import { ProductoModule } from './components/producto/producto.module';
 import { RolService } from './services/rol.service';
 import { UsuarioService } from './services/usuario.service';
 import { UsuarioModule } from './components/usuario/usuario.module';
+import { CategoriaProductoService } from './services/categoria-producto.service';
 
 
 
@@ -98,6 +99,7 @@ import { UsuarioModule } from './components/usuario/usuario.module';
     TelefonoService,
     UsuarioService,
     RolService,
+    CategoriaProductoService,
     TipoCanalService,
     TipoClienteService,
     TipoCondicionesVentaService,

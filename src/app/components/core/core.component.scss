@@ -29,7 +29,7 @@ mat-toolbar {
       color: #000;
       font-family: Quicksand;
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 30px;
       letter-spacing: 0.15000000596046448px;
       text-align: right;
@@ -40,7 +40,7 @@ mat-toolbar {
   mat-panel-title{
     font-size: 'Quicksand';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     padding: 5px;
@@ -166,6 +166,7 @@ mat-toolbar {
 
   .alineacion_icon_desplegable{
      margin-left: 2px;
+     font-weight: 400;
   }
   .icon-button{
     background: none;

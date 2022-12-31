@@ -23,5 +23,6 @@ export const environment = {
   apiAcceso:'http://localhost:3000/api/acceso',
   apiTelefono: 'http://localhost:3000/api/telefono',
   apiProducto: 'http://localhost:3000/api/producto',
-  apiRol: 'http://localhost:3000/api/rol'
+  apiRol: 'http://localhost:3000/api/rol',
+  apiCategoria: 'http://localhost:3000/api/categoria'
 };
