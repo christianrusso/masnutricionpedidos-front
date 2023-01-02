@@ -5,6 +5,7 @@ export class ProductoEdit {
     readonly unidadesFijasPallet: number;
     readonly porcRelacionPallet: number;
     readonly precioReferencia: string;
+    readonly codigo: number;
     readonly usuarioModifica: string;
     constructor({
         descripcion,
@@ -13,6 +14,7 @@ export class ProductoEdit {
         unidadesFijasPallet,
         porcRelacionPallet,
         precioReferencia,
+        codigo,
         usuarioModifica
     }: {
         descripcion: string;
@@ -21,6 +23,7 @@ export class ProductoEdit {
         unidadesFijasPallet: number;
         porcRelacionPallet: number;
         precioReferencia: string;
+        codigo: number;
         usuarioModifica: string;
     }) {
       this.descripcion = descripcion,
@@ -29,7 +32,7 @@ export class ProductoEdit {
       this.unidadesFijasPallet = unidadesFijasPallet,
       this.precioReferencia = precioReferencia,
       this.porcRelacionPallet = porcRelacionPallet,
+      this.codigo = codigo,
       this.usuarioModifica = usuarioModifica
     }
   }
-  

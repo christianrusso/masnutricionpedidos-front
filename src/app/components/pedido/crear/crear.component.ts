@@ -32,6 +32,8 @@ import { MatSort } from '@angular/material/sort';
 import { ProductoPedidoData } from 'src/app/models/ProductosPedidoData';
 import { DetallePedidoCargaData } from 'src/app/models/DetallePedidoCarga';
 import { ProductoService } from 'src/app/services/producto.service';
+import { CategoriaProductoData } from 'src/app/models/categoriaProductoData';
+import { CategoriaProductoService } from 'src/app/services/categoria-producto.service';
 
 @Component({
   selector: 'app-crear',
@@ -45,6 +47,7 @@ export class CrearComponent implements OnInit {
   constructor(
     private readonly pedidoService: PedidoService,
     private readonly productoService: ProductoService,
+    private readonly categoriaService: CategoriaProductoService,
     private readonly router: Router
   ) {
     this.creado = false;
@@ -80,6 +83,7 @@ export class CrearComponent implements OnInit {
   dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>();
   productosEnCarrito: ProductoPedidoData[] = [];
   listaProductos: ProductoPedidoData[] = [];
+  listaCategoria: CategoriaProductoData[] = [];
   id!: number;
   codigo!: number;
   descripcion!: string;
@@ -128,7 +132,7 @@ export class CrearComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
-
+    this.getCategorias()
   }
 
   getProductos() {
@@ -151,9 +155,18 @@ export class CrearComponent implements OnInit {
 
     });
   }
-  searchData(id: any){
-    // console.log(id);
+  getCategorias() {
+    this.categoriaService.getCategorias().subscribe((response: any) => {
+      const categorias = response as CategoriaProductoData[];
+      categorias.forEach((e) => {
+        this.listaCategoria.push({
+          descripcion: e.descripcion,
+          idCategoriaProducto: e.idCategoriaProducto
+        });
+      });
+      console.log(this.listaProductos);
 
+    });
   }
   agregarElemento() {
     console.log(this.listaProductos);
@@ -163,7 +176,6 @@ export class CrearComponent implements OnInit {
       categoria: this.categoria,
       id_producto: this.idProducto,
       condicion: this.condicion,
-      codigo: 0
     })
     if (!this.cantidad) {
       this.cantidad = 1;
@@ -192,7 +204,7 @@ export class CrearComponent implements OnInit {
       porcRelacionPallet: miProducto[0].porcRelacionPallet,
       unidadesFijasPallet: miProducto[0].unidadesFijasPallet,
       condicion: this.condicion,
-      codigo: 10
+      codigo: miProducto[0].codigo
     });
     console.log(this.productosEnCarrito);
 
@@ -223,15 +235,15 @@ export class CrearComponent implements OnInit {
 
   onSend() {
     const pedido = new Pedido({
-      isAnulado: this.isAnulado,
-      isEnviadoxMail: this.isEnviadoxMail,
-      isCobrado: this.isCobrado,
-      isFinalizado: this.isFinalizado,
-      idCliente: this.idCliente,
-      idVendedor: this.idVendedor,
-      idTipoReglaComercial: this.idTipoReglaComercial,
-      idAbono: this.idAbono,
-      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta,
+      isAnulado: this.isAnulado || 0,
+      isEnviadoxMail: this.isEnviadoxMail || 0,
+      isCobrado: this.isCobrado || 0,
+      isFinalizado: this.isFinalizado || 0,
+      idCliente: this.idCliente || 0,
+      idVendedor: this.idVendedor || 0,
+      idTipoReglaComercial: this.idTipoReglaComercial || 0,
+      idAbono: this.idAbono || 0,
+      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
       num_interno: this.num_interno,
       representante: this.representante,
       cod: this.cod,
@@ -247,8 +259,8 @@ export class CrearComponent implements OnInit {
       subtotal: this.subtotal,
       impuestos: this.impuestos,
       subtotal2: this.subtotal2,
-      ivaInscriptoPorc: this.ivaInscriptoPorc,
-      ivaInscripto: this.ivaInscripto,
+      ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
+      ivaInscripto: this.ivaInscripto || 0,
       total: this.total,
       usuarioGraba: this.usuarioGraba,
     });

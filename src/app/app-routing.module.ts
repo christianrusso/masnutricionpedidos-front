@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./components/auth/auth.module').then((m) => m.AuthModule),
-      canActivate: [IsAuthGuard]
+    canActivate: [IsAuthGuard],
   },
   {
     path: 'home',
@@ -104,14 +104,23 @@ const routes: Routes = [
           ),
         canActivate: [AuthGuard],
       },
-       {
-         path: 'pedido',
-         loadChildren: () =>
-           import('./components/pedido/pedido.module').then(
-             (m) => m.PedidoModule
-           ),
-         canActivate: [AuthGuard],
-       },
+      {
+        path: 'pedido',
+        loadChildren: () =>
+          import('./components/pedido/pedido.module').then(
+            (m) => m.PedidoModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'categoria',
+        loadChildren: () =>
+          import('./components/categoria/categoria.module').then(
+            (m) => m.CategoriaModule
+          ),
+        canActivate: [AuthGuard],
+      },
+
       {
         path: 'empresa',
         loadChildren: () =>
@@ -163,9 +172,7 @@ const routes: Routes = [
       {
         path: 'email',
         loadChildren: () =>
-          import('./components/email/email.module').then(
-            (m) => m.EmailModule
-          ),
+          import('./components/email/email.module').then((m) => m.EmailModule),
         canActivate: [AuthGuard],
       },
       {

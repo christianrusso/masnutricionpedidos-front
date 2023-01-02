@@ -37,6 +37,7 @@ export class CoreComponent implements OnInit {
   isProducto: any;
   isProvincia: any;
   isTelefono: any;
+  isCategoria: any;
   isVendedor: any;
   constructor(private router: Router, private readonly authService: AuthService, private rolService: RolService,) {}
 
@@ -61,6 +62,7 @@ export class CoreComponent implements OnInit {
       this.isProducto = response[0].isProducto,
       this.isProvincia = response[0].isProvincia,
       this.isTelefono = response[0].isTelefono,
+      this.isCategoria = response[0].isCategoria,
       this.isVendedor = response[0].isVendedor
     });
   }
@@ -120,6 +122,9 @@ export class CoreComponent implements OnInit {
   goToLocalidadListarPage() {
     this.router.navigateByUrl('home/localidad/listar');
   }
+  goToCategoriaListarPage() {
+    this.router.navigateByUrl('home/categoria/listar');
+  }
   goToAccesoListarPage() {
     this.router.navigateByUrl('home/acceso/listar');
   }
@@ -133,7 +138,7 @@ export class CoreComponent implements OnInit {
     this.router.navigateByUrl('home/email/listar');
   }
   goToPedidosListarPage(){
-    this.router.navigateByUrl('home/detallePedido/listar');
+    this.router.navigateByUrl('home/pedido/listar');
   }
   goToPedidoCrearPage() {
     this.router.navigateByUrl('home/pedido/crear');

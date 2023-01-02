@@ -53,6 +53,7 @@ export class CrearComponent implements OnInit{
   idTipoProducto: number = 0;
   idTipoFamiliaProducto: number = 0;
   unidadesFijasPallet!: number;
+  codigo!: number;
   porcRelacionPallet!: number;
   precioReferencia: string = '';
   usuarioGraba: any = localStorage.getItem('NickName');
@@ -87,6 +88,7 @@ export class CrearComponent implements OnInit{
       idTipoFamiliaProducto: this.idTipoFamiliaProducto,
       unidadesFijasPallet: this.unidadesFijasPallet,
       porcRelacionPallet: this.porcRelacionPallet,
+      codigo: this.codigo,
       precioReferencia: this.precioReferencia,
       usuarioGraba: this.usuarioGraba,
     });

@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="title" style="padding-left: 5%;">Categoria</h2>
+  <div class="container-child">
+
+    <mat-form-field>
+      <mat-label class="title">descripcion</mat-label>
+      <input matInput name="name" [(ngModel)]="descripcion" />
+    </mat-form-field>
+
+    <ng-template [ngIf]="creado">
+      <div class="message_create">Categoria actualizada con exito</div>
+    </ng-template>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="goToListarCategoriaPage()" id="button_cancelar">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onEdit()" id="aplicar">Editar Categoria</button>
+  </div>
+</div>

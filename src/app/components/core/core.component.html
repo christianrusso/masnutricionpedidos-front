@@ -246,6 +246,14 @@
             Localidades
           </mat-panel-title>
         </div>
+        <div class="buttons_core" (click)="goToCategoriaListarPage()" *ngIf="isAdmin == '1' || isCategoria == 1">
+          <mat-panel-title style="font-family: Quicksand">
+            <button class="icon-button">
+              <img class="icon" src="./../../../assets/localidades_menu.png" />
+            </button>
+            Categoria
+          </mat-panel-title>
+        </div>
 
         <div class="buttons_core" (click)="goToFamiliaListarPage()">
           <mat-panel-title style="font-family: Quicksand">

@@ -26,18 +26,23 @@
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label class="title">Codigo</mat-label>
+      <input matInput name="name" [(ngModel)]="codigo" tabindex="4"/>
+    </mat-form-field>
+
+    <mat-form-field>
       <mat-label class="title">Unidades Fijas Pallet</mat-label>
-      <input matInput name="name" [(ngModel)]="unidadesFijasPallet" tabindex="4"/>
+      <input matInput name="name" [(ngModel)]="unidadesFijasPallet" tabindex="5"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label class="title">Porcentaje Relacion Pallet</mat-label>
-      <input matInput  type="number" name="name" [(ngModel)]="porcRelacionPallet" tabindex="5"/>
+      <input matInput  type="number" name="name" [(ngModel)]="porcRelacionPallet" tabindex="6"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label class="title">Precio de Referencia</mat-label>
-      <input matInput name="name" [(ngModel)]="precioReferencia"  type="number" tabindex="6"/>
+      <input matInput name="name" [(ngModel)]="precioReferencia"  type="number" tabindex="7"/>
     </mat-form-field>
 
 
@@ -46,7 +51,7 @@
     </ng-template>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarProductosPage()" id="button_cancelar" tabindex="">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar" tabindex="7">Crear Producto</button>
+    <button mat-raised-button color="warn" (click)="goToListarProductosPage()" id="button_cancelar" tabindex="9">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="onSend()" id="aplicar" tabindex="8">Crear Producto</button>
   </div>
 </div>

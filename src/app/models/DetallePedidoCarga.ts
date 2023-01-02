@@ -3,5 +3,4 @@ export interface DetallePedidoCargaData {
   categoria : string
   cantidad : number
   condicion : string
-  codigo: number
 }

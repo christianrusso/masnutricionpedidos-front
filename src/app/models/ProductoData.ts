@@ -6,5 +6,5 @@ export interface ProductoData {
     unidadesFijasPallet: number;
     porcRelacionPallet: number;
     precioReferencia: string;
+    codigo: number
   }
-  

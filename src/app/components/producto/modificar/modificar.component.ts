@@ -39,6 +39,7 @@ export class ModificarComponent implements OnInit {
   unidadesFijasPallet: number = 0;
   porcRelacionPallet: number = 0;
   precioReferencia: string = '';
+  codigo: number = 0;
   listaIdTipoProducto: TipoProductoData[] = [];
   listaTipoFamiliaProducto: FamiliaData[] = [];
   usuarioModifica: any = localStorage.getItem('NickName');
@@ -52,11 +53,12 @@ export class ModificarComponent implements OnInit {
       this.idTipoFamiliaProducto = response[0].idTipoFamiliaProducto;
       this.unidadesFijasPallet = response[0].unidadesFijasPallet;
       this.precioReferencia = response[0].precioReferencia;
+      this.codigo = response[0].codigo;
       this.porcRelacionPallet = response[0].porcRelacionPallet;
       this.creado = false;
     });
   }
- 
+
   getIdTipoProducto() {
     this.tipoProductoService.getProductos().subscribe((response: any) => {
       const ids = response as TipoProductoData[];
@@ -83,6 +85,7 @@ export class ModificarComponent implements OnInit {
       unidadesFijasPallet: this.unidadesFijasPallet,
       porcRelacionPallet: this.porcRelacionPallet,
       precioReferencia: this.precioReferencia,
+      codigo: this.codigo,
       usuarioModifica: this.usuarioModifica,
     });
     this.productosService

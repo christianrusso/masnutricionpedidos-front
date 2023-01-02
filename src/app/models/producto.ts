@@ -4,6 +4,7 @@ export class Producto {
   readonly idTipoFamiliaProducto: number;
   readonly unidadesFijasPallet: number;
   readonly porcRelacionPallet: number;
+  readonly codigo: number
   readonly precioReferencia: string;
   readonly usuarioGraba: string;
 
@@ -13,6 +14,7 @@ export class Producto {
     idTipoFamiliaProducto,
     unidadesFijasPallet,
     porcRelacionPallet,
+    codigo,
     precioReferencia,
     usuarioGraba,
   }: {
@@ -21,6 +23,7 @@ export class Producto {
     idTipoFamiliaProducto: number;
     unidadesFijasPallet: number;
     porcRelacionPallet: number;
+    codigo: number
     precioReferencia: string;
     usuarioGraba: string;
   }) {
@@ -29,6 +32,7 @@ export class Producto {
     this.idTipoFamiliaProducto = idTipoFamiliaProducto;
     this.unidadesFijasPallet = unidadesFijasPallet;
     this.porcRelacionPallet = porcRelacionPallet;
+    this.codigo = codigo;
     this.precioReferencia = precioReferencia;
     this.usuarioGraba = usuarioGraba;
   }

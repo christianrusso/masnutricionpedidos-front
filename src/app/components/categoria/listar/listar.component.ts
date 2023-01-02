@@ -4,8 +4,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ProductoData } from 'src/app/models/ProductoData';
-import { ProductoService } from 'src/app/services/producto.service';
+import { CategoriaProductoData } from 'src/app/models/categoriaProductoData';
+import { LocalidadData } from 'src/app/models/LocalidadData';
+import { ProvinciaData } from 'src/app/models/ProvinciaData';
+import { CategoriaProductoService } from 'src/app/services/categoria-producto.service';
+import { LocalidadService } from 'src/app/services/localidad.service';
+import { ProvinciaService } from 'src/app/services/provincia.service';
+import { TipoCanalService } from 'src/app/services/tipo-canal.service';
+import { CanalData } from '../../../models-tipo/TipoCanalData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -16,34 +22,28 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
 export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   constructor(
-    private productoServices: ProductoService,
+    private categoriaService: CategoriaProductoService,
     private readonly router: Router,
     private dialog: MatDialog
   ) {
     this.dataSource = new MatTableDataSource();
   }
 
-  displayedColumnsProductos: string[] = [
-    'id_producto',
+  displayedColumnsLocalidades: string[] = [
+    'idCategoriaProducto',
     'descripcion',
-    'codigo',
-    'idTipoProducto',
-    'idTipoFamiliaProducto',
-    'unidadesFijasPallet',
-    'porcRelacionPallet',
-    'precioReferencia',
     'modificar',
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<ProductoData>();
+  dataSource = new MatTableDataSource<CategoriaProductoData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.getProductos();
+    this.getCategorias();
   }
 
   ngAfterViewInit() {
@@ -51,12 +51,14 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  getProductos() {
-    this.productoServices.getProductos().subscribe((response: any) => {
+  goToCategoriaCrearPage() {
+    this.router.navigateByUrl('home/categoria/crear');
+  }
 
-      const productos = response as ProductoData[];
-      console.log(productos);
-      this.dataSource.data = productos;
+  getCategorias() {
+    this.categoriaService.getCategorias().subscribe((response: any) => {
+      const categoria = response as CategoriaProductoData[];
+      this.dataSource.data = categoria;
     });
   }
 
@@ -69,11 +71,8 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(idProducto: number) {
-    this.router.navigateByUrl(`home/producto/modificar/${idProducto}`);
-  }
-  goToProductosCrearPage(){
-    this.router.navigateByUrl(`home/producto/crear`);
+  goToEditPage(idLocalidad: number) {
+    this.router.navigateByUrl(`home/categoria/modificar/${idLocalidad}`);
   }
 
   openDialog(id: number): void {
@@ -85,7 +84,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.productoServices.deleteProducto(id).subscribe((response) => {
+        this.categoriaService.deleteCategoria(id).subscribe((response) => {
           setTimeout(() => {
             location.reload();
           }, 100);

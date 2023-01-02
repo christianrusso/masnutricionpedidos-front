@@ -1,51 +1,69 @@
+<div>
+  <div>Nuevo pedido</div>
+  <div>cancelar</div>
+  <div>
+
+    <button
+      mat-raised-button
+      color="warn"
+      id="agregar"
+      (click)="onSend()"
+    >
+     Guardar
+    </button>
+
+  </div>
+</div>
+
+
 <div class="first-grid">
   <p>Pedido Nº</p>
   <div class="two">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">num_interno</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="num_interno"/>
     </mat-form-field>
   </div>
   <div class="three">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">representante</mat-label>
+      <input matInput name="name" autofocus  [(ngModel)]="representante"/>
     </mat-form-field>
   </div>
   <div class="four">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">cod</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="cod"/>
     </mat-form-field>
   </div>
   <div class="five">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">cuit</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="cuit"/>
     </mat-form-field>
   </div>
   <div class="six">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">domicilio</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="domicilio"/>
     </mat-form-field>
   </div>
   <div class="seven">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">telefono</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="telefono" />
     </mat-form-field>
   </div>
   <div class="eigth">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">transporte</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="transporte" />
     </mat-form-field>
   </div>
   <div class="nine">
     <mat-form-field>
-      <mat-label class="title">cantidad</mat-label>
-      <input matInput name="name" autofocus />
+      <mat-label class="title">observaciones</mat-label>
+      <input matInput name="name" autofocus [(ngModel)]="observaciones" />
     </mat-form-field>
   </div>
 </div>
@@ -64,16 +82,20 @@
 
 
   <div class="two">
-    <mat-form-field>
-      <mat-label class="title">categoria</mat-label>
-      <input matInput name="name" [(ngModel)]="categoria"/>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="categoria">
+          <mat-option *ngFor="let categoria of listaCategoria" [value]="categoria.idCategoriaProducto">
+            {{categoria.descripcion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
   </div>
   <div class="three">
     <mat-form-field>
       <mat-label>Producto</mat-label>
       <mat-select [(ngModel)]="idProducto">
-        <mat-option *ngFor="let producto of listaProductos" [value]="producto.id_producto" (click)="searchData(producto)">
+        <mat-option *ngFor="let producto of listaProductos" [value]="producto.id_producto">
           {{producto.descripcion}}
         </mat-option>
       </mat-select>
@@ -127,13 +149,13 @@
       </ng-container>
 
       <ng-container matColumnDef="unidades_bulto">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>unidades_bulto</th>
-        <td mat-cell *matCellDef="let row">{{ row.unidades_bulto ? row.unidades_bulto : '-' }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Unidades Fijas Pallet</th>
+        <td mat-cell *matCellDef="let row">{{ row.unidadesFijasPallet ? row.unidadesFijasPallet : '-' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="pallets">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>pallets</th>
-        <td mat-cell *matCellDef="let row">{{ row.pallets ? row.pallets : '-' }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>porcRelacionPallet</th>
+        <td mat-cell *matCellDef="let row">{{ row.porcRelacionPallet ? row.porcRelacionPallet : '-' }}</td>
       </ng-container>
       <ng-container matColumnDef="condicion">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>condicion</th>
