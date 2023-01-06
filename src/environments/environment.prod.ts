@@ -24,5 +24,6 @@ export const environment = {
   apiTelefono: ' https://masnutricionback.herokuapp.com/api/telefono',
   apiProducto: ' https://masnutricionback.herokuapp.com/api/producto',
   apiRol: ' https://masnutricionback.herokuapp.com/api/rol',
-  apiCategoria: ' https://masnutricionback.herokuapp.com/api/categoria'
+  apiCategoria: ' https://masnutricionback.herokuapp.com/api/categoria',
+  apiProductosPorPedido : ' https://masnutricionback.herokuapp.com/api/productos_por_venta'
 };
