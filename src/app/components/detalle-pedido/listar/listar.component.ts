@@ -5,7 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { DetallePedidoData } from 'src/app/models/DetallePedidoData';
+import { PedidoData } from 'src/app/models/PedidoData';
 import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
+import { PedidoService } from 'src/app/services/pedido.service';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -17,6 +19,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   constructor(
     private detallePedidoService: DetallePedidoService,
+    private pedidoService: PedidoService,
     private readonly router: Router,
     private dialog: MatDialog
   ) {
@@ -36,14 +39,14 @@ export class ListarComponent implements OnInit, AfterViewInit {
     'eliminar',
   ];
 
-  dataSource = new MatTableDataSource<DetallePedidoData>();
+  dataSource = new MatTableDataSource<PedidoData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.getDetallesPedido();
+    this.getPedidos();
   }
 
   ngAfterViewInit() {
@@ -58,10 +61,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('home/operacion/crear');
   }
 
-  getDetallesPedido() {
-    this.detallePedidoService.getDetallePedidos().subscribe((response: any) => {
-      const detalles = response as DetallePedidoData[];
-      this.dataSource.data = detalles;
+  getPedidos() {
+    this.pedidoService.getPedidos().subscribe((response: any) => {
+      const pedidos = response as PedidoData[];
+      this.dataSource.data = pedidos;
     });
   }
 

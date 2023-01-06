@@ -35,10 +35,10 @@
         <td mat-cell *matCellDef="let row" >{{ row.idPedido ? row.idPedido : '-' }}</td>
       </ng-container>
 
-      <!-- idDetallePedido Columna -->
-      <ng-container matColumnDef="idDetallePedido">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idDetallePedido</th>
-        <td mat-cell *matCellDef="let row" >{{ row.idDetallePedido ? row.idDetallePedido : '-' }}</td>
+      <!-- idProducto Columna -->
+      <ng-container matColumnDef="idProducto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>idProducto</th>
+        <td mat-cell *matCellDef="let row" >{{ row.idProducto ? row.idProducto : '-' }}</td>
       </ng-container>
 
 
@@ -48,34 +48,44 @@
         <td mat-cell *matCellDef="let row" >{{ row.cantidad ? row.cantidad : '-' }}</td>
       </ng-container>
 
-      <!-- detalle Columna -->
-      <ng-container matColumnDef="detalle">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>detalle</th>
-        <td mat-cell *matCellDef="let row" >{{ row.detalle ? row.detalle : '-' }}</td>
+      <!-- codigo Columna -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>codigo</th>
+        <td mat-cell *matCellDef="let row" >{{ row.codigo ? row.codigo : '-' }}</td>
       </ng-container>
 
-      <!-- porcDescuentoItem Columna -->
-      <ng-container matColumnDef="porcDescuentoItem">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>porcDescuentoItem</th>
-        <td mat-cell *matCellDef="let row" >{{ row.porcDescuentoItem ? row.porcDescuentoItem : '-' }}</td>
+      <!-- descripcion Columna -->
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>descripcion</th>
+        <td mat-cell *matCellDef="let row" >{{ row.descripcion ? row.porcDescuentoItem : '-' }}</td>
       </ng-container>
 
-      <!-- precioUnitario Columna -->
-      <ng-container matColumnDef="precioUnitario">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>precioUnitario</th>
-        <td mat-cell *matCellDef="let row" >{{ row.precioUnitario ? row.precioUnitario : '-' }}</td>
+      <!-- precio Columna -->
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>precio</th>
+        <td mat-cell *matCellDef="let row" >{{ row.precio ? row.precioUnitario : '-' }}</td>
       </ng-container>
 
-      <!-- importe Columna -->
-      <ng-container matColumnDef="importe">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>importe</th>
-        <td mat-cell *matCellDef="let row" >{{ row.importe ? row.importe : '-' }}</td>
+      <!-- unidades_bulto Columna -->
+      <ng-container matColumnDef="unidades_bulto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>unidades_bulto</th>
+        <td mat-cell *matCellDef="let row" >{{ row.unidades_bulto ? row.unidades_bulto : '-' }}</td>
       </ng-container>
 
-      <!-- isEntregadoItem Columna -->
-      <ng-container matColumnDef="isEntregadoItem">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>isEntregadoItem</th>
-        <td mat-cell *matCellDef="let row" >{{ row.isEntregadoItem ? row.isEntregadoItem : '-' }}</td>
+      <!-- pallets Columna -->
+      <ng-container matColumnDef="pallets">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>pallets</th>
+        <td mat-cell *matCellDef="let row" >{{ row.pallets ? row.pallets : '-' }}</td>
+      </ng-container>
+        <!-- condicion Columna -->
+        <ng-container matColumnDef="condicion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>condicion</th>
+          <td mat-cell *matCellDef="let row" >{{ row.condicion ? row.condicion : '-' }}</td>
+        </ng-container>
+          <!-- total Columna -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>total</th>
+        <td mat-cell *matCellDef="let row" >{{ row.total ? row.total : '-' }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumnsDetallePedidos"></tr>
@@ -91,6 +101,14 @@
       [pageSizeOptions]="[50, 75, 100]"
       aria-label="Mostrar por pagina"
     ></mat-paginator>
+  </div>
+  <p>Total final ${{this.total}}</p>
+  <p>Observaciones</p>
+  <div class="container-descripcion">
+    <p style="margin-left: 30px;">fringilla massa amet, Sed at viverra elit ex malesuada nibh Sed lacus, Praesent viverra id tincidunt turpis nisi Nunc viverra Nullam scelerisque nulla, lacus,
+
+    </p>
+    <button class="crear-button" (click)="goToEditarDetallePedidoPage()">Editar Pedido</button>
   </div>
 </div>
 

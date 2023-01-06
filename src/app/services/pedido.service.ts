@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Pedido } from '../models/pedido';
 import { PedidoEdit } from '../models/pedido-edit';
+import { ProductoPedidoData } from '../models/ProductosPedidoData';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class PedidoService {
 
   constructor(private readonly http: HttpClient) { }
 
-  postPedido(pedido: Pedido) {
-    return this.http.post(`${environment.apiPedido}/crear`, pedido);
+  postPedido(pedido: Pedido, productos: ProductoPedidoData[]) {
+
+    return this.http.post<{ idVentaCreada: number; Status: number}>(`${environment.apiPedido}/crear`, {pedido, productos});
   }
 
   getPedidos() {

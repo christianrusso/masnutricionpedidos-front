@@ -138,7 +138,7 @@ export class CoreComponent implements OnInit {
     this.router.navigateByUrl('home/email/listar');
   }
   goToPedidosListarPage(){
-    this.router.navigateByUrl('home/pedido/listar');
+    this.router.navigateByUrl('home/detallePedido/listar');
   }
   goToPedidoCrearPage() {
     this.router.navigateByUrl('home/pedido/crear');

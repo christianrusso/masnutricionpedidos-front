@@ -103,7 +103,7 @@ export class CrearComponent implements OnInit {
   filteredOptions?: Observable<TipoClienteData[]>;
   selected = 'option2';
 
-  isAnulado!: number;
+  isAnulado: number = 0;
   isEnviadoxMail!: number;
   isCobrado!: number;
   isFinalizado!: number;
@@ -264,7 +264,7 @@ export class CrearComponent implements OnInit {
       total: this.total,
       usuarioGraba: this.usuarioGraba,
     });
-    this.pedidoService.postPedido(pedido).subscribe((response) => {
+    this.pedidoService.postPedido(pedido, this.productosEnCarrito).subscribe((response) => {
       console.log(response);
     });
     this.creado = true;

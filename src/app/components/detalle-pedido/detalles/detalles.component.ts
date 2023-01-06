@@ -5,8 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DetallePedidoData } from 'src/app/models/DetallePedidoData';
 import { PedidoData } from 'src/app/models/PedidoData';
+import { ProductosPorPedidoData } from 'src/app/models/ProductosPorPedido';
 import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { PedidoService } from 'src/app/services/pedido.service';
+import { ProductosPorPedidoService } from 'src/app/services/productosPorPedido.service';
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
@@ -18,6 +20,7 @@ export class DetallesComponent {
     private route: ActivatedRoute,
     private readonly pedidoService: PedidoService,
     private readonly detallePedidoService: DetallePedidoService,
+    private readonly productosPorPedido: ProductosPorPedidoService,
     private readonly router: Router
   ) {
     this.dataSource = new MatTableDataSource();
@@ -41,35 +44,37 @@ export class DetallesComponent {
   telefono!: number;
   transporte!: string;
   observaciones!: string;
-  fechaGraba!:string;
+  fechaGraba!: string;
+  total!: number;
 
   displayedColumnsDetallePedidos: string[] = [
     'idPedido',
+    'idProducto',
     'cantidad',
-    'detalle',
-    'porcDescuentoItem',
-    'precioUnitario',
-    'importe',
-    'isEntregadoItem',
+    'codigo',
+    'descripcion',
+    'precio',
+    'unidades_bulto',
+    'pallets',
+    'condicion',
+    'total',
   ];
 
-  dataSource = new MatTableDataSource<DetallePedidoData>();
+  dataSource = new MatTableDataSource<ProductosPorPedidoData>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getPedido();
-    this.detallePedidoService
-      .getDetallePedido(this.id)
-      .subscribe((response: any) => {
-        const detalles = response as DetallePedidoData[];
-        this.dataSource.data = detalles;
-      });
+    this.productosPorPedido.getProductos(this.id).subscribe((response: any) => {
+      const productos = response as ProductosPorPedidoData[];
+      console.log(productos);
 
+      this.dataSource.data = productos;
+    });
   }
 
   getPedido() {
@@ -83,6 +88,7 @@ export class DetallesComponent {
       this.transporte = response[0].transporte;
       this.observaciones = response[0].observaciones;
       this.fechaGraba = response[0].fechaGraba;
+      this.total = response[0].total;
     });
   }
 
@@ -96,5 +102,8 @@ export class DetallesComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  goToEditarDetallePedidoPage() {
+    this.router.navigateByUrl(`home/detallePedido/modificar/${this.id}`);
   }
 }
