@@ -51,6 +51,7 @@ import { RolService } from './services/rol.service';
 import { UsuarioService } from './services/usuario.service';
 import { UsuarioModule } from './components/usuario/usuario.module';
 import { CategoriaProductoService } from './services/categoria-producto.service';
+import { PedidoEditModule } from './components/pedido-edit/pedido-edit.module';
 
 
 
@@ -66,6 +67,7 @@ import { CategoriaProductoService } from './services/categoria-producto.service'
     AuthModule,
     ClienteModule,
     PedidoModule,
+    PedidoEditModule,
     EmpresaModule,
     VendedorModule,
     ProvinciaModule,

@@ -4,10 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { DetallePedidoData } from 'src/app/models/DetallePedidoData';
 import { PedidoData } from 'src/app/models/PedidoData';
-import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { PedidoService } from 'src/app/services/pedido.service';
+import { ClienteData } from '../../../models/ClienteData';
 import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.component';
 
 @Component({
@@ -18,7 +17,6 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
 export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   constructor(
-    private detallePedidoService: DetallePedidoService,
     private pedidoService: PedidoService,
     private readonly router: Router,
     private dialog: MatDialog
@@ -26,15 +24,16 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource();
   }
 
-  displayedColumnsDetallePedidos: string[] = [
+  displayedColumnsPedidos: string[] = [
     'idPedido',
-    'idDetallePedido',
-    'cantidad',
-    'detalle',
-    'porcDescuentoItem',
-    'precioUnitario',
-    'importe',
-    'isEntregadoItem',
+    'isAnulado',
+    'isEnviadoxMail',
+    'isCobrado',
+    'isFinalizado',
+    'idCliente',
+    'idVendedor',
+    'ivaInscripto',
+    'total',
     'modificar',
     'eliminar',
   ];
@@ -52,9 +51,6 @@ export class ListarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
-  goToPrint(id: number){
-    this.router.navigateByUrl(`home/detallePedido/detalles/${id}`);
   }
 
   goToPedidoCrearPage() {
@@ -77,8 +73,9 @@ export class ListarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToEditPage(idDetallePedido: number) {
-    this.router.navigateByUrl(`home/detallePedido/modificar/${idDetallePedido}`);
+  goToEditPage(idPedido: number) {
+    console.log(typeof(idPedido));
+    this.router.navigateByUrl(`home/pedido/modificar/${idPedido}`);
   }
 
   openDialog(id: number): void {
@@ -90,7 +87,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.detallePedidoService.deleteDetallePedido(id).subscribe((response) => {
+        this.pedidoService.deletePedido(id).subscribe((response) => {
           setTimeout(() => {
             location.reload();
           }, 100);

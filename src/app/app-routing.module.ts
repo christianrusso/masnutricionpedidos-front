@@ -208,6 +208,14 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'pedido-edit',
+        loadChildren: () =>
+          import('./components/pedido-edit/pedido-edit.module').then(
+            (m) => m.PedidoEditModule
+          ),
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'usuario',
         loadChildren: () =>
           import('./components/usuario/usuario.module').then(
