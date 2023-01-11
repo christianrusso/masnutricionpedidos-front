@@ -173,11 +173,10 @@ export class CrearComponent implements OnInit {
           unidadesFijasPallet: e.unidadesFijasPallet,
           condicion: e.condicion,
           total: e.total,
-          codigo: e.codigo
+          codigo: e.codigo,
+          categoria: 0
         });
       });
-      console.log(this.listaProductos);
-
     });
   }
   getCategorias() {
@@ -229,7 +228,8 @@ export class CrearComponent implements OnInit {
       porcRelacionPallet: miProducto[0].porcRelacionPallet,
       unidadesFijasPallet: miProducto[0].unidadesFijasPallet,
       condicion: this.condicion,
-      codigo: miProducto[0].codigo
+      codigo: miProducto[0].codigo,
+      categoria: 0
     });
     console.log(this.productosEnCarrito);
 
