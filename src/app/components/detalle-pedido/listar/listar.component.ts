@@ -16,7 +16,21 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
   styleUrls: ['./listar.component.scss'],
 })
 export class ListarComponent implements OnInit, AfterViewInit {
+  dataSource = new MatTableDataSource<PedidoData>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   delete!: boolean;
+  displayedColumnsDetallePedidos: string[] = [
+    'idPedido',
+    'fechaPedido',
+    'representante',
+    'num_interno',
+    'descripcion',
+    'observaciones',
+    'total',
+    'acction'
+  ];
+
   constructor(
     private detallePedidoService: DetallePedidoService,
     private pedidoService: PedidoService,
@@ -26,60 +40,42 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource();
   }
 
-  displayedColumnsDetallePedidos: string[] = [
-    'idPedido',
-    'idDetallePedido',
-    'cantidad',
-    'detalle',
-    'porcDescuentoItem',
-    'precioUnitario',
-    'importe',
-    'isEntregadoItem',
-    'modificar',
-    'eliminar',
-  ];
-
-  dataSource = new MatTableDataSource<PedidoData>();
-
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   ngOnInit(): void {
     this.getPedidos();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-  goToPrint(id: number){
-    this.router.navigateByUrl(`home/detallePedido/detalles/${id}`);
-  }
 
-  goToPedidoCrearPage() {
-    this.router.navigateByUrl('home/pedido/crear');
-  }
-
-  getPedidos() {
+  getPedidos(): void {
     this.pedidoService.getPedidos().subscribe((response: any) => {
       const pedidos = response as PedidoData[];
       this.dataSource.data = pedidos;
     });
-  }
+  };
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
+  };
 
-  goToEditPage(idDetallePedido: number) {
+  goToPrint(id: number): void {
+    this.router.navigateByUrl(`home/detallePedido/detalles/${id}`);
+  };
+
+  goToPedidoCrearPage(): void {
+    this.router.navigateByUrl('home/pedido/crear');
+  };
+
+  goToEditPage(idDetallePedido: number): void {
     this.router.navigateByUrl(`home/detallePedido/modificar/${idDetallePedido}`);
-  }
+  };
 
   openDialog(id: number): void {
     console.log(id);
@@ -97,5 +93,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
         });
       }
     });
+  };
+
+  test(value: any): void {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+    console.log(value);
   }
 }

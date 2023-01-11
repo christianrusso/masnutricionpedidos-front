@@ -9,8 +9,7 @@ import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { ModalEliminarComponent } from './modal-eliminar/modal-eliminar.component';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { DetallesComponent } from './detalles/detalles.component';
-
-
+import { SearchOrderFormComponent } from './search-order-form/search-order-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { DetallesComponent } from './detalles/detalles.component';
     CrearComponent,
     ModificarComponent,
     ModalEliminarComponent,
-    DetallesComponent
+    DetallesComponent,
+    SearchOrderFormComponent
   ],
   imports: [
     DetallePedidoRoutingModule,

@@ -25,21 +25,17 @@ export class ListarComponent implements OnInit, AfterViewInit {
   }
 
   displayedColumnsPedidos: string[] = [
-    'order',
-    'date',
-    'agent',
-    'internNumber',
-    'condition',
-    'observation',
+    'idPedido',
+    'isAnulado',
+    'isEnviadoxMail',
+    'isCobrado',
+    'isFinalizado',
+    'idCliente',
+    'idVendedor',
+    'ivaInscripto',
     'total',
-    'acction'
-    // 'isAnulado',
-    // 'isEnviadoxMail',
-    // 'isCobrado',
-    // 'isFinalizado',
-    // 'idCliente',
-    // 'idVendedor',
-    // 'ivaInscripto',
+    'modificar',
+    'eliminar',
   ];
 
   dataSource = new MatTableDataSource<PedidoData>();
