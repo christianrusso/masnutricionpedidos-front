@@ -133,7 +133,8 @@ export class CrearComponent implements OnInit {
     unidadesFijasPallet: 0,
     condicion: '',
     codigo: 0,
-    total: 0
+    total: 0,
+    categoria: 0
   };
 
   constructor(
@@ -258,7 +259,6 @@ export class CrearComponent implements OnInit {
     this.editProductInput = {
       ...productId
     }
-    console.log(this.editProductInput);
   };
 };
 

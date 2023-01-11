@@ -32,7 +32,7 @@ export class DetailOrderFormComponent implements OnInit, OnChanges {
     console.log(changes);
     if(changes['editProduct'].currentValue !== changes['editProduct'].previousValue){
       this.detailOrderForm.setValue({
-        category: '',
+        category: changes['editProduct'].currentValue.categoria,
         product: changes['editProduct'].currentValue.id_producto,
         total: changes['editProduct'].currentValue.total,
         condition: changes['editProduct'].currentValue.condicion
@@ -52,7 +52,8 @@ export class DetailOrderFormComponent implements OnInit, OnChanges {
       unidadesFijasPallet: productInfo.unidadesFijasPallet,
       condicion: this.detailOrderForm.value.condition,
       codigo: productInfo.codigo,
-      total: this.detailOrderForm.value.total * productInfo.precioReferencia
+      total: this.detailOrderForm.value.total * productInfo.precioReferencia,
+      categoria: this.detailOrderForm.value.category
     }
     this.newProduct.emit(product);
     this.detailOrderForm.reset();
