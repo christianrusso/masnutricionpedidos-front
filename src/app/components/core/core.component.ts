@@ -17,7 +17,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./core.component.scss'],
 })
 export class CoreComponent implements OnInit {
-  panelOpenState = false;
+  panelOpenState = true;
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
   @Output() sidenavClose = new EventEmitter();
   @Output() public sidenavToggle = new EventEmitter();

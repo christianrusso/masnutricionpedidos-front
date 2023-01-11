@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Canal } from '../../../models-tipo/tipo-canal';
 import { Router } from '@angular/router';
@@ -35,6 +35,8 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { CategoriaProductoData } from 'src/app/models/categoriaProductoData';
 import { CategoriaProductoService } from 'src/app/services/categoria-producto.service';
 import { MatSelect } from '@angular/material/select';
+import * as moment from 'moment';
+import { response } from 'express';
 
 @Component({
   selector: 'app-crear',
@@ -121,6 +123,18 @@ export class CrearComponent implements OnInit {
   ivaInscriptoPorc!: number;
   ivaInscripto!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
+  @ViewChild('scroll') scroll: ElementRef;
+  editProductInput: ProductoPedidoData = {
+    id_producto: 0,
+    descripcion: '',
+    precioReferencia: 0,
+    cantidad: 0,
+    porcRelacionPallet: 0,
+    unidadesFijasPallet: 0,
+    condicion: '',
+    codigo: 0,
+    total: 0
+  };
 
   constructor(
     private readonly pedidoService: PedidoService,
@@ -141,15 +155,7 @@ export class CrearComponent implements OnInit {
       const productos = response as ProductoPedidoData[];
       productos.forEach((e) => {
         this.listaProductos.push({
-          id_producto: e.id_producto,
-          descripcion: e.descripcion,
-          precioReferencia: e.precioReferencia,
-          cantidad: e.cantidad,
-          porcRelacionPallet: e.porcRelacionPallet,
-          unidadesFijasPallet: e.unidadesFijasPallet,
-          condicion: e.condicion,
-          total: e.total,
-          codigo: e.codigo
+          ...e
         });
       });
     });
@@ -168,10 +174,18 @@ export class CrearComponent implements OnInit {
   };
 
   addProduct(newProduct: ProductoPedidoData): void {
-    this.productosEnCarrito.push(newProduct);
-    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
-      this.productosEnCarrito
-    );
+    const ele = this.productosEnCarrito.findIndex(e => e.codigo === newProduct.codigo);
+    if(ele === -1) {
+      this.productosEnCarrito.push(newProduct);
+      this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
+        this.productosEnCarrito
+      );
+    } else {
+      this.productosEnCarrito[ele].cantidad = this.productosEnCarrito[ele].cantidad + newProduct.cantidad;
+      this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * newProduct.precioReferencia;
+      this.productosEnCarrito[ele].condicion = newProduct.condicion;
+    }
+    this.scroll.nativeElement.scrollIntoView({behavior: 'smooth'});
   };
 
   eliminarElemento(producto: ProductoPedidoData) {
@@ -195,47 +209,56 @@ export class CrearComponent implements OnInit {
   };
 
   onSend(orderInfo: any) {
-    console.log(orderInfo)
-    // const pedido = new Pedido({
-    //   isAnulado: this.isAnulado || 0,
-    //   isEnviadoxMail: this.isEnviadoxMail || 0,
-    //   isCobrado: this.isCobrado || 0,
-    //   isFinalizado: this.isFinalizado || 0,
-    //   idCliente: this.idCliente || 0,
-    //   idVendedor: this.idVendedor || 0,
-    //   idTipoReglaComercial: this.idTipoReglaComercial || 0,
-    //   idAbono: this.idAbono || 0,
-    //   idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
-    //   num_interno: this.num_interno,
-    //   representante: this.representante,
-    //   cod: this.cod,
-    //   cuit: this.cuit,
-    //   domicilio: this.domicilio,
-    //   telefono: this.telefono,
-    //   transporte: this.transporte,
-    //   observaciones: this.observaciones,
-    //   fechaPedido: this.fechaPedido,
-    //   porcDescuentoGeneral: this.porcDescuentoGeneral,
-    //   descripcion: this.descripcion,
-    //   nroRemito: this.nroRemito,
-    //   subtotal: this.subtotal,
-    //   impuestos: this.impuestos,
-    //   subtotal2: this.subtotal2,
-    //   ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
-    //   ivaInscripto: this.ivaInscripto || 0,
-    //   total: this.total,
-    //   usuarioGraba: this.usuarioGraba,
-    // });
-    // this.pedidoService.postPedido(pedido).subscribe((response) => {});
-    // this.creado = true;
-    // setTimeout(() => {
-    //   this.router.navigateByUrl(`home/pedido/listar`);
-    // }, 1000);
+    if(this.productosEnCarrito.length !== 0){
+      const pedido = new Pedido({
+      isAnulado: this.isAnulado || 0,
+      isEnviadoxMail: this.isEnviadoxMail || 0,
+      isCobrado: this.isCobrado || 0,
+      isFinalizado: this.isFinalizado || 0,
+      idCliente: this.idCliente || 0,
+      idVendedor: this.idVendedor || 0,
+      idTipoReglaComercial: this.idTipoReglaComercial || 0,
+      idAbono: this.idAbono || 0,
+      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
+      num_interno: orderInfo.internNumber,
+      representante: orderInfo.agent,
+      cod: orderInfo.cod,
+      cuit: orderInfo.cuit,
+      domicilio: orderInfo.address,
+      telefono: orderInfo.phone,
+      transporte: orderInfo.transport,
+      observaciones: orderInfo.observation,
+      fechaPedido: moment(orderInfo.date).format('DD/MM/YYYY'),
+      porcDescuentoGeneral: this.porcDescuentoGeneral,
+      descripcion: this.descripcion,
+      nroRemito: this.nroRemito,
+      subtotal: this.subtotal,
+      impuestos: this.impuestos,
+      subtotal2: this.subtotal2,
+      ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
+      ivaInscripto: this.ivaInscripto || 0,
+      total: this.total,
+      usuarioGraba: this.usuarioGraba,
+      });
+    this.pedidoService.postPedido(pedido).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigateByUrl(`home/pedido/listar`);
+      },
+      (error) => {
+          console.log(error);
+      }
+    );
+    }
   };
 
-  goToEditPage(idEmpresa: number): void {
-    // this.router.navigateByUrl(`home/empresa/modificar/${idEmpresa}`);
-    // this.test2.focus();
-    // this.test2.open()
+  editProduct(productId: ProductoPedidoData): void {
+    console.log(this.editProductInput);
+    console.log(productId);
+    this.editProductInput = {
+      ...productId
+    }
+    console.log(this.editProductInput);
   };
 };
+

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Pedido } from '../models/pedido';
 import { PedidoEdit } from '../models/pedido-edit';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PedidoService {
 
   constructor(private readonly http: HttpClient) { }
 
-  postPedido(pedido: Pedido) {
+  postPedido(pedido: Pedido): Observable<any> {
     return this.http.post(`${environment.apiPedido}/crear`, pedido);
   }
 

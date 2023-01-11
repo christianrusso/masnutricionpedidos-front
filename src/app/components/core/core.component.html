@@ -51,11 +51,12 @@
         class="mat-elevation-z0"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
+        expanded="true"
       >
       <mat-expansion-panel-header class="alineacion_icon_desplegable">
         <mat-panel-title style="font-family: Quicksand">
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/pedidos_menu.png" />
+            <img class="icon" src="assets/productos-icon.png" />
           </button>
           Pedidos
         </mat-panel-title>
@@ -63,7 +64,7 @@
       <div class="buttons_core" (click)="goToPedidosListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
         <mat-panel-title style="font-family: Quicksand">
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/productos-icon.png" />
+            <img class="icon" src="assets/list.png" />
           </button>
           Listado de pedidos
         </mat-panel-title>
@@ -71,7 +72,7 @@
       <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
         <mat-panel-title style="font-family: Quicksand">
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/productos-icon.png" />
+            <img class="icon" src="assets/plus.png" />
           </button>
           Carga
         </mat-panel-title>
@@ -81,7 +82,7 @@
       <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
         <mat-panel-title style="font-family: Quicksand">
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/productos-icon.png" />
+            <img class="icon" src="assets/moto.png" />
           </button>
           Seguimientos
         </mat-panel-title>
@@ -91,7 +92,7 @@
       <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
         <mat-panel-title style="font-family: Quicksand; width: 100%;">
           <button class="icon-button">
-            <img class="icon" src="./../../../assets/productos-icon.png" />
+            <img class="icon" src="assets/folder.png" />
           </button>
           Detalle Operaciones
         </mat-panel-title>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { Router } from '@angular/router';
@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './order-form.component.html',
   styleUrls: ['./order-form.component.scss']
 })
-export class OrderFormComponent implements OnInit {
+export class OrderFormComponent implements OnInit, AfterViewInit {
 
   @ViewChild('firstInput') firstInput: ElementRef;
-  @Output() test: any = new EventEmitter<any>()
+  @Output() order: any = new EventEmitter<any>()
   today: Date = new Date();
   orderForm: FormGroup = this.fb.group({
     date: [this.today, Validators.required],
@@ -32,8 +32,6 @@ export class OrderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
-    console.log(this.orderForm.controls['internNumber'])
-    console.log(this.orderForm.controls['internNumber'].errors)
   }
 
   ngAfterViewInit(): void {
@@ -45,7 +43,7 @@ export class OrderFormComponent implements OnInit {
   }
 
   saveOrder() {
-    this.test.emit(this.orderForm.value);
+    this.order.emit(this.orderForm.value);
   }
 
   get date() { return this.orderForm.get('date'); }

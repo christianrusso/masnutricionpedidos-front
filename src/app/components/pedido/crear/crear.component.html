@@ -1,11 +1,12 @@
 <div class="tabla-completa">
-  <app-order-form (test)="onSend($event)"></app-order-form>
+  <app-order-form (order)="onSend($event)"></app-order-form>
   <app-detail-order-form
     [categories]="listaCategoria"
     [products]="listaProductos"
+    [editProduct]="editProductInput"
     (newProduct)="addProduct($event)">
   </app-detail-order-form>
-  <div class="tw-ml-8 tw-pb-6">
+  <div class="tw-ml-8 tw-pb-8">
     <table mat-table [dataSource]="dataSourceProductoPedido" matSort>
       <ng-container matColumnDef="codigo">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
@@ -42,7 +43,7 @@
       <ng-container matColumnDef="actions">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let row" class="opciones">
-          <button mat-icon-button (click)="goToEditPage(row.codigo)" class="icon-button" matTooltip="Editar">
+          <button mat-icon-button (click)="editProduct(row)" class="icon-button" matTooltip="Editar">
               <img class="icon" src="assets/modificar-icon.png"/>
           </button>
           <button mat-icon-button  class="icon-button" (click)="eliminarElemento(row)" matTooltip="Eliminar">
@@ -60,5 +61,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumnsProductoPedido">
       </tr>
     </table>
+    <span #scroll></span>
   </div>
 </div>

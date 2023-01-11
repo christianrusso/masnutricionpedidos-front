@@ -4,7 +4,7 @@
     <form [formGroup]="detailOrderForm" (ngSubmit)="addNewProduct()" class="tw-grid tw-grid-cols-5 tw-grid-rows-1">
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Categoría</mat-label>
-        <mat-select formControlName="category">
+        <mat-select formControlName="category" #test>
           <mat-option *ngFor="let categoria of categories" [value]="categoria.idCategoriaProducto">
             {{categoria.descripcion}}
           </mat-option>
