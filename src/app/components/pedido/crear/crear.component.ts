@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Canal } from '../../../models-tipo/tipo-canal';
 import { Router } from '@angular/router';
@@ -34,6 +34,7 @@ import { DetallePedidoCargaData } from 'src/app/models/DetallePedidoCarga';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CategoriaProductoData } from 'src/app/models/categoriaProductoData';
 import { CategoriaProductoService } from 'src/app/services/categoria-producto.service';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-crear',
@@ -43,15 +44,7 @@ import { CategoriaProductoService } from 'src/app/services/categoria-producto.se
 export class CrearComponent implements OnInit {
   creado: boolean;
   dataSourceCarrito: MatTableDataSource<ProductoPedidoData> =
-    new MatTableDataSource();
-  constructor(
-    private readonly pedidoService: PedidoService,
-    private readonly productoService: ProductoService,
-    private readonly categoriaService: CategoriaProductoService,
-    private readonly router: Router
-  ) {
-    this.creado = false;
-  }
+  new MatTableDataSource();
   displayedColumnsDetallesPedidos: string[] = [
     'categoria',
     'producto',
@@ -75,8 +68,7 @@ export class CrearComponent implements OnInit {
     'pallets',
     'condicion',
     'total',
-    'modificar',
-    'eliminar',
+    'actions',
   ];
 
   dataSourceDetallesPedidos = new MatTableDataSource<DetallePedidoCargaData>();
@@ -130,9 +122,18 @@ export class CrearComponent implements OnInit {
   ivaInscripto!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
 
+  constructor(
+    private readonly pedidoService: PedidoService,
+    private readonly productoService: ProductoService,
+    private readonly categoriaService: CategoriaProductoService,
+    private readonly router: Router
+  ) {
+    this.creado = false;
+  }
+
   ngOnInit(): void {
     this.getProductos();
-    this.getCategorias()
+    this.getCategorias();
   }
 
   getProductos() {
@@ -151,10 +152,9 @@ export class CrearComponent implements OnInit {
           codigo: e.codigo
         });
       });
-      console.log(this.listaProductos);
-
     });
-  }
+  };
+
   getCategorias() {
     this.categoriaService.getCategorias().subscribe((response: any) => {
       const categorias = response as CategoriaProductoData[];
@@ -164,56 +164,17 @@ export class CrearComponent implements OnInit {
           idCategoriaProducto: e.idCategoriaProducto
         });
       });
-      console.log(this.listaProductos);
-
     });
-  }
-  agregarElemento() {
-    console.log(this.listaProductos);
+  };
 
-    this.productos.push({
-      cantidad: this.cantidad,
-      categoria: this.categoria,
-      id_producto: this.idProducto,
-      condicion: this.condicion,
-    })
-    if (!this.cantidad) {
-      this.cantidad = 1;
-    }
-    if (!this.total_final) {
-      this.total_final = 0;
-    }
-    console.log(this.productos);
-
-    const miProducto = this.listaProductos.filter(p => p.id_producto == this.idProducto)
-    console.log(miProducto);
-
-    // this.idProducto = e.id_producto;
-    // this.descripcion = e.descripcion;
-    // this.precioReferencia = e.precioReferencia;
-    // this.unidades_bulto = e.porcRelacionPallet;
-    // this.pallets = e.unidadesFijasPallet;
-    // this.condicion = e.condicion
-    this.total = this.cantidad * this.precioReferencia;
-    this.productosEnCarrito.push({
-      id_producto: miProducto[0].id_producto,
-      precioReferencia: miProducto[0].precioReferencia,
-      cantidad: this.cantidad,
-      descripcion:miProducto[0].descripcion,
-      total: miProducto[0].precioReferencia * this.cantidad,
-      porcRelacionPallet: miProducto[0].porcRelacionPallet,
-      unidadesFijasPallet: miProducto[0].unidadesFijasPallet,
-      condicion: this.condicion,
-      codigo: miProducto[0].codigo
-    });
-    console.log(this.productosEnCarrito);
-
+  addProduct(newProduct: ProductoPedidoData): void {
+    this.productosEnCarrito.push(newProduct);
     this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
       this.productosEnCarrito
     );
-  }
-  eliminarElemento(producto: ProductoPedidoData) {
+  };
 
+  eliminarElemento(producto: ProductoPedidoData) {
     const indice = this.productosEnCarrito.findIndex(
       (p) => p.id_producto == producto.id_producto
     );
@@ -231,52 +192,50 @@ export class CrearComponent implements OnInit {
       this.total_final = Number(this.total_final.toFixed());
       this.total = Number(this.total.toFixed());
     }
-  }
+  };
 
-  onSend() {
-    const pedido = new Pedido({
-      isAnulado: this.isAnulado || 0,
-      isEnviadoxMail: this.isEnviadoxMail || 0,
-      isCobrado: this.isCobrado || 0,
-      isFinalizado: this.isFinalizado || 0,
-      idCliente: this.idCliente || 0,
-      idVendedor: this.idVendedor || 0,
-      idTipoReglaComercial: this.idTipoReglaComercial || 0,
-      idAbono: this.idAbono || 0,
-      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
-      num_interno: this.num_interno,
-      representante: this.representante,
-      cod: this.cod,
-      cuit: this.cuit,
-      domicilio: this.domicilio,
-      telefono: this.telefono,
-      transporte: this.transporte,
-      observaciones: this.observaciones,
-      fechaPedido: this.fechaPedido,
-      porcDescuentoGeneral: this.porcDescuentoGeneral,
-      descripcion: this.descripcion,
-      nroRemito: this.nroRemito,
-      subtotal: this.subtotal,
-      impuestos: this.impuestos,
-      subtotal2: this.subtotal2,
-      ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
-      ivaInscripto: this.ivaInscripto || 0,
-      total: this.total,
-      usuarioGraba: this.usuarioGraba,
-    });
-    this.pedidoService.postPedido(pedido).subscribe((response) => {
-      console.log(response);
-    });
-    this.creado = true;
-    setTimeout(() => {
-      this.router.navigateByUrl(`home/pedido/listar`);
-    }, 1000);
-  }
+  onSend(orderInfo: any) {
+    console.log(orderInfo)
+    // const pedido = new Pedido({
+    //   isAnulado: this.isAnulado || 0,
+    //   isEnviadoxMail: this.isEnviadoxMail || 0,
+    //   isCobrado: this.isCobrado || 0,
+    //   isFinalizado: this.isFinalizado || 0,
+    //   idCliente: this.idCliente || 0,
+    //   idVendedor: this.idVendedor || 0,
+    //   idTipoReglaComercial: this.idTipoReglaComercial || 0,
+    //   idAbono: this.idAbono || 0,
+    //   idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
+    //   num_interno: this.num_interno,
+    //   representante: this.representante,
+    //   cod: this.cod,
+    //   cuit: this.cuit,
+    //   domicilio: this.domicilio,
+    //   telefono: this.telefono,
+    //   transporte: this.transporte,
+    //   observaciones: this.observaciones,
+    //   fechaPedido: this.fechaPedido,
+    //   porcDescuentoGeneral: this.porcDescuentoGeneral,
+    //   descripcion: this.descripcion,
+    //   nroRemito: this.nroRemito,
+    //   subtotal: this.subtotal,
+    //   impuestos: this.impuestos,
+    //   subtotal2: this.subtotal2,
+    //   ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
+    //   ivaInscripto: this.ivaInscripto || 0,
+    //   total: this.total,
+    //   usuarioGraba: this.usuarioGraba,
+    // });
+    // this.pedidoService.postPedido(pedido).subscribe((response) => {});
+    // this.creado = true;
+    // setTimeout(() => {
+    //   this.router.navigateByUrl(`home/pedido/listar`);
+    // }, 1000);
+  };
 
-  goToListarPedidosPage() {
-    this.router.navigateByUrl(`home/pedido/listar`);
-  }
-  goToEditPage(idEmpresa: number) {
-    this.router.navigateByUrl(`home/empresa/modificar/${idEmpresa}`);
-  }
-}
+  goToEditPage(idEmpresa: number): void {
+    // this.router.navigateByUrl(`home/empresa/modificar/${idEmpresa}`);
+    // this.test2.focus();
+    // this.test2.open()
+  };
+};

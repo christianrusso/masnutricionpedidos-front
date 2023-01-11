@@ -6,8 +6,24 @@ body { margin: 0; font-family: 'Quicksand', sans-serif; }
     display: none;
 }
 
-
 mat-option{
   font-family:'Quicksand';
   font-weight: 550;
+}
+
+//Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-btn {
+  @apply tw-font-medium tw-leading-4 tw-rounded-full tw-w-36 tw-h-10 hover:tw-text-white;
+};
+
+.custom-table-header-style {
+  @apply tw-text-black tw-font-bold tw-text-sm tw-leading-6;
+}
+
+.custom-disabled-button {
+  @apply tw-cursor-not-allowed tw-bg-bone;
 }
