@@ -1,0 +1,83 @@
+<div class="tw-ml-8 tw-flex tw-justify-between tw-items-center">
+  <div>
+    <h2 class="tw-text-1xl tw-font-light tw-leading-6">Nuevo pedido</h2>
+  </div>
+  <div>
+    <button
+      class="tw-mx-1 custom-btn tw-text-base tw-tracking-{15px} tw-shadow-warn tw-text-warning hover:tw-bg-warning"
+      id="agregar"
+      (click)="cancelOrder()">
+        Cancelar
+    </button>
+    <button
+      class="tw-mx-1 custom-btn tw-text-base tw-tracking-{15px} tw-shadow-succ tw-text-succes hover:tw-bg-succes disabled:tw-cursor-not-allowed disabled:tw-bg-bone disabled:tw-text-succes"
+      id="agregar"
+      [disabled]="orderForm.invalid"
+      (click)="saveOrder()">
+        Guardar
+    </button>
+  </div>
+</div>
+<div class="tw-ml-8 tw-my-5 tw-bg-white tw-border tw-rounded-md tw-border-bone">
+  <div class="tw-px-8 tw-my-3">
+    <form [formGroup]="orderForm" class="tw-grid tw-grid-cols-7 tw-grid-rows-1">
+      <h2 class="tw-pb-6 tw-px-1 tw-font-bold tw-text-2xl tw-leading-6 tw-col-span-4 tw-self-center">Pedido N° XXX</h2>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
+          <mat-label>xx/xx/xxxx</mat-label>
+          <input matInput [matDatepicker]="picker" [min]="today" formControlName="date">
+          <mat-datepicker #picker></mat-datepicker>
+           <mat-error *ngIf="date?.errors?.['required']">Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+          <mat-label>N° Interno </mat-label>
+          <input #firstInput matInput formControlName="internNumber"/>
+           <mat-error *ngIf="internNumber?.errors?.['required']">Requerido</mat-error>
+           <mat-error *ngIf="internNumber?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+           <mat-error *ngIf="internNumber?.errors?.['pattern']">Formato invalido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
+        <mat-label>Representante</mat-label>
+        <input matInput formControlName="agent"/>
+        <mat-error *ngIf="agent?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="agent?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+        <mat-label>COD.</mat-label>
+        <input matInput formControlName="cod"/>
+        <mat-error *ngIf="cod?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="cod?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+        <mat-label>CUIT</mat-label>
+        <input matInput formControlName="cuit"/>
+        <mat-error *ngIf="cuit?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="cuit?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        <mat-error *ngIf="cuit?.errors?.['pattern']">Formato invalido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
+        <mat-label>Domicilio</mat-label>
+        <input matInput formControlName="address"/>
+        <mat-error *ngIf="address?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="address?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+        <mat-label>Tel.</mat-label>
+        <input matInput formControlName="phone"/>
+        <mat-error *ngIf="phone?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="phone?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        <mat-error *ngIf="phone?.errors?.['pattern']">Formato invalido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+        <mat-label>Transporte</mat-label>
+        <input matInput formControlName="transport"/>
+        <mat-error *ngIf="transport?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="transport?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-col-span-7 tw-row-span-1" appearance="outline">
+        <mat-label>Observaciones</mat-label>
+        <input matInput formControlName="observation"/>
+        <mat-error *ngIf="phone?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+</div>

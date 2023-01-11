@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Pedido } from '../models/pedido';
 import { PedidoEdit } from '../models/pedido-edit';
 import { ProductoPedidoData } from '../models/ProductosPedidoData';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,7 @@ export class PedidoService {
 
   constructor(private readonly http: HttpClient) { }
 
-  postPedido(pedido: Pedido, productos: ProductoPedidoData[]) {
-
+  postPedido(pedido: Pedido, productos: ProductoPedidoData[]): Observable<any> {
     return this.http.post<{ idVentaCreada: number; Status: number}>(`${environment.apiPedido}/crear`, {pedido, productos});
   }
 

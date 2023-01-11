@@ -1,0 +1,43 @@
+<div class="tw-ml-8 tw-my-5 tw-bg-white tw-border tw-rounded-md tw-border-bone">
+  <div class="tw-px-8 tw-my-3">
+    <h2 class="tw-pb-1 tw-px-1 tw-font-bold tw-text-base tw-leading-6 tw-col-span-4 tw-self-center">Detalle Pedido</h2>
+    <form [formGroup]="detailOrderForm" (ngSubmit)="addNewProduct()" class="tw-grid tw-grid-cols-5 tw-grid-rows-1">
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Categoría</mat-label>
+        <mat-select formControlName="category" #test>
+          <mat-option *ngFor="let categoria of categories" [value]="categoria.idCategoriaProducto">
+            {{categoria.descripcion}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="category?.errors?.['required']">Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Producto</mat-label>
+        <mat-select formControlName="product">
+          <mat-option *ngFor="let producto of products" [value]="producto.id_producto">
+            {{producto.descripcion}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="product?.errors?.['required']">Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <input matInput formControlName="total"/>
+        <mat-error *ngIf="total?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="total?.errors?.['pattern']">Formato invalido</mat-error>
+        <mat-error *ngIf="total?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Condición</mat-label>
+        <input matInput formControlName="condition"/>
+        <mat-error *ngIf="condition?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="condition?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <div class="tw-flex tw-justify-center tw-items-center">
+        <button type="submit" class="tw-mb-5 tw-text-sm tw-leading-7 custom-btn tw-tracking-{15px} tw-shadow-succ tw-text-succes hover:tw-bg-succes disabled:tw-cursor-not-allowed disabled:tw-bg-bone disabled:tw-text-succes" [disabled]="detailOrderForm.invalid">
+          Agregar producto
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
