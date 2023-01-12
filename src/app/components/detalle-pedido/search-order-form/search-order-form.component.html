@@ -7,20 +7,20 @@
       </mat-form-field> -->
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
         <mat-label>Fecha</mat-label>
-        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="searchDate">
+        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="searchFilter.searchDate" (keyup)="searchTest()">
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Representante</mat-label>
-        <input matInput name="agent" [(ngModel)]="searchAgent" (keyup)="searchTest()"/>
+        <input matInput name="agent" [(ngModel)]="searchFilter.searchAgent" (keyup)="searchTest()"/>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Condición</mat-label>
-        <input #firstInput matInput name="condition" [(ngModel)]="searchCondition"/>
+        <input #firstInput matInput name="condition" [(ngModel)]="searchFilter.searchCondition" (keyup)="searchTest()"/>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>N° Interno</mat-label>
-        <input #firstInput matInput name="internalNumber" [(ngModel)]="searchInternNumber"/>
+        <input #firstInput matInput name="internalNumber" [(ngModel)]="searchFilter.searchInternNumber" (keyup)="searchTest()"/>
       </mat-form-field>
       <div class="tw-flex tw-justify-center tw-items-center">
         <button class="tw-pb-5 tw-text-sm tw-leading-6 tw-font-bold" (click)="cleanSearch()">Limpiar filtros</button>

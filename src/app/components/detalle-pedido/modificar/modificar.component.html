@@ -1,4 +1,84 @@
-<div class="container">
+<div class="tabla-completa !tw-bg-white">
+  <app-order-form [id]="id" (order)="onSend($event)"></app-order-form>
+  <app-detail-order-form
+    [categories]="listaCategoria"
+    [products]="listaProductos"
+    [editProduct]="editProductInput"
+    (newProduct)="addProduct($event)">
+  </app-detail-order-form>
+  <div class="tw-ml-8 tw-pb-8">
+    <table mat-table [dataSource]="dataSourceProductoPedido" matSort>
+      <ng-container matColumnDef="codigo">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
+        <td mat-cell *matCellDef="let row">{{ row.codigo ? row.codigo : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="descripcion">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+        <td mat-cell *matCellDef="let row">{{ row.descripcion ? row.descripcion : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="precio">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+        <td mat-cell *matCellDef="let row">{{ row.precioReferencia ? row.precioReferencia : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="cantidad">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Cant</th>
+        <td mat-cell *matCellDef="let row">{{ row.cantidad ? row.cantidad : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="unidades_bulto">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>U. x Bulto</th>
+        <td mat-cell *matCellDef="let row">{{ row.unidadesFijasPallet ? row.unidadesFijasPallet : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="pallets">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Pallets</th>
+        <td mat-cell *matCellDef="let row">{{ row.porcRelacionPallet ? row.porcRelacionPallet : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="condicion">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Condición</th>
+        <td mat-cell *matCellDef="let row">{{ row.condicion ? row.condicion : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+        <td mat-cell *matCellDef="let row">{{ row.total ? row.total : '-' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let row" class="opciones">
+          <button mat-icon-button (click)="editProduct(row)" class="icon-button" matTooltip="Editar">
+              <img class="icon" src="assets/modificar-icon.png"/>
+          </button>
+          <button mat-icon-button  class="icon-button" (click)="eliminarElemento(row)" matTooltip="Eliminar">
+            <img class="icon" src="assets/eliminar-icon.png"/>
+          </button>
+        </td>
+      </ng-container>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell tw-text-center" [attr.colspan]="displayedColumnsProductoPedido.length">
+          Todavía no hay productos agregados en tu pedido
+        </td>
+      </tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsProductoPedido">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsProductoPedido">
+      </tr>
+    </table>
+    <span #scroll></span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
   <h2 class="title" style="padding-left:5%">Detalle Pedido</h2>
   <div class="container-child">
     <mat-form-field>
@@ -78,4 +158,4 @@
     <button mat-raised-button color="warn" (click)="goToListarDetallePedidoPage()" id="button_cancelar">Cancelar</button>
     <button mat-raised-button color="warn" (click)="onEdit()" id="aplicar">Editar Detalle Pedido</button>
   </div>
-</div>
+</div> -->

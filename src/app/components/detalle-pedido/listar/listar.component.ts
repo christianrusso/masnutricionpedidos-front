@@ -74,6 +74,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   };
 
   goToEditPage(idDetallePedido: number): void {
+    console.log(idDetallePedido)
     this.router.navigateByUrl(`home/detallePedido/modificar/${idDetallePedido}`);
   };
 
@@ -87,16 +88,17 @@ export class ListarComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
         this.detallePedidoService.deleteDetallePedido(id).subscribe((response) => {
-          setTimeout(() => {
-            location.reload();
-          }, 100);
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 100);
         });
       }
     });
   };
 
   test(value: any): void {
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
-    console.log(value);
+    this.dataSource.filter = value.searchDate.trim().toLocaleLowerCase() ||
+    value.searchAgent.trim().toLocaleLowerCase() || value.searchCondition.trim().toLocaleLowerCase()
+    value.searchInternNumber.trim().toLocaleLowerCase();
   }
 }

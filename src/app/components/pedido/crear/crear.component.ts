@@ -60,7 +60,6 @@ export class CrearComponent implements OnInit {
   condicion!: string;
   productos: DetallePedidoCargaData[] = [];
   idProducto!: number;
-
   displayedColumnsProductoPedido: string[] = [
     'codigo',
     'descripcion',
@@ -72,7 +71,6 @@ export class CrearComponent implements OnInit {
     'total',
     'actions',
   ];
-
   dataSourceDetallesPedidos = new MatTableDataSource<DetallePedidoCargaData>();
   dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>();
   productosEnCarrito: ProductoPedidoData[] = [];
@@ -87,16 +85,12 @@ export class CrearComponent implements OnInit {
   total: number = 0;
   total_final: number = 0;
   cantidadNueva: number = 0;
-
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
   myControl = new UntypedFormControl();
   options: TipoClienteData[] = [];
   filteredOptions?: Observable<TipoClienteData[]>;
   selected = 'option2';
-
   isAnulado: number = 0;
   isEnviadoxMail!: number;
   isCobrado!: number;

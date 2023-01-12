@@ -16,15 +16,6 @@ import { ProductosPorPedidoService } from 'src/app/services/productosPorPedido.s
 })
 export class DetallesComponent {
   id: number = 0;
-  constructor(
-    private route: ActivatedRoute,
-    private readonly pedidoService: PedidoService,
-    private readonly detallePedidoService: DetallePedidoService,
-    private readonly productosPorPedido: ProductosPorPedidoService,
-    private readonly router: Router
-  ) {
-    this.dataSource = new MatTableDataSource();
-  }
   creado: boolean = false;
   idPedido: number = 0;
   cantidad!: number;
@@ -35,7 +26,6 @@ export class DetallesComponent {
   isEntregadoItem!: number;
   pedidosLista: PedidoData[] = [];
   usuarioModifica: any = localStorage.getItem('NickName');
-
   num_interno!: number;
   representante!: string;
   cod!: number;
@@ -46,38 +36,41 @@ export class DetallesComponent {
   observaciones!: string;
   fechaGraba!: string;
   total!: number;
-
-  displayedColumnsDetallePedidos: string[] = [
-    'idPedido',
-    'idProducto',
-    'cantidad',
+  displayedColumnsProductoPedido: string[] = [
     'codigo',
     'descripcion',
     'precio',
+    'cantidad',
     'unidades_bulto',
     'pallets',
     'condicion',
-    'total',
+    'total'
   ];
-
   dataSource = new MatTableDataSource<ProductosPorPedidoData>();
-
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(
+    private route: ActivatedRoute,
+    private readonly pedidoService: PedidoService,
+    private readonly detallePedidoService: DetallePedidoService,
+    private readonly productosPorPedido: ProductosPorPedidoService,
+    private readonly router: Router
+  ) {
+    this.dataSource = new MatTableDataSource();
+  };
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getPedido();
     this.productosPorPedido.getProductos(this.id).subscribe((response: any) => {
       const productos = response as ProductosPorPedidoData[];
-      console.log(productos);
-
       this.dataSource.data = productos;
     });
-  }
+  };
 
-  getPedido() {
+  getPedido(): void {
     this.pedidoService.getPedido(this.id).subscribe((response: any) => {
       this.num_interno = response[0].num_interno;
       this.representante = response[0].representante;
@@ -90,20 +83,21 @@ export class DetallesComponent {
       this.fechaGraba = response[0].fechaGraba;
       this.total = response[0].total;
     });
-  }
+  };
 
-  goToListarDetallePedidoPage() {
+  goToListarDetallePedidoPage(): void {
     this.router.navigateByUrl(`home/detallePedido/listar`);
-  }
-  applyFilter(event: Event) {
+  };
+
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-  goToEditarDetallePedidoPage() {
+  };
+
+  goToEditarDetallePedidoPage(): void {
     this.router.navigateByUrl(`home/detallePedido/modificar/${this.id}`);
-  }
+  };
 }

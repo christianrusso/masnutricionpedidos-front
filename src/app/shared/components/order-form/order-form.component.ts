@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class OrderFormComponent implements OnInit, AfterViewInit {
 
   @ViewChild('firstInput') firstInput: ElementRef;
-  @Output() order: any = new EventEmitter<any>()
+  @Output() order: any = new EventEmitter<any>();
+  @Input() id: number = -1;
   today: Date = new Date();
   orderForm: FormGroup = this.fb.group({
     date: [this.today, Validators.required],

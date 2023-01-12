@@ -1,6 +1,9 @@
 <div class="tw-ml-8 tw-flex tw-justify-between tw-items-center">
   <div>
-    <h2 class="tw-text-1xl tw-font-light tw-leading-6">Nuevo pedido</h2>
+    <h2 *ngIf="id === -1; else editOrder" class="tw-text-1xl tw-font-light tw-leading-6">Nuevo pedido</h2>
+    <ng-template #editOrder>
+      <h2 class="tw-text-1xl tw-font-light tw-leading-6">Editar pedido</h2>
+    </ng-template>
   </div>
   <div>
     <button
@@ -21,7 +24,7 @@
 <div class="tw-ml-8 tw-my-5 tw-bg-white tw-border tw-rounded-md tw-border-bone">
   <div class="tw-px-8 tw-my-3">
     <form [formGroup]="orderForm" class="tw-grid tw-grid-cols-7 tw-grid-rows-1">
-      <h2 class="tw-pb-6 tw-px-1 tw-font-bold tw-text-2xl tw-leading-6 tw-col-span-4 tw-self-center">Pedido N° XXX</h2>
+      <h2 class="tw-pb-6 tw-px-1 tw-font-bold tw-text-2xl tw-leading-6 tw-col-span-4 tw-self-center">Pedido N° {{ id === -1 ? '-' : id }}</h2>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
           <mat-label>xx/xx/xxxx</mat-label>
           <input matInput [matDatepicker]="picker" [min]="today" formControlName="date">

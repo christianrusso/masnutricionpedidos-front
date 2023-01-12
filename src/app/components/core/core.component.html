@@ -62,7 +62,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="buttons_core" (click)="goToPedidosListarPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
-        <mat-panel-title style="font-family: Quicksand">
+        <mat-panel-title class="tw-cursor-pointer tw-text-base tw-leading-6 tw-font-medium" style="font-family: Quicksand">
           <button class="icon-button">
             <img class="icon custom-size" src="assets/list.png" />
           </button>
@@ -70,7 +70,7 @@
         </mat-panel-title>
       </div>
       <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
-        <mat-panel-title style="font-family: Quicksand">
+        <mat-panel-title class="tw-cursor-pointer tw-text-base tw-leading-6 tw-font-medium" style="font-family: Quicksand">
           <button class="icon-button">
             <img class="icon custom-size" src="assets/plus.png" />
           </button>
@@ -79,8 +79,8 @@
       </div>
 
 
-      <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
-        <mat-panel-title style="font-family: Quicksand">
+      <div class="buttons_core" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
+        <mat-panel-title class="tw-cursor-pointer tw-text-base tw-leading-6 tw-font-medium" style="font-family: Quicksand">
           <button class="icon-button">
             <img class="icon custom-size" src="assets/moto.png" />
           </button>
@@ -89,8 +89,8 @@
       </div>
 
 
-      <div class="buttons_core" (click)="goToPedidoCrearPage()" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
-        <mat-panel-title style="font-family: Quicksand; width: 100%;">
+      <div class="buttons_core" *ngIf="isAdmin == '1' || isDetalleOperacion == 1">
+        <mat-panel-title class="tw-cursor-pointer tw-text-base tw-leading-6 tw-font-medium" style="font-family: Quicksand; width: 100%;">
           <button class="icon-button">
             <img class="icon custom-size" src="assets/folder.png" />
           </button>

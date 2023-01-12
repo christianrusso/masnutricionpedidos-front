@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter, SimpleChanges, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter, SimpleChanges, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriaProductoData } from 'src/app/models/categoriaProductoData';
 import { ProductoPedidoData } from 'src/app/models/ProductosPedidoData';
@@ -8,7 +8,7 @@ import { ProductoPedidoData } from 'src/app/models/ProductosPedidoData';
   templateUrl: './detail-order-form.component.html',
   styleUrls: ['./detail-order-form.component.scss']
 })
-export class DetailOrderFormComponent implements OnInit, OnChanges {
+export class DetailOrderFormComponent implements OnChanges {
 
   @Input() categories: CategoriaProductoData[] = [];
   @Input() products: ProductoPedidoData[] = [];
@@ -23,13 +23,9 @@ export class DetailOrderFormComponent implements OnInit, OnChanges {
     condition: ['', [Validators.required, Validators.maxLength(100)]]
   });
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if(changes['editProduct'].currentValue !== changes['editProduct'].previousValue){
       this.detailOrderForm.setValue({
         category: changes['editProduct'].currentValue.categoria,

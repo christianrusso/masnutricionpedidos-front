@@ -12,17 +12,13 @@ import { TipoClienteService } from 'src/app/services/tipo-cliente.service';
 import { VendedorService } from 'src/app/services/vendedor.service';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OrderFormComponent } from './order-form/order-form.component';
-import { DetailOrderFormComponent } from './detail-order-form/detail-order-form.component';
 
 @NgModule({
   declarations: [
     ListarComponent,
     CrearComponent,
     ModificarComponent,
-    ModalEliminarComponent,
-    OrderFormComponent,
-    DetailOrderFormComponent
+    ModalEliminarComponent
   ],
   imports: [
     PedidoRoutingModule,

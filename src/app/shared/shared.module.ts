@@ -32,6 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { DetailOrderFormComponent } from './components/detail-order-form/detail-order-form.component';
 
 export const MaterialModules = [
   MatCardModule,
@@ -95,7 +97,10 @@ export const MaterialModules = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    OrderFormComponent,
+    DetailOrderFormComponent
+  ],
   exports: [
     CommonModule,
     RouterModule,
@@ -103,6 +108,8 @@ export const MaterialModules = [
     MaterialModules,
     FormsModule,
     MatTableModule,
+    OrderFormComponent,
+    DetailOrderFormComponent
   ],
   imports: [
     CommonModule,

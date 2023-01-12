@@ -9,10 +9,12 @@ import { DateAdapter } from '@angular/material/core';
 export class SearchOrderFormComponent implements OnInit {
 
   @Output() sendSearch: any = new EventEmitter<any>();
-  searchDate: any
-  searchAgent: any
-  searchCondition: any
-  searchInternNumber: any
+  searchFilter: any = {
+    searchDate: '',
+    searchAgent: '',
+    searchCondition: '',
+    searchInternNumber: ''
+  };
 
   constructor(private dateAdapter: DateAdapter<Date>) { }
 
@@ -21,13 +23,16 @@ export class SearchOrderFormComponent implements OnInit {
   }
 
   searchTest(): void {
-    this.sendSearch.emit(this.searchAgent);
+    this.sendSearch.emit(this.searchFilter);
   }
 
   cleanSearch(): void {
-    this.searchDate= '';
-    this.searchAgent= '';
-    this.searchCondition= '';
-    this.searchInternNumber= '';
+    this.searchFilter = {
+      searchDate: '',
+      searchAgent: '',
+      searchCondition: '',
+      searchInternNumber: ''
+    }
+    this.searchTest();
   }
 }
