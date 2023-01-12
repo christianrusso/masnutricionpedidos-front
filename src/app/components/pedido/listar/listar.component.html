@@ -22,73 +22,73 @@
 
       <!-- ID Columna -->
       <ng-container matColumnDef="idPedido">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idPedido</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
         <td mat-cell *matCellDef="let row">{{ row.idPedido ? row.idPedido : '-' }}</td>
       </ng-container>
 
       <!-- ID Columna -->
       <ng-container matColumnDef="isAnulado">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>isAnulado</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Anulado</th>
         <td mat-cell *matCellDef="let row">{{ row.isAnulado ? row.isAnulado : '-' }}</td>
       </ng-container>
 
       <!-- ID Columna -->
       <ng-container matColumnDef="isEnviadoxMail">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>isEnviadoxMail</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>E. por Email</th>
         <td mat-cell *matCellDef="let row">{{ row.isEnviadoxMail ? row.isEnviadoxMail : '-' }}</td>
       </ng-container>
 
       <!-- isCobrado Columna -->
       <ng-container matColumnDef="isCobrado">isCobrado
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>isCobrado</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cobrado</th>
         <td mat-cell *matCellDef="let row">{{ row.isCobrado ? row.isCobrado : '-' }}</td>
       </ng-container>
 
       <!-- isFinalizado Columna -->
       <ng-container matColumnDef="isFinalizado">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>isFinalizado</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Finalizado</th>
         <td mat-cell *matCellDef="let row">{{ row.isFinalizado ? row.isFinalizado : '-' }}</td>
       </ng-container>
 
       <!-- idCliente Columna -->
       <ng-container matColumnDef="idCliente">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idCliente</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
         <td mat-cell *matCellDef="let row">{{ row.idCliente ? row.idCliente : '-' }}</td>
       </ng-container>
 
       <!-- idVendedor Columna -->
       <ng-container matColumnDef="idVendedor">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idVendedor</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Vendedor</th>
         <td mat-cell *matCellDef="let row">{{ row.idVendedor ? row.idVendedor : '-' }}</td>
       </ng-container>
 
       <!-- idTipoReglaComercial Columna -->
       <ng-container matColumnDef="idTipoReglaComercial">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idTipoReglaComercial</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Regla Comercial</th>
         <td mat-cell *matCellDef="let row">{{ row.idTipoReglaComercial ? row.idTipoReglaComercial : '-' }}</td>
       </ng-container>
 
       <!-- idAbono Columna -->
       <ng-container matColumnDef="idAbono">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idAbono</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Abono</th>
         <td mat-cell *matCellDef="let row">{{ row.idAbono ? row.idAbono : '-' }}</td>
       </ng-container>
 
       <!-- idTipoCondicionesDeVenta Columna -->
       <ng-container matColumnDef="idTipoCondicionesDeVenta">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>idTipoCondicionesDeVenta</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>C. de Venta</th>
         <td mat-cell *matCellDef="let row">{{ row.idTipoCondicionesDeVenta ? row.idTipoCondicionesDeVenta : '-' }}</td>
       </ng-container>
 
       <!-- fechaPedido Columna -->
       <ng-container matColumnDef="fechaPedido">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>fechaPedido</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
         <td mat-cell *matCellDef="let row">{{ row.fechaPedido ? row.fechaPedido : '-' }}</td>
       </ng-container>
 
       <!-- porcDescuentoGeneral Columna -->
       <ng-container matColumnDef="porcDescuentoGeneral">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>porcDescuentoGeneral</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Desc. Genaral</th>
         <td mat-cell *matCellDef="let row">{{ row.porcDescuentoGeneral ? row.porcDescuentoGeneral : '-' }}</td>
       </ng-container>
 
@@ -100,43 +100,43 @@
 
       <!-- nroRemito Columna -->
       <ng-container matColumnDef="nroRemito">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>nroRemito</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>N° Remito</th>
         <td mat-cell *matCellDef="let row">{{ row.nroRemito ? row.nroRemito : '-' }}</td>
       </ng-container>
 
       <!-- subtotal Columna -->
       <ng-container matColumnDef="subtotal">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>subtotal</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sub Total</th>
         <td mat-cell *matCellDef="let row">{{ row.subtotal ? row.subtotal : '-' }}</td>
       </ng-container>
 
       <!-- impuestos Columna -->
       <ng-container matColumnDef="impuestos">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>impuestos</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Impuestos</th>
         <td mat-cell *matCellDef="let row">{{ row.impuestos ? row.impuestos : '-' }}</td>
       </ng-container>
 
       <!-- subtotal2 Columna -->
       <ng-container matColumnDef="subtotal2">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>subtotal2</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sub Total 2</th>
         <td mat-cell *matCellDef="let row">{{ row.subtotal2 ? row.subtotal2 : '-' }}</td>
       </ng-container>
 
       <!-- ivaInscriptoPorc Columna -->
       <ng-container matColumnDef="ivaInscriptoPorc">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>ivaInscriptoPorc</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>% IVA</th>
         <td mat-cell *matCellDef="let row">{{ row.ivaInscriptoPorc ? row.ivaInscriptoPorc : '-' }}</td>
       </ng-container>
 
       <!-- ivaInscripto Columna -->
       <ng-container matColumnDef="ivaInscripto">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>ivaInscripto</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>IVA Insc.</th>
         <td mat-cell *matCellDef="let row">{{ row.ivaInscripto ? row.ivaInscripto : '-' }}</td>
       </ng-container>
 
       <!-- total Columna -->
       <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>total</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
         <td mat-cell *matCellDef="let row">{{ row.total ? row.total : '-' }}</td>
       </ng-container>
 

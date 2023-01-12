@@ -3,10 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DetallePedidoData } from 'src/app/models/DetallePedidoData';
 import { PedidoData } from 'src/app/models/PedidoData';
 import { ProductosPorPedidoData } from 'src/app/models/ProductosPorPedido';
-import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { ProductosPorPedidoService } from 'src/app/services/productosPorPedido.service';
 @Component({
@@ -54,7 +52,6 @@ export class DetallesComponent {
   constructor(
     private route: ActivatedRoute,
     private readonly pedidoService: PedidoService,
-    private readonly detallePedidoService: DetallePedidoService,
     private readonly productosPorPedido: ProductosPorPedidoService,
     private readonly router: Router
   ) {

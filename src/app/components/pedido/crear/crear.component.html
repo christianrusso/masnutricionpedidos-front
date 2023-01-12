@@ -1,5 +1,6 @@
 <div class="tabla-completa">
   <app-order-form (order)="onSend($event)"></app-order-form>
+  <span #productTable></span>
   <app-detail-order-form
     [categories]="listaCategoria"
     [products]="listaProductos"

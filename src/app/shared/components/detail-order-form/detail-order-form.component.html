@@ -4,7 +4,7 @@
     <form [formGroup]="detailOrderForm" (ngSubmit)="addNewProduct()" class="tw-grid tw-grid-cols-5 tw-grid-rows-1">
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Categoría</mat-label>
-        <mat-select formControlName="category" #test>
+        <mat-select formControlName="category" #categorySelect>
           <mat-option *ngFor="let categoria of categories" [value]="categoria.idCategoriaProducto">
             {{categoria.descripcion}}
           </mat-option>
@@ -22,10 +22,10 @@
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Cantidad</mat-label>
-        <input matInput formControlName="total"/>
-        <mat-error *ngIf="total?.errors?.['required']">Requerido</mat-error>
-        <mat-error *ngIf="total?.errors?.['pattern']">Formato invalido</mat-error>
-        <mat-error *ngIf="total?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        <input matInput formControlName="amount"/>
+        <mat-error *ngIf="amount?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="amount?.errors?.['pattern']">Formato invalido</mat-error>
+        <mat-error *ngIf="amount?.errors?.['maxlength']">Demasiados caracteres</mat-error>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
         <mat-label>Condición</mat-label>

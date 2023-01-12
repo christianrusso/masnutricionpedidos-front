@@ -22,7 +22,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   delete!: boolean;
   displayedColumnsDetallePedidos: string[] = [
     'idPedido',
-    'fechaPedido',
+    'fechaGraba',
     'representante',
     'num_interno',
     'descripcion',

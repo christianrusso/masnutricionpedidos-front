@@ -1,11 +1,128 @@
 <div class="tabla-completa !tw-bg-white">
-  <app-order-form [id]="id" (order)="onSend($event)"></app-order-form>
-  <app-detail-order-form
-    [categories]="listaCategoria"
-    [products]="listaProductos"
-    [editProduct]="editProductInput"
-    (newProduct)="addProduct($event)">
-  </app-detail-order-form>
+  <div class="tw-ml-8 tw-flex tw-justify-between tw-items-center">
+    <div>
+        <h2 class="tw-text-1xl tw-font-light tw-leading-6">Editar pedido</h2>
+    </div>
+    <div>
+      <button
+        class="tw-mx-1 custom-btn tw-text-base tw-tracking-{15px} tw-shadow-warn tw-text-warning hover:tw-bg-warning"
+        id="agregar"
+        (click)="cancelOrder()">
+          Cancelar
+      </button>
+      <button
+        class="tw-mx-1 custom-btn tw-text-base tw-tracking-{15px} tw-shadow-succ tw-text-succes hover:tw-bg-succes disabled:tw-cursor-not-allowed disabled:tw-bg-bone disabled:tw-text-succes"
+        id="agregar"
+        [disabled]="orderForm.invalid"
+        (click)="saveOrder()">
+          Guardar
+      </button>
+    </div>
+  </div>
+  <div class="tw-ml-8 tw-my-5 tw-bg-white tw-border tw-rounded-md tw-border-bone">
+    <div class="tw-px-8 tw-my-3">
+      <form [formGroup]="orderForm" class="tw-grid tw-grid-cols-7 tw-grid-rows-1">
+        <h2 class="tw-pb-6 tw-px-1 tw-font-bold tw-text-2xl tw-leading-6 tw-col-span-4 tw-self-center">Pedido N° {{ id === -1 ? '-' : id }}</h2>
+        <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
+            <mat-label>xx/xx/xxxx</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="today" formControlName="date">
+            <mat-datepicker #picker></mat-datepicker>
+             <mat-error *ngIf="date?.errors?.['required']">Requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+            <mat-label>N° Interno </mat-label>
+            <input #firstInput matInput formControlName="internNumber"/>
+             <mat-error *ngIf="internNumber?.errors?.['required']">Requerido</mat-error>
+             <mat-error *ngIf="internNumber?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+             <mat-error *ngIf="internNumber?.errors?.['pattern']">Formato invalido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
+          <mat-label>Representante</mat-label>
+          <input matInput formControlName="agent"/>
+          <mat-error *ngIf="agent?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="agent?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+          <mat-label>COD.</mat-label>
+          <input matInput formControlName="cod"/>
+          <mat-error *ngIf="cod?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="cod?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+          <mat-label>CUIT</mat-label>
+          <input matInput formControlName="cuit"/>
+          <mat-error *ngIf="cuit?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="cuit?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+          <mat-error *ngIf="cuit?.errors?.['pattern']">Formato invalido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
+          <mat-label>Domicilio</mat-label>
+          <input matInput formControlName="address"/>
+          <mat-error *ngIf="address?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="address?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+          <mat-label>Tel.</mat-label>
+          <input matInput formControlName="phone"/>
+          <mat-error *ngIf="phone?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="phone?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+          <mat-error *ngIf="phone?.errors?.['pattern']">Formato invalido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+          <mat-label>Transporte</mat-label>
+          <input matInput formControlName="transport"/>
+          <mat-error *ngIf="transport?.errors?.['required']">Requerido</mat-error>
+          <mat-error *ngIf="transport?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field class="tw-col-span-7 tw-row-span-1" appearance="outline">
+          <mat-label>Observaciones</mat-label>
+          <input matInput formControlName="observation"/>
+          <mat-error *ngIf="phone?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+  <div class="tw-px-8 tw-my-3">
+    <h2 class="tw-pb-1 tw-px-1 tw-font-bold tw-text-base tw-leading-6 tw-col-span-4 tw-self-center">Detalle Pedido</h2>
+    <form [formGroup]="detailOrderForm" (ngSubmit)="addNewProduct()" class="tw-grid tw-grid-cols-5 tw-grid-rows-1">
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Categoría</mat-label>
+        <mat-select formControlName="category" #categorySelect>
+          <mat-option *ngFor="let categoria of listaCategoria" [value]="categoria.idCategoriaProducto">
+            {{categoria.descripcion}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="category?.errors?.['required']">Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Producto</mat-label>
+        <mat-select formControlName="product">
+          <mat-option *ngFor="let producto of listaProductos" [value]="producto.id_producto">
+            {{producto.descripcion}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="product?.errors?.['required']">Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <input matInput formControlName="amount"/>
+        <mat-error *ngIf="amount?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="amount?.errors?.['pattern']">Formato invalido</mat-error>
+        <mat-error *ngIf="amount?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">
+        <mat-label>Condición</mat-label>
+        <input matInput formControlName="condition"/>
+        <mat-error *ngIf="condition?.errors?.['required']">Requerido</mat-error>
+        <mat-error *ngIf="condition?.errors?.['maxlength']">Demasiados caracteres</mat-error>
+      </mat-form-field>
+      <div class="tw-flex tw-justify-center tw-items-center">
+        <button type="submit" class="tw-mb-5 tw-text-sm tw-leading-7 custom-btn tw-tracking-{15px} tw-shadow-succ tw-text-succes hover:tw-bg-succes disabled:tw-cursor-not-allowed disabled:tw-bg-bone disabled:tw-text-succes" [disabled]="detailOrderForm.invalid">
+          Agregar producto
+        </button>
+      </div>
+    </form>
+  </div>
   <div class="tw-ml-8 tw-pb-8">
     <table mat-table [dataSource]="dataSourceProductoPedido" matSort>
       <ng-container matColumnDef="codigo">
@@ -43,7 +160,7 @@
       <ng-container matColumnDef="actions">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let row" class="opciones">
-          <button mat-icon-button (click)="editProduct(row)" class="icon-button" matTooltip="Editar">
+          <button mat-icon-button (click)="editProductt(row)" class="icon-button" matTooltip="Editar">
               <img class="icon" src="assets/modificar-icon.png"/>
           </button>
           <button mat-icon-button  class="icon-button" (click)="eliminarElemento(row)" matTooltip="Eliminar">
@@ -64,98 +181,3 @@
     <span #scroll></span>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-  <h2 class="title" style="padding-left:5%">Detalle Pedido</h2>
-  <div class="container-child">
-    <mat-form-field>
-      <mat-label>ID Pedido</mat-label>
-      <mat-select [(ngModel)]="idPedido" name="food">
-        <mat-option *ngFor="let pedido of pedidosLista" [value]="pedido.idPedido">
-          {{pedido.descripcion}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Cantidad</mat-label>
-      <input
-        matInput
-        type="number"
-        placeholder="cantidad"
-        class="phone_number"
-        [(ngModel)]="cantidad"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Detalle</mat-label>
-      <input matInput name="name" [(ngModel)]="detalle" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Porcentaje Descuento Item</mat-label>
-      <input
-        matInput
-        type="number"
-        placeholder="Porcentaje Descuento Item"
-        class="phone_number"
-        [(ngModel)]="porcDescuentoItem"precioUnitario
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Precio Unitario</mat-label>
-      <input
-        matInput
-        type="number"
-        placeholder="precioUnitario"
-        class="phone_number"
-        [(ngModel)]="precioUnitario"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Importe</mat-label>
-      <input
-        matInput
-        type="number"
-        placeholder="importe"
-        class="phone_number"
-        [(ngModel)]="importe"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label class="title">Entregado?</mat-label>
-      <input
-        matInput
-        type="number"
-        placeholder="isEntregadoItem"
-        class="phone_number"
-        [(ngModel)]="isEntregadoItem"
-      />
-    </mat-form-field>
-
-    <ng-template [ngIf]="creado">
-      <div class="message_create">Detalle Pedido actualizado con exito</div>
-    </ng-template>
-  </div>
-  <div class="buttons">
-    <button mat-raised-button color="warn" (click)="goToListarDetallePedidoPage()" id="button_cancelar">Cancelar</button>
-    <button mat-raised-button color="warn" (click)="onEdit()" id="aplicar">Editar Detalle Pedido</button>
-  </div>
-</div> -->

@@ -22,7 +22,7 @@
 
         <!-- id_producto Columna -->
         <ng-container matColumnDef="id_producto">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>id_producto</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
           <td mat-cell *matCellDef="let row">{{ row.id_producto ? row.id_producto : '-' }}</td>
         </ng-container>
 
@@ -34,37 +34,37 @@
 
          <!-- codigo Columna -->
          <ng-container matColumnDef="codigo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
           <td mat-cell *matCellDef="let row">{{ row.codigo ? row.codigo : '-' }}</td>
         </ng-container>
 
         <!-- idTipoProducto Columna -->
         <ng-container matColumnDef="idTipoProducto">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>idTipoProducto</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo Produc.</th>
           <td mat-cell *matCellDef="let row">{{ row.idTipoProducto ? row.idTipoProducto : '-' }}</td>
         </ng-container>
 
         <!-- idTipoFamiliaProducto Columna -->
         <ng-container matColumnDef="idTipoFamiliaProducto">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>idTipoFamiliaProducto</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Familia Produc.</th>
           <td mat-cell *matCellDef="let row">{{ row.idTipoFamiliaProducto ? row.idTipoFamiliaProducto : '-' }}</td>
         </ng-container>
 
         <!-- unidadesFijasPallet Columna -->
         <ng-container matColumnDef="unidadesFijasPallet">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>unidadesFijasPallet</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>U. Fijas Pallet</th>
           <td mat-cell *matCellDef="let row">{{ row.unidadesFijasPallet ? row.unidadesFijasPallet : '-' }}</td>
         </ng-container>
 
         <!-- porcRelacionPallet Columna -->
         <ng-container matColumnDef="porcRelacionPallet">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>porcRelacionPallet</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>% Relación Pallet</th>
           <td mat-cell *matCellDef="let row">{{ row.porcRelacionPallet ? row.porcRelacionPallet : '-' }}</td>
         </ng-container>
 
         <!-- precioReferencia Columna -->
         <ng-container matColumnDef="precioReferencia">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>precioReferencia</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio Ref.</th>
           <td mat-cell *matCellDef="let row">{{ row.precioReferencia ? row.precioReferencia : '-' }}</td>
         </ng-container>
 

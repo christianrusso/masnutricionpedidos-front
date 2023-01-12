@@ -14,12 +14,12 @@ export class DetailOrderFormComponent implements OnChanges {
   @Input() products: ProductoPedidoData[] = [];
   @Input() editProduct: ProductoPedidoData;
   @Output() newProduct = new EventEmitter<ProductoPedidoData>();
-  @ViewChild('test') test: ElementRef;
+  @ViewChild('categorySelect') categorySelect: ElementRef;
 
   detailOrderForm: FormGroup = this.fb.group({
     category: ['', Validators.required],
     product: ['', Validators.required],
-    total: [0, [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    amount: [ , [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     condition: ['', [Validators.required, Validators.maxLength(100)]]
   });
 
@@ -30,20 +30,19 @@ export class DetailOrderFormComponent implements OnChanges {
       this.detailOrderForm.setValue({
         category: changes['editProduct'].currentValue.categoria,
         product: changes['editProduct'].currentValue.id_producto,
-        total: changes['editProduct'].currentValue.total,
+        amount: changes['editProduct'].currentValue.cantidad,
         condition: changes['editProduct'].currentValue.condicion
-      })
-      this.test.nativeElement.open()
+      });
     }
   }
 
-  addNewProduct() {
+  addNewProduct(): void {
     const productInfo: any = this.products.find(e => e.id_producto === this.detailOrderForm.value.product);
     const product: ProductoPedidoData = {
       id_producto: this.detailOrderForm.value.product,
       descripcion: productInfo.descripcion,
       precioReferencia: productInfo.precioReferencia,
-      cantidad:  Number.parseInt(this.detailOrderForm.value.total),
+      cantidad:  Number.parseInt(this.detailOrderForm.value.amount),
       porcRelacionPallet: productInfo.porcRelacionPallet,
       unidadesFijasPallet: productInfo.unidadesFijasPallet,
       condicion: this.detailOrderForm.value.condition,
@@ -53,10 +52,13 @@ export class DetailOrderFormComponent implements OnChanges {
     }
     this.newProduct.emit(product);
     this.detailOrderForm.reset();
+    Object.keys(this.detailOrderForm.controls).forEach(key =>{
+      this.detailOrderForm.controls[key].setErrors(null);
+    });
   };
 
   get category() { return this.detailOrderForm.get('category'); }
   get product() { return this.detailOrderForm.get('product'); }
-  get total() { return this.detailOrderForm.get('total'); }
+  get amount() { return this.detailOrderForm.get('amount'); }
   get condition() { return this.detailOrderForm.get('condition'); }
 }

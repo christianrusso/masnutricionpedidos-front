@@ -44,6 +44,7 @@ import { response } from 'express';
   styleUrls: ['./crear.component.scss'],
 })
 export class CrearComponent implements OnInit {
+
   creado: boolean;
   dataSourceCarrito: MatTableDataSource<ProductoPedidoData> =
   new MatTableDataSource();
@@ -118,6 +119,7 @@ export class CrearComponent implements OnInit {
   ivaInscripto!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
   @ViewChild('scroll') scroll: ElementRef;
+  @ViewChild('productTable') productTable: ElementRef;
   editProductInput: ProductoPedidoData = {
     id_producto: 0,
     descripcion: '',
@@ -237,8 +239,7 @@ export class CrearComponent implements OnInit {
       });
       this.pedidoService.postPedido(pedido, this.productosEnCarrito).subscribe(
         (response) => {
-          console.log(response);
-          this.router.navigateByUrl(`home/pedido/listar`);
+          this.router.navigateByUrl(`home/detallePedido/listar`);
         },
         (error) => {
             console.log(error);
@@ -249,11 +250,10 @@ export class CrearComponent implements OnInit {
   };
 
   editProduct(productId: ProductoPedidoData): void {
-    console.log(this.editProductInput);
-    console.log(productId);
     this.editProductInput = {
       ...productId
     }
+    this.productTable.nativeElement.scrollIntoView({behavior: 'smooth'});
   };
 };
 

@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Output, EventEmitter, Input, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { Pedido } from 'src/app/models/pedido';
 
 @Component({
   selector: 'app-order-form',
@@ -13,6 +14,7 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
   @ViewChild('firstInput') firstInput: ElementRef;
   @Output() order: any = new EventEmitter<any>();
   @Input() id: number = -1;
+  @Input() test: any;
   today: Date = new Date();
   orderForm: FormGroup = this.fb.group({
     date: [this.today, Validators.required],
@@ -33,19 +35,39 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
+    console.log(this.test)
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes['test'].currentValue)
+    console.log(changes['test'].previousValue)
+    console.log(this.test)
+    if(changes['test'].currentValue !== changes['test'].previousValue){
+      this.orderForm.setValue({
+        date: changes['test'].currentValue.fe,
+        internNumber: changes['test'].currentValue.num_interno,
+        agent: changes['test'].currentValue.representante,
+        cod: changes['test'].currentValue.cod,
+        cuit: changes['test'].currentValue.cuit,
+        address: changes['test'].currentValue.domicilio,
+        phone: changes['test'].currentValue.telefono,
+        transport: changes['test'].currentValue.transporte,
+        observation: changes['test'].currentValue.observaciones
+      });
+    }
+  };
 
   ngAfterViewInit(): void {
     this.firstInput.nativeElement.focus();
   };
 
-  cancelOrder() {
+  cancelOrder(): void {
     this.router.navigateByUrl(`home/pedido/listar`);
-  }
+  };
 
-  saveOrder() {
+  saveOrder(): void {
     this.order.emit(this.orderForm.value);
-  }
+  };
 
   get date() { return this.orderForm.get('date'); }
   get internNumber() { return this.orderForm.get('internNumber'); }
@@ -56,5 +78,4 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
   get phone() { return this.orderForm.get('phone'); }
   get transport() { return this.orderForm.get('transport'); }
   get observation() { return this.orderForm.get('observation'); }
-
 }
