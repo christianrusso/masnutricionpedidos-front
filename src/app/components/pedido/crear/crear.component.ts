@@ -238,7 +238,7 @@ export class CrearComponent implements OnInit {
       this.pedidoService.postPedido(pedido, this.productosEnCarrito).subscribe(
         (response) => {
           console.log(response);
-          this.router.navigateByUrl(`home/pedido/listar`);
+          this.router.navigateByUrl(`home/detallePedido/listar`);
         },
         (error) => {
             console.log(error);
