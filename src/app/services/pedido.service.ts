@@ -30,6 +30,8 @@ export class PedidoService {
   }
 
   deletePedido(id: number) {
+    console.log(id);
+    
     return this.http.delete(`${environment.apiPedido}/${id}`);
   }
 }
