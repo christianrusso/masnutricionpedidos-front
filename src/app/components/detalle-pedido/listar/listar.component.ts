@@ -87,10 +87,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.detallePedidoService.deleteDetallePedido(id).subscribe((response) => {
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 100);
+        this.pedidoService.deletePedido(id).subscribe((response) => {
+          setTimeout(() => {
+            location.reload();
+          }, 100);
         });
       }
     });
