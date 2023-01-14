@@ -31,7 +31,7 @@
           <mat-datepicker #picker></mat-datepicker>
            <mat-error *ngIf="date?.errors?.['required']">Requerido</mat-error>
       </mat-form-field>
-      <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
+      <mat-form-field  class="tw-px-1 tw-col-span-2" appearance="outline">
           <mat-label>N° Interno </mat-label>
           <input #firstInput matInput formControlName="internNumber"/>
            <mat-error *ngIf="internNumber?.errors?.['required']">Requerido</mat-error>

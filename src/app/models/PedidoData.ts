@@ -18,6 +18,7 @@ export interface PedidoData {
   transporte: string;
   observaciones : string;
   fechaPedido : any;
+  fechaGraba? : any,
   porcDescuentoGeneral  : number;
   descripcion	: string;
   nroRemito: string;

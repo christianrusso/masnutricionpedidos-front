@@ -53,8 +53,6 @@ import { UsuarioModule } from './components/usuario/usuario.module';
 import { CategoriaProductoService } from './services/categoria-producto.service';
 import { PedidoEditModule } from './components/pedido-edit/pedido-edit.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +82,7 @@ import { PedidoEditModule } from './components/pedido-edit/pedido-edit.module';
     TipoReglaComercialModule,
     TipoTelefonoModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     ClienteService,

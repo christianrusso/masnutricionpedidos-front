@@ -7,7 +7,7 @@
       </mat-form-field> -->
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
         <mat-label>Fecha</mat-label>
-        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="searchFilter.searchDate" (keyup)="searchTest()">
+        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="searchFilter.searchDate" (dateChange)="searchTest()">
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline">

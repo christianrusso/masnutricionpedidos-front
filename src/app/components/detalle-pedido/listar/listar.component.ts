@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { DetallePedidoData } from 'src/app/models/DetallePedidoData';
 import { PedidoData } from 'src/app/models/PedidoData';
 import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
@@ -16,6 +17,7 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
   styleUrls: ['./listar.component.scss'],
 })
 export class ListarComponent implements OnInit, AfterViewInit {
+
   dataSource = new MatTableDataSource<PedidoData>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -36,9 +38,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
     private pedidoService: PedidoService,
     private readonly router: Router,
     private dialog: MatDialog
-  ) {
-    this.dataSource = new MatTableDataSource();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getPedidos();
@@ -53,6 +53,15 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.pedidoService.getPedidos().subscribe((response: any) => {
       const pedidos = response as PedidoData[];
       this.dataSource.data = pedidos;
+      this.dataSource = new MatTableDataSource(response as PedidoData[]);
+      // this.dataSource.filterPredicate = (data, filter: any): boolean => {
+      //   return (
+      //     data.fechaGraba === filter ||
+      //     data.representante.toLowerCase().includes(filter) ||
+      //     data.descripcion.toLowerCase().includes(filter) ||
+      //     data.num_interno === filter
+      //   );
+      // };
     });
   };
 
@@ -97,8 +106,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
   };
 
   test(value: any): void {
-    this.dataSource.filter = value.searchDate.trim().toLocaleLowerCase() ||
-    value.searchAgent.trim().toLocaleLowerCase() || value.searchCondition.trim().toLocaleLowerCase()
-    value.searchInternNumber.trim().toLocaleLowerCase();
+    // this.dataSource.filter = value.searchAgent.toLowerCase() || value.searchCondition.toLowerCase() || value.searchInternNumber || value.searchDate;
+    this.dataSource.filter = value;
   }
 }
