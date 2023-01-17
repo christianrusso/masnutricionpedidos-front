@@ -18,7 +18,6 @@ import { ModalEliminarComponent } from '../modal-eliminar/modal-eliminar.compone
 })
 export class ListarComponent implements OnInit, AfterViewInit {
 
-  dataSource = new MatTableDataSource<PedidoData>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   delete!: boolean;
@@ -32,6 +31,9 @@ export class ListarComponent implements OnInit, AfterViewInit {
     'total',
     'acction'
   ];
+  dataSource = new MatTableDataSource<PedidoData>();
+  dataSourceFilters = new MatTableDataSource<PedidoData>();
+  filterDictionary= new Map<string,string>();
 
   constructor(
     private detallePedidoService: DetallePedidoService,
@@ -53,27 +55,61 @@ export class ListarComponent implements OnInit, AfterViewInit {
     this.pedidoService.getPedidos().subscribe((response: any) => {
       const pedidos = response as PedidoData[];
       this.dataSource.data = pedidos;
-      this.dataSource = new MatTableDataSource(response as PedidoData[]);
-      // this.dataSource.filterPredicate = (data, filter: any): boolean => {
-      //   return (
-      //     data.fechaGraba === filter ||
-      //     data.representante.toLowerCase().includes(filter) ||
-      //     data.descripcion.toLowerCase().includes(filter) ||
-      //     data.num_interno === filter
-      //   );
-      // };
+      this.dataSourceFilters.data = pedidos;
+      this.applyFilter()
     });
   };
 
-  applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  applyFilter() {
+    this.dataSourceFilters.filterPredicate = ((record: PedidoData,filter: string) => {
+      let isMatch = false;
+      const map = new Map(JSON.parse(filter));
+      for (let [key, value] of map) {
+        switch(key){
+          case 'representante': {
+            if(record[key as keyof PedidoData] !== null)
+              isMatch = record[key as keyof PedidoData].trim().toLowerCase().startsWith(String(value).toLowerCase());
+            break;
+          };
+          case 'descripcion': {
+            if(record[key as keyof PedidoData] !== null)
+              isMatch = record[key as keyof PedidoData].trim().toLowerCase().includes(String(value).toLowerCase());
+            break;
+          };
+          case 'num_interno': {
+            if(record[key as keyof PedidoData] !== null)
+              isMatch = String(record[key as keyof PedidoData]).trim().toLowerCase().includes(String(value));
+            break;
+          };
+          case 'fechaGraba': {
+            if(record[key as keyof PedidoData] !== null)
+              isMatch = moment(record[key as keyof PedidoData]).format('D/MM/YYYY') === moment(String(value)).format('D/MM/YYYY');
+            break;
+          };
+          default: {
+            break;
+          }
+        };
+      };
+      return isMatch;
+    });
   };
 
+  applyEmpFilter(value: any): void {
+    if(value){
+      let prop: any;
+      let val: any;
+      for (const [key, propValue] of Object.entries(value)) {
+        prop = key,
+        val = propValue
+      };
+      this.filterDictionary.set(prop,val);
+      const jsonString = JSON.stringify(Array.from(this.filterDictionary.entries()));
+      this.dataSourceFilters.filter = jsonString;
+    } else 
+      this.dataSourceFilters.filter = '';
+  };
+  
   goToPrint(id: number): void {
     this.router.navigateByUrl(`home/detallePedido/detalles/${id}`);
   };
@@ -104,9 +140,4 @@ export class ListarComponent implements OnInit, AfterViewInit {
       }
     });
   };
-
-  test(value: any): void {
-    // this.dataSource.filter = value.searchAgent.toLowerCase() || value.searchCondition.toLowerCase() || value.searchInternNumber || value.searchDate;
-    this.dataSource.filter = value;
-  }
 }

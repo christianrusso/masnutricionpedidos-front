@@ -8,31 +8,34 @@ import { DateAdapter } from '@angular/material/core';
 })
 export class SearchOrderFormComponent implements OnInit {
 
-  @Output() sendSearch: any = new EventEmitter<any>();
-  searchFilter: any = {
-    searchDate: '',
-    searchAgent: '',
-    searchCondition: '',
-    searchInternNumber: ''
+  @Output() sendSearch = new EventEmitter<string>();
+  searchDate = {
+    fechaGraba:''
   };
-
+  searchAgent = {
+    representante:''
+  };
+  searchCondition = {
+    descripcion:''
+  };
+  searchInternNumber = {
+    num_interno:''
+  };
   constructor(private dateAdapter: DateAdapter<Date>) { }
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
   }
 
-  searchTest(): void {
-    this.sendSearch.emit(this.searchFilter);
+  searchTest(value: any): void {
+    this.sendSearch.emit(value);
   }
 
   cleanSearch(): void {
-    this.searchFilter = {
-      searchDate: '',
-      searchAgent: '',
-      searchCondition: '',
-      searchInternNumber: ''
-    }
-    this.searchTest();
+    this.searchDate.fechaGraba ='';
+    this.searchAgent.representante='';
+    this.searchCondition.descripcion='';
+    this.searchInternNumber.num_interno='';
+    this.searchTest('');
   }
 }
