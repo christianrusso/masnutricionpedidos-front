@@ -10,8 +10,6 @@ export class ProductosPorPedidoService {
 
   constructor(private readonly http: HttpClient) { }
 
-
-
   getProductos(id: number) {
     return this.http.get(`${environment.apiProductosPorPedido}/${id}`);
   }

@@ -61,10 +61,7 @@ export class DetallesComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getPedido();
-    this.productosPorPedido.getProductos(this.id).subscribe((response: any) => {
-      const productos = response as ProductosPorPedidoData[];
-      this.dataSource.data = productos;
-    });
+    this.getProductos();
   };
 
   getPedido(): void {
@@ -81,6 +78,17 @@ export class DetallesComponent {
       this.total = response[0].total;
     });
   };
+
+  getProductos(): void {
+    this.productosPorPedido.getProductos(this.id).subscribe(
+      response => {
+        const productos = response as ProductosPorPedidoData[];
+        this.dataSource.data = productos;
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
 
   goToListarDetallePedidoPage(): void {
     this.router.navigateByUrl(`home/detallePedido/listar`);

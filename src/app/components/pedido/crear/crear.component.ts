@@ -178,8 +178,8 @@ export class CrearComponent implements OnInit {
         this.productosEnCarrito
       );
     } else {
-      this.productosEnCarrito[ele].cantidad = this.productosEnCarrito[ele].cantidad + newProduct.cantidad;
-      this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * newProduct.precioReferencia;
+      this.productosEnCarrito[ele].cantidad = newProduct.cantidad;
+      this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * Number(newProduct.precioReferencia);
       this.productosEnCarrito[ele].condicion = newProduct.condicion;
     }
     this.scroll.nativeElement.scrollIntoView({behavior: 'smooth'});

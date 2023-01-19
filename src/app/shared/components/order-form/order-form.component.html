@@ -55,7 +55,7 @@
         <input matInput formControlName="cuit"/>
         <mat-error *ngIf="cuit?.errors?.['required']">Requerido</mat-error>
         <mat-error *ngIf="cuit?.errors?.['maxlength']">Demasiados caracteres</mat-error>
-        <mat-error *ngIf="cuit?.errors?.['pattern']">Formato invalido</mat-error>
+        <mat-error *ngIf="cuit?.errors?.['pattern']">Solo números</mat-error>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
         <mat-label>Domicilio</mat-label>

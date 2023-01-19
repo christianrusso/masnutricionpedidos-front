@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateAdapter } from '@angular/material/core';
 import { FormBuilder, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
@@ -32,23 +32,22 @@ export class ModificarComponent implements OnInit {
   id: number = -1;
   today: Date = new Date();
   categories: CategoriaProductoData[] = [];
-  products: ProductoPedidoData[] = [];
   editProduct: ProductoPedidoData;
   orderForm: FormGroup = this.fb.group({
-    date: [this.today, Validators.required],
-    internNumber: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
-    agent: ['', [Validators.required, Validators.maxLength(100)]],
+    fechaGraba: [this.today, Validators.required],
+    num_interno: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    representante: ['', [Validators.required, Validators.maxLength(100)]],
     cod: ['', [Validators.required, Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
-    address: ['', [Validators.required, Validators.maxLength(100)]],
-    phone: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
-    transport: ['' ,[Validators.required, Validators.maxLength(100)]],
-    observation: ['', Validators.maxLength(100)]
+    domicilio: ['', [Validators.required, Validators.maxLength(100)]],
+    telefono: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    transporte: ['' ,[Validators.required, Validators.maxLength(100)]],
+    observaciones: ['', Validators.maxLength(100)]
   });
   detailOrderForm: FormGroup = this.fb.group({
     category: ['', Validators.required],
     product: ['', Validators.required],
-    amount: [ , [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    amount: [ , [ Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     condition: ['', [Validators.required, Validators.maxLength(100)]]
   });
   dataSourceCarrito: MatTableDataSource<ProductoPedidoData> = new MatTableDataSource();
@@ -94,45 +93,11 @@ export class ModificarComponent implements OnInit {
   options: TipoClienteData[] = [];
   filteredOptions?: Observable<TipoClienteData[]>;
   selected = 'option2';
-  isAnulado: number = 0;
-  isEnviadoxMail!: number;
-  isCobrado!: number;
-  isFinalizado!: number;
-  idCliente!: number;
-  idVendedor!: number;
-  idTipoReglaComercial!: number;
-  idAbono!: number;
-  idTipoCondicionesDeVenta!: number;
-  num_interno!: number;
-  representante!: string;
-  domicilio!: string;
-  telefono!: number;
-  transporte!: string;
-  observaciones!: string;
-  fechaPedido!: any;
-  porcDescuentoGeneral!: number;
-  nroRemito: string = '';
-  subtotal!: number;
-  impuestos!: number;
-  subtotal2!: number;
-  ivaInscriptoPorc!: number;
-  ivaInscripto!: number;
   usuarioGraba: any = localStorage.getItem('NickName');
   @ViewChild('scroll') scroll: ElementRef;
   @ViewChild('productTable') productTable: ElementRef;
-  editProductInput: ProductoPedidoData = {
-    id_producto: 0,
-    descripcion: '',
-    precioReferencia: 0,
-    cantidad: 0,
-    porcRelacionPallet: 0,
-    unidadesFijasPallet: 0,
-    condicion: '',
-    codigo: 0,
-    total: 0,
-    categoria: 0
-  };
   usuarioModifica: any = localStorage.getItem('NickName');
+  pedido: any;
 
   constructor(
     private pedidoService: PedidoService,
@@ -142,23 +107,21 @@ export class ModificarComponent implements OnInit {
     private fb: FormBuilder,
     private dateAdapter: DateAdapter<Date>,
     private router: Router,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef) {
       this.id = this.route.snapshot.params['id'];
-      this.getPedido();
-      this.getProductos();
-      this.getCategorias();
-  }
+  };
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
-    this.productosPorPedido.getProductos(this.id).subscribe((response: any) => {
-      const productos = response as ProductosPorPedidoData[];
-      this.dataSourceProductoPedido.data = productos;
-    });
+    this.getPedido();
+    this.getProductos();
+    this.getCategorias();
   };
 
   ngAfterViewInit(): void {
     this.firstInput.nativeElement.focus();
+    this.cd.detectChanges();
   };
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -173,19 +136,23 @@ export class ModificarComponent implements OnInit {
   }
 
   getPedido(): void {
-    this.pedidoService.getPedido(this.id).subscribe((response: any) => {
-      this.orderForm.setValue({
-        date: response[0].fechaGraba,
-        internNumber: response[0].num_interno,
-        agent: response[0].representante,
-        cod: response[0].cod,
-        cuit: response[0].cuit,
-        address: response[0].domicilio,
-        phone:  response[0].telefono,
-        transport:  response[0].transporte,
-        observation:  response[0].observaciones
+    this.pedidoService.getPedido(this.id).subscribe(
+      (response: any) => {
+        this.orderForm.setValue({
+          fechaGraba: response[0].fechaGraba,
+          num_interno: response[0].num_interno,
+          representante: response[0].representante,
+          cod: response[0].cod,
+          cuit: response[0].cuit,
+          domicilio: response[0].domicilio,
+          telefono: response[0].telefono,
+          transporte: response[0].transporte,
+          observaciones: response[0].observaciones
+        });
+        this.pedido = response[0];
+      }, error => {
+        console.log(error);
       });
-    });
   };
 
   getProductos(): void {
@@ -212,19 +179,31 @@ export class ModificarComponent implements OnInit {
   };
 
   addNewProduct(): void {
-    const productInfo: any = this.products.find(e => e.id_producto === this.detailOrderForm.value.product);
-    const product: ProductoPedidoData = {
-      id_producto: this.detailOrderForm.value.product,
-      descripcion: productInfo.descripcion,
-      precioReferencia: productInfo.precioReferencia,
-      cantidad:  Number.parseInt(this.detailOrderForm.value.amount),
-      porcRelacionPallet: productInfo.porcRelacionPallet,
-      unidadesFijasPallet: productInfo.unidadesFijasPallet,
-      condicion: this.detailOrderForm.value.condition,
-      codigo: productInfo.codigo,
-      total: this.detailOrderForm.value.total * productInfo.precioReferencia,
-      categoria: this.detailOrderForm.value.category
-    };
+    const ele = this.productosEnCarrito.findIndex(e => e.id_producto === this.detailOrderForm.value.product);
+    const productInfo: any = this.listaProductos.find(e => e.id_producto === this.detailOrderForm.value.product);
+    if(ele === -1){
+      const product: ProductoPedidoData = {
+        id_producto: this.detailOrderForm.value.product,
+        descripcion: productInfo.descripcion,
+        precioReferencia: productInfo.precioReferencia,
+        cantidad:  Number.parseInt(this.detailOrderForm.value.amount),
+        porcRelacionPallet: productInfo.porcRelacionPallet,
+        unidadesFijasPallet: productInfo.unidadesFijasPallet,
+        condicion: this.detailOrderForm.value.condition,
+        codigo: productInfo.codigo,
+        total: Number.parseInt(this.detailOrderForm.value.amount) * productInfo.precioReferencia,
+        categoria: this.detailOrderForm.value.category
+      };
+      this.productosEnCarrito.push(product);
+    } else {
+      this.productosEnCarrito[ele].cantidad = Number.parseInt(this.detailOrderForm.value.amount);
+      this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * productInfo.precioReferencia;
+      this.productosEnCarrito[ele].condicion = this.detailOrderForm.value.condition;
+      this.productosEnCarrito[ele].categoria = this.detailOrderForm.value.category;
+    } 
+    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
+      this.productosEnCarrito
+    );
     this.detailOrderForm.reset();
     Object.keys(this.detailOrderForm.controls).forEach(key =>{
       this.detailOrderForm.controls[key].setErrors(null);
@@ -233,21 +212,6 @@ export class ModificarComponent implements OnInit {
 
   cancelOrder(): void {
     this.router.navigateByUrl(`home/pedido/listar`);
-  };
-
-  addProduct(newProduct: ProductoPedidoData): void {
-    const ele = this.productosEnCarrito.findIndex(e => e.codigo === newProduct.codigo);
-    if(ele === -1) {
-      this.productosEnCarrito.push(newProduct);
-      this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
-        this.productosEnCarrito
-      );
-    } else {
-      this.productosEnCarrito[ele].cantidad = this.productosEnCarrito[ele].cantidad + newProduct.cantidad;
-      this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * newProduct.precioReferencia;
-      this.productosEnCarrito[ele].condicion = newProduct.condicion;
-    }
-    this.scroll.nativeElement.scrollIntoView({behavior: 'smooth'});
   };
 
   eliminarElemento(producto: ProductoPedidoData) {
@@ -270,100 +234,58 @@ export class ModificarComponent implements OnInit {
     }
   };
 
-  onSend(orderInfo: any): void {
-    if(this.productosEnCarrito.length !== 0){
-      const pedido = new Pedido({
-      isAnulado: this.isAnulado || 0,
-      isEnviadoxMail: this.isEnviadoxMail || 0,
-      isCobrado: this.isCobrado || 0,
-      isFinalizado: this.isFinalizado || 0,
-      idCliente: this.idCliente || 0,
-      idVendedor: this.idVendedor || 0,
-      idTipoReglaComercial: this.idTipoReglaComercial || 0,
-      idAbono: this.idAbono || 0,
-      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
-      num_interno: orderInfo.internNumber,
-      representante: orderInfo.agent,
-      cod: orderInfo.cod,
-      cuit: orderInfo.cuit,
-      domicilio: orderInfo.address,
-      telefono: orderInfo.phone,
-      transporte: orderInfo.transport,
-      observaciones: orderInfo.observation,
-      fechaPedido: moment(orderInfo.date).format('DD/MM/YYYY'),
-      porcDescuentoGeneral: this.porcDescuentoGeneral,
-      descripcion: this.descripcion,
-      nroRemito: this.nroRemito,
-      subtotal: this.subtotal,
-      impuestos: this.impuestos,
-      subtotal2: this.subtotal2,
-      ivaInscriptoPorc: this.ivaInscriptoPorc || 0,
-      ivaInscripto: this.ivaInscripto || 0,
-      total: this.total,
-      usuarioGraba: this.usuarioGraba,
-      });
-      this.pedidoService.postPedido(pedido, this.productosEnCarrito).subscribe(
-        (response) => {
-          this.router.navigateByUrl(`home/detallePedido/listar`);
-        },
-        (error) => {
-            console.log(error);
-        }
-      );
-    }
-  };
-
-  editProductt(productId: ProductoPedidoData): void {
-    this.editProductInput = {
-      ...productId
-    }
+  editProductt(product: ProductoPedidoData): void {
+    this.detailOrderForm.setValue({
+      category: product.categoria,
+      product: product.id_producto,
+      amount: product.cantidad,
+      condition: product.condicion
+    });
     this.productTable.nativeElement.scrollIntoView({behavior: 'smooth'});
   };
 
   saveOrder(): void {
-    const pedido = new PedidoEdit({
-      isAnulado: this.isAnulado,
-      isEnviadoxMail: this.isEnviadoxMail,
-      isCobrado: this.isCobrado,
-      isFinalizado: this.isFinalizado,
-      idCliente: this.idCliente,
-      idVendedor: this.idVendedor,
-      idTipoReglaComercial: this.idTipoReglaComercial,
-      idAbono: this.idAbono,
-      idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta,
-      fechaPedido: this.fechaPedido,
-      porcDescuentoGeneral: this.porcDescuentoGeneral,
-      descripcion: this.descripcion,
-      nroRemito: this.nroRemito,
-      subtotal: this.subtotal,
-      impuestos: this.impuestos,
-      subtotal2: this.subtotal2,
-      ivaInscriptoPorc: this.ivaInscriptoPorc,
-      ivaInscripto: this.ivaInscripto,
-      total: this.total,
-      usuarioModifica: this.usuarioModifica,
+    const pedido = {
+      ...this.orderForm.value,
+      isAnulado: this.pedido.isAnulado,
+      isEnviadoxMail: this.pedido.isEnviadoxMail,
+      isCobrado: this.pedido.isCobrado,
+      isFinalizado: this.pedido.isFinalizado,
+      idCliente: this.pedido.idCliente,
+      idVendedor: this.pedido.idVendedor,
+      idTipoReglaComercial: this.pedido.idTipoReglaComercial,
+      idAbono: this.pedido.idAbono,
+      idTipoCondicionesDeVenta: this.pedido.idTipoCondicionesDeVenta,
+      fechaPedido: this.orderForm.controls['fechaGraba'].value,
+      porcDescuentoGeneral: this.pedido.porcDescuentoGeneral,
+      nroRemito: this.pedido.nroRemito,
+      subtotal: this.pedido.subtotal,
+      impuestos: this.pedido.impuestos,
+      subtotal2: this.pedido.subtotal2,
+      ivaInscriptoPorc: this.pedido.ivaInscriptoPorc,
+      ivaInscripto: this.pedido.ivaInscripto,
+      total: this.pedido.total,
+      usuarioModifica: this.pedido.usuarioModifica,
+    };
+    this.pedidoService.editPedido(pedido, this.id).subscribe(
+      (response) => {
+        this.router.navigateByUrl(`home/detallePedido/listar`);
+      }, (error) => {
+        console.log(error);
     });
-    this.pedidoService
-      .editPedido(pedido, this.id).subscribe(
-        (response) => {
-          console.log(response);
-          this.router.navigateByUrl(`home/detallePedido/listar`);
-        }, (error) => {
-          console.log(error);
-        });
   };
 
-  get date() { return this.orderForm.get('date'); }
-  get internNumber() { return this.orderForm.get('internNumber'); }
-  get agent() { return this.orderForm.get('agent'); }
-  get cod() { return this.orderForm.get('cod'); }
-  get cuit() { return this.orderForm.get('cuit'); }
-  get address() { return this.orderForm.get('address'); }
-  get phone() { return this.orderForm.get('phone'); }
-  get transport() { return this.orderForm.get('transport'); }
-  get observation() { return this.orderForm.get('observation'); }
-  get category() { return this.detailOrderForm.get('category'); }
-  get product() { return this.detailOrderForm.get('product'); }
-  get amount() { return this.detailOrderForm.get('amount'); }
-  get condition() { return this.detailOrderForm.get('condition'); }
+  get fechaGraba() { return this.orderForm.get('fechaGraba'); };
+  get num_interno() { return this.orderForm.get('num_interno'); };
+  get representante() { return this.orderForm.get('representante'); };
+  get cod() { return this.orderForm.get('cod'); };
+  get cuit() { return this.orderForm.get('cuit'); };
+  get domicilio() { return this.orderForm.get('domicilio'); };
+  get telefono() { return this.orderForm.get('telefono'); };
+  get transporte() { return this.orderForm.get('transporte'); };
+  get observaciones() { return this.orderForm.get('observaciones'); };
+  get category() { return this.detailOrderForm.get('category'); };
+  get product() { return this.detailOrderForm.get('product'); };
+  get amount() { return this.detailOrderForm.get('amount'); };
+  get condition() { return this.detailOrderForm.get('condition'); };
 }

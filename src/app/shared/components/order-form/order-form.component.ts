@@ -19,7 +19,7 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
     internNumber: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     agent: ['', [Validators.required, Validators.maxLength(100)]],
     cod: ['', [Validators.required, Validators.maxLength(100)]],
-    cuit: ['', [Validators.required, Validators.pattern(/^([0-9]{11}|[0-9]{2}-[0-9]{8}-[0-9]{1})$/g), Validators.maxLength(100)]],
+    cuit: ['', [Validators.required, Validators.pattern(/[0-9]/), Validators.maxLength(100)]],
     address: ['', [Validators.required, Validators.maxLength(100)]],
     phone: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     transport: ['' ,[Validators.required, Validators.maxLength(100)]],
@@ -34,15 +34,12 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
-  }
+  };
+  
   ngAfterViewInit(): void {
     this.firstInput.nativeElement.focus();
     this.cd.detectChanges();
   };
-
-  ngAfterViewChecked(): void {
-    // this.firstInput.nativeElement.focus();
-  }
 
   cancelOrder(): void {
     this.router.navigateByUrl(`home/pedido/listar`);
