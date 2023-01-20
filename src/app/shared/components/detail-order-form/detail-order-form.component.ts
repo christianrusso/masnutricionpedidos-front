@@ -42,13 +42,13 @@ export class DetailOrderFormComponent implements OnChanges {
       id_producto: this.detailOrderForm.value.product,
       descripcion: productInfo.descripcion,
       precioReferencia: productInfo.precioReferencia,
-      cantidad:  Number.parseInt(this.detailOrderForm.value.amount),
+      cantidad: Number.parseInt(this.detailOrderForm.value.amount),
       porcRelacionPallet: productInfo.porcRelacionPallet,
       unidadesFijasPallet: productInfo.unidadesFijasPallet,
       condicion: this.detailOrderForm.value.condition,
       codigo: productInfo.codigo,
       total: Number(this.detailOrderForm.value.amount) * Number(productInfo.precioReferencia),
-      categoria: this.detailOrderForm.value.category
+      categoria: this.detailOrderForm.value.category,
     };
     this.newProduct.emit(product);
     this.detailOrderForm.reset();

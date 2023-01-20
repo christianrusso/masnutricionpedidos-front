@@ -26,7 +26,7 @@ export class ListarComponent implements OnInit, AfterViewInit {
     'fechaGraba',
     'representante',
     'num_interno',
-    'descripcion',
+    'condicion',
     'observaciones',
     'total',
     'acction'

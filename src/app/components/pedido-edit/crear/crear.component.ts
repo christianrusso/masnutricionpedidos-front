@@ -174,7 +174,7 @@ export class CrearComponent implements OnInit {
           condicion: e.condicion,
           total: e.total,
           codigo: e.codigo,
-          categoria: 0
+          categoria: 0,
         });
       });
     });
@@ -223,13 +223,13 @@ export class CrearComponent implements OnInit {
       id_producto: miProducto[0].id_producto,
       precioReferencia: miProducto[0].precioReferencia,
       cantidad: this.cantidad,
-      descripcion:miProducto[0].descripcion,
+      descripcion: miProducto[0].descripcion,
       total: miProducto[0].precioReferencia * this.cantidad,
       porcRelacionPallet: miProducto[0].porcRelacionPallet,
       unidadesFijasPallet: miProducto[0].unidadesFijasPallet,
       condicion: this.condicion,
       codigo: miProducto[0].codigo,
-      categoria: 0
+      categoria:miProducto[0].categoria,
     });
     console.log(this.productosEnCarrito);
 

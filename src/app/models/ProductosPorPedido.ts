@@ -1,6 +1,7 @@
 export interface ProductosPorPedidoData {
   idPedido : number;
   idProducto : number;
+  idCategoria : number;
   cantidad: number;
   codigo: number;
   descripcion : string;

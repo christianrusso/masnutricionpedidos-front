@@ -60,6 +60,7 @@ export class ModificarComponent implements OnInit {
     'agregar',
   ];
   displayedColumnsProductoPedido: string[] = [
+    'idCategoria',
     'codigo',
     'descripcion',
     'precio',
@@ -199,13 +200,13 @@ export class ModificarComponent implements OnInit {
         id_producto: this.detailOrderForm.value.product,
         descripcion: productInfo.descripcion,
         precioReferencia: productInfo.precioReferencia,
-        cantidad:  Number.parseInt(this.detailOrderForm.value.amount),
+        cantidad: Number.parseInt(this.detailOrderForm.value.amount),
         porcRelacionPallet: productInfo.porcRelacionPallet,
         unidadesFijasPallet: productInfo.unidadesFijasPallet,
         condicion: this.detailOrderForm.value.condition,
         codigo: productInfo.codigo,
         total: Number.parseInt(this.detailOrderForm.value.amount) * productInfo.precioReferencia,
-        categoria: this.detailOrderForm.value.category
+        categoria: this.detailOrderForm.value.category,
       };
       this.productosEnCarrito.push(product);
     } else {

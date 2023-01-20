@@ -84,6 +84,8 @@ export class DetallesComponent {
       response => {
         const productos = response as ProductosPorPedidoData[];
         this.dataSource.data = productos;
+        console.log(productos);
+        
       }, error => {
         console.log(error);
       }
