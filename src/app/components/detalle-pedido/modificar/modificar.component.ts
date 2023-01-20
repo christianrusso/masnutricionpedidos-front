@@ -115,6 +115,7 @@ export class ModificarComponent implements OnInit {
   ngOnInit(): void {
     this.dateAdapter.setLocale('es');
     this.getPedido();
+    this.getProductOrder();
     this.getProductos();
     this.getCategorias();
   };
@@ -155,6 +156,18 @@ export class ModificarComponent implements OnInit {
       });
   };
 
+  getProductOrder(): void {
+    this.productosPorPedido.getProductos(this.id).subscribe(
+      response => {
+        const productos = response as ProductosPorPedidoData[];
+        this.dataSourceProductoPedido.data = productos;
+        this.productosEnCarrito = response as ProductoPedidoData[]
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
+
   getProductos(): void {
     this.productoService.getProductos().subscribe((response: any) => {
       const productos = response as ProductoPedidoData[];
@@ -179,7 +192,7 @@ export class ModificarComponent implements OnInit {
   };
 
   addNewProduct(): void {
-    const ele = this.productosEnCarrito.findIndex(e => e.id_producto === this.detailOrderForm.value.product);
+    const ele = this.productosEnCarrito.findIndex((e: any) => e.idProducto === this.detailOrderForm.value.product);
     const productInfo: any = this.listaProductos.find(e => e.id_producto === this.detailOrderForm.value.product);
     if(ele === -1){
       const product: ProductoPedidoData = {
@@ -201,9 +214,7 @@ export class ModificarComponent implements OnInit {
       this.productosEnCarrito[ele].condicion = this.detailOrderForm.value.condition;
       this.productosEnCarrito[ele].categoria = this.detailOrderForm.value.category;
     } 
-    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
-      this.productosEnCarrito
-    );
+    this.dataSourceProductoPedido.data = this.productosEnCarrito;
     this.detailOrderForm.reset();
     Object.keys(this.detailOrderForm.controls).forEach(key =>{
       this.detailOrderForm.controls[key].setErrors(null);
@@ -234,10 +245,11 @@ export class ModificarComponent implements OnInit {
     }
   };
 
-  editProductt(product: ProductoPedidoData): void {
+  editProductt(product: any): void {
     this.detailOrderForm.setValue({
-      category: product.categoria,
-      product: product.id_producto,
+      category: 4,
+      // category: idCategoría,
+      product: product.idProducto,
       amount: product.cantidad,
       condition: product.condicion
     });

@@ -135,7 +135,7 @@
       </ng-container>
       <ng-container matColumnDef="precio">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
-        <td mat-cell *matCellDef="let row">{{ row.precioReferencia ? row.precioReferencia : '-' }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.precio ? row.precio : '-' }}</td>
       </ng-container>
       <ng-container matColumnDef="cantidad">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Cant</th>
@@ -143,11 +143,11 @@
       </ng-container>
       <ng-container matColumnDef="unidades_bulto">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>U. x Bulto</th>
-        <td mat-cell *matCellDef="let row">{{ row.unidadesFijasPallet ? row.unidadesFijasPallet : '-' }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.unidades_bulto ? row.unidades_bulto : '-' }}</td>
       </ng-container>
       <ng-container matColumnDef="pallets">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Pallets</th>
-        <td mat-cell *matCellDef="let row">{{ row.porcRelacionPallet ? row.porcRelacionPallet : '-' }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.pallets ? row.pallets : '-' }}</td>
       </ng-container>
       <ng-container matColumnDef="condicion">
         <th class="custom-table-header-style" mat-header-cell *matHeaderCellDef mat-sort-header>Condición</th>
