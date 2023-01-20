@@ -35,7 +35,7 @@
       </ng-container>
       <ng-container matColumnDef="descripcion">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Condición</th>
-        <td mat-cell *matCellDef="let row" (click)="goToPrint(row.idPedido)">{{ row.descripcion ? row.descripcion : '-' }}</td>
+        <td mat-cell *matCellDef="let row" (click)="goToPrint(row.idPedido)">{{ row.cod ? row.cod : '-' }}</td>
       </ng-container>
       <ng-container matColumnDef="observaciones">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Observaciones</th>
