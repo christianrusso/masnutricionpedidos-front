@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthData } from '../components/auth/AuthData';
+import { LoginUserData } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root',
@@ -30,57 +31,11 @@ export class AuthService {
   }
 
   postLogin(authData: AuthData) {
-    console.log(authData);
-
     return this.http
       .post<{ token: string; expiresIn: number }>(
         `${environment.apiUsuario}/login`,
         authData
-      )
-      .subscribe(async (response: any) => {
-        const token = await response.token;
-        const idEmpresa = await response.idEmpresa;
-        const idUsuario = await response.idUsuario;
-        const idGrupoAcceso = await response.idGrupoAcceso;
-        const NickName = await response.NickName;
-        const NombreApellido = await response.NombreApellido;
-        const CodInterno = await response.CodInterno;
-        const Email = await response.Email;
-        const isAdmin = await response.isAdmin;
-        const isInactivo = await response.isInactivo;
-        const isBorrado = await response.isBorrado;
-        const usuarioGraba = await response.usuarioGraba;
-        this.token = token;
-        if (token && isInactivo != 1) {
-          const expiresInDuration = await response.expiresIn;
-          this.setAuthTimer(expiresInDuration);
-          this.isAuthenticated = true;
-          this.authStatusListener.next(true);
-          const now = new Date();
-          const expirationDate = new Date(
-            now.getTime() + expiresInDuration * 1000
-          );
-          this.saveAuthData(
-            token,
-            expirationDate,
-            idEmpresa,
-            idUsuario,
-            idGrupoAcceso,
-            NickName,
-            NombreApellido,
-            CodInterno,
-            Email,
-            isAdmin,
-            isInactivo,
-            isBorrado,
-            usuarioGraba
-          );
-          this.router.navigateByUrl('/home/bienvenida');
-        } else {
-          this.isAuthenticated = false;
-          this.authStatusListener.next(false);
-        }
-      });
+      );
   }
 
   autoAuthUser() {
@@ -112,34 +67,32 @@ export class AuthService {
     }, duration * 1000);
   }
 
-  private saveAuthData(
-    token: string,
-    expirationDate: Date,
-    idEmpresa: number,
-    idUsuario: number,
-    idGrupoAcceso: number,
-    NickName: string,
-    NombreApellido: string,
-    CodInterno: number,
-    Email: string,
-    isAdmin: number,
-    isInactivo: number,
-    isBorrado: number,
-    usuarioGraba: string
-  ) {
-    localStorage.setItem('token', token);
-    localStorage.setItem('expiration', expirationDate.toISOString());
-    localStorage.setItem('idEmpresa', idEmpresa.toString());
-    localStorage.setItem('idUsuario', idUsuario.toString());
-    localStorage.setItem('idGrupoAcceso', idGrupoAcceso.toString());
-    localStorage.setItem('NickName', NickName);
-    localStorage.setItem('NombreApellido', NombreApellido);
-    localStorage.setItem('CodInterno', CodInterno.toString());
-    localStorage.setItem('Email', Email);
-    localStorage.setItem('isAdmin', isAdmin.toString());
-    localStorage.setItem('isInactivo', isInactivo.toString());
-    localStorage.setItem('isBorrado', isBorrado.toString());
-    localStorage.setItem('usuarioGraba', usuarioGraba);
+  saveAuthData(authData: LoginUserData) {
+    if (authData.token && authData.isInactivo != 1) {
+      this.setAuthTimer(Number(authData.expiresIn)); 
+      this.isAuthenticated = true;
+      this.authStatusListener.next(true);
+      const now = new Date();
+      const expirationDate = new Date(
+        now.getTime() + Number(authData.expiresIn) * 1000
+      );
+      localStorage.setItem('token', authData.token);
+      localStorage.setItem('expiration', expirationDate.toISOString());
+      localStorage.setItem('idEmpresa', authData.idEmpresa.toString());
+      localStorage.setItem('idUsuario', authData.idUsuario.toString());
+      localStorage.setItem('idGrupoAcceso', authData.idGrupoAcceso.toString());
+      localStorage.setItem('NickName', authData.NickName);
+      localStorage.setItem('NombreApellido', authData.NombreApellido);
+      localStorage.setItem('CodInterno', authData.CodInterno.toString());
+      localStorage.setItem('Email', authData.Email);
+      localStorage.setItem('isAdmin', authData.isAdmin.toString());
+      localStorage.setItem('isInactivo', authData.isInactivo.toString());
+      localStorage.setItem('isBorrado',  authData.isBorrado.toString());
+      localStorage.setItem('usuarioGraba', authData.usuarioGraba);
+    } else {
+      this.isAuthenticated = false;
+      this.authStatusListener.next(false);
+    }
   }
 
   private clearAuthData() {

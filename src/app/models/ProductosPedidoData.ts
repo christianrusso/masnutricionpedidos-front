@@ -8,5 +8,6 @@ export interface ProductoPedidoData {
   condicion: string;
   codigo: number;
   total: number;
-  categoria: number
+  categoria: number;
+  idProducto?: number;
 }

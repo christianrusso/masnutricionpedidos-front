@@ -1,23 +1,27 @@
 <div class="body">
   <div class="login">
-    <img src="../../../../assets/logo.png" width="311" height="126" alt="">
-    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+    <img src="assets/logo.png" width="311" height="126" alt=""> 
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading" autocomplete="off">
     <p>
       <mat-form-field appearance="outline" class="loginInput">
         <mat-label>Usuario</mat-label>
-        <input  matInput name="NickName" type="text" placeholder="Usuario" ngModel #NickNameInput="ngModel" >
+        <input  matInput name="NickName" type="text" placeholder="Usuario" ngModel #NickNameInput="ngModel" autocomplete="off">
         <mat-error *ngIf="NickNameInput.invalid">Por favor ingrese un nombre de NickName valido</mat-error>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline" class="loginInput">
         <mat-label>Contraseña</mat-label>
-        <input  type="password" name="Password"  matInput placeholder="Contraseña" ngModel #PasswordInput="ngModel"
-          required>
+        <input  type="password" name="Password"  matInput placeholder="Contraseña" ngModel #PasswordInput="ngModel" required autocomplete="off">
         <mat-error *ngIf="PasswordInput.invalid">Por favor ingrese una contraseña valida</mat-error>
       </mat-form-field>
     </p>
-      <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading" [disabled]="this.error" class="loginButton" autofocus>INGRESAR</button>
+      <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading" [disabled]="PasswordInput.invalid || NickNameInput.invalid" class="loginButton">INGRESAR</button>
     </form>
+    <div *ngIf="error" class="tw-flex tw-justify-center tw-items-center">
+      <p class="tw-text-warning tw-border tw-border-warning tw-p-5 tw-rounded-sm tw-w-[21rem]" style="background: #ff00001f;">
+        Usuario y/o contraseña incorrectos
+      </p>
+    </div>
   </div>
 </div>

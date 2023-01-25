@@ -60,7 +60,6 @@ export class ModificarComponent implements OnInit {
     'agregar',
   ];
   displayedColumnsProductoPedido: string[] = [
-    'idCategoria',
     'codigo',
     'descripcion',
     'precio',
@@ -196,18 +195,27 @@ export class ModificarComponent implements OnInit {
     const ele = this.productosEnCarrito.findIndex((e: any) => e.idProducto === this.detailOrderForm.value.product);
     const productInfo: any = this.listaProductos.find(e => e.id_producto === this.detailOrderForm.value.product);
     if(ele === -1){
-      const product: ProductoPedidoData = {
-        id_producto: this.detailOrderForm.value.product,
+      const product: any = {
+        idProducto: this.detailOrderForm.value.product,
         descripcion: productInfo.descripcion,
+        precio: productInfo.precioReferencia,
         precioReferencia: productInfo.precioReferencia,
         cantidad: Number.parseInt(this.detailOrderForm.value.amount),
         porcRelacionPallet: productInfo.porcRelacionPallet,
         unidadesFijasPallet: productInfo.unidadesFijasPallet,
+        unidades_bulto: productInfo.porcRelacionPallet,
+        pallets: productInfo.unidadesFijasPallet,
         condicion: this.detailOrderForm.value.condition,
         codigo: productInfo.codigo,
         total: Number.parseInt(this.detailOrderForm.value.amount) * productInfo.precioReferencia,
-        categoria: this.detailOrderForm.value.category,
-      };
+        idCategoria: this.detailOrderForm.value.category,
+        fechaGraba: productInfo.fechaGraba,
+        fechaModifica: productInfo.fechaModifica,
+        idTipoFamiliaProducto: productInfo.idTipoFamiliaProducto,
+        idTipoProducto: productInfo.idTipoProducto,
+        usuarioGraba: productInfo.usuarioGraba,
+        usuarioModifica: productInfo.usuarioModifica
+    };
       this.productosEnCarrito.push(product);
     } else {
       this.productosEnCarrito[ele].cantidad = Number.parseInt(this.detailOrderForm.value.amount);
@@ -227,29 +235,21 @@ export class ModificarComponent implements OnInit {
   };
 
   eliminarElemento(producto: ProductoPedidoData) {
-    const indice = this.productosEnCarrito.findIndex(
-      (p) => p.id_producto == producto.id_producto
-    );
-    this.productosEnCarrito.splice(indice, 1);
-    this.productosEnCarrito = [...this.productosEnCarrito];
-    this.dataSourceProductoPedido = new MatTableDataSource<ProductoPedidoData>(
-      this.productosEnCarrito
-    );
-    if (!producto.cantidad) {
-      producto.cantidad = 1;
-    }
-    if (producto.precioReferencia) {
-      this.total_final -= +producto.precioReferencia * producto.cantidad;
-      this.total = +producto.precioReferencia * producto.cantidad;
-      this.total_final = Number(this.total_final.toFixed());
-      this.total = Number(this.total.toFixed());
+    const indexProduct = this.productosEnCarrito.findIndex(product => product.idProducto === producto.idProducto);
+    if(indexProduct !== -1){
+      this.productosPorPedido.deleteProductOfOrder(this.id, Number(producto.idProducto)).subscribe(
+        response => {
+          this.productosEnCarrito.splice(indexProduct, 1);
+          this.dataSourceProductoPedido.data = this.productosEnCarrito;
+        }, error => {
+          console.log(error);
+        });
     }
   };
 
-  editProductt(product: any): void {
+  editProducto(product: any): void {
     this.detailOrderForm.setValue({
-      category: 4,
-      // category: idCategoría,
+      category: product.idCategoria,
       product: product.idProducto,
       amount: product.cantidad,
       condition: product.condicion
@@ -280,7 +280,7 @@ export class ModificarComponent implements OnInit {
       total: this.pedido.total,
       usuarioModifica: this.pedido.usuarioModifica,
     };
-    this.pedidoService.editPedido(pedido, this.id).subscribe(
+    this.pedidoService.editPedidoTest(pedido, this.id,this.productosEnCarrito).subscribe(
       (response) => {
         this.router.navigateByUrl(`home/detallePedido/listar`);
       }, (error) => {

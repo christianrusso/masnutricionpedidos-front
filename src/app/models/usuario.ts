@@ -1,3 +1,21 @@
+export interface LoginUserData  {
+    expiresIn?: number | string,
+    fechaGraba?: string | Date,
+    token?: string,
+    expiration?: string,
+    idEmpresa: number,
+    idUsuario: number,
+    idGrupoAcceso: number,
+    NickName: string,
+    NombreApellido: string,
+    CodInterno: string | number,
+    Email: string,
+    isAdmin: number,
+    isInactivo: number,
+    isBorrado: number,
+    usuarioGraba: string
+};
+
 export class Usuario {
     readonly idEmpresa: number;
     readonly idGrupoAcceso: number;

@@ -207,11 +207,9 @@ export class CrearComponent implements OnInit {
   };
 
   onSend(orderInfo: any) {
-    
     this.productosEnCarrito.forEach((e) => {
       this.total = this.total += e.total
     });
-    console.log(this.total)
     if(this.productosEnCarrito.length !== 0){
       const pedido = new Pedido({
       isAnulado: this.isAnulado || 0,
@@ -243,7 +241,6 @@ export class CrearComponent implements OnInit {
       total: this.total,
       usuarioGraba: this.usuarioGraba,
       });
-      console.log("asdasd")
       this.pedidoService.postPedido(pedido, this.productosEnCarrito).subscribe(
         (response) => {
           this.router.navigateByUrl(`home/detallePedido/listar`);

@@ -29,9 +29,11 @@ export class PedidoService {
     return this.http.put(`${environment.apiPedido}/${id}`, pedido);
   }
 
+  editPedidoTest(pedido: PedidoEdit,id: number, productos: ProductoPedidoData[]) {
+    return this.http.put(`${environment.apiPedido}/${id}`, {pedido, productos});
+  }
+
   deletePedido(id: number) {
-    console.log(id);
-    
     return this.http.delete(`${environment.apiPedido}/${id}`);
   }
 }

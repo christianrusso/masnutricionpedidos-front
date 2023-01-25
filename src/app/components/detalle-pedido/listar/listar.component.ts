@@ -119,7 +119,6 @@ export class ListarComponent implements OnInit, AfterViewInit {
   };
 
   goToEditPage(idDetallePedido: number): void {
-    console.log(idDetallePedido)
     this.router.navigateByUrl(`home/detallePedido/modificar/${idDetallePedido}`);
   };
 

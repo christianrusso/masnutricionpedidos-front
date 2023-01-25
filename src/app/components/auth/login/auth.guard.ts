@@ -14,9 +14,7 @@ import { AuthService } from "src/app/services/auth.service";
 })
 
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {
-    console.log("entroooooo")
-   }
+  constructor(private authService: AuthService, private router: Router) {}
   private isAuth: boolean = false
 
 

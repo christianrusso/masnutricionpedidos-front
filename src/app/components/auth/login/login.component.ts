@@ -7,9 +7,9 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthData } from '../AuthData';
+import { LoginUserData } from 'src/app/models/usuario';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -37,12 +37,13 @@ export class LoginComponent implements OnInit {
   ]);
   public showPassword: boolean = false;
   isLoading = false;
-  public token: any;
-  private tokenTimer: any;
   error: boolean = true;
   loginNuevo: boolean = false;
   matcher = new MyErrorStateMatcher();
-  constructor(private router: Router, private authService: AuthService) {}
+
+  constructor(
+    private router: Router,
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.error = false;
@@ -57,22 +58,29 @@ export class LoginComponent implements OnInit {
       NickName: form.value.NickName,
       Password: form.value.Password,
     };
-    console.log(authData)
-    if (!this.loginNuevo) {
-      this.authService.postLogin(authData);
-      this.loginNuevo = true;
-    }else{
-      if (this.authService.getIsAuth() == false || this.error == true) {
-        this.error = true;
-  
-        alert('te loguaste mal');
-        location.reload();
-      } else {
-        this.error = false;
+    this.authService.postLogin(authData).subscribe(
+      (response) => {
+        if(response.token){
+          this.authService.saveAuthData(response as LoginUserData);
+          this.router.navigateByUrl('/home/bienvenida');
+        }
+        else {
+          this.error = true;
+        }
+      }, error => {
+        console.log(error);
       }
-    }
-
-
-
+    )
+    // if (!this.loginNuevo) {
+    //   const a = this.authService.postLogin(authData);
+    //   this.loginNuevo = true;
+    //   console.log(a);
+    // }else{
+    //   if (this.authService.getIsAuth() == false || this.error == true) {
+    //     this.error = true;
+    //   } else {
+    //     this.error = false;
+    //   }
+    // }
   }
 }

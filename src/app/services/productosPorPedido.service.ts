@@ -17,4 +17,13 @@ export class ProductosPorPedidoService {
   editProducto(pedido: PedidoEdit, id: number) {
     return this.http.put(`${environment.apiProductosPorPedido}/${id}`, pedido);
   }
+
+  deleteProductOfOrder(orderId: number, productId: number){
+    const deleteProducto = {
+      idProducto: productId
+    };
+    return this.http.delete(`${environment.apiProductosPorPedido}/${orderId}`, {
+      body: deleteProducto
+    });
+  }
 }
