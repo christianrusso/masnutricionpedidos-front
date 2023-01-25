@@ -214,7 +214,7 @@ export class ModificarComponent implements OnInit {
         idTipoFamiliaProducto: productInfo.idTipoFamiliaProducto,
         idTipoProducto: productInfo.idTipoProducto,
         usuarioGraba: productInfo.usuarioGraba,
-        usuarioModifica: productInfo.usuarioModifica
+        usuarioModifica: this.usuarioGraba
     };
       this.productosEnCarrito.push(product);
     } else {
