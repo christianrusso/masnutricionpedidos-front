@@ -80,7 +80,6 @@ export class ModificarComponent implements OnInit {
   condicion!: string;
   productos: DetallePedidoCargaData[] = [];
   idProducto!: number;
-  codigo!: number;
   descripcion!: string;
   precioReferencia!: number;
   unidades_bulto!: number;
