@@ -11,7 +11,7 @@ export interface PedidoData {
   idTipoCondicionesDeVenta: number;
   num_interno : number;
   representante : string;
-  cod	 : number;
+  codigo	 : number;
   cuit	 : number;
   domicilio : string;
   telefono : number;

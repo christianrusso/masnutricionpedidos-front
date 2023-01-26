@@ -37,7 +37,7 @@ export class ModificarComponent implements OnInit {
     fechaGraba: [this.today, Validators.required],
     num_interno: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     representante: ['', [Validators.required, Validators.maxLength(100)]],
-    cod: ['', [Validators.required, Validators.maxLength(100)]],
+    codigo: ['', [Validators.required, Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     domicilio: ['', [Validators.required, Validators.maxLength(100)]],
     telefono: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
@@ -143,7 +143,7 @@ export class ModificarComponent implements OnInit {
           fechaGraba: response[0].fechaGraba,
           num_interno: response[0].num_interno,
           representante: response[0].representante,
-          cod: response[0].cod,
+          codigo: response[0].codigo,
           cuit: response[0].cuit,
           domicilio: response[0].domicilio,
           telefono: response[0].telefono,
@@ -222,7 +222,7 @@ export class ModificarComponent implements OnInit {
       this.productosEnCarrito[ele].total = this.productosEnCarrito[ele].cantidad * productInfo.precioReferencia;
       this.productosEnCarrito[ele].condicion = this.detailOrderForm.value.condition;
       this.productosEnCarrito[ele].categoria = this.detailOrderForm.value.category;
-    } 
+    }
     this.dataSourceProductoPedido.data = this.productosEnCarrito;
     this.detailOrderForm.reset();
     Object.keys(this.detailOrderForm.controls).forEach(key =>{
@@ -291,7 +291,7 @@ export class ModificarComponent implements OnInit {
   get fechaGraba() { return this.orderForm.get('fechaGraba'); };
   get num_interno() { return this.orderForm.get('num_interno'); };
   get representante() { return this.orderForm.get('representante'); };
-  get cod() { return this.orderForm.get('cod'); };
+  get codigo() { return this.orderForm.get('codigo'); };
   get cuit() { return this.orderForm.get('cuit'); };
   get domicilio() { return this.orderForm.get('domicilio'); };
   get telefono() { return this.orderForm.get('telefono'); };
