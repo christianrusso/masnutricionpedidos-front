@@ -18,7 +18,7 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
     date: [this.today, Validators.required],
     internNumber: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     agent: ['', [Validators.required, Validators.maxLength(100)]],
-    cod: ['', [Validators.required, Validators.maxLength(100)]],
+    codigo: ['', [Validators.required, Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern(/[0-9]/), Validators.maxLength(100)]],
     address: ['', [Validators.required, Validators.maxLength(100)]],
     phone: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
@@ -52,7 +52,7 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
   get date() { return this.orderForm.get('date'); }
   get internNumber() { return this.orderForm.get('internNumber'); }
   get agent() { return this.orderForm.get('agent'); }
-  get cod() { return this.orderForm.get('cod'); }
+  get codigo() { return this.orderForm.get('codigo'); }
   get cuit() { return this.orderForm.get('cuit'); }
   get address() { return this.orderForm.get('address'); }
   get phone() { return this.orderForm.get('phone'); }

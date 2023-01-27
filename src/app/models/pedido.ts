@@ -10,7 +10,7 @@ export class Pedido {
   readonly idTipoCondicionesDeVenta: number;
   readonly num_interno: number;
   readonly representante: string;
-  readonly cod: number;
+  readonly codigo: number;
   readonly cuit: number;
   readonly domicilio: string;
   readonly telefono: number;
@@ -40,7 +40,7 @@ export class Pedido {
     idTipoCondicionesDeVenta,
     num_interno,
     representante,
-    cod,
+    codigo,
     cuit,
     domicilio,
     telefono,
@@ -69,7 +69,7 @@ export class Pedido {
     idTipoCondicionesDeVenta: number;
     num_interno : number;
     representante : string;
-    cod	 : number;
+    codigo	 : number;
     cuit	 : number;
     domicilio : string;
     telefono : number;
@@ -98,7 +98,7 @@ export class Pedido {
     this.idTipoCondicionesDeVenta = idTipoCondicionesDeVenta;
     this.num_interno = num_interno;
     this.representante = representante;
-    this.cod = cod;
+    this.codigo = codigo;
     this.cuit = cuit;
     this.domicilio = domicilio;
     this.telefono = telefono;

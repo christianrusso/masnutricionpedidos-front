@@ -271,7 +271,7 @@ export class CrearComponent implements OnInit {
       idTipoCondicionesDeVenta: this.idTipoCondicionesDeVenta || 0,
       num_interno: this.num_interno,
       representante: this.representante,
-      cod: this.cod,
+      codigo: this.cod,
       cuit: this.cuit,
       domicilio: this.domicilio,
       telefono: this.telefono,

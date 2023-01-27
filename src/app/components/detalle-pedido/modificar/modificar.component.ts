@@ -37,7 +37,7 @@ export class ModificarComponent implements OnInit {
     fechaGraba: [this.today, Validators.required],
     num_interno: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     representante: ['', [Validators.required, Validators.maxLength(100)]],
-    cod: ['', [Validators.required, Validators.maxLength(100)]],
+    codigo: ['', [Validators.required, Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     domicilio: ['', [Validators.required, Validators.maxLength(100)]],
     telefono: ['' ,[Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
@@ -80,7 +80,6 @@ export class ModificarComponent implements OnInit {
   condicion!: string;
   productos: DetallePedidoCargaData[] = [];
   idProducto!: number;
-  codigo!: number;
   descripcion!: string;
   precioReferencia!: number;
   unidades_bulto!: number;
@@ -143,7 +142,7 @@ export class ModificarComponent implements OnInit {
           fechaGraba: response[0].fechaGraba,
           num_interno: response[0].num_interno,
           representante: response[0].representante,
-          cod: response[0].cod,
+          codigo: response[0].codigo,
           cuit: response[0].cuit,
           domicilio: response[0].domicilio,
           telefono: response[0].telefono,
@@ -291,7 +290,7 @@ export class ModificarComponent implements OnInit {
   get fechaGraba() { return this.orderForm.get('fechaGraba'); };
   get num_interno() { return this.orderForm.get('num_interno'); };
   get representante() { return this.orderForm.get('representante'); };
-  get cod() { return this.orderForm.get('cod'); };
+  get codigo() { return this.orderForm.get('codigo'); };
   get cuit() { return this.orderForm.get('cuit'); };
   get domicilio() { return this.orderForm.get('domicilio'); };
   get telefono() { return this.orderForm.get('telefono'); };

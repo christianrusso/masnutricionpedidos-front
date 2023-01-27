@@ -26,7 +26,7 @@ export class DetallesComponent {
   usuarioModifica: any = localStorage.getItem('NickName');
   num_interno!: number;
   representante!: string;
-  cod!: number;
+  codigo!: number;
   cuit!: number;
   domicilio!: string;
   telefono!: number;
@@ -68,7 +68,7 @@ export class DetallesComponent {
     this.pedidoService.getPedido(this.id).subscribe((response: any) => {
       this.num_interno = response[0].num_interno;
       this.representante = response[0].representante;
-      this.cod = response[0].cod;
+      this.codigo = response[0].codigo;
       this.cuit = response[0].cuit;
       this.domicilio = response[0].domicilio;
       this.telefono = response[0].telefono;
