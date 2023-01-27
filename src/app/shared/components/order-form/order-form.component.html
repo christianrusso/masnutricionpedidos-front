@@ -36,7 +36,7 @@
           <input #firstInput matInput formControlName="internNumber"/>
            <mat-error *ngIf="internNumber?.errors?.['required']">Requerido</mat-error>
            <mat-error *ngIf="internNumber?.errors?.['maxlength']">Demasiados caracteres</mat-error>
-           <mat-error *ngIf="internNumber?.errors?.['pattern']">Formato invalido</mat-error>
+           <mat-error *ngIf="internNumber?.errors?.['pattern']">Solo números</mat-error>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-3" appearance="outline">
         <mat-label>Representante</mat-label>
@@ -68,7 +68,7 @@
         <input matInput formControlName="phone"/>
         <mat-error *ngIf="phone?.errors?.['required']">Requerido</mat-error>
         <mat-error *ngIf="phone?.errors?.['maxlength']">Demasiados caracteres</mat-error>
-        <mat-error *ngIf="phone?.errors?.['pattern']">Formato invalido</mat-error>
+        <mat-error *ngIf="phone?.errors?.['pattern']">Solo números</mat-error>
       </mat-form-field>
       <mat-form-field class="tw-px-1 tw-col-span-2" appearance="outline">
         <mat-label>Transporte</mat-label>
