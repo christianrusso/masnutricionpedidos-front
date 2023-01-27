@@ -35,12 +35,12 @@ export class ModificarComponent implements OnInit {
   editProduct: ProductoPedidoData;
   orderForm: FormGroup = this.fb.group({
     fechaGraba: [this.today, Validators.required],
-    num_interno: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    num_interno: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     representante: ['', [Validators.required, Validators.maxLength(100)]],
     cod: ['', [Validators.required, Validators.maxLength(100)]],
-    cuit: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    cuit: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     domicilio: ['', [Validators.required, Validators.maxLength(100)]],
-    telefono: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
+    telefono: ['' ,[Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     transporte: ['' ,[Validators.required, Validators.maxLength(100)]],
     observaciones: ['', Validators.maxLength(100)]
   });
