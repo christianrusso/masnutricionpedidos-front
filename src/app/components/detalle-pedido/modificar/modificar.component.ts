@@ -236,7 +236,7 @@ export class ModificarComponent implements OnInit {
   eliminarElemento(producto: ProductoPedidoData) {
     const indexProduct = this.productosEnCarrito.findIndex(product => product.idProducto === producto.idProducto);
     if(indexProduct !== -1){
-      this.productosPorPedido.deleteProductOfOrder(this.id, Number(producto.idProducto)).subscribe(
+      this.productosPorPedido.deleteProductOfOrder(this.id, Number(producto.idProducto), this.usuarioModifica).subscribe(
         response => {
           this.productosEnCarrito.splice(indexProduct, 1);
           this.dataSourceProductoPedido.data = this.productosEnCarrito;
