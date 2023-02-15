@@ -106,10 +106,10 @@ export class ListarComponent implements OnInit, AfterViewInit {
       this.filterDictionary.set(prop,val);
       const jsonString = JSON.stringify(Array.from(this.filterDictionary.entries()));
       this.dataSourceFilters.filter = jsonString;
-    } else 
+    } else
       this.dataSourceFilters.filter = '';
   };
-  
+
   goToPrint(id: number): void {
     this.router.navigateByUrl(`home/detallePedido/detalles/${id}`);
   };
