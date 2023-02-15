@@ -18,7 +18,7 @@ export class OrderFormComponent implements OnInit, AfterViewInit {
     date: [this.today, Validators.required],
     internNumber: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     agent: ['', [Validators.required, Validators.maxLength(100)]],
-    codigo: ['', [Validators.required, Validators.maxLength(100)]],
+    codigo: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern(/[0-9]/), Validators.maxLength(100)]],
     address: ['', [Validators.required, Validators.maxLength(100)]],
     phone: ['' ,[Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],

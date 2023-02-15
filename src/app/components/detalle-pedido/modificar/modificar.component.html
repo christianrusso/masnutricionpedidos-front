@@ -25,7 +25,7 @@
         <h2 class="tw-pb-6 tw-px-1 tw-font-bold tw-text-2xl tw-leading-6 tw-col-span-4 tw-self-center">Pedido N° {{ id === -1 ? '-' : id }}</h2>
         <mat-form-field class="tw-px-1 tw-col-span-1" appearance="outline" (click)="picker.open()">
             <mat-label>xx/xx/xxxx</mat-label>
-            <input matInput [matDatepicker]="picker" [min]="today" formControlName="fechaGraba">
+            <input [disabled]='true' matInput [matDatepicker]="picker" formControlName="fechaGraba">
             <mat-datepicker #picker></mat-datepicker>
              <mat-error *ngIf="fechaGraba?.errors?.['required']">Requerido</mat-error>
         </mat-form-field>

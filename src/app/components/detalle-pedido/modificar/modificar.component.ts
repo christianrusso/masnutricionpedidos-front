@@ -34,10 +34,10 @@ export class ModificarComponent implements OnInit {
   categories: CategoriaProductoData[] = [];
   editProduct: ProductoPedidoData;
   orderForm: FormGroup = this.fb.group({
-    fechaGraba: [this.today, Validators.required],
+    fechaGraba: [''],
     num_interno: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     representante: ['', [Validators.required, Validators.maxLength(100)]],
-    codigo: ['', [Validators.required, Validators.maxLength(100)]],
+    codigo: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/), Validators.maxLength(100)]],
     cuit: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
     domicilio: ['', [Validators.required, Validators.maxLength(100)]],
     telefono: ['' ,[Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(100)]],
